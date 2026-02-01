@@ -4,369 +4,486 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 import time
-from datetime import datetime
-import urllib.parse
-import io
+from urllib.parse import urljoin, quote
+import json
+import base64
+from io import BytesIO
+import fitz  # PyMuPDF
 
 # Configuration
-st.set_page_config(page_title="BUMIDOM - Archives JO 1963-1982", layout="wide")
-st.title("📜 Recherche BUMIDOM dans les débats parlementaires (1963-1982)")
-st.markdown("Accès aux archives du Journal Officiel de la 5ème République")
+st.set_page_config(
+    page_title="Scraper PDF BUMIDOM - Archives AN", 
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
 
-class JOArchiveSearcher:
+st.title("🔍 Scraper des 100 PDF BUMIDOM - Archives AN")
+st.markdown("Scraping des résultats de recherche interne du site archives.assemblee-nationale.fr")
+
+class PDFBUMIDOMScraper:
     def __init__(self):
-        self.jo_base_url = "https://www.assemblee-nationale.fr/histoire/debats-journal-officiel/"
+        self.base_url = "https://archives.assemblee-nationale.fr"
+        self.search_url = "https://archives.assemblee-nationale.fr/recherche"
         self.session = requests.Session()
         self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
         })
     
-    def get_jo_debates_links(self):
-        """Récupère les liens vers les archives JO par législature"""
+    def search_pdfs(self, keyword="Bumidom", max_pages=10):
+        """Effectue la recherche et extrait les liens PDF"""
         
-        # URLs spécifiques pour la période BUMIDOM
-        jo_urls = {
-            "2ème législature (1962-1967)": [
-                "https://archives.assemblee-nationale.fr/2/cri/",
-                "https://www.assemblee-nationale.fr/histoire/debats-journal-officiel/2.asp"
-            ],
-            "3ème législature (1967-1968)": [
-                "https://archives.assemblee-nationale.fr/3/cri/",
-                "https://www.assemblee-nationale.fr/histoire/debats-journal-officiel/3.asp"
-            ],
-            "4ème législature (1968-1973)": [
-                "https://archives.assemblee-nationale.fr/4/cri/",
-                "https://www.assemblee-nationale.fr/histoire/debats-journal-officiel/4.asp"
-            ],
-            "5ème législature (1973-1978)": [
-                "https://archives.assemblee-nationale.fr/5/cri/",
-                "https://www.assemblee-nationale.fr/histoire/debats-journal-officiel/5.asp"
-            ],
-            "6ème législature (1978-1981)": [
-                "https://archives.assemblee-nationale.fr/6/cri/",
-                "https://www.assemblee-nationale.fr/histoire/debats-journal-officiel/6.asp"
-            ]
-        }
+        st.info(f"Recherche de '{keyword}' sur {max_pages} pages...")
         
-        return jo_urls
-    
-    def search_gallica_bnf(self, keyword="BUMIDOM", years=None):
-        """Recherche dans Gallica BnF (archives du Journal Officiel)"""
+        all_pdf_links = []
         
-        if years is None:
-            years = list(range(1963, 1983))
-        
-        results = []
-        
-        st.info(f"Recherche dans Gallica BnF pour les années {years[0]}-{years[-1]}")
-        
-        # URL de recherche Gallica pour le Journal Officiel
-        for year in years:
+        for page_num in range(1, max_pages + 1):
             try:
-                # Construction de l'URL de recherche Gallica
-                search_url = self.build_gallica_search_url(year, keyword)
+                # Construire l'URL de recherche avec pagination
+                params = {
+                    'query': keyword,
+                    'page': page_num,
+                    'type': 'pdf'  # Filtrer uniquement les PDF
+                }
                 
-                st.write(f"🔍 {year}...")
+                st.write(f"📄 Page {page_num}...")
                 
-                # Récupération de la page
-                response = self.session.get(search_url, timeout=15)
+                response = self.session.get(self.search_url, params=params, timeout=15)
                 
-                if response.status_code == 200:
-                    soup = BeautifulSoup(response.content, 'html.parser')
-                    
-                    # Recherche des résultats
-                    result_items = soup.find_all(['a', 'div'], class_=re.compile(r'result|item', re.I))
-                    
-                    for item in result_items[:5]:  # Limiter aux 5 premiers
-                        link = item.find('a', href=True)
-                        if link:
-                            title = link.get_text(strip=True)
-                            url = link['href']
-                            
-                            # Vérifier si c'est un JO des débats
-                            if any(x in title.lower() for x in ['débats', 'jo', 'journal officiel']):
-                                # Vérifier la présence du mot-clé
-                                if self.check_keyword_in_gallica(url, keyword):
-                                    results.append({
-                                        'année': year,
-                                        'titre': title[:150],
-                                        'url': url,
-                                        'source': 'Gallica BnF',
-                                        'législature': self.get_legislature_for_year(year)
-                                    })
-                                    st.success(f"  → Trouvé: {title[:80]}...")
+                if response.status_code != 200:
+                    st.warning(f"Erreur page {page_num}: HTTP {response.status_code}")
+                    continue
+                
+                soup = BeautifulSoup(response.content, 'html.parser')
+                
+                # Extraire tous les liens PDF de la page
+                pdf_elements = soup.find_all('a', href=re.compile(r'\.pdf$', re.I))
+                
+                for element in pdf_elements[:20]:  # Prendre plus pour être sûr
+                    href = element.get('href', '')
+                    if href:
+                        # Nettoyer et compléter l'URL
+                        if href.startswith('/'):
+                            full_url = urljoin(self.base_url, href)
+                        elif not href.startswith('http'):
+                            full_url = urljoin(self.search_url, href)
+                        else:
+                            full_url = href
+                        
+                        # Extraire le titre
+                        title = element.get_text(strip=True)
+                        if not title or len(title) < 5:
+                            # Essayer de trouver un titre ailleurs
+                            parent = element.find_parent(['div', 'li', 'td'])
+                            if parent:
+                                title = parent.get_text(strip=True)[:200]
+                        
+                        if not title:
+                            title = href.split('/')[-1]
+                        
+                        pdf_info = {
+                            'url': full_url,
+                            'title': title[:250],
+                            'page': page_num,
+                            'position': len([p for p in all_pdf_links if p['page'] == page_num]) + 1
+                        }
+                        
+                        # Vérifier si ce PDF n'est pas déjà dans la liste
+                        if not any(p['url'] == full_url for p in all_pdf_links):
+                            all_pdf_links.append(pdf_info)
+                            st.write(f"  → PDF {pdf_info['position']}: {title[:80]}...")
+                
+                # Vérifier s'il y a une pagination
+                next_link = soup.find('a', string=re.compile(r'suivant|next', re.I))
+                if not next_link and page_num < max_pages:
+                    # Essayer une autre méthode pour la pagination
+                    next_links = soup.find_all('a', href=re.compile(r'page=' + str(page_num + 1)))
+                    if not next_links:
+                        st.warning(f"Pas de lien vers la page {page_num + 1}, arrêt.")
+                        break
                 
                 time.sleep(1)  # Pause pour respecter le serveur
                 
             except Exception as e:
-                st.warning(f"Erreur année {year}: {str(e)[:100]}")
+                st.error(f"Erreur page {page_num}: {str(e)[:100]}")
+                continue
         
-        return results
+        return all_pdf_links[:100]  # Limiter à 100 maximum
     
-    def build_gallica_search_url(self, year, keyword):
-        """Construit l'URL de recherche Gallica"""
-        # Recherche dans le Journal Officiel des débats parlementaires
-        query = urllib.parse.quote(f'"{keyword}" "Journal Officiel" "Débats" {year}')
-        return f"https://gallica.bnf.fr/services/engine/search/sru?operation=searchRetrieve&version=1.2&query=text%20adj%20%22{query}%22&suggest=0"
-    
-    def check_keyword_in_gallica(self, url, keyword):
-        """Vérifie la présence du mot-clé dans la page Gallica"""
+    def scrape_pdf_content(self, pdf_info, keyword="Bumidom"):
+        """Télécharge et analyse le contenu d'un PDF"""
         try:
-            response = self.session.get(url, timeout=10)
-            return keyword.lower() in response.text.lower()
-        except:
-            return False
+            st.write(f"📥 Analyse: {pdf_info['title'][:50]}...")
+            
+            response = self.session.get(pdf_info['url'], timeout=30, stream=True)
+            
+            if response.status_code != 200:
+                return {
+                    **pdf_info,
+                    'error': f"HTTP {response.status_code}",
+                    'content': '',
+                    'keyword_count': 0,
+                    'size_kb': 0,
+                    'page_count': 0
+                }
+            
+            # Taille du fichier
+            content = response.content
+            size_kb = len(content) / 1024
+            
+            # Analyser le PDF
+            try:
+                with fitz.open(stream=content, filetype="pdf") as pdf_doc:
+                    page_count = pdf_doc.page_count
+                    
+                    # Extraire le texte
+                    full_text = ""
+                    for page_num in range(min(20, page_count)):  # Limiter aux 20 premières pages
+                        page = pdf_doc[page_num]
+                        full_text += page.get_text() + "\n"
+                    
+                    # Compter les occurrences du mot-clé
+                    keyword_pattern = re.compile(r'\b' + re.escape(keyword) + r'\b', re.IGNORECASE)
+                    keyword_count = len(keyword_pattern.findall(full_text))
+                    
+                    # Extraire le contexte des premières occurrences
+                    contexts = []
+                    if keyword_count > 0:
+                        matches = list(keyword_pattern.finditer(full_text))
+                        for match in matches[:3]:  # 3 premiers contextes
+                            start = max(0, match.start() - 150)
+                            end = min(len(full_text), match.end() + 150)
+                            context = full_text[start:end].replace('\n', ' ').strip()
+                            contexts.append(context)
+                    
+                    return {
+                        **pdf_info,
+                        'content': full_text[:5000],  # Stocker les 5000 premiers caractères
+                        'keyword_count': keyword_count,
+                        'size_kb': round(size_kb, 2),
+                        'page_count': page_count,
+                        'contexts': contexts[:3],  # 3 premiers contextes
+                        'error': None
+                    }
+                    
+            except Exception as pdf_error:
+                return {
+                    **pdf_info,
+                    'error': f"Erreur PDF: {str(pdf_error)[:100]}",
+                    'content': '',
+                    'keyword_count': 0,
+                    'size_kb': round(size_kb, 2),
+                    'page_count': 0,
+                    'contexts': []
+                }
+                
+        except Exception as e:
+            return {
+                **pdf_info,
+                'error': f"Téléchargement: {str(e)[:100]}",
+                'content': '',
+                'keyword_count': 0,
+                'size_kb': 0,
+                'page_count': 0,
+                'contexts': []
+            }
     
-    def get_legislature_for_year(self, year):
-        """Détermine la législature"""
-        if 1962 <= year <= 1967:
-            return "2ème"
-        elif 1968 <= year <= 1972:
-            return "3ème"
-        elif 1973 <= year <= 1977:
-            return "4ème"
-        elif 1978 <= year <= 1980:
-            return "5ème"
-        elif 1981 <= year <= 1982:
-            return "6ème"
-        return "Inconnue"
-    
-    def search_assemblee_questions(self, legislature, keyword="BUMIDOM"):
-        """Recherche dans les questions écrites de l'Assemblée"""
-        
+    def batch_scrape_pdfs(self, pdf_links, keyword="Bumidom", max_pdfs=100):
+        """Scrape un lot de PDF"""
         results = []
         
-        # URL des questions pour chaque législature
-        questions_urls = {
-            "4": "https://archives.assemblee-nationale.fr/4/qst/",
-            "5": "https://archives.assemblee-nationale.fr/5/qst/",
-            "6": "https://archives.assemblee-nationale.fr/6/qst/"
-        }
+        st.info(f"Analyse de {len(pdf_links[:max_pdfs])} PDF...")
         
-        leg_num = legislature[0] if legislature[0].isdigit() else None
+        progress_bar = st.progress(0)
         
-        if leg_num in questions_urls:
-            url = questions_urls[leg_num]
+        for idx, pdf_info in enumerate(pdf_links[:max_pdfs]):
+            progress = (idx + 1) / min(len(pdf_links), max_pdfs)
+            progress_bar.progress(progress)
             
-            try:
-                st.write(f"🔎 Recherche dans les questions {legislature}...")
-                
-                response = self.session.get(url, timeout=15)
-                soup = BeautifulSoup(response.content, 'html.parser')
-                
-                # Recherche des liens contenant le mot-clé
-                keyword_pattern = re.compile(keyword, re.IGNORECASE)
-                matching_links = soup.find_all('a', string=keyword_pattern)
-                
-                for link in matching_links[:10]:  # Limiter aux 10 premiers
-                    href = link.get('href', '')
-                    full_url = urllib.parse.urljoin(url, href)
-                    
-                    results.append({
-                        'année': 'N/A',
-                        'titre': link.get_text(strip=True),
-                        'url': full_url,
-                        'source': f'Questions {legislature}',
-                        'législature': legislature
-                    })
-                
-                if matching_links:
-                    st.success(f"  → {len(matching_links)} question(s) trouvée(s)")
-                
-            except Exception as e:
-                st.warning(f"Erreur questions {legislature}: {str(e)[:100]}")
+            # Analyser le PDF
+            pdf_data = self.scrape_pdf_content(pdf_info, keyword)
+            results.append(pdf_data)
+            
+            # Afficher le résultat
+            if pdf_data['keyword_count'] > 0:
+                st.success(f"  ✓ {pdf_data['keyword_count']} occurrence(s) dans {pdf_data['title'][:60]}...")
+            elif pdf_data.get('error'):
+                st.warning(f"  ⚠️ Erreur: {pdf_data['error']}")
+            else:
+                st.write(f"  ○ Aucune occurrence trouvée")
+            
+            time.sleep(0.5)  # Pause entre les téléchargements
         
+        progress_bar.empty()
         return results
 
 def main():
     # Sidebar
     with st.sidebar:
-        st.header("⚙️ Stratégie de recherche")
+        st.header("⚙️ Paramètres")
         
-        search_method = st.radio(
-            "Méthode de recherche:",
-            ["Gallica BnF (Journal Officiel)", 
-             "Questions écrites AN",
-             "Recherche avancée"]
-        )
-        
-        keyword = st.text_input("Mot-clé principal:", value="BUMIDOM")
+        keyword = st.text_input("Mot-clé de recherche:", value="Bumidom")
         
         col1, col2 = st.columns(2)
         with col1:
-            start_year = st.number_input("Début:", 1963, 1982, 1963)
+            max_pages = st.number_input("Pages à scraper", 1, 20, 10)
         with col2:
-            end_year = st.number_input("Fin:", 1963, 1982, 1982)
+            max_pdfs = st.number_input("PDF max à analyser", 10, 200, 100)
         
-        # Options avancées
-        with st.expander("Options avancées"):
-            variant_search = st.checkbox("Recherche par variantes", value=True)
-            if variant_search:
-                st.text_area("Variantes à chercher:", 
-                           value="BUMIDOM\nBumidom\nBureau migrations DOM\nMigration outre-mer")
+        st.markdown("---")
         
-        search_button = st.button("🚀 Lancer la recherche", type="primary", use_container_width=True)
+        # Boutons d'action
+        col_btn1, col_btn2 = st.columns(2)
+        
+        with col_btn1:
+            search_only = st.button("🔍 Rechercher PDF", use_container_width=True)
+        
+        with col_btn2:
+            full_scrape = st.button("🚀 Scraper complet", type="primary", use_container_width=True)
         
         st.markdown("---")
         st.info("""
-        **Sources disponibles:**
-        - Gallica BnF (Journal Officiel)
-        - Questions écrites AN
-        - Archives par législature
+        **Fonctionnalités:**
+        1. Recherche les PDF via le moteur interne
+        2. Analyse le contenu des PDF
+        3. Compte les occurrences de BUMIDOM
+        4. Extrait des contextes
         """)
     
     # Initialisation
-    searcher = JOArchiveSearcher()
+    scraper = PDFBUMIDOMScraper()
     
-    if search_button:
-        all_results = []
+    # État de session
+    if 'pdf_links' not in st.session_state:
+        st.session_state.pdf_links = []
+    if 'pdf_data' not in st.session_state:
+        st.session_state.pdf_data = []
+    
+    # Actions
+    if search_only:
+        with st.spinner("Recherche des PDF en cours..."):
+            pdf_links = scraper.search_pdfs(keyword, max_pages)
+            st.session_state.pdf_links = pdf_links
+            
+            if pdf_links:
+                st.success(f"✅ {len(pdf_links)} PDF trouvés")
+                
+                # Afficher la liste
+                df_links = pd.DataFrame(pdf_links)
+                st.dataframe(df_links[['title', 'page', 'position', 'url']], use_container_width=True)
+                
+                # Statistiques
+                col_stat1, col_stat2 = st.columns(2)
+                with col_stat1:
+                    st.metric("PDF trouvés", len(pdf_links))
+                with col_stat2:
+                    pages = df_links['page'].nunique()
+                    st.metric("Pages analysées", pages)
+            else:
+                st.warning("Aucun PDF trouvé. Essayez avec une orthographe différente.")
+    
+    elif full_scrape:
+        if not st.session_state.pdf_links:
+            # D'abord chercher les PDF
+            with st.spinner("Recherche initiale des PDF..."):
+                pdf_links = scraper.search_pdfs(keyword, max_pages)
+                st.session_state.pdf_links = pdf_links
         
-        if search_method == "Gallica BnF (Journal Officiel)":
-            with st.spinner(f"Recherche dans Gallica BnF ({start_year}-{end_year})..."):
-                results = searcher.search_gallica_bnf(
+        if st.session_state.pdf_links:
+            with st.spinner("Scraping et analyse des PDF en cours..."):
+                pdf_data = scraper.batch_scrape_pdfs(
+                    st.session_state.pdf_links, 
                     keyword, 
-                    list(range(start_year, end_year + 1))
+                    max_pdfs
                 )
-                all_results.extend(results)
-        
-        elif search_method == "Questions écrites AN":
-            with st.spinner("Recherche dans les questions écrites..."):
-                # Recherche dans les législatures pertinentes
-                for leg in ["4ème législature", "5ème législature", "6ème législature"]:
-                    results = searcher.search_assemblee_questions(leg, keyword)
-                    all_results.extend(results)
-        
-        # Affichage des résultats
-        if all_results:
-            st.success(f"✅ {len(all_results)} résultat(s) trouvé(s)")
+                st.session_state.pdf_data = pdf_data
             
-            # DataFrame
-            df = pd.DataFrame(all_results)
-            
-            # Affichage par source
-            st.subheader("📊 Résultats par source")
-            source_counts = df['source'].value_counts()
-            
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                st.metric("Total", len(df))
-            with col2:
-                st.metric("Sources", len(source_counts))
-            with col3:
-                if not df.empty and 'année' in df.columns:
-                    years = df[df['année'] != 'N/A']['année'].unique()
-                    st.metric("Années", len(years))
-            
-            # Table des résultats
-            st.subheader("📋 Liste des documents")
-            for idx, result in enumerate(all_results):
-                with st.expander(f"📄 {result['titre'][:100]}..."):
-                    col_a, col_b = st.columns([3, 1])
+            # Afficher les résultats
+            if pdf_data:
+                df = pd.DataFrame(pdf_data)
+                
+                # Filtrer les PDF avec des occurrences
+                pdfs_with_keyword = [p for p in pdf_data if p['keyword_count'] > 0]
+                
+                if pdfs_with_keyword:
+                    st.success(f"✅ {len(pdfs_with_keyword)} PDF contiennent '{keyword}'")
                     
-                    with col_a:
-                        st.markdown(f"**Source:** {result['source']}")
-                        if result['année'] != 'N/A':
-                            st.markdown(f"**Année:** {result['année']}")
-                        st.markdown(f"**Législature:** {result['législature']}")
-                        st.markdown(f"**URL:** {result['url'][:100]}...")
+                    # Statistiques
+                    col_stat1, col_stat2, col_stat3 = st.columns(3)
+                    with col_stat1:
+                        st.metric("PDF analysés", len(pdf_data))
+                    with col_stat2:
+                        total_occurrences = sum(p['keyword_count'] for p in pdf_data)
+                        st.metric("Occurrences totales", total_occurrences)
+                    with col_stat3:
+                        avg_pages = sum(p['page_count'] for p in pdf_data) / len(pdf_data)
+                        st.metric("Pages moyennes", f"{avg_pages:.1f}")
                     
-                    with col_b:
-                        # Bouton pour ouvrir
-                        st.markdown(f"[🌐 Ouvrir]({result['url']})", unsafe_allow_html=True)
-            
-            # Export
-            st.subheader("💾 Export des résultats")
-            csv = df.to_csv(index=False, encoding='utf-8-sig')
-            st.download_button(
-                label="📥 Télécharger CSV",
-                data=csv,
-                file_name=f"bumidom_recherche_{datetime.now().strftime('%Y%m%d')}.csv",
-                mime="text/csv"
-            )
-            
+                    # Table des résultats
+                    st.subheader("📋 PDF avec occurrences de BUMIDOM")
+                    
+                    for pdf in pdfs_with_keyword:
+                        with st.expander(f"📄 {pdf['title'][:80]}... ({pdf['keyword_count']} occ.)"):
+                            col_pdf1, col_pdf2 = st.columns([3, 1])
+                            
+                            with col_pdf1:
+                                st.markdown(f"**URL:** [{pdf['url'][:100]}...]({pdf['url']})")
+                                st.markdown(f"**Pages:** {pdf['page_count']} | **Taille:** {pdf['size_kb']} KB")
+                                
+                                if pdf.get('contexts'):
+                                    st.markdown("**Contextes:**")
+                                    for i, context in enumerate(pdf['contexts'][:2]):
+                                        highlighted = re.sub(
+                                            r'\b' + re.escape(keyword) + r'\b',
+                                            lambda m: f"**{m.group()}**",
+                                            context,
+                                            flags=re.IGNORECASE
+                                        )
+                                        st.markdown(f"{i+1}. *\"{highlighted}\"*")
+                            
+                            with col_pdf2:
+                                # Boutons d'action
+                                if st.button("👁️ Prévisualiser", key=f"preview_{pdf['url'][-30:]}"):
+                                    try:
+                                        # Encoder le PDF en base64 pour l'affichage
+                                        response = requests.get(pdf['url'])
+                                        b64_pdf = base64.b64encode(response.content).decode()
+                                        pdf_display = f'<iframe src="data:application/pdf;base64,{b64_pdf}" width="100%" height="600"></iframe>'
+                                        st.markdown(pdf_display, unsafe_allow_html=True)
+                                    except:
+                                        st.warning("Prévisualisation non disponible")
+                                
+                                if st.button("📥 Télécharger", key=f"dl_{pdf['url'][-30:]}"):
+                                    st.download_button(
+                                        label="Cliquer pour télécharger",
+                                        data=requests.get(pdf['url']).content,
+                                        file_name=pdf['url'].split('/')[-1],
+                                        mime="application/pdf"
+                                    )
+                    
+                    # Export des données
+                    st.subheader("💾 Export des résultats")
+                    
+                    col_exp1, col_exp2, col_exp3 = st.columns(3)
+                    
+                    with col_exp1:
+                        # CSV des métadonnées
+                        csv_data = pd.DataFrame(pdf_data).to_csv(index=False, encoding='utf-8-sig')
+                        st.download_button(
+                            label="📊 CSV des métadonnées",
+                            data=csv_data,
+                            file_name=f"bumidom_metadata_{time.strftime('%Y%m%d')}.csv",
+                            mime="text/csv"
+                        )
+                    
+                    with col_exp2:
+                        # JSON complet
+                        json_data = json.dumps(pdf_data, ensure_ascii=False, indent=2)
+                        st.download_button(
+                            label="📈 JSON complet",
+                            data=json_data,
+                            file_name=f"bumidom_data_{time.strftime('%Y%m%d')}.json",
+                            mime="application/json"
+                        )
+                    
+                    with col_exp3:
+                        # PDF avec occurrences seulement
+                        pdfs_with_occ = [p for p in pdf_data if p['keyword_count'] > 0]
+                        if pdfs_with_occ:
+                            summary_df = pd.DataFrame(pdfs_with_occ)[['title', 'keyword_count', 'url', 'page_count']]
+                            summary_csv = summary_df.to_csv(index=False, encoding='utf-8-sig')
+                            st.download_button(
+                                label="🎯 PDF avec occurrences",
+                                data=summary_csv,
+                                file_name=f"bumidom_occurrences_{time.strftime('%Y%m%d')}.csv",
+                                mime="text/csv"
+                            )
+                    
+                    # Analyse statistique
+                    st.subheader("📈 Analyse statistique")
+                    
+                    if pdfs_with_keyword:
+                        col_ana1, col_ana2 = st.columns(2)
+                        
+                        with col_ana1:
+                            # Distribution des occurrences
+                            occurrence_counts = [p['keyword_count'] for p in pdfs_with_keyword]
+                            occurrence_df = pd.DataFrame({
+                                'PDF': [p['title'][:30] + '...' for p in pdfs_with_keyword],
+                                'Occurrences': occurrence_counts
+                            })
+                            st.bar_chart(occurrence_df.set_index('PDF')['Occurrences'])
+                            st.caption("Occurrences par PDF")
+                        
+                        with col_ana2:
+                            # Taille vs occurrences
+                            size_occ_df = pd.DataFrame({
+                                'Taille (KB)': [p['size_kb'] for p in pdfs_with_keyword],
+                                'Occurrences': [p['keyword_count'] for p in pdfs_with_keyword],
+                                'Titre': [p['title'][:20] for p in pdfs_with_keyword]
+                            })
+                            st.scatter_chart(size_occ_df, x='Taille (KB)', y='Occurrences')
+                            st.caption("Taille vs Occurrences")
+                
+                else:
+                    st.warning(f"⚠️ Aucun des {len(pdf_data)} PDF analysés ne contient '{keyword}'")
+                    
+                    # Conseils
+                    st.info("""
+                    **Conseils pour améliorer la recherche:**
+                    1. Essayez avec **"BUMIDOM"** (majuscules)
+                    2. Cherchez **"Bureau des migrations"**
+                    3. Essayez **"migration outre-mer"**
+                    4. Cherchez dans les **rapports parlementaires**
+                    """)
         else:
-            st.warning("❌ Aucun résultat trouvé")
-            
-            # Guide de recherche manuelle
-            st.subheader("🔍 Guide pour recherche manuelle")
-            
-            col_guide1, col_guide2 = st.columns(2)
-            
-            with col_guide1:
-                st.markdown("""
-                ### 1. Gallica BnF - Journal Officiel
-                
-                **Recherche directe:**
-                1. Aller sur [Gallica BnF](https://gallica.bnf.fr)
-                2. Chercher: **"BUMIDOM Journal Officiel Débats"**
-                3. Filtrer par date: 1963-1982
-                4. Consulter les résultats
-                
-                **URLs types:**
-                - JO Débats 1975: `gallica.bnf.fr/ark:/.../f1.item`
-                """)
-            
-            with col_guide2:
-                st.markdown("""
-                ### 2. Archives Assemblée Nationale
-                
-                **Questions écrites:**
-                - [4ème lég. Questions](https://archives.assemblee-nationale.fr/4/qst/)
-                - [5ème lég. Questions](https://archives.assemblee-nationale.fr/5/qst/)
-                - [6ème lég. Questions](https://archives.assemblee-nationale.fr/6/qst/)
-                
-                **Termes alternatifs:**
-                - Bureau migrations DOM
-                - Migration outre-mer
-                - Départements d'outre-mer
-                """)
-            
-            # Liens directs
-            st.subheader("🔗 Accès direct aux archives")
-            
-            jo_urls = searcher.get_jo_debates_links()
-            for legislature, urls in jo_urls.items():
-                with st.expander(f"📚 {legislature}"):
-                    for url in urls:
-                        st.markdown(f"- [{url.split('/')[-1]}]({url})")
+            st.warning("Veuillez d'abord rechercher des PDF")
     
     else:
         # Écran d'accueil
         st.markdown("""
-        ## 📋 Pourquoi le scraping direct ne fonctionne pas ?
+        ## 📋 Guide d'utilisation
         
-        ### Problèmes identifiés:
-        1. **Archives non normalisées**: Les URLs changent selon les législatures
-        2. **Absence de PDF direct**: Les années 1963-1982 ne sont pas en PDF accessible
-        3. **Protection anti-scraping**: Le site limite l'accès automatisé
+        Ce scraper utilise le **moteur de recherche interne** de `archives.assemblee-nationale.fr`.
         
-        ### Solution recommandée:
-        **Utiliser Gallica BnF** qui archive le Journal Officiel complet.
+        ### Étapes :
+        1. **Cliquez sur "🔍 Rechercher PDF"** pour trouver les PDF
+        2. **Puis "🚀 Scraper complet"** pour analyser le contenu
+        3. **Exportez** les résultats en CSV/JSON
         
-        ### Période BUMIDOM (1963-1982):
+        ### Ce que fait le scraper :
+        - Recherche "Bumidom" sur le moteur interne
+        - Extrait les 10 premières pages de résultats
+        - Télécharge et analyse les PDF
+        - Compte les occurrences du mot-clé
+        - Extrait des contextes
+        - Permet la prévisualisation
+        
+        ### Note importante :
+        Le scraping peut être lent (100 PDF × analyse). 
+        Prévoyez 5-10 minutes pour une analyse complète.
         """)
         
-        # Timeline visuelle
-        timeline_data = {
-            "1963": "Création du BUMIDOM",
-            "1963-1967": "2ème législature",
-            "1968-1972": "3ème législature", 
-            "1973-1977": "4ème législature",
-            "1978-1981": "5ème législature",
-            "1982": "Fin des activités"
-        }
-        
-        for year, event in timeline_data.items():
-            st.markdown(f"- **{year}**: {event}")
-        
-        # Méthodologie
-        st.markdown("""
-        ### 📊 Méthodologie de recherche:
-        
-        1. **Gallica BnF**: Journal Officiel des débats
-        2. **Questions écrites**: Archives AN par législature  
-        3. **Recherche manuelle**: Combinaison des deux
-        """)
+        # Aperçu de la structure de recherche
+        with st.expander("🔍 Structure de la recherche"):
+            st.markdown("""
+            **URL de recherche exemple:**
+            ```
+            https://archives.assemblee-nationale.fr/recherche
+            ?query=Bumidom
+            &page=1
+            &type=pdf
+            ```
+            
+            **Pages suivantes:**
+            ```
+            &page=2
+            &page=3
+            ...
+            &page=10
+            ```
+            """)
 
 if __name__ == "__main__":
     main()
