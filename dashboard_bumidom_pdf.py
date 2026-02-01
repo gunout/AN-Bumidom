@@ -1,5 +1,3 @@
-[file name]: app_google_cse_complet.py
-[file content begin]
 import streamlit as st
 import pandas as pd
 import json
@@ -680,4 +678,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-[file content end]
