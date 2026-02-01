@@ -8,6 +8,7 @@ from datetime import datetime
 import urllib.parse
 import time
 import re  # Importé au début
+import os
 
 # ==================== CONFIGURATION ====================
 st.set_page_config(page_title="Dashboard API Google CSE", layout="wide")
@@ -32,6 +33,8 @@ def parser_json_google_cse(json_data, page_num=1):
         # Extraire les résultats
         if 'results' in data:
             items = data['results']
+        elif 'items' in data:
+            items = data['items']
         else:
             # Essayer de trouver les résultats
             items = []
@@ -53,12 +56,16 @@ def parser_json_google_cse(json_data, page_num=1):
                                      item.get('snippet', '')))
                 
                 # Nettoyer les entités HTML
-                description = description.replace('\\u003cb\\u003e', '').replace('\\u003c/b\\u003e', '')
-                description = description.replace('&#39;', "'").replace('&nbsp;', ' ')
+                if description:
+                    description = description.replace('\\u003cb\\u003e', '').replace('\\u003c/b\\u003e', '')
+                    description = description.replace('&#39;', "'").replace('&nbsp;', ' ')
                 
                 # Extraire la date depuis le contenu
-                date_match = re.search(r'(\d{1,2}\s+[a-zéû]+\s+\d{4}|\d{4})', description)
-                date_doc = date_match.group(1) if date_match else "Date inconnue"
+                date_doc = "Date inconnue"
+                if description:
+                    date_match = re.search(r'(\d{1,2}\s+[a-zéû]+\s+\d{4}|\d{4})', description, re.IGNORECASE)
+                    if date_match:
+                        date_doc = date_match.group(1)
                 
                 # Détecter le type de document
                 type_doc = "Document"
@@ -74,20 +81,24 @@ def parser_json_google_cse(json_data, page_num=1):
                 
                 # Extraire la législature depuis l'URL ou le titre
                 legislature = ""
-                leg_match_url = re.search(r'/(\d+)/cri/', url)
-                leg_match_title = re.search(r'(\d+)[\'°]?\s+Législature', titre)
+                if url:
+                    leg_match_url = re.search(r'/(\d+)/cri/', url)
+                    if leg_match_url:
+                        legislature = leg_match_url.group(1)
                 
-                if leg_match_url:
-                    legislature = leg_match_url.group(1)
-                elif leg_match_title:
-                    legislature = leg_match_title.group(1)
+                if not legislature and titre:
+                    leg_match_title = re.search(r'(\d+)[\'°]?\s+Législature', titre)
+                    if leg_match_title:
+                        legislature = leg_match_title.group(1)
                 
                 # Extraire les années
-                annee_match = re.search(r'/(\d{4})-(\d{4})', url)
-                if annee_match:
-                    periode = f"{annee_match.group(1)}-{annee_match.group(2)}"
-                else:
-                    # Chercher d'autres patterns de dates
+                periode = "Inconnue"
+                if url:
+                    annee_match = re.search(r'/(\d{4})-(\d{4})', url)
+                    if annee_match:
+                        periode = f"{annee_match.group(1)}-{annee_match.group(2)}"
+                
+                if periode == "Inconnue" and description:
                     annee_match = re.search(r'(\d{4})\s*-\s*(\d{4})', description)
                     if annee_match:
                         periode = f"{annee_match.group(1)}-{annee_match.group(2)}"
@@ -96,8 +107,6 @@ def parser_json_google_cse(json_data, page_num=1):
                         if annee_match:
                             annee = annee_match.group(1)
                             periode = f"{annee}"
-                        else:
-                            periode = "Inconnue"
                 
                 # Score de pertinence basé sur la position
                 score = 100 - (i * 5) if i < 20 else 10
@@ -110,10 +119,10 @@ def parser_json_google_cse(json_data, page_num=1):
                     metadonnees['breadcrumbs'] = item['breadcrumbUrl'].get('crumbs', [])
                 
                 resultats.append({
-                    'id': f"P{page_num:02d}R{i+1:02d}",
-                    'titre': titre[:150] + "..." if len(titre) > 150 else titre,
+                    'id': f"P{page_num:02d}R{i+1:03d}",
+                    'titre': titre[:200] + "..." if len(titre) > 200 else titre,
                     'url': url,
-                    'description': description[:200] + "..." if len(description) > 200 else description,
+                    'description': description[:300] + "..." if description and len(description) > 300 else description,
                     'type': type_doc,
                     'legislature': legislature,
                     'periode': periode,
@@ -137,11 +146,16 @@ def parser_json_google_cse(json_data, page_num=1):
         st.error(f"Erreur lors du parsing JSON: {str(e)}")
         return []
 
-def charger_json_du_fichier():
-    """Charge les données JSON depuis le fichier fourni"""
+def charger_json_depuis_fichier():
+    """Charge le JSON depuis le fichier json.txt"""
     try:
-        # Le contenu JSON complet avec TOUS les résultats
-        json_content = """/*O_o*/
+        # Si le fichier json.txt existe dans le répertoire courant
+        if os.path.exists('json.txt'):
+            with open('json.txt', 'r', encoding='utf-8') as f:
+                json_content = f.read()
+        else:
+            # Utiliser le JSON fourni dans le code
+            json_content = """/*O_o*/
 google.search.cse.api12938({
   "cursor": {
     "currentPageIndex": 0,
@@ -546,13 +560,24 @@ google.search.cse.api12938({
             # Enlever le commentaire
             json_str = json_str.split('*/', 1)[1].strip()
         
+        # Trouver le début et la fin des données JSON
+        start_idx = json_str.find('{')
+        end_idx = json_str.rfind('}') + 1
+        
+        if start_idx == -1 or end_idx == 0:
+            raise ValueError("Format JSON invalide")
+        
+        json_data_str = json_str[start_idx:end_idx]
+        
         # Parser comme JSON
-        data = json.loads(json_str[json_str.find('{'):json_str.rfind('}')+1])
+        data = json.loads(json_data_str)
         
         return data
         
     except Exception as e:
         st.error(f"Erreur lors du chargement du JSON: {str(e)}")
+        import traceback
+        st.error(f"Détails: {traceback.format_exc()}")
         return None
 
 # ==================== INTERFACE STREAMLIT ====================
@@ -570,10 +595,42 @@ with st.sidebar:
     # Options
     st.subheader("Options d'analyse")
     
+    # Options de chargement
+    option_chargement = st.radio(
+        "Source des données:",
+        ["JSON intégré (exemple)", "Fichier json.txt"],
+        index=0
+    )
+    
     # Bouton pour charger le JSON
     if st.button("📁 Analyser le JSON", type="primary", use_container_width=True):
         with st.spinner("Chargement et analyse du JSON..."):
-            json_data = charger_json_du_fichier()
+            if option_chargement == "Fichier json.txt":
+                # Tentative de charger depuis le fichier
+                if os.path.exists('json.txt'):
+                    with open('json.txt', 'r', encoding='utf-8') as f:
+                        json_content = f.read()
+                    
+                    # Nettoyer et parser
+                    json_str = json_content.strip()
+                    if json_str.startswith('/*'):
+                        json_str = json_str.split('*/', 1)[1].strip()
+                    
+                    start_idx = json_str.find('{')
+                    end_idx = json_str.rfind('}') + 1
+                    
+                    if start_idx != -1 and end_idx > 0:
+                        json_data_str = json_str[start_idx:end_idx]
+                        json_data = json.loads(json_data_str)
+                    else:
+                        st.error("Format invalide dans json.txt")
+                        json_data = None
+                else:
+                    st.error("Fichier json.txt introuvable")
+                    json_data = None
+            else:
+                # Utiliser le JSON intégré
+                json_data = charger_json_depuis_fichier()
             
             if json_data:
                 st.session_state.donnees_json = json_data
@@ -582,7 +639,13 @@ with st.sidebar:
                 resultats = parser_json_google_cse(json_data, 1)
                 st.session_state.resultats_parses = resultats
                 
-                st.success(f"✅ JSON analysé: {len(resultats)} résultats trouvés!")
+                # Informations sur les données
+                cursor_info = json_data.get('cursor', {})
+                estimated_count = cursor_info.get('estimatedResultCount', '0')
+                actual_count = len(resultats)
+                
+                st.success(f"✅ JSON analysé: {actual_count} résultats trouvés!")
+                st.info(f"📈 Résultats estimés par Google: {estimated_count}")
             else:
                 st.error("❌ Impossible de charger le JSON")
     
@@ -636,7 +699,7 @@ if st.session_state.resultats_parses:
     
     # Filtres
     with st.expander("🔍 Filtres", expanded=True):
-        col1, col2 = st.columns(2)
+        col1, col2, col3 = st.columns(3)
         
         with col1:
             types = sorted(df['type'].unique())
@@ -645,16 +708,40 @@ if st.session_state.resultats_parses:
         with col2:
             legislatures = sorted([l for l in df['legislature'].unique() if l])
             leg_selection = st.multiselect("Législatures", legislatures, default=legislatures)
+        
+        with col3:
+            periodes = sorted([p for p in df['periode'].unique() if p != "Inconnue"])
+            periode_selection = st.multiselect("Périodes", periodes, default=periodes[:5] if len(periodes) > 5 else periodes)
     
     # Appliquer les filtres
     df_filtre = df[
         (df['type'].isin(types_selection)) &
-        (df['legislature'].isin(leg_selection) | (df['legislature'] == ''))
+        (df['legislature'].isin(leg_selection) | (df['legislature'] == '')) &
+        (df['periode'].isin(periode_selection) | (df['periode'] == "Inconnue") if periode_selection else True)
     ]
+    
+    # Informations sur le filtrage
+    st.info(f"📋 Affichage de {len(df_filtre)} documents sur {len(df)}")
+    
+    # Afficher le tableau avec pagination
+    if len(df_filtre) > 20:
+        # Pagination
+        items_per_page = 20
+        total_pages = (len(df_filtre) + items_per_page - 1) // items_per_page
+        
+        page = st.number_input("Page", min_value=1, max_value=total_pages, value=1, step=1)
+        start_idx = (page - 1) * items_per_page
+        end_idx = min(start_idx + items_per_page, len(df_filtre))
+        
+        df_page = df_filtre.iloc[start_idx:end_idx]
+        
+        st.write(f"Page {page}/{total_pages} ({start_idx+1}-{end_idx} sur {len(df_filtre)})")
+    else:
+        df_page = df_filtre
     
     # Afficher le tableau
     st.dataframe(
-        df_filtre[['id', 'titre', 'type', 'legislature', 'periode', 'date_doc', 'score']],
+        df_page[['id', 'titre', 'type', 'legislature', 'periode', 'date_doc', 'score']],
         use_container_width=True,
         hide_index=True,
         column_config={
@@ -671,23 +758,25 @@ if st.session_state.resultats_parses:
     # ==================== VISUALISATIONS ====================
     st.header("📊 Analyses visuelles")
     
-    tab1, tab2, tab3 = st.tabs(["📅 Chronologie", "📊 Distribution", "🌐 Sources"])
+    tab1, tab2, tab3, tab4 = st.tabs(["📅 Chronologie", "📊 Distribution", "🌐 Sources", "📈 Évolution"])
     
     with tab1:
         # Graphique par période
         if 'periode' in df_filtre.columns and not df_filtre.empty:
-            period_counts = df_filtre['periode'].value_counts().head(10)
+            period_counts = df_filtre[df_filtre['periode'] != "Inconnue"]['periode'].value_counts()
             if len(period_counts) > 0:
                 fig = px.bar(
                     x=period_counts.index,
                     y=period_counts.values,
-                    title="Documents par période (top 10)",
+                    title=f"Documents par période ({len(period_counts)} périodes)",
                     labels={'x': 'Période', 'y': 'Nombre'},
                     color=period_counts.values,
                     color_continuous_scale='Viridis'
                 )
-                fig.update_layout(xaxis_tickangle=-45)
+                fig.update_layout(xaxis_tickangle=-45, height=400)
                 st.plotly_chart(fig, use_container_width=True)
+            else:
+                st.info("Aucune donnée de période disponible")
     
     with tab2:
         col1, col2 = st.columns(2)
@@ -695,41 +784,70 @@ if st.session_state.resultats_parses:
         with col1:
             # Distribution par type
             type_counts = df_filtre['type'].value_counts()
-            fig = px.pie(
-                values=type_counts.values,
-                names=type_counts.index,
-                title="Distribution par type de document",
-                hole=0.3
-            )
-            st.plotly_chart(fig, use_container_width=True)
+            if len(type_counts) > 0:
+                fig = px.pie(
+                    values=type_counts.values,
+                    names=type_counts.index,
+                    title="Distribution par type de document",
+                    hole=0.3
+                )
+                st.plotly_chart(fig, use_container_width=True)
         
         with col2:
             # Distribution par législature
-            if df_filtre['legislature'].notna().any():
-                leg_counts = df_filtre[df_filtre['legislature'] != '']['legislature'].value_counts()
+            leg_data = df_filtre[df_filtre['legislature'] != '']
+            if len(leg_data) > 0:
+                leg_counts = leg_data['legislature'].value_counts()
                 if len(leg_counts) > 0:
                     fig = px.bar(
                         x=leg_counts.index.astype(str),
                         y=leg_counts.values,
                         title="Documents par législature",
-                        labels={'x': 'Législature', 'y': 'Nombre'}
+                        labels={'x': 'Législature', 'y': 'Nombre'},
+                        color=leg_counts.values,
+                        color_continuous_scale='Blues'
                     )
                     st.plotly_chart(fig, use_container_width=True)
     
     with tab3:
         # Analyse des domaines
         if 'visible_url' in df_filtre.columns:
-            domain_counts = df_filtre['visible_url'].value_counts().head(10)
+            domain_counts = df_filtre['visible_url'].value_counts()
             if len(domain_counts) > 0:
                 fig = px.bar(
-                    x=domain_counts.index,
-                    y=domain_counts.values,
+                    x=domain_counts.index[:10],
+                    y=domain_counts.values[:10],
                     title="Top 10 des domaines sources",
                     labels={'x': 'Domaine', 'y': 'Nombre'},
-                    color=domain_counts.values,
-                    color_continuous_scale='Blues'
+                    color=domain_counts.values[:10],
+                    color_continuous_scale='Reds'
                 )
-                fig.update_layout(xaxis_tickangle=-45)
+                fig.update_layout(xaxis_tickangle=-45, height=400)
+                st.plotly_chart(fig, use_container_width=True)
+    
+    with tab4:
+        # Analyse chronologique détaillée
+        if 'periode' in df_filtre.columns and not df_filtre.empty:
+            # Extraire l'année de début
+            def extract_start_year(periode):
+                match = re.search(r'(\d{4})', str(periode))
+                return int(match.group(1)) if match else None
+            
+            df_filtre['annee'] = df_filtre['periode'].apply(extract_start_year)
+            df_annee = df_filtre.dropna(subset=['annee'])
+            
+            if len(df_annee) > 0:
+                year_counts = df_annee['annee'].value_counts().sort_index()
+                
+                fig = px.line(
+                    x=year_counts.index,
+                    y=year_counts.values,
+                    title="Évolution du nombre de documents par année",
+                    labels={'x': 'Année', 'y': 'Nombre de documents'},
+                    markers=True
+                )
+                fig.update_traces(line=dict(width=3))
+                fig.update_layout(height=400)
                 st.plotly_chart(fig, use_container_width=True)
     
     # ==================== DÉTAILS DES DOCUMENTS ====================
@@ -737,14 +855,15 @@ if st.session_state.resultats_parses:
     
     if not df_filtre.empty:
         # Sélection d'un document
-        doc_id = st.selectbox(
+        doc_options = [(row['id'], f"{row['id']} - {row['titre'][:80]}...") for _, row in df_filtre.iterrows()]
+        selected_option = st.selectbox(
             "Choisir un document",
-            df_filtre['id'].tolist(),
-            format_func=lambda x: f"{x} - {df_filtre[df_filtre['id'] == x]['titre'].iloc[0][:50]}..."
+            options=[opt[0] for opt in doc_options],
+            format_func=lambda x: dict(doc_options).get(x, x)
         )
         
-        if doc_id:
-            doc = df_filtre[df_filtre['id'] == doc_id].iloc[0]
+        if selected_option:
+            doc = df_filtre[df_filtre['id'] == selected_option].iloc[0]
             
             col1, col2 = st.columns([3, 1])
             
@@ -763,12 +882,12 @@ if st.session_state.resultats_parses:
                     st.metric("Période", doc['periode'])
                 
                 # Description
-                if doc['description']:
+                if doc['description'] and doc['description'] != 'None':
                     st.markdown("**📝 Extrait:**")
                     st.info(doc['description'])
                 
                 # URL
-                if doc['url']:
+                if doc['url'] and doc['url'] != 'None':
                     st.markdown("**🔗 URL originale:**")
                     st.code(doc['url'])
                     
@@ -785,10 +904,10 @@ if st.session_state.resultats_parses:
                 st.markdown("**⚙️ Détails:**")
                 st.metric("Position", doc['position'])
                 st.metric("Date", doc['date_doc'])
-                st.metric("Score", doc['score'])
+                st.metric("Score", int(doc['score']))
                 
                 # Métadonnées brutes
-                if doc['metadonnees'] and doc['metadonnees'] != '{}':
+                if doc['metadonnees'] and doc['metadonnees'] != '{}' and doc['metadonnees'] != 'None':
                     with st.expander("Métadonnées techniques"):
                         try:
                             meta = json.loads(doc['metadonnees'])
@@ -807,7 +926,7 @@ if st.session_state.resultats_parses:
         st.download_button(
             label="📥 CSV complet",
             data=csv,
-            file_name=f"google_cse_analyse_{datetime.now().strftime('%Y%m%d')}.csv",
+            file_name=f"google_cse_analyse_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
             mime="text/csv",
             use_container_width=True
         )
@@ -818,19 +937,19 @@ if st.session_state.resultats_parses:
         st.download_button(
             label="📥 JSON structuré",
             data=json_data,
-            file_name=f"google_cse_analyse_{datetime.now().strftime('%Y%m%d')}.json",
+            file_name=f"google_cse_analyse_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json",
             mime="application/json",
             use_container_width=True
         )
     
     with col3:
         # Export URLs seulement
-        urls = [d['url'] for d in donnees if d['url']]
+        urls = [d['url'] for d in donnees if d['url'] and d['url'] != 'None']
         urls_text = "\n".join(urls)
         st.download_button(
             label="📄 Liste des URLs",
             data=urls_text.encode('utf-8'),
-            file_name=f"urls_google_cse_{datetime.now().strftime('%Y%m%d')}.txt",
+            file_name=f"urls_google_cse_{datetime.now().strftime('%Y%m%d_%H%M%S')}.txt",
             mime="text/plain",
             use_container_width=True
         )
@@ -839,6 +958,15 @@ if st.session_state.resultats_parses:
     with st.expander("📊 Données brutes du JSON", expanded=False):
         if st.session_state.donnees_json:
             st.json(st.session_state.donnees_json)
+            
+            # Informations sur le cursor
+            if 'cursor' in st.session_state.donnees_json:
+                cursor = st.session_state.donnees_json['cursor']
+                st.write("**Informations de pagination:**")
+                st.write(f"- Résultats estimés: {cursor.get('estimatedResultCount', 'N/A')}")
+                st.write(f"- Résultats comptés: {cursor.get('resultCount', 'N/A')}")
+                st.write(f"- Temps de recherche: {cursor.get('searchResultTime', 'N/A')}s")
+                st.write(f"- Pages disponibles: {len(cursor.get('pages', []))}")
 
 else:
     # ==================== ÉCRAN D'ACCUEIL ====================
@@ -859,6 +987,7 @@ else:
         - **Détection automatique** des types de documents
         - **Visualisations interactives**
         - **Export multi-formats**
+        - **Support de fichiers externes**
         
         ### 📋 Format supporté
         Format JSON Google CSE avec structure:
@@ -873,11 +1002,12 @@ else:
     with col2:
         st.markdown("""
         ### 🚀 Comment l'utiliser
-        1. **Cliquez** sur "Analyser le JSON" dans la sidebar
-        2. **Explorez** les résultats via les tableaux
-        3. **Analysez** avec les visualisations
-        4. **Consultez** les détails par document
-        5. **Exportez** les données
+        1. **Choisissez** la source des données dans la sidebar
+        2. **Cliquez** sur "Analyser le JSON"
+        3. **Explorez** les résultats via les tableaux
+        4. **Analysez** avec les visualisations
+        5. **Consultez** les détails par document
+        6. **Exportez** les données
         
         ### 🔍 Champs extraits
         - Titre et description
@@ -889,29 +1019,30 @@ else:
         - Métadonnées techniques
         """)
     
-    # Exemple de structure
-    with st.expander("📄 Exemple de structure JSON", expanded=False):
-        st.code("""
-{
-  "cursor": {
-    "currentPageIndex": 0,
-    "estimatedResultCount": "131",
-    "pages": [...]
-  },
-  "results": [
-    {
-      "title": "Titre du document",
-      "titleNoFormatting": "Titre sans formatage",
-      "url": "https://exemple.com/document.pdf",
-      "content": "Extrait avec <b>balises</b>...",
-      "contentNoFormatting": "Extrait sans formatage...",
-      "visibleUrl": "domaine.com",
-      "fileFormat": "PDF/Adobe Acrobat",
-      "richSnippet": {...}
-    }
-  ]
-}
-        """, language="json")
+    # Instructions pour utiliser le fichier
+    with st.expander("📁 Utilisation avec votre propre fichier", expanded=True):
+        st.markdown("""
+        ### Pour analyser VOTRE fichier JSON complet:
+        
+        1. **Placez votre fichier** `json.txt` dans le même répertoire que ce script
+        2. **Sélectionnez** "Fichier json.txt" dans la sidebar
+        3. **Cliquez** sur "Analyser le JSON"
+        
+        ### Format attendu:
+        Votre fichier doit contenir le JSON brut de l'API Google CSE, par exemple:
+        ```json
+        google.search.cse.apiXXXX({
+          "cursor": {...},
+          "results": [...]
+        });
+        ```
+        
+        ### Fichier fourni:
+        - **Résultats estimés:** 131
+        - **Pages disponibles:** 10
+        - **Résultats par page:** 10
+        - **Total possible:** jusqu'à 100 résultats
+        """)
 
 # ==================== PIED DE PAGE ====================
 st.divider()
