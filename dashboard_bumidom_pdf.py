@@ -52,6 +52,10 @@ def parser_json_google_cse(json_data, page_num=1):
                                      item.get('content', 
                                      item.get('snippet', '')))
                 
+                # Nettoyer les entités HTML
+                description = description.replace('\\u003cb\\u003e', '').replace('\\u003c/b\\u003e', '')
+                description = description.replace('&#39;', "'").replace('&nbsp;', ' ')
+                
                 # Extraire la date depuis le contenu
                 date_match = re.search(r'(\d{1,2}\s+[a-zéû]+\s+\d{4}|\d{4})', description)
                 date_doc = date_match.group(1) if date_match else "Date inconnue"
@@ -136,7 +140,7 @@ def parser_json_google_cse(json_data, page_num=1):
 def charger_json_du_fichier():
     """Charge les données JSON depuis le fichier fourni"""
     try:
-        # Le contenu JSON est dans json.txt
+        # Le contenu JSON complet avec TOUS les résultats
         json_content = """/*O_o*/
 google.search.cse.api12938({
   "cursor": {
@@ -191,7 +195,7 @@ google.search.cse.api12938({
   "results": [
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire1/024.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAgQAg&usg=AOvVaw3XQEsRa-ZOw0c9nxuM7XyR",
-      "content": "26 oct. 1971 ... Bumidom. Nous avons donc fait un effort très sérieux — je crois qu'il commence à porter ses fruits — pour l'information, comme on l'a...",
+      "content": "26 oct. 1971 \\u003cb\\u003e...\\u003c/b\\u003e \\u003cb\\u003eBumidom\\u003c/b\\u003e. Nous avons donc fait un effort très sérieux — je crois qu&#39;il commence à porter ses fruits — pour l&#39;information, comme on l&#39;a&nbsp;...",
       "contentNoFormatting": "26 oct. 1971 ... Bumidom. Nous avons donc fait un effort très sérieux — je crois qu'il commence à porter ses fruits — pour l'information, comme on l'a ...",
       "title": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
@@ -225,9 +229,9 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1968-1969-ordinaire1/050.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAUQAg&usg=AOvVaw1o2mlaBef0JNNpzSDXWzFK",
-      "content": "9 nov. 2025 ... Bumidom. Dès mon arrivée au ministère, je me suis essentielle- ment préoccupé des conditions d'accueil et d'adaptation des originaires des...",
+      "content": "9 nov. 2025 \\u003cb\\u003e...\\u003c/b\\u003e \\u003cb\\u003eBumidom\\u003c/b\\u003e. Dès mon arrivée au ministère, je me suis essentielle- ment préoccupé des conditions d&#39;accueil et d&#39;adaptation des originaires des&nbsp;...",
       "contentNoFormatting": "9 nov. 2025 ... Bumidom. Dès mon arrivée au ministère, je me suis essentielle- ment préoccupé des conditions d'accueil et d'adaptation des originaires des ...",
-      "title": "CONSTITUTION DU 4 OCTOBRE 1958 4' Législature",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 4&#39; Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 4' Législature",
       "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1968-1969.../050.pdf",
       "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1968-1969-ordinaire1/050.pdf",
@@ -253,6 +257,278 @@ google.search.cse.api12938({
         "crumbs": [
           "cri",
           "1968-1969-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/cri/1966-1967-ordinaire1/021.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAYQAQ&usg=AOvVaw0kEy49-XtbL0tnPLfpTQKs",
+      "content": "le \\u003cb\\u003eBUMIDOM\\u003c/b\\u003e qui, en 1965, a facilité l&#39;installation en métropole. La réalisation effective de la parité globale se poursuivra de 7.000 personnes. en. 1967 . C&nbsp;...",
+      "contentNoFormatting": "le BUMIDOM qui, en 1965, a facilité l'installation en métropole. La réalisation effective de la parité globale se poursuivra de 7.000 personnes. en. 1967 . C ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/2/cri/1966-1967.../021.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/2/cri/1966-1967-ordinaire1/021.pdf",
+      "url": "https://archives.assemblee-nationale.fr/2/cri/1966-1967-ordinaire1/021.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///a6954a3a039389e9725536001dc617c95efa746637849cb9ae72dbc2582d2cf1"
+        },
+        "metatags": {
+          "moddate": "D:20081007122856+02'00'",
+          "creationdate": "D:20081007122856+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSzhZ860WuX_OP04UMEaqnz9fDcfWADKICU-6DpVXa5BMAGDFlvau12Hto&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1966-1967-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1982-1983-ordinaire1/057.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAsQAg&usg=AOvVaw04USMOeX35eApIZjnsjlUo",
+      "content": "5 nov. 1982 \\u003cb\\u003e...\\u003c/b\\u003e Le \\u003cb\\u003eBumidom\\u003c/b\\u003e, tant décrié par vos amis, a été, dans la pratique, remplacé par un succédané — l&#39;agence nationale pour l&#39;insertion et la&nbsp;...",
+      "contentNoFormatting": "5 nov. 1982 ... Le Bumidom, tant décrié par vos amis, a été, dans la pratique, remplacé par un succédané — l'agence nationale pour l'insertion et la ...",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 7&#39; Législature",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 7' Législature",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1982-1983.../057.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1982-1983-ordinaire1/057.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1982-1983-ordinaire1/057.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///f68d02ab6d230d9a716d0ec83b31bc72a11e78904d87601ed61022b0c7ba49c4"
+        },
+        "metatags": {
+          "moddate": "D:20080908133720+02'00'",
+          "creationdate": "D:20080908133720+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_SBAnIolX39uVp8XCrXyahf1jJpydQFYPkXgPdjayt50yOCTjHc-_Ra2i&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1982-1983-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/057.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAMQAg&usg=AOvVaw2jle1EbjAQkSzu2F-Wew8T",
+      "content": "27 janv. 2025 \\u003cb\\u003e...\\u003c/b\\u003e des crédits affectés au \\u003cb\\u003eBumidom\\u003c/b\\u003e pour les années 1976 et 1977;. 2° les raisons de la réduction des crédits pour l&#39;année 1977 si tou- tefois&nbsp;...",
+      "contentNoFormatting": "27 janv. 2025 ... des crédits affectés au Bumidom pour les années 1976 et 1977;. 2° les raisons de la réduction des crédits pour l'année 1977 si tou- tefois ...",
+      "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977.../057.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/057.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/057.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///d4c2f88830f6a13cce37932dd76cf9d73dff2072222a241408a90602e2c59372"
+        },
+        "metatags": {
+          "moddate": "D:20081008173646+02'00'",
+          "creationdate": "D:20081008173646+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjrspNtzgOCRC_H5Sx2C-EJUHqc78jaYB3AkwKIJKesA9AGzjaRoLsaZo&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1976-1977-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/060.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAcQAg&usg=AOvVaw2Q2De_fn4jbWIJ0SYAJsRl",
+      "content": "16 nov. 1970 \\u003cb\\u003e...\\u003c/b\\u003e des départements d&#39;outre-mer — \\u003cb\\u003eBumidom\\u003c/b\\u003e — dont l&#39;objectif est à la fois de faciliter l&#39;immigration et d&#39;orienter les tra- vailleurs vers un&nbsp;...",
+      "contentNoFormatting": "16 nov. 1970 ... des départements d'outre-mer — Bumidom — dont l'objectif est à la fois de faciliter l'immigration et d'orienter les tra- vailleurs vers un ...",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971.../060.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/060.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/060.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///86d42a16cfb943cafaa3071d16023ed82c3ab6e007090dc1f7236789df3b533c"
+        },
+        "metatags": {
+          "moddate": "D:20080922163741+02'00'",
+          "creationdate": "D:20080922163741+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpG3XI7phJhTAB0EfNLoT8EgPCsqJuDINA-MZXMD15tP2PSu5Zm9ThMdY&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1970-1971-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire1/067.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAoQAg&usg=AOvVaw1TiSVlBpTiOQirHZDFP_tL",
+      "content": "5 nov. 2025 \\u003cb\\u003e...\\u003c/b\\u003e société d &#39;Etat « \\u003cb\\u003eBumidom\\u003c/b\\u003e », qui prend à sa charge les frais du voyage. En conséquence, il lui demande quelles mesures il compte prendre&nbsp;...",
+      "contentNoFormatting": "5 nov. 2025 ... société d 'Etat « Bumidom », qui prend à sa charge les frais du voyage. En conséquence, il lui demande quelles mesures il compte prendre ...",
+      "title": "JOUR AL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOUR AL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1971-1972.../067.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire1/067.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire1/067.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///70e7a3bdb000e88e94c33fb263e53ad5052bf03895e46225930685aecef05226"
+        },
+        "metatags": {
+          "moddate": "D:20080922172837+02'00'",
+          "creationdate": "D:20080922172837+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEE5FRlHI5IHKZ89hypG4Zxh6yfnLshpyyrCwAfgldIGtu6navA5XptEny&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1971-1972-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/023.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAQQAg&usg=AOvVaw0ECR2XP0VoZVS_Z-aq_LrA",
+      "content": "26 oct. 1970 \\u003cb\\u003e...\\u003c/b\\u003e Le \\u003cb\\u003eBumidom\\u003c/b\\u003e ne devrait pas être traité comme un instrument de la ... tés d&#39;accueil et du \\u003cb\\u003eBumidom\\u003c/b\\u003e, c&#39;est-à-dire du bureau des migrations.",
+      "contentNoFormatting": "26 oct. 1970 ... Le Bumidom ne devrait pas être traité comme un instrument de la ... tés d'accueil et du Bumidom, c'est-à-dire du bureau des migrations.",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971.../023.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/023.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/023.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///cecd5845b3e8f1281f51bb5cc224fdb412e38b5fe63c8ad9a63f3f780e1a212b"
+        },
+        "metatags": {
+          "moddate": "D:20080922163015+02'00'",
+          "creationdate": "D:20080922163015+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOPhy57tqbSr4pABIMreKdHmttqsMZaAwZhNTD8chEBwIyeqEMrXM9q58&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1970-1971-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1985-1986-extraordinaire1/015.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAkQAg&usg=AOvVaw07d_SBR4NkuRf5WSuqkmP2",
+      "content": "11 juil. 1986 \\u003cb\\u003e...\\u003c/b\\u003e \\u003cb\\u003eBumidom\\u003c/b\\u003e . On crée l &#39; A.N.T., Agence nationale pour l &#39; inser- tion et la promotion des travailleurs. Le slogan gouverne- mental était&nbsp;...",
+      "contentNoFormatting": "11 juil. 1986 ... Bumidom . On crée l ' A.N.T., Agence nationale pour l ' inser- tion et la promotion des travailleurs. Le slogan gouverne- mental était ...",
+      "title": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
+      "titleNoFormatting": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1985-1986.../015.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1985-1986-extraordinaire1/015.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1985-1986-extraordinaire1/015.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///7acec6247ba9c241d0d2deef854d5a24128fa6f0c0fd0029c19ffc543d408a83"
+        },
+        "metatags": {
+          "moddate": "D:20080929180819+02'00'",
+          "creationdate": "D:20080929180819+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSu4-cNrjaboldBpn5ctU7ecWtpA-n4EJT5pT8wJ9C26eCtWWAZ2QUiILUS&s",
+          "width": "187",
+          "height": "269"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1985-1986-extraordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/007.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAIQAg&usg=AOvVaw3owLd8J1Cyt0hy5hFXzdAo",
+      "content": "7 mars 2025 \\u003cb\\u003e...\\u003c/b\\u003e nisée par le \\u003cb\\u003eBumidom\\u003c/b\\u003e, est loin d&#39;être satisfaisante. Ses effets sont du reste annihilés par l&#39;entrée d&#39;une main-d&#39;oeuvre impor- tante dans&nbsp;...",
+      "contentNoFormatting": "7 mars 2025 ... nisée par le Bumidom, est loin d'être satisfaisante. Ses effets sont du reste annihilés par l'entrée d'une main-d'oeuvre impor- tante dans ...",
+      "title": "JOUR: AL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOUR:\\\\ AL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971.../007.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/007.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/007.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///c5373003a1afe32ce78be5b9d67312eb891ec86605c0667ab9f50910aa0c3fc6"
+        },
+        "metatags": {
+          "moddate": "D:20080922165234+02'00'",
+          "creationdate": "D:20080922165234+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCgf7b3a4TW3H9HEFwU0UENNSGVcmf87KPBOW2eKg3NKupeweN3VLMCkio&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1970-1971-ordinaire2"
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
@@ -553,7 +829,7 @@ if st.session_state.resultats_parses:
         urls_text = "\n".join(urls)
         st.download_button(
             label="📄 Liste des URLs",
-            data=urlls_text.encode('utf-8'),
+            data=urls_text.encode('utf-8'),
             file_name=f"urls_google_cse_{datetime.now().strftime('%Y%m%d')}.txt",
             mime="text/plain",
             use_container_width=True
