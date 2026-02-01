@@ -1,0 +1,10 @@
+streamlit 
+pandas 
+plotly 
+PyMuPDF 
+wordcloud 
+matplotlib 
+pillow 
+requests 
+beautifulsoup4 
+numpy
