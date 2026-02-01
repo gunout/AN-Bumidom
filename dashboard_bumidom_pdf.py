@@ -1,645 +1,450 @@
 import streamlit as st
-import requests
-from bs4 import BeautifulSoup
 import pandas as pd
 import re
-import time
-from urllib.parse import urljoin
-import base64
 from datetime import datetime
+import base64
+import io
 
 # Configuration
 st.set_page_config(
-    page_title="Scraper BUMIDOM - URLs Directes", 
+    page_title="Analyse BUMIDOM - Résultats Google", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("🔍 Scraper BUMIDOM - URLs Directes Trouvées")
-st.markdown("Utilisation des URLs exactes trouvées dans vos résultats")
+st.title("📊 Analyse des Résultats Google BUMIDOM")
+st.markdown("Extraction et analyse des informations depuis vos résultats Google")
 
-class DirectURLScraper:
-    def __init__(self):
-        self.base_url = "https://archives.assemblee-nationale.fr"
-        self.session = requests.Session()
-        self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        })
+def parse_google_results():
+    """Parse vos résultats Google affichés"""
     
-    def get_direct_urls_from_your_results(self):
-        """URLs exactes basées sur vos résultats"""
-        
-        # URLs EXACTES trouvées dans vos résultats
-        direct_urls = [
-            # Format: /cri/ANNEE-ANNEE-ordinaireNUMERO
-            {
-                'url': f"{self.base_url}/cri/1971-1972-ordinaire1",
-                'year': 1971,
-                'description': "CRI 1971-1972 ordinaire1 - Mention BUMIDOM trouvée"
-            },
-            {
-                'url': f"{self.base_url}/cri/1968-1969-ordinaire1", 
-                'year': 1968,
-                'description': "CRI 1968-1969 ordinaire1 - Mention BUMIDOM trouvée"
-            },
-            {
-                'url': f"{self.base_url}/cri/1966-1967-ordinaire1",
-                'year': 1966,
-                'description': "CRI 1966-1967 ordinaire1 - Mention BUMIDOM trouvée"
-            },
-            {
-                'url': f"{self.base_url}/cri/1982-1983-ordinaire1",
-                'year': 1982,
-                'description': "CRI 1982-1983 ordinaire1 - Mention BUMIDOM trouvée"
-            },
-            {
-                'url': f"{self.base_url}/cri/1976-1977-ordinaire2",
-                'year': 1976,
-                'description': "CRI 1976-1977 ordinaire2 - Mention BUMIDOM trouvée"
-            },
-            {
-                'url': f"{self.base_url}/cri/1970-1971-ordinaire1",
-                'year': 1970,
-                'description': "CRI 1970-1971 ordinaire1 - Mention BUMIDOM trouvée"
-            },
-            {
-                'url': f"{self.base_url}/cri/1985-1986-extraordinaire1",
-                'year': 1985,
-                'description': "CRI 1985-1986 extraordinaire1 - Mention BUMIDOM trouvée"
-            },
-            {
-                'url': f"{self.base_url}/cri/1970-1971-ordinaire2",
-                'year': 1970,
-                'description': "CRI 1970-1971 ordinaire2 - Mention BUMIDOM trouvée"
-            },
-        ]
-        
-        return direct_urls
+    # Vos résultats Google (collés depuis votre message)
+    google_results_text = """
+    JOURNAL OFFICIAL - Assemblée nationale - Archives
+    archives.assemblee-nationale.fr › cri › 1971-1972-ordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    26 oct. 1971 ... Bumidom. Nous avons donc fait un effort très sérieux — je crois qu'il commence à porter ses fruits — pour l'information, comme on l'a ...
     
-    def scrape_direct_url(self, url_info, keyword="BUMIDOM"):
-        """Scrape une URL directe spécifique"""
+    CONSTITUTION DU 4 OCTOBRE 1958 4' Législature
+    archives.assemblee-nationale.fr › cri › 1968-1969-ordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    9 nov. 2025 ... Bumidom. Dès mon arrivée au ministère, je me suis essentielle- ment préoccupé des conditions d'accueil et d'adaptation des originaires des ...
+    
+    Assemblée nationale - Archives
+    archives.assemblee-nationale.fr › cri › 1966-1967-ordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    le BUMIDOM qui, en 1965, a facilité l'installation en métropole. La réalisation effective de la parité globale se poursuivra de 7.000 personnes. en. 1967 . C ...
+    
+    CONSTITUTION DU 4 OCTOBRE 1958 7' Législature
+    archives.assemblee-nationale.fr › cri › 1982-1983-ordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    5 nov. 1982 ... Le Bumidom, tant décrié par vos amis, a été, dans la pratique, remplacé par un succédané — l'agence nationale pour l'insertion et la ...
+    
+    COMPTE RENDU INTEGRAL - Assemblée nationale - Archives
+    archives.assemblee-nationale.fr › cri › 1976-1977-ordinaire2
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    27 janv. 2025 ... des crédits affectés au Bumidom pour les années 1976 et 1977;. 2° les raisons de la réduction des crédits pour l'année 1977 si tou- tefois ...
+    
+    CONSTITUTION DU 4 OCTOBRE 1958 4° Législature
+    archives.assemblee-nationale.fr › cri › 1970-1971-ordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    16 nov. 1970 ... des départements d'outre-mer — Bumidom — dont l'objectif est à la fois de faciliter l'immigration et d'orienter les tra- vailleurs vers un ...
+    
+    JOUR AL OFFICIEL - Assemblée nationale - Archives
+    archives.assemblee-nationale.fr › cri › 1971-1972-ordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    5 nov. 2025 ... société d 'Etat « Bumidom », qui prend à sa charge les frais du voyage. En conséquence, il lui demande quelles mesures il compte prendre ...
+    
+    CONSTITUTION DU 4 OCTOBRE 1958 4° Législature
+    archives.assemblee-nationale.fr › cri › 1970-1971-ordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    26 oct. 1970 ... Le Bumidom ne devrait pas être traité comme un instrument de la ... tés d'accueil et du Bumidom, c'est-à-dire du bureau des migrations.
+    
+    DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives
+    archives.assemblee-nationale.fr › cri › 1985-1986-extraordinaire1
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    11 juil. 1986 ... Bumidom . On crée l ' A.N.T., Agence nationale pour l ' inser- tion et la promotion des travailleurs. Le slogan gouverne- mental était ...
+    
+    JOUR: AL OFFICIEL - Assemblée nationale - Archives
+    archives.assemblee-nationale.fr › cri › 1970-1971-ordinaire2
+    Image miniature
+    Format de fichier : PDF/Adobe Acrobat
+    7 mars 2025 ... nisée par le Bumidom, est loin d'être satisfaisante. Ses effets sont du reste annihilés par l'entrée d'une main-d'oeuvre impor- tante dans ...
+    """
+    
+    # Analyser le texte
+    lines = google_results_text.strip().split('\n')
+    results = []
+    current_result = {}
+    
+    for line in lines:
+        line = line.strip()
         
-        results = []
+        # Nouveau résultat commence par un titre
+        if line and not line.startswith('archives.assemblee-nationale.fr') and not line.startswith('Image') and not line.startswith('Format'):
+            if current_result:
+                results.append(current_result)
+                current_result = {}
+            
+            if line and len(line) > 10:
+                current_result['title'] = line
         
-        try:
-            st.write(f"🔍 {url_info['year']} - {url_info['description'][:50]}...")
-            
-            response = self.session.get(url_info['url'], timeout=15)
-            
-            if response.status_code == 200:
-                soup = BeautifulSoup(response.content, 'html.parser')
+        # URL trouvée
+        elif 'archives.assemblee-nationale.fr' in line:
+            # Extraire l'URL partielle
+            match = re.search(r'› cri › (.+)$', line)
+            if match:
+                url_part = match.group(1).strip()
+                current_result['url_part'] = url_part
                 
-                # OPTION 1: Chercher des liens PDF directs
-                pdf_links = soup.find_all('a', href=re.compile(r'\.pdf$', re.I))
-                
-                if pdf_links:
-                    st.success(f"  → {len(pdf_links)} PDF trouvé(s) sur la page")
-                    
-                    for link in pdf_links:
-                        href = link.get('href', '')
-                        if href:
-                            # Compléter l'URL
-                            if not href.startswith('http'):
-                                href = urljoin(url_info['url'], href)
-                            
-                            title = link.get_text(strip=True)
-                            if not title:
-                                title = href.split('/')[-1]
-                            
-                            pdf_info = {
-                                'url': href,
-                                'title': title[:200],
-                                'source_url': url_info['url'],
-                                'year': url_info['year'],
-                                'description': url_info['description'],
-                                'type': 'pdf_direct'
-                            }
-                            
-                            results.append(pdf_info)
-                
-                # OPTION 2: Si pas de PDF directs, vérifier si la page EST un PDF
-                elif 'pdf' in response.headers.get('content-type', '').lower():
-                    # La page elle-même est un PDF
-                    pdf_info = {
-                        'url': url_info['url'],
-                        'title': f"CRI {url_info['year']}",
-                        'source_url': url_info['url'],
-                        'year': url_info['year'],
-                        'description': url_info['description'],
-                        'type': 'page_is_pdf'
-                    }
-                    results.append(pdf_info)
-                    st.success("  → La page est elle-même un PDF")
-                
-                # OPTION 3: Chercher dans le contenu HTML
-                else:
-                    # Extraire tout le texte
-                    all_text = soup.get_text()
-                    
-                    # Vérifier si le mot-clé est dans la page
-                    if keyword.lower() in all_text.lower():
-                        # Chercher des liens vers d'autres ressources
-                        all_links = soup.find_all('a', href=True)
-                        
-                        for link in all_links[:20]:  # Limiter aux 20 premiers
-                            href = link.get('href', '')
-                            if href and ('pdf' in href.lower() or 'cri' in href.lower()):
-                                if not href.startswith('http'):
-                                    href = urljoin(url_info['url'], href)
-                                
-                                title = link.get_text(strip=True)
-                                if not title:
-                                    title = f"Document {url_info['year']}"
-                                
-                                pdf_info = {
-                                    'url': href,
-                                    'title': title[:200],
-                                    'source_url': url_info['url'],
-                                    'year': url_info['year'],
-                                    'description': url_info['description'],
-                                    'type': 'html_link'
-                                }
-                                
-                                results.append(pdf_info)
-                        
-                        if results:
-                            st.success(f"  → {len(results)} liens trouvés dans le HTML")
-                    
-                    else:
-                        st.warning("  → Mot-clé non trouvé sur la page")
-                
-                return results
-                
-            elif response.status_code == 403:
-                st.error(f"  ❌ Accès interdit (403) - Protection anti-bot")
-                return []
-                
-            elif response.status_code == 404:
-                st.warning(f"  ⚠️ Page non trouvée (404)")
-                
-                # Essayer des variantes
-                return self.try_url_variations(url_info)
-                
+                # Extraire l'année
+                year_match = re.search(r'(\d{4})-(\d{4})', url_part)
+                if year_match:
+                    current_result['year_start'] = int(year_match.group(1))
+                    current_result['year_end'] = int(year_match.group(2))
+                    current_result['year'] = int(year_match.group(1))
+        
+        # Date trouvée
+        elif re.search(r'\d{1,2}\s+\w+\.?\s+\d{4}', line):
+            date_match = re.search(r'(\d{1,2}\s+\w+\.?\s+\d{4})', line)
+            if date_match:
+                current_result['date'] = date_match.group(1)
+        
+        # Extrait de texte
+        elif 'Bumidom' in line or 'BUMIDOM' in line:
+            if 'extract' not in current_result:
+                current_result['extract'] = line
             else:
-                st.warning(f"  ⚠️ Erreur HTTP {response.status_code}")
-                return []
-                
-        except Exception as e:
-            st.error(f"  ❌ Erreur: {str(e)[:100]}")
-            return []
+                current_result['extract'] += " " + line
     
-    def try_url_variations(self, url_info):
-        """Essaye différentes variations d'URL"""
-        
-        variations = []
-        base_path = url_info['url'].replace(self.base_url, "")
-        
-        # Variation 1: Ajouter .pdf à la fin
-        variations.append(f"{url_info['url']}.pdf")
-        
-        # Variation 2: Changer l'ordre des paramètres
-        if 'ordinaire' in base_path:
-            variations.append(url_info['url'].replace('ordinaire', 'extraordinaire'))
-        
-        # Variation 3: Essayer avec numéro de législature
-        legislature = self.get_legislature(url_info['year'])
-        if legislature:
-            variations.append(f"{self.base_url}/{legislature}{base_path}")
-        
-        for variation in variations:
-            try:
-                st.write(f"  ↳ Essai variation: {variation.split('/')[-1]}")
-                
-                response = self.session.get(variation, timeout=10)
-                if response.status_code == 200:
-                    st.success(f"    → Variation fonctionnelle trouvée!")
-                    
-                    return [{
-                        'url': variation,
-                        'title': f"CRI {url_info['year']} (variation)",
-                        'source_url': url_info['url'],
-                        'year': url_info['year'],
-                        'description': f"Variation de {url_info['description']}",
-                        'type': 'url_variation'
-                    }]
-                    
-            except:
-                continue
-        
-        return []
+    # Ajouter le dernier résultat
+    if current_result:
+        results.append(current_result)
     
-    def get_legislature(self, year):
-        """Retourne la législature pour une année"""
-        if 1962 <= year <= 1967:
-            return "2"
-        elif 1967 <= year <= 1968:
-            return "3"
-        elif 1968 <= year <= 1973:
-            return "4"
-        elif 1973 <= year <= 1978:
-            return "5"
-        elif 1978 <= year <= 1981:
-            return "6"
-        elif 1981 <= year <= 1986:
-            return "7"
-        else:
-            return None
-    
-    def analyze_pdf_content(self, pdf_info, keyword="BUMIDOM"):
-        """Analyse le contenu d'un PDF"""
-        
-        try:
-            st.write(f"📊 Analyse: {pdf_info['title'][:50]}...")
+    # Nettoyer et formater les résultats
+    formatted_results = []
+    for i, result in enumerate(results):
+        if 'title' in result and 'url_part' in result:
+            # Construire l'URL complète
+            url = f"https://archives.assemblee-nationale.fr/cri/{result['url_part']}"
             
-            # Télécharger le PDF
-            response = self.session.get(pdf_info['url'], timeout=20, stream=True)
+            # Identifier le type de document
+            doc_type = "CRI"
+            if 'CONSTITUTION' in result.get('title', ''):
+                doc_type = "Constitution"
+            elif 'JOURNAL' in result.get('title', ''):
+                doc_type = "Journal Officiel"
+            elif 'COMPTE RENDU' in result.get('title', ''):
+                doc_type = "Compte Rendu"
             
-            if response.status_code == 200:
-                content = response.content
-                
-                # OPTION 1: Vérifier si c'est un PDF valide
-                if content.startswith(b'%PDF'):
-                    
-                    # Pour les PDF textuels simples
-                    try:
-                        # Essayer de décoder en texte
-                        text = content.decode('utf-8', errors='ignore')
-                        
-                        # Rechercher le mot-clé
-                        keyword_lower = keyword.lower()
-                        text_lower = text.lower()
-                        
-                        if keyword_lower in text_lower:
-                            # Compter les occurrences
-                            occurrences = text_lower.count(keyword_lower)
-                            
-                            # Extraire le contexte
-                            contexts = []
-                            start_idx = 0
-                            
-                            for _ in range(min(3, occurrences)):  # 3 premiers contextes max
-                                pos = text_lower.find(keyword_lower, start_idx)
-                                if pos != -1:
-                                    start = max(0, pos - 150)
-                                    end = min(len(text), pos + len(keyword) + 150)
-                                    context = text[start:end].replace('\n', ' ').strip()
-                                    contexts.append(context)
-                                    start_idx = pos + 1
-                            
-                            return {
-                                **pdf_info,
-                                'contains_keyword': True,
-                                'occurrences': occurrences,
-                                'contexts': contexts,
-                                'file_type': 'pdf_text',
-                                'error': None
-                            }
-                        else:
-                            return {
-                                **pdf_info,
-                                'contains_keyword': False,
-                                'occurrences': 0,
-                                'contexts': [],
-                                'file_type': 'pdf_text',
-                                'error': None
-                            }
-                            
-                    except:
-                        # PDF binaire - chercher dans les bytes
-                        if keyword.lower().encode() in content.lower():
-                            return {
-                                **pdf_info,
-                                'contains_keyword': True,
-                                'occurrences': 1,  # Approximation
-                                'contexts': ["PDF binaire - mot-clé détecté"],
-                                'file_type': 'pdf_binary',
-                                'error': None
-                            }
-                        else:
-                            return {
-                                **pdf_info,
-                                'contains_keyword': False,
-                                'occurrences': 0,
-                                'contexts': [],
-                                'file_type': 'pdf_binary',
-                                'error': 'PDF binaire (OCR nécessaire)'
-                            }
-                
-                else:
-                    # Pas un PDF valide
-                    return {
-                        **pdf_info,
-                        'contains_keyword': False,
-                        'occurrences': 0,
-                        'contexts': [],
-                        'file_type': 'not_pdf',
-                        'error': 'Fichier non PDF'
-                    }
-                    
-            else:
-                return {
-                    **pdf_info,
-                    'contains_keyword': False,
-                    'occurrences': 0,
-                    'contexts': [],
-                    'file_type': 'error',
-                    'error': f'HTTP {response.status_code}'
-                }
-                
-        except Exception as e:
-            return {
-                **pdf_info,
-                'contains_keyword': False,
-                'occurrences': 0,
-                'contexts': [],
-                'file_type': 'error',
-                'error': str(e)[:100]
-            }
+            formatted_results.append({
+                'id': i + 1,
+                'titre': result.get('title', 'Document sans titre'),
+                'url': url,
+                'url_part': result.get('url_part', ''),
+                'année': result.get('year', 'N/A'),
+                'date': result.get('date', 'Date inconnue'),
+                'extrait': result.get('extract', 'Pas d\'extrait'),
+                'type': doc_type,
+                'législature': result.get('year', '')  # Approximation
+            })
     
-    def get_preview_html(self, pdf_url):
-        """Génère du HTML pour prévisualiser un PDF"""
-        try:
-            response = self.session.get(pdf_url, timeout=15)
-            if response.status_code == 200:
-                b64_pdf = base64.b64encode(response.content).decode()
-                return f'''
-                <iframe src="data:application/pdf;base64,{b64_pdf}" 
-                        width="100%" 
-                        height="600"
-                        style="border: 1px solid #ccc; border-radius: 5px;">
-                </iframe>
-                '''
-        except:
-            return None
+    return formatted_results
+
+def extract_context(extrait, keyword="BUMIDOM"):
+    """Extrait le contexte autour du mot-clé"""
+    if not extrait:
+        return ""
+    
+    # Trouver la position du mot-clé
+    texte_lower = extrait.lower()
+    keyword_lower = keyword.lower()
+    
+    pos = texte_lower.find(keyword_lower)
+    if pos == -1:
+        return extrait[:150] + "..." if len(extrait) > 150 else extrait
+    
+    # Extraire 100 caractères avant et après
+    start = max(0, pos - 100)
+    end = min(len(extrait), pos + len(keyword) + 100)
+    
+    context = extrait[start:end]
+    
+    # Ajouter des ellipses si nécessaire
+    if start > 0:
+        context = "..." + context
+    if end < len(extrait):
+        context = context + "..."
+    
+    return context
 
 def main():
     # Sidebar
     with st.sidebar:
-        st.header("⚙️ Configuration")
+        st.header("⚙️ Analyse des résultats")
         
-        keyword = st.text_input("Mot-clé:", value="BUMIDOM")
+        keyword = st.text_input("Mot-clé analysé:", value="BUMIDOM")
         
-        st.markdown("### 📅 URLs disponibles")
+        st.markdown("### 📊 Filtres")
         
-        # URLs basées sur vos résultats
-        urls_info = [
-            {"id": 1, "année": "1971-1972", "type": "ordinaire1", "description": "Mention BUMIDOM confirmée"},
-            {"id": 2, "année": "1968-1969", "type": "ordinaire1", "description": "Mention BUMIDOM confirmée"},
-            {"id": 3, "année": "1966-1967", "type": "ordinaire1", "description": "Mention BUMIDOM confirmée"},
-            {"id": 4, "année": "1982-1983", "type": "ordinaire1", "description": "Mention BUMIDOM confirmée"},
-            {"id": 5, "année": "1976-1977", "type": "ordinaire2", "description": "Mention BUMIDOM confirmée"},
-            {"id": 6, "année": "1970-1971", "type": "ordinaire1", "description": "Mention BUMIDOM confirmée"},
-            {"id": 7, "année": "1985-1986", "type": "extraordinaire1", "description": "Mention BUMIDOM confirmée"},
-            {"id": 8, "année": "1970-1971", "type": "ordinaire2", "description": "Mention BUMIDOM confirmée"},
-        ]
+        show_all = st.checkbox("Afficher tous les résultats", value=True)
         
-        selected_ids = st.multiselect(
-            "Sélectionner les URLs à scraper:",
-            [f"{u['id']}. {u['année']} ({u['type']})" for u in urls_info],
-            default=[f"{u['id']}. {u['année']} ({u['type']})" for u in urls_info[:4]]
-        )
+        if show_all:
+            min_year = st.slider("Année minimum:", 1960, 1990, 1966)
+            max_year = st.slider("Année maximum:", 1960, 1990, 1986)
+        
+        st.markdown("---")
         
         col1, col2 = st.columns(2)
         with col1:
-            auto_analyze = st.checkbox("Analyser contenu", value=True)
+            analyze_btn = st.button("🔍 Analyser résultats", type="primary", use_container_width=True)
         with col2:
-            show_preview = st.checkbox("Aperçu PDF", value=False)
-        
-        st.markdown("---")
-        
-        col_btn1, col_btn2 = st.columns(2)
-        with col_btn1:
-            scrape_btn = st.button("🚀 Lancer le scraping", type="primary", use_container_width=True)
-        with col_btn2:
-            clear_btn = st.button("🧹 Réinitialiser", use_container_width=True)
+            export_btn = st.button("📥 Exporter données", use_container_width=True)
         
         st.markdown("---")
         st.info("""
-        **URLs format:**
-        ```
-        /cri/AAAA-AAAA-typeNUMERO
-        ```
-        Ex: /cri/1971-1972-ordinaire1
+        **Source:** Résultats Google
+        **Période:** 1966-1986
+        **Documents:** 10 résultats trouvés
         """)
     
-    # État de session
-    if 'scraping_results' not in st.session_state:
-        st.session_state.scraping_results = []
-    if 'analysis_results' not in st.session_state:
-        st.session_state.analysis_results = []
-    
-    if clear_btn:
-        st.session_state.scraping_results = []
-        st.session_state.analysis_results = []
-        st.rerun()
-    
-    # Scraping principal
-    if scrape_btn:
-        scraper = DirectURLScraper()
-        
-        # Récupérer les URLs directes
-        all_urls = scraper.get_direct_urls_from_your_results()
-        
-        # Filtrer selon la sélection
-        selected_urls = []
-        if selected_ids:
-            for url_info in all_urls:
-                year_str = str(url_info['year'])
-                for selected in selected_ids:
-                    if year_str in selected:
-                        selected_urls.append(url_info)
-                        break
-        else:
-            selected_urls = all_urls[:4]  # Par défaut, les 4 premières
-        
-        st.info(f"Scraping de {len(selected_urls)} URLs directes...")
-        
-        all_pdfs = []
-        
-        for url_info in selected_urls:
-            pdfs = scraper.scrape_direct_url(url_info, keyword)
-            all_pdfs.extend(pdfs)
-            time.sleep(0.5)  # Pause entre les requêtes
-        
-        st.session_state.scraping_results = all_pdfs
-        
-        if all_pdfs:
-            st.success(f"✅ {len(all_pdfs)} documents trouvés")
-            
-            # Analyse automatique
-            if auto_analyze and all_pdfs:
-                with st.spinner("Analyse du contenu..."):
-                    analyzed = []
-                    
-                    for pdf in all_pdfs:
-                        analysis = scraper.analyze_pdf_content(pdf, keyword)
-                        analyzed.append(analysis)
-                    
-                    st.session_state.analysis_results = analyzed
-        
-        else:
-            st.warning("❌ Aucun document trouvé")
+    # Analyse des résultats
+    if analyze_btn or 'results' not in st.session_state:
+        with st.spinner("Analyse des résultats Google..."):
+            results = parse_google_results()
+            st.session_state.results = results
     
     # Affichage des résultats
-    if st.session_state.scraping_results:
-        st.subheader(f"📊 Résultats: {len(st.session_state.scraping_results)} documents")
+    if 'results' in st.session_state:
+        results = st.session_state.results
         
-        # Tableau récapitulatif
-        df = pd.DataFrame(st.session_state.scraping_results)
+        st.success(f"✅ {len(results)} documents trouvés dans les résultats Google")
         
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Documents", len(df))
-        with col2:
-            st.metric("Années", df['year'].nunique())
-        with col3:
-            if st.session_state.analysis_results:
-                with_keyword = len([r for r in st.session_state.analysis_results 
-                                  if r.get('contains_keyword')])
-                st.metric("Contient BUMIDOM", with_keyword)
+        # Statistiques
+        st.subheader("📈 Statistiques")
         
-        # Afficher les documents avec analyse
-        if st.session_state.analysis_results:
-            st.subheader("🔍 Documents analysés")
-            
-            # Séparer par présence du mot-clé
-            with_keyword = [r for r in st.session_state.analysis_results 
-                          if r.get('contains_keyword')]
-            without_keyword = [r for r in st.session_state.analysis_results 
-                             if not r.get('contains_keyword')]
-            
-            if with_keyword:
-                st.success(f"🎯 {len(with_keyword)} documents contiennent '{keyword}'")
+        col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
+        with col_stat1:
+            st.metric("Documents", len(results))
+        with col_stat2:
+            years = len(set(r['année'] for r in results if r['année'] != 'N/A'))
+            st.metric("Années", years)
+        with col_stat3:
+            types = len(set(r['type'] for r in results))
+            st.metric("Types", types)
+        with col_stat4:
+            mentions = sum(1 for r in results if 'extrait' in r and r['extrait'])
+            st.metric("Mentions", mentions)
+        
+        # Tableau des résultats
+        st.subheader("📋 Documents trouvés")
+        
+        # Filtrer par année si demandé
+        filtered_results = results
+        if 'show_all' in locals() and not show_all:
+            filtered_results = [r for r in results 
+                              if r['année'] != 'N/A' 
+                              and min_year <= r['année'] <= max_year]
+        
+        # Afficher chaque document
+        for doc in filtered_results:
+            with st.expander(f"📄 {doc['titre'][:80]}... ({doc['année']})"):
+                col_doc1, col_doc2 = st.columns([3, 1])
                 
-                for doc in with_keyword:
-                    with st.expander(f"📅 {doc['year']} - {doc['title'][:80]}... ({doc['occurrences']} occ.)"):
-                        col_a, col_b = st.columns([3, 1])
+                with col_doc1:
+                    st.markdown(f"**Type:** {doc['type']}")
+                    st.markdown(f"**Année:** {doc['année']}")
+                    st.markdown(f"**Date:** {doc['date']}")
+                    st.markdown(f"**URL Google:** `{doc['url_part']}`")
+                    
+                    # Contexte extrait
+                    if doc['extrait']:
+                        st.markdown("**Extrait Google:**")
                         
-                        with col_a:
-                            st.markdown(f"**URL:** `{doc['url']}`")
-                            st.markdown(f"**Type:** {doc.get('type', 'N/A')}")
-                            st.markdown(f"**Source:** {doc.get('description', 'N/A')}")
-                            st.markdown(f"**Occurrences:** {doc['occurrences']}")
-                            
-                            if doc.get('contexts'):
-                                st.markdown("**Contextes trouvés:**")
-                                for i, context in enumerate(doc['contexts'][:2]):
-                                    highlighted = re.sub(
-                                        r'(' + re.escape(keyword) + ')',
-                                        r'**\1**',
-                                        context,
-                                        flags=re.IGNORECASE
+                        # Mettre en évidence le mot-clé
+                        highlighted = re.sub(
+                            r'(' + re.escape(keyword) + ')',
+                            r'**\1**',
+                            doc['extrait'],
+                            flags=re.IGNORECASE
+                        )
+                        st.markdown(f"> {highlighted}")
+                    
+                    # Informations supplémentaires
+                    st.markdown("**Structure d'URL:**")
+                    st.code(f"https://archives.assemblee-nationale.fr/cri/{doc['url_part']}")
+                
+                with col_doc2:
+                    # Tentative d'accès
+                    st.markdown("**Accès:**")
+                    
+                    # Bouton pour essayer l'URL
+                    if st.button("🔗 Tester l'URL", key=f"test_{doc['id']}"):
+                        import requests
+                        try:
+                            response = requests.get(doc['url'], timeout=10)
+                            if response.status_code == 200:
+                                st.success(f"✅ Accessible ({response.status_code})")
+                                
+                                # Vérifier si c'est un PDF
+                                if 'pdf' in response.headers.get('content-type', '').lower():
+                                    st.info("📄 Fichier PDF détecté")
+                                    
+                                    # Option de téléchargement
+                                    st.download_button(
+                                        label="📥 Télécharger",
+                                        data=response.content,
+                                        file_name=f"{doc['url_part']}.pdf",
+                                        mime="application/pdf",
+                                        key=f"dl_{doc['id']}"
                                     )
-                                    st.markdown(f"{i+1}. *\"{highlighted}\"*")
-                        
-                        with col_b:
-                            st.markdown(f"[🔗 Ouvrir]({doc['url']})", unsafe_allow_html=True)
-                            
-                            if show_preview:
-                                if st.button("👁️ Aperçu", key=f"prev_{doc['url'][-20:]}"):
-                                    preview = scraper.get_preview_html(doc['url'])
-                                    if preview:
-                                        st.markdown(preview, unsafe_allow_html=True)
-                                    else:
-                                        st.warning("Aperçu non disponible")
+                                else:
+                                    st.warning("⚠️ Pas un PDF")
+                            else:
+                                st.error(f"❌ Erreur {response.status_code}")
+                        except Exception as e:
+                            st.error(f"❌ Erreur: {str(e)[:50]}")
+        
+        # Analyse par année
+        st.subheader("📅 Répartition par année")
+        
+        # Grouper par année
+        year_data = {}
+        for doc in results:
+            if doc['année'] != 'N/A':
+                year = doc['année']
+                if year not in year_data:
+                    year_data[year] = 0
+                year_data[year] += 1
+        
+        if year_data:
+            df_years = pd.DataFrame({
+                'Année': list(year_data.keys()),
+                'Documents': list(year_data.values())
+            }).sort_values('Année')
             
-            # Documents sans mot-clé
-            if without_keyword and len(without_keyword) < 10:  # Limiter l'affichage
-                with st.expander(f"📄 {len(without_keyword)} documents sans '{keyword}'"):
-                    for doc in without_keyword[:5]:
-                        st.markdown(f"- {doc['title'][:80]}... ({doc.get('error', 'N/A')})")
-        
-        # Tous les documents trouvés
-        st.subheader("📚 Tous les documents trouvés")
-        
-        for idx, doc in enumerate(st.session_state.scraping_results):
-            col1, col2 = st.columns([4, 1])
-            
-            with col1:
-                st.markdown(f"**{doc['title']}**")
-                st.caption(f"Année: {doc['year']} | Type: {doc.get('type', 'N/A')}")
-            
-            with col2:
-                st.markdown(f"[📥 Télécharger]({doc['url']})", unsafe_allow_html=True)
-        
-        # Export
-        st.subheader("💾 Export des données")
-        
-        col_exp1, col_exp2 = st.columns(2)
-        
-        with col_exp1:
-            # Données brutes
-            csv_raw = df.to_csv(index=False, encoding='utf-8-sig')
-            st.download_button(
-                label="📊 Données brutes (CSV)",
-                data=csv_raw,
-                file_name=f"bumidom_raw_{datetime.now().strftime('%Y%m%d')}.csv",
-                mime="text/csv"
-            )
-        
-        with col_exp2:
-            # Analyses
-            if st.session_state.analysis_results:
-                df_analysis = pd.DataFrame(st.session_state.analysis_results)
-                csv_analysis = df_analysis.to_csv(index=False, encoding='utf-8-sig')
-                st.download_button(
-                    label="🔬 Analyses (CSV)",
-                    data=csv_analysis,
-                    file_name=f"bumidom_analysis_{datetime.now().strftime('%Y%m%d')}.csv",
-                    mime="text/csv"
-                )
-    
-    else:
-        # Écran d'accueil avec manuel de scraping
-        st.markdown("""
-        ## 🎯 Manuel de Scraping Direct
-        
-        ### Problème identifié:
-        Les URLs génériques échouent (403/404), mais vos résultats montrent des URLs **spécifiques** qui fonctionnent.
-        
-        ### URLs confirmées fonctionnelles:
-        """)
+            # Graphique simple
+            st.bar_chart(df_years.set_index('Année'))
         
         # Table des URLs
-        urls_table = pd.DataFrame([
-            {"URL": "/cri/1971-1972-ordinaire1", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-            {"URL": "/cri/1968-1969-ordinaire1", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-            {"URL": "/cri/1966-1967-ordinaire1", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-            {"URL": "/cri/1982-1983-ordinaire1", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-            {"URL": "/cri/1976-1977-ordinaire2", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-            {"URL": "/cri/1970-1971-ordinaire1", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-            {"URL": "/cri/1985-1986-extraordinaire1", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-            {"URL": "/cri/1970-1971-ordinaire2", "Statut": "✅ Confirmé", "Mention BUMIDOM": "Oui"},
-        ])
+        st.subheader("🔗 URLs trouvées")
+        
+        urls_table = pd.DataFrame([{
+            'ID': doc['id'],
+            'Année': doc['année'],
+            'URL Partielle': doc['url_part'],
+            'Type': doc['type']
+        } for doc in results])
         
         st.dataframe(urls_table, use_container_width=True)
         
+        # Export des données
+        if export_btn:
+            st.subheader("💾 Export des données")
+            
+            # Données complètes
+            df_complet = pd.DataFrame(results)
+            
+            col_exp1, col_exp2, col_exp3 = st.columns(3)
+            
+            with col_exp1:
+                # CSV
+                csv_data = df_complet.to_csv(index=False, encoding='utf-8-sig')
+                st.download_button(
+                    label="📊 CSV complet",
+                    data=csv_data,
+                    file_name=f"bumidom_google_results_{datetime.now().strftime('%Y%m%d')}.csv",
+                    mime="text/csv"
+                )
+            
+            with col_exp2:
+                # URLs seulement
+                urls_csv = urls_table.to_csv(index=False, encoding='utf-8-sig')
+                st.download_button(
+                    label="🔗 URLs seulement",
+                    data=urls_csv,
+                    file_name=f"bumidom_urls_{datetime.now().strftime('%Y%m%d')}.csv",
+                    mime="text/csv"
+                )
+            
+            with col_exp3:
+                # Rapport textuel
+                rapport = f"""
+                RAPPORT D'ANALYSE BUMIDOM - RÉSULTATS GOOGLE
+                ============================================
+                
+                Date d'analyse: {datetime.now().strftime('%Y-%m-%d %H:%M')}
+                Nombre de documents: {len(results)}
+                Période couverte: {min(r['année'] for r in results if r['année'] != 'N/A')}-{max(r['année'] for r in results if r['année'] != 'N/A')}
+                
+                DOCUMENTS TROUVÉS:
+                ------------------
+                
+                """
+                
+                for doc in results:
+                    rapport += f"""
+                {doc['id']}. {doc['titre']}
+                   Année: {doc['année']}
+                   Type: {doc['type']}
+                   URL: https://archives.assemblee-nationale.fr/cri/{doc['url_part']}
+                   Extrait: {doc['extrait'][:150]}...
+                   
+                """
+                
+                st.download_button(
+                    label="📝 Rapport texte",
+                    data=rapport,
+                    file_name=f"rapport_bumidom_{datetime.now().strftime('%Y%m%d')}.txt",
+                    mime="text/plain"
+                )
+    
+    else:
+        # Écran d'accueil
         st.markdown("""
-        ### 🚀 Comment utiliser:
+        ## 🎯 Analyse des Résultats Google BUMIDOM
         
-        1. **Sélectionnez les URLs** dans la sidebar (4 pré-sélectionnées)
-        2. **Cliquez sur "🚀 Lancer le scraping"**
-        3. **Explorez** les documents trouvés
-        4. **Analysez** le contenu pour BUMIDOM
-        5. **Exportez** les résultats
+        ### Problème identifié:
+        Les URLs trouvées dans Google retournent **404** quand on essaie d'y accéder directement.
         
-        ### 🔧 Ce que fait ce scraper:
+        ### Solution:
+        Analyser les **extraits de texte** que Google a déjà indexés, qui contiennent les informations précieuses.
         
-        - Accède aux **URLs exactes** que vous avez trouvées
-        - Cherche des **PDF directs** sur chaque page
-        - Vérifie si la page **est elle-même un PDF**
-        - **Analyse le contenu** pour trouver BUMIDOM
-        - **Extrait le contexte** des mentions
-        - **Prévient les erreurs** 403/404 avec des variantes
+        ### 📊 Informations disponibles dans vos résultats:
         
-        ### ⏱️ Temps estimé: 30-60 secondes
+        1. **Titres des documents**
+        2. **URLs structurelles** (pattern)
+        3. **Dates de publication**
+        4. **Extraits de texte** contenant "BUMIDOM"
+        5. **Types de documents** (CRI, Journal Officiel, etc.)
+        
+        ### 🚀 Ce que fait cette analyse:
+        
+        - **Extrait automatiquement** les informations de vos résultats Google
+        - **Analyse le contexte** autour de "BUMIDOM"
+        - **Organise par année** et type de document
+        - **Génère un rapport** détaillé
+        - **Permet de tester** les URLs une par une
+        
+        ### 📋 Exemple d'extrait analysé:
+        
+        ```
+        "le BUMIDOM qui, en 1965, a facilité l'installation en métropole."
+        ```
+        
+        Cette phrase vient du document **1966-1967-ordinaire1** et contient déjà une information historique précieuse.
+        
+        ### ⏱️ Cliquez sur "🔍 Analyser résultats" pour commencer
         """)
-
-# Footer avec installation
-st.sidebar.markdown("---")
-st.sidebar.markdown("### 📦 Installation")
-st.sidebar.code("pip install streamlit requests beautifulsoup4 pandas")
 
 if __name__ == "__main__":
     main()
