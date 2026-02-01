@@ -1,799 +1,1092 @@
+# bumidom_dashboard.py
 import streamlit as st
-import pandas as pd
-import re
-from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
-import json
+import re
+import pandas as pd
+from io import BytesIO
+import fitz  # PyMuPDF
 import time
-from urllib.parse import urljoin
-import io
+from collections import Counter
+import plotly.express as px
+import plotly.graph_objects as go
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+import string
+import hashlib
+import pickle
+import os
+import urllib.parse
+from datetime import datetime
+import json
 
-# Configuration
+# ==================== CONFIGURATION INITIALE ====================
+
+# Configuration de la page
 st.set_page_config(
-    page_title="Archives BUMIDOM - Analyse HTML", 
+    page_title="Dashboard Analyse BUMIDOM",
+    page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("📊 Archives BUMIDOM - Extraction depuis HTML")
-st.markdown("Analyse des pages de résultats HTML fournies")
+# Télécharger les ressources NLTK
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+    nltk.data.find('corpora/stopwords')
+except:
+    nltk.download('punkt', quiet=True)
+    nltk.download('stopwords', quiet=True)
 
-# ============================
-# DONNÉES RÉELLES DU HTML FOURNI
-# ============================
+# Titre de l'application
+st.title("📊 Dashboard d'Analyse BUMIDOM - Archives Assemblée Nationale")
+st.markdown("""
+Analyse des documents parlementaires relatifs au **BUMIDOM** (Bureau pour le développement 
+des migrations dans les départements d'outre-mer, 1963-1982).
+""")
 
-# Extrait du HTML que vous avez fourni (simplifié pour l'exemple)
-REAL_HTML_DATA = {
-    "page1": """
-    <div class="gsc-webResult gsc-result">
-        <div class="gs-webResult gs-result">
-            <div class="gsc-thumbnail-inside">
-                <div class="gs-title">
-                    <a class="gs-title" href="https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/017.pdf" target="_blank">COMPTE RENDU INTEGRAL - Assemblée nationale - Archives</a>
-                </div>
-            </div>
-            <div class="gsc-url-top">
-                <div class="gs-bidi-start-align gs-visibleUrl gs-visibleUrl-breadcrumb">
-                    <span>archives.assemblee-nationale.fr</span><span> › cri</span><span> › 1978-1979-ordinaire2</span>
-                </div>
-            </div>
-            <div class="gsc-table-result">
-                <div class="gsc-table-cell-snippet-close">
-                    <div class="gs-title gsc-table-cell-thumbnail gsc-thumbnail-left">
-                        <a class="gs-title" href="https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/017.pdf" target="_blank">COMPTE RENDU INTEGRAL - Assemblée nationale - Archives</a>
-                    </div>
-                    <div class="gs-fileFormat">
-                        <span class="gs-fileFormat">Format de fichier&nbsp;: </span>
-                        <span class="gs-fileFormatType">PDF/Adobe Acrobat</span>
-                    </div>
-                    <div class="gs-bidi-start-align gs-snippet" dir="ltr">16 févr. 2025 <b>...</b> <b>Bumidom</b> faire une formation professionnelle en métropole . En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et&nbsp;...</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="gsc-webResult gsc-result">
-        <div class="gs-webResult gs-result">
-            <div class="gsc-thumbnail-inside">
-                <div class="gs-title">
-                    <a class="gs-title" href="https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-08-23.pdf" target="_blank">JOURNAL OFFICIEL - Assemblée nationale - Archives</a>
-                </div>
-            </div>
-            <div class="gsc-url-top">
-                <div class="gs-bidi-start-align gs-visibleUrl gs-visibleUrl-breadcrumb">
-                    <span>archives.assemblee-nationale.fr</span><span> › qst</span><span> › 4-qst-1969-08-23</span>
-                </div>
-            </div>
-            <div class="gsc-table-result">
-                <div class="gsc-table-cell-snippet-close">
-                    <div class="gs-title gsc-table-cell-thumbnail gsc-thumbnail-left">
-                        <a class="gs-title" href="https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-08-23.pdf" target="_blank">JOURNAL OFFICIEL - Assemblée nationale - Archives</a>
-                    </div>
-                    <div class="gs-fileFormat">
-                        <span class="gs-fileFormat">Format de fichier&nbsp;: </span>
-                        <span class="gs-fileFormatType">PDF/Adobe Acrobat</span>
-                    </div>
-                    <div class="gs-bidi-start-align gs-snippet" dir="ltr">30 déc. 2025 <b>...</b> en métropole au titre du <b>Bumidom</b> la même année, M . le minist re de l 'économie et des finances indiquait dans sa réponse qu ' il n ' était.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    """,
-    "page2": """
-    <div class="gsc-webResult gsc-result">
-        <div class="gs-webResult gs-result">
-            <div class="gsc-thumbnail-inside">
-                <div class="gs-title">
-                    <a class="gs-title" href="https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/021.pdf" target="_blank">Assemblée nationale - Archives</a>
-                </div>
-            </div>
-            <div class="gsc-url-top">
-                <div class="gs-bidi-start-align gs-visibleUrl gs-visibleUrl-breadcrumb">
-                    <span>archives.assemblee-nationale.fr</span><span> › cri</span><span> › 1964-1965-ordinaire1</span>
-                </div>
-            </div>
-            <div class="gsc-table-result">
-                <div class="gsc-table-cell-snippet-close">
-                    <div class="gs-title gsc-table-cell-thumbnail gsc-thumbnail-left">
-                        <a class="gs-title" href="https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/021.pdf" target="_blank">Assemblée nationale - Archives</a>
-                    </div>
-                    <div class="gs-fileFormat">
-                        <span class="gs-fileFormat">Format de fichier&nbsp;: </span>
-                        <span class="gs-fileFormatType">PDF/Adobe Acrobat</span>
-                    </div>
-                    <div class="gs-bidi-start-align gs-snippet" dir="ltr">écrit, ce n'est pas le <b>BUMIDOM</b> qui a mis à la disposition des migrants ... le <b>BUMIDOM</b> ayant apporté toutefois son aide, sous la forme d'une subvention&nbsp;...</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="gsc-webResult gsc-result">
-        <div class="gs-webResult gs-result">
-            <div class="gsc-thumbnail-inside">
-                <div class="gs-title">
-                    <a class="gs-title" href="https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/051.pdf" target="_blank">JOURNAL OFFICIEL - Assemblée nationale - Archives</a>
-                </div>
-            </div>
-            <div class="gsc-url-top">
-                <div class="gs-bidi-start-align gs-visibleUrl gs-visibleUrl-breadcrumb">
-                    <span>archives.assemblee-nationale.fr</span><span> › cri</span><span> › 1976-1977-ordinaire2</span>
-                </div>
-            </div>
-            <div class="gsc-table-result">
-                <div class="gsc-table-cell-snippet-close">
-                    <div class="gs-title gsc-table-cell-thumbnail gsc-thumbnail-left">
-                        <a class="gs-title" href="https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/051.pdf" target="_blank">JOURNAL OFFICIEL - Assemblée nationale - Archives</a>
-                    </div>
-                    <div class="gs-fileFormat">
-                        <span class="gs-fileFormat">Format de fichier&nbsp;: </span>
-                        <span class="gs-fileFormatType">PDF/Adobe Acrobat</span>
-                    </div>
-                    <div class="gs-bidi-start-align gs-snippet" dir="ltr">De même, il est exact que le <b>Bumidom</b> offre aux candidats à la migration des stages de rattrapage scolaire ou de préformation dans ses centres de Simandes et&nbsp;...</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    """,
-    "page3": """
-    <div class="gsc-webResult gsc-result">
-        <div class="gs-webResult gs-result">
-            <div class="gsc-thumbnail-inside">
-                <div class="gs-title">
-                    <a class="gs-title" href="https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/065.pdf" target="_blank">JOURS AL OFFICIEL - Assemblée nationale - Archives</a>
-                </div>
-            </div>
-            <div class="gsc-url-top">
-                <div class="gs-bidi-start-align gs-visibleUrl gs-visibleUrl-breadcrumb">
-                    <span>archives.assemblee-nationale.fr</span><span> › cri</span><span> › 1970-1971-ordinaire1</span>
-                </div>
-            </div>
-            <div class="gsc-table-result">
-                <div class="gsc-table-cell-snippet-close">
-                    <div class="gs-title gsc-table-cell-thumbnail gsc-thumbnail-left">
-                        <a class="gs-title" href="https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/065.pdf" target="_blank">JOURS AL OFFICIEL - Assemblée nationale - Archives</a>
-                    </div>
-                    <div class="gs-fileFormat">
-                        <span class="gs-fileFormat">Format de fichier&nbsp;: </span>
-                        <span class="gs-fileFormatType">PDF/Adobe Acrobat</span>
-                    </div>
-                    <div class="gs-bidi-start-align gs-snippet" dir="ltr">30 avr. 2025 <b>...</b> <b>Bumidom</b> dans des centres de formation professionne'le ; 7.789 dans des centres F. P. A. ; 3.241 dans des centres du <b>Bumidom</b>;. 943 dans d&nbsp;...</div>
-                </div>
-            </div>
-        </div>
-    </div>
-    """
-}
+# ==================== CLASSES ET FONCTIONS UTILITAIRES ====================
 
-# ============================
-# FONCTIONS D'ANALYSE
-# ============================
-
-def parse_html_results(html_content, page_num):
-    """Parse le HTML pour extraire les résultats"""
+class DocumentCache:
+    """Cache pour stocker les PDFs téléchargés"""
     
-    soup = BeautifulSoup(html_content, 'html.parser')
-    results = []
+    def __init__(self, cache_dir="pdf_cache"):
+        self.cache_dir = cache_dir
+        os.makedirs(cache_dir, exist_ok=True)
     
-    # Trouver tous les résultats Google CSE
-    result_elements = soup.find_all('div', class_=['gsc-webResult', 'gsc-result', 'gs-webResult', 'gs-result'])
+    def get_cache_key(self, url):
+        """Génère une clé unique pour une URL"""
+        return hashlib.md5(url.encode()).hexdigest()
     
-    if not result_elements:
-        # Essayer un autre pattern
-        result_elements = soup.find_all(class_=re.compile(r'result|webResult', re.I))
+    def get_cached_text(self, url):
+        """Récupère le texte depuis le cache"""
+        cache_key = self.get_cache_key(url)
+        cache_file = os.path.join(self.cache_dir, f"{cache_key}.pkl")
+        
+        if os.path.exists(cache_file):
+            try:
+                with open(cache_file, 'rb') as f:
+                    data = pickle.load(f)
+                    return data.get('text', ''), data.get('pages', 0)
+            except:
+                return None, 0
+        return None, 0
     
-    st.info(f"Page {page_num}: {len(result_elements)} résultats trouvés")
-    
-    for idx, element in enumerate(result_elements):
+    def cache_text(self, url, text, pages):
+        """Stocke le texte dans le cache"""
+        cache_key = self.get_cache_key(url)
+        cache_file = os.path.join(self.cache_dir, f"{cache_key}.pkl")
+        
         try:
-            doc = extract_document_info(element, idx, page_num)
-            if doc:
-                results.append(doc)
+            with open(cache_file, 'wb') as f:
+                pickle.dump({'text': text, 'pages': pages, 'url': url, 'timestamp': time.time()}, f)
         except Exception as e:
-            st.warning(f"Erreur extraction {idx}: {str(e)[:50]}")
-            continue
-    
-    return results
+            st.warning(f"Erreur cache: {str(e)}")
 
-def extract_document_info(element, idx, page_num):
-    """Extrait les informations d'un document"""
+# Initialisation du cache
+document_cache = DocumentCache()
+
+# ==================== FONCTIONS DE SCRAPING RÉEL ====================
+
+def search_bumidom_documents_real():
+    """
+    Scrape réel du site des archives pour trouver les documents BUMIDOM
+    """
+    base_url = "https://archives.assemblee-nationale.fr"
+    search_url = f"{base_url}/r/1/search?q=BUMIDOM"
+    
+    documents = []
     
     try:
-        # Titre et URL
-        title_elem = element.find('a', class_='gs-title')
-        if not title_elem:
-            # Essayer d'autres sélecteurs
-            title_elem = element.find('a', href=re.compile(r'\.pdf$', re.I))
+        st.info("🔍 Scraping du site des archives en cours...")
         
-        if not title_elem:
-            return None
+        # Headers pour simuler un navigateur
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept-Language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Connection': 'keep-alive',
+            'Upgrade-Insecure-Requests': '1',
+        }
         
-        title = title_elem.get_text(strip=True)
-        url = title_elem.get('href', '')
+        # Requête HTTP
+        response = requests.get(search_url, headers=headers, timeout=30)
+        response.raise_for_status()
         
-        # Snippet/Extrait
-        snippet_elem = element.find('div', class_='gs-snippet')
-        snippet = snippet_elem.get_text(strip=True) if snippet_elem else ""
+        # Parser le HTML
+        soup = BeautifulSoup(response.content, 'html.parser')
         
-        # Date dans le snippet
-        date_match = re.search(r'(\d{1,2}\s+\w+\.?\s+\d{4})', snippet)
-        date = date_match.group(1) if date_match else ""
+        # Plusieurs stratégies pour trouver les documents
+        found_documents = []
         
-        # Année
-        year = None
-        if date:
-            year_match = re.search(r'(\d{4})', date)
-            if year_match:
-                year = int(year_match.group(1))
+        # Stratégie 1: Chercher tous les liens PDF
+        pdf_links = soup.find_all('a', href=re.compile(r'\.pdf$', re.I))
         
-        # Si pas de date dans le snippet, essayer d'extraire de l'URL
-        if not year:
-            url_year_match = re.search(r'/(\d{4})-(\d{4})/', url)
-            if url_year_match:
-                year = int(url_year_match.group(1))
+        # Stratégie 2: Chercher les résultats de recherche
+        search_results = soup.find_all(['div', 'li'], class_=re.compile(r'(result|item|document)', re.I))
         
-        # Type de document
-        doc_type = determine_doc_type(title, snippet)
+        # Stratégie 3: Chercher par texte
+        bumidom_elements = soup.find_all(text=re.compile(r'bumidom', re.I))
         
-        # Législature
-        legislature = extract_legislature(title, url)
+        st.info(f"PDF trouvés: {len(pdf_links)}, Résultats: {len(search_results)}, Éléments BUMIDOM: {len(bumidom_elements)}")
         
-        # Fichier
-        file_name = url.split('/')[-1] if '/' in url else ""
+        # Combiner toutes les sources
+        all_elements = []
         
-        # Mentions BUMIDOM
-        mentions = count_bumidom_mentions(title + " " + snippet)
+        # Ajouter les liens PDF directs
+        for link in pdf_links[:50]:  # Limiter pour les tests
+            title = link.get_text(strip=True) or link.get('href', 'Document PDF')
+            url = link.get('href', '')
+            
+            if not url.startswith('http'):
+                url = urllib.parse.urljoin(base_url, url)
+            
+            all_elements.append({
+                'title': title,
+                'url': url,
+                'element': link
+            })
         
-        # Session/Ordinaire
-        session = ""
-        if 'ordinaire1' in url:
-            session = "Session ordinaire 1"
-        elif 'ordinaire2' in url:
-            session = "Session ordinaire 2"
-        elif 'extraordinaire' in url:
-            session = "Session extraordinaire"
+        # Traiter les résultats de recherche
+        for result in search_results[:30]:
+            # Essayer d'extraire un titre
+            title_elem = result.find(['h3', 'h4', 'a', 'strong'])
+            title = title_elem.get_text(strip=True) if title_elem else "Document sans titre"
+            
+            # Chercher un lien PDF dans ce résultat
+            pdf_link = result.find('a', href=re.compile(r'\.pdf$', re.I))
+            if pdf_link:
+                url = pdf_link.get('href', '')
+                if not url.startswith('http'):
+                    url = urllib.parse.urljoin(base_url, url)
+                
+                all_elements.append({
+                    'title': title,
+                    'url': url,
+                    'element': result
+                })
         
-        # Numéro de page dans le PDF (si disponible)
-        page_in_pdf = ""
-        pdf_page_match = re.search(r'/(\d{3})\.pdf$', url)
-        if pdf_page_match:
-            page_in_pdf = int(pdf_page_match.group(1))
+        # Filtrer et organiser les documents
+        seen_urls = set()
+        for elem in all_elements:
+            url = elem['url']
+            
+            # Éviter les doublons
+            if url in seen_urls or not url:
+                continue
+            
+            seen_urls.add(url)
+            
+            # Extraire la date si possible
+            date_match = re.search(r'(19\d{2}|20\d{2})', elem['title'])
+            date = date_match.group(1) if date_match else "ND"
+            
+            # Déterminer le type de document
+            doc_type = "Document"
+            title_lower = elem['title'].lower()
+            
+            type_patterns = [
+                ('rapport', 'Rapport'),
+                ('compte rendu', 'Compte rendu'),
+                ('audition', 'Audition'),
+                ('débat', 'Débats'),
+                ('budget', 'Budget'),
+                ('question', 'Question'),
+                ('loi', 'Loi'),
+                ('délibération', 'Délibération'),
+                ('arrêté', 'Arrêté')
+            ]
+            
+            for pattern, doc_type_name in type_patterns:
+                if pattern in title_lower:
+                    doc_type = doc_type_name
+                    break
+            
+            documents.append({
+                'title': elem['title'][:200],  # Limiter la longueur
+                'url': url,
+                'date': date,
+                'type': doc_type,
+                'pages': 0,  # Sera mis à jour lors de l'extraction
+                'source': 'Archives AN'
+            })
+        
+        # Si peu de documents trouvés, en ajouter des simulés pour la démo
+        if len(documents) < 5:
+            st.warning("Peu de documents trouvés. Ajout de documents de démonstration...")
+            documents.extend(get_sample_documents()[:10])
+        
+        st.success(f"✅ {len(documents)} documents trouvés pour analyse")
+        return documents[:100]  # Limiter à 100 documents max
+        
+    except Exception as e:
+        st.error(f"❌ Erreur lors du scraping: {str(e)}")
+        # Retourner des documents de démo en cas d'échec
+        return get_sample_documents()[:20]
+
+def get_sample_documents():
+    """Documents de démonstration si le scraping échoue"""
+    base_url = "https://archives.assemblee-nationale.fr"
+    
+    sample_docs = [
+        {
+            "title": "Rapport sur les activités du BUMIDOM 1963-1965",
+            "url": f"{base_url}/documents/example1.pdf",
+            "date": "1966",
+            "type": "Rapport",
+            "pages": 45,
+            "source": "Démo"
+        },
+        {
+            "title": "Audition du directeur du BUMIDOM - Commission des affaires culturelles",
+            "url": f"{base_url}/documents/example2.pdf",
+            "date": "1970",
+            "type": "Compte rendu",
+            "pages": 28,
+            "source": "Démo"
+        },
+        {
+            "title": "Bilan des migrations DOM-TOM organisées par le BUMIDOM 1963-1977",
+            "url": f"{base_url}/documents/example3.pdf",
+            "date": "1978",
+            "type": "Bilan",
+            "pages": 62,
+            "source": "Démo"
+        },
+        {
+            "title": "Questions au gouvernement concernant le BUMIDOM",
+            "url": f"{base_url}/documents/example4.pdf",
+            "date": "1975",
+            "type": "Question écrite",
+            "pages": 12,
+            "source": "Démo"
+        },
+        {
+            "title": "Débats parlementaires sur le financement du BUMIDOM",
+            "url": f"{base_url}/documents/example5.pdf",
+            "date": "1972",
+            "type": "Débats",
+            "pages": 35,
+            "source": "Démo"
+        },
+        {
+            "title": "Rapport d'enquête sur les conditions d'accueil des migrants du BUMIDOM",
+            "url": f"{base_url}/documents/example6.pdf",
+            "date": "1980",
+            "type": "Rapport d'enquête",
+            "pages": 78,
+            "source": "Démo"
+        },
+        {
+            "title": "Statistiques des migrations BUMIDOM 1963-1981",
+            "url": f"{base_url}/documents/example7.pdf",
+            "date": "1982",
+            "type": "Statistiques",
+            "pages": 54,
+            "source": "Démo"
+        },
+        {
+            "title": "Projet de loi de finances - Budget BUMIDOM 1974",
+            "url": f"{base_url}/documents/example8.pdf",
+            "date": "1974",
+            "type": "Budget",
+            "pages": 42,
+            "source": "Démo"
+        }
+    ]
+    
+    # Ajouter plus de documents variés
+    for i in range(9, 21):
+        year = 1963 + (i * 2) % 20
+        sample_docs.append({
+            "title": f"Document BUMIDOM {i} - Analyse {year}",
+            "url": f"{base_url}/documents/example{i}.pdf",
+            "date": str(year),
+            "type": ["Rapport", "Note", "Étude", "Communication"][i % 4],
+            "pages": 20 + (i * 3) % 40,
+            "source": "Démo"
+        })
+    
+    return sample_docs
+
+# ==================== FONCTIONS D'EXTRACTION PDF ====================
+
+def extract_text_from_pdf_real(pdf_url, max_pages=50):
+    """
+    Extrait le texte d'un PDF réel depuis une URL
+    """
+    # Vérifier le cache d'abord
+    cached_text, cached_pages = document_cache.get_cached_text(pdf_url)
+    if cached_text is not None:
+        return cached_text, cached_pages
+    
+    try:
+        # Headers pour la requête
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Accept': 'application/pdf, */*',
+            'Referer': 'https://archives.assemblee-nationale.fr/'
+        }
+        
+        # Télécharger le PDF
+        response = requests.get(pdf_url, headers=headers, timeout=60, stream=True)
+        response.raise_for_status()
+        
+        # Vérifier le type de contenu
+        content_type = response.headers.get('content-type', '')
+        is_pdf = 'pdf' in content_type.lower() or response.content[:4] == b'%PDF'
+        
+        if not is_pdf:
+            # Essayer de lire quand même
+            st.warning(f"Type de contenu suspect pour {pdf_url}: {content_type}")
+        
+        # Ouvrir le PDF avec PyMuPDF
+        pdf_document = fitz.open(stream=response.content, filetype="pdf")
+        
+        # Extraire le texte page par page
+        text = ""
+        total_pages = pdf_document.page_count
+        
+        # Limiter le nombre de pages pour les gros documents
+        pages_to_extract = min(max_pages, total_pages)
+        
+        for page_num in range(pages_to_extract):
+            page = pdf_document.load_page(page_num)
+            page_text = page.get_text("text")
+            
+            if page_text:
+                # Nettoyer le texte
+                page_text = re.sub(r'\s+', ' ', page_text)
+                page_text = re.sub(r'\n\s*\n', '\n\n', page_text)
+                text += f"--- Page {page_num + 1} ---\n{page_text}\n\n"
+        
+        pdf_document.close()
+        
+        # Mettre en cache
+        document_cache.cache_text(pdf_url, text, total_pages)
+        
+        return text, total_pages
+        
+    except requests.exceptions.RequestException as e:
+        error_msg = f"Erreur réseau: {str(e)}"
+        st.warning(f"❌ {error_msg} pour {pdf_url}")
+        return error_msg, 0
+    except fitz.FileDataError as e:
+        error_msg = f"Fichier PDF invalide: {str(e)}"
+        return error_msg, 0
+    except Exception as e:
+        error_msg = f"Erreur d'extraction: {str(e)}"
+        return error_msg, 0
+
+# ==================== FONCTIONS D'ANALYSE ====================
+
+def analyze_document_text(text):
+    """Analyse le texte d'un document"""
+    if not isinstance(text, str) or len(text.strip()) < 10:
+        return {
+            'word_count': 0,
+            'keyword_counts': {},
+            'top_words': [],
+            'themes': {},
+            'is_valid': False
+        }
+    
+    try:
+        # Compter les mots
+        words = text.split()
+        word_count = len(words)
+        
+        # Mots-clés spécifiques BUMIDOM
+        keywords = [
+            "BUMIDOM", "bumidom", "migration", "migrant", "migrants",
+            "outre-mer", "DOM", "TOM", "département", "départements",
+            "Guadeloupe", "Martinique", "Réunion", "Guyane", "Mayotte",
+            "emploi", "travail", "chômage", "intégration", "accueil",
+            "organisé", "développement", "bureau", "politique", "métropole",
+            "transport", "logement", "santé", "éducation", "formation",
+            "famille", "jeunes", "contrat", "statistique", "bilan"
+        ]
+        
+        # Compter les occurrences
+        keyword_counts = {}
+        text_lower = text.lower()
+        
+        for keyword in keywords:
+            keyword_lower = keyword.lower()
+            # Utiliser regex pour des mots complets
+            pattern = r'\b' + re.escape(keyword_lower) + r'\b'
+            count = len(re.findall(pattern, text_lower))
+            if count > 0:
+                keyword_counts[keyword] = count
+        
+        # Mots les plus fréquents (hors mots vides)
+        try:
+            stop_words = set(stopwords.words('french'))
+            # Ajouter des mots vides courants
+            stop_words.update(['plus', 'tout', 'tous', 'toutes', 'comme', 'faire', 'très'])
+            
+            tokens = word_tokenize(text_lower)
+            filtered_tokens = [
+                word for word in tokens 
+                if word.isalnum() 
+                and word not in stop_words 
+                and len(word) > 2
+                and not any(char.isdigit() for char in word)
+            ]
+            
+            word_freq = Counter(filtered_tokens)
+            top_words = word_freq.most_common(10)
+        except:
+            top_words = []
+        
+        # Identifier les thèmes
+        themes = {
+            "Migration": ["migration", "migrant", "départ", "arrivée", "déplacement", "voyage"],
+            "Territoires": ["guadeloupe", "martinique", "réunion", "guyane", "mayotte", "dom", "tom"],
+            "Emploi": ["emploi", "travail", "chômage", "qualification", "formation", "métier"],
+            "Politique": ["politique", "gouvernement", "ministère", "budget", "loi", "décision"],
+            "Social": ["intégration", "accueil", "logement", "famille", "santé", "éducation"],
+            "Administratif": ["bureau", "administration", "service", "direction", "organisation"]
+        }
+        
+        theme_counts = {}
+        for theme, theme_keywords in themes.items():
+            total = 0
+            for keyword in theme_keywords:
+                pattern = r'\b' + re.escape(keyword) + r'\b'
+                total += len(re.findall(pattern, text_lower))
+            if total > 0:
+                theme_counts[theme] = total
         
         return {
-            'id': f"P{page_num:02d}-{idx+1:03d}",
-            'titre': title,
-            'url': url,
-            'extrait': snippet[:400] + "..." if len(snippet) > 400 else snippet,
-            'date': date,
-            'année': year,
-            'type': doc_type,
-            'législature': legislature,
-            'session': session,
-            'fichier': file_name,
-            'page_pdf': page_in_pdf,
-            'mentions': mentions,
-            'page_source': page_num,
-            'index': idx + 1
+            'word_count': word_count,
+            'keyword_counts': keyword_counts,
+            'top_words': top_words,
+            'themes': theme_counts,
+            'is_valid': True
         }
         
     except Exception as e:
-        st.warning(f"Erreur extraction document: {str(e)[:100]}")
-        return None
-
-def determine_doc_type(title, snippet):
-    """Détermine le type de document"""
-    text = (title + " " + snippet).upper()
-    
-    if 'CONSTITUTION' in text:
-        return "Constitution"
-    elif 'JOURNAL' in text or 'JOUR' in text or 'OFFICIEL' in text:
-        return "Journal Officiel"
-    elif 'COMPTE RENDU' in text:
-        return "Compte Rendu"
-    elif 'SEANCE' in text or 'SÉANCE' in text:
-        return "Séance"
-    elif 'QUESTION' in text or 'QST' in text:
-        return "Question"
-    elif 'TABLES' in text or 'ANALYTIQUE' in text:
-        return "Tables analytiques"
-    elif 'RÉPUBLIQUE' in text:
-        return "Débat parlementaire"
-    else:
-        return "Document"
-
-def extract_legislature(title, url):
-    """Extrait la législature"""
-    # Chercher dans le titre
-    leg_match = re.search(r'(\d+)(?:è?me|ème|°|\')\s*(?:LÉGISLATURE|LEGISLATURE|Leg)', title)
-    if leg_match:
-        return f"{leg_match.group(1)}ème"
-    
-    # Chercher dans l'URL (pattern: /2/cri/, /4/qst/, etc.)
-    url_match = re.search(r'/(\d)/[a-z]+/', url)
-    if url_match:
-        leg_num = url_match.group(1)
-        return f"{leg_num}ème"
-    
-    # Essayer d'extraire des années de session
-    year_match = re.search(r'/(\d{4})-(\d{4})/', url)
-    if year_match:
-        year1 = int(year_match.group(1))
-        # Déterminer la législature approximative par l'année
-        if 1958 <= year1 <= 1962:
-            return "1ère"
-        elif 1962 <= year1 <= 1967:
-            return "2ème"
-        elif 1967 <= year1 <= 1968:
-            return "3ème"
-        elif 1968 <= year1 <= 1973:
-            return "4ème"
-        elif 1973 <= year1 <= 1978:
-            return "5ème"
-        elif 1978 <= year1 <= 1981:
-            return "6ème"
-        elif 1981 <= year1 <= 1986:
-            return "7ème"
-        elif 1986 <= year1 <= 1988:
-            return "8ème"
-    
-    return ""
-
-def count_bumidom_mentions(text):
-    """Compte les mentions de BUMIDOM"""
-    if not text:
-        return 0
-    text_upper = text.upper()
-    return text_upper.count('BUMIDOM') + text_upper.count('BUMIDOM')
-
-def test_pdf_access(url):
-    """Teste l'accessibilité d'un PDF"""
-    if not url:
-        return {'accessible': False, 'error': 'URL vide'}
-    
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
-    }
-    
-    try:
-        # Essayer une requête HEAD d'abord
-        response = requests.head(url, headers=headers, timeout=10, allow_redirects=True)
-        
+        st.warning(f"Erreur analyse texte: {str(e)}")
         return {
-            'accessible': response.status_code == 200,
-            'status': response.status_code,
-            'content_type': response.headers.get('content-type', ''),
-            'is_pdf': 'pdf' in response.headers.get('content-type', '').lower(),
-            'size': response.headers.get('content-length')
+            'word_count': 0,
+            'keyword_counts': {},
+            'top_words': [],
+            'themes': {},
+            'is_valid': False
+        }
+
+def analyze_all_documents(documents):
+    """Analyse tous les documents"""
+    st.info(f"🔬 Analyse de {len(documents)} documents en cours...")
+    
+    all_analyses = []
+    all_stats = []
+    all_text = ""
+    corpus_word_freq = Counter()
+    theme_frequencies = Counter()
+    
+    # Barre de progression
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+    
+    # Initialiser les compteurs de thèmes
+    theme_categories = ["Migration", "Territoires", "Emploi", "Politique", "Social", "Administratif"]
+    for theme in theme_categories:
+        theme_frequencies[theme] = 0
+    
+    for idx, doc in enumerate(documents):
+        # Mise à jour de la progression
+        progress = (idx + 1) / len(documents)
+        progress_bar.progress(progress)
+        status_text.text(f"📄 Document {idx+1}/{len(documents)}: {doc['title'][:50]}...")
+        
+        # Extraire le texte
+        text, pages = extract_text_from_pdf_real(doc['url'])
+        
+        # Mettre à jour le nombre de pages
+        doc['pages'] = pages
+        
+        # Analyser le texte
+        analysis = analyze_document_text(text)
+        
+        # Préparer l'analyse du document
+        doc_analysis = {
+            'title': doc['title'],
+            'date': doc['date'],
+            'type': doc['type'],
+            'pages': pages,
+            'url': doc['url'],
+            'source': doc.get('source', 'Archive'),
+            'word_count': analysis['word_count'],
+            'keyword_counts': analysis['keyword_counts'],
+            'top_words': analysis['top_words'],
+            'themes': analysis['themes'],
+            'is_valid': analysis['is_valid'],
+            'text_preview': text[:500] + "..." if isinstance(text, str) and len(text) > 500 else text
         }
         
-    except Exception as e:
-        return {'accessible': False, 'error': str(e)[:100]}
-
-def download_pdf(url):
-    """Télécharge un PDF"""
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        all_analyses.append(doc_analysis)
+        
+        # Ajouter aux statistiques
+        all_stats.append({
+            'Titre': doc['title'][:80],
+            'Année': doc['date'],
+            'Type': doc['type'],
+            'Pages': pages,
+            'Mots': analysis['word_count'],
+            'Fréq. BUMIDOM': analysis['keyword_counts'].get('BUMIDOM', 0),
+            'Migrants': analysis['keyword_counts'].get('migrant', 0) + analysis['keyword_counts'].get('migrants', 0),
+            'Valide': "✅" if analysis['is_valid'] else "❌"
+        })
+        
+        # Ajouter au corpus global
+        if isinstance(text, str) and analysis['is_valid']:
+            all_text += text + " "
+            
+            # Ajouter aux fréquences de mots du corpus
+            try:
+                stop_words = set(stopwords.words('french'))
+                tokens = word_tokenize(text.lower())
+                filtered_tokens = [
+                    word for word in tokens 
+                    if word.isalnum() 
+                    and word not in stop_words 
+                    and len(word) > 3
+                ]
+                corpus_word_freq.update(filtered_tokens)
+            except:
+                pass
+            
+            # Ajouter aux thèmes
+            for theme, count in analysis['themes'].items():
+                theme_frequencies[theme] += count
+        
+        # Petite pause pour ne pas surcharger
+        time.sleep(0.05)
+    
+    # Analyser le corpus complet
+    corpus_analysis = {}
+    if all_text:
+        # Thèmes principaux dans tout le corpus
+        corpus_analysis['theme_frequencies'] = dict(theme_frequencies)
+        
+        # Mots les plus fréquents
+        corpus_analysis['top_corpus_words'] = corpus_word_freq.most_common(20)
+        
+        # Statistiques générales
+        total_words = len(all_text.split())
+        valid_docs = sum(1 for a in all_analyses if a['is_valid'])
+        
+        corpus_analysis['total_words'] = total_words
+        corpus_analysis['valid_documents'] = valid_docs
+        corpus_analysis['total_documents'] = len(documents)
+    
+    progress_bar.empty()
+    status_text.empty()
+    
+    return {
+        'document_analyses': all_analyses,
+        'document_stats': all_stats,
+        'corpus_analysis': corpus_analysis,
+        'all_text': all_text
     }
-    
-    try:
-        response = requests.get(url, headers=headers, timeout=30)
-        if response.status_code == 200:
-            return response.content
-    except Exception as e:
-        st.error(f"Erreur téléchargement: {str(e)[:100]}")
-    
-    return None
 
-def main():
-    # Sidebar
-    with st.sidebar:
-        st.header("⚙️ Configuration")
-        
-        st.markdown("### 🔍 Options d'analyse")
-        
-        total_pages = st.slider("Pages à analyser:", 1, 10, 3)
-        
-        st.markdown("### 🎯 Filtres")
-        
-        col_year1, col_year2 = st.columns(2)
-        with col_year1:
-            min_year = st.number_input("Année min:", 1900, 2025, 1960)
-        with col_year2:
-            max_year = st.number_input("Année max:", 1900, 2025, 1990)
-        
-        doc_types = st.multiselect(
-            "Types de documents:",
-            ["Tous", "Constitution", "Journal Officiel", "Compte Rendu", 
-             "Séance", "Question", "Tables analytiques", "Document"],
-            default=["Tous"]
+# ==================== FONCTIONS DE VISUALISATION ====================
+
+def create_visualizations(data):
+    """Crée les visualisations pour le dashboard"""
+    
+    # Extraire les données
+    stats_df = pd.DataFrame(data['document_stats'])
+    corpus_analysis = data['corpus_analysis']
+    
+    visualizations = {}
+    
+    # 1. Graphique des documents par année
+    if not stats_df.empty and 'Année' in stats_df.columns:
+        try:
+            # Nettoyer les années
+            stats_df['Année_clean'] = stats_df['Année'].apply(
+                lambda x: int(x) if str(x).isdigit() and 1900 <= int(x) <= 2024 else None
+            )
+            stats_df = stats_df.dropna(subset=['Année_clean'])
+            
+            year_counts = stats_df['Année_clean'].value_counts().sort_index()
+            
+            fig_years = px.bar(
+                x=year_counts.index.astype(str),
+                y=year_counts.values,
+                title="📅 Documents par année",
+                labels={'x': 'Année', 'y': 'Nombre de documents'},
+                color=year_counts.values,
+                color_continuous_scale='Blues'
+            )
+            fig_years.update_layout(xaxis_tickangle=-45)
+            visualizations['years_chart'] = fig_years
+        except:
+            pass
+    
+    # 2. Graphique par type de document
+    if not stats_df.empty and 'Type' in stats_df.columns:
+        type_counts = stats_df['Type'].value_counts()
+        fig_types = px.pie(
+            values=type_counts.values,
+            names=type_counts.index,
+            title="📋 Répartition par type de document",
+            hole=0.3
         )
-        
-        legislatures = st.multiselect(
-            "Législatures:",
-            ["Toutes", "1ère", "2ème", "3ème", "4ème", "5ème", "6ème", "7ème", "8ème"],
-            default=["Toutes"]
-        )
-        
-        st.markdown("### ⚡ Options avancées")
-        
-        test_access = st.checkbox("Tester l'accès aux PDFs", value=True)
-        extract_details = st.checkbox("Extraire les détails", value=True)
-        
-        st.markdown("---")
-        
-        col_btn1, col_btn2 = st.columns(2)
-        with col_btn1:
-            analyze_btn = st.button("🔍 Analyser HTML", type="primary", use_container_width=True)
-        with col_btn2:
-            if st.button("🔄 Réinitialiser", use_container_width=True):
-                st.session_state.analysis_results = None
+        fig_types.update_traces(textposition='inside', textinfo='percent+label')
+        visualizations['types_chart'] = fig_types
+    
+    # 3. Graphique des thèmes principaux
+    if 'theme_frequencies' in corpus_analysis:
+        theme_data = corpus_analysis['theme_frequencies']
+        if theme_data:
+            themes_df = pd.DataFrame({
+                'Thème': list(theme_data.keys()),
+                'Fréquence': list(theme_data.values())
+            }).sort_values('Fréquence', ascending=False)
+            
+            fig_themes = px.bar(
+                themes_df,
+                x='Thème',
+                y='Fréquence',
+                title="🏷️ Thèmes principaux du corpus",
+                color='Fréquence',
+                color_continuous_scale='Viridis'
+            )
+            visualizations['themes_chart'] = fig_themes
+    
+    # 4. Mots les plus fréquents
+    if 'top_corpus_words' in corpus_analysis:
+        top_words = corpus_analysis['top_corpus_words'][:15]
+        if top_words:
+            words, counts = zip(*top_words)
+            fig_words = px.bar(
+                x=list(words),
+                y=list(counts),
+                title="🔤 Mots les plus fréquents (hors mots vides)",
+                labels={'x': 'Mot', 'y': 'Fréquence'},
+                color=list(counts),
+                color_continuous_scale='thermal'
+            )
+            fig_words.update_layout(xaxis_tickangle=-45)
+            visualizations['words_chart'] = fig_words
+    
+    # 5. Nuage de mots (simplifié)
+    if 'top_corpus_words' in corpus_analysis:
+        top_words = corpus_analysis['top_corpus_words'][:30]
+        if top_words:
+            words, counts = zip(*top_words)
+            sizes = [c * 2 for c in counts]  # Ajuster la taille
+            
+            fig_cloud = go.Figure()
+            
+            # Positionner les mots aléatoirement
+            import random
+            for word, size in zip(words, sizes):
+                fig_cloud.add_trace(go.Scatter(
+                    x=[random.random()],
+                    y=[random.random()],
+                    mode='text',
+                    text=[word],
+                    textfont=dict(size=size, color=f'rgb({random.randint(50,200)},{random.randint(50,200)},{random.randint(50,200)})'),
+                    showlegend=False
+                ))
+            
+            fig_cloud.update_layout(
+                title="☁️ Nuage de mots clés",
+                xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+                plot_bgcolor='white'
+            )
+            visualizations['wordcloud'] = fig_cloud
+    
+    return visualizations
+
+# ==================== INTERFACE STREAMLIT ====================
+
+# Initialisation de l'état de session
+if 'documents_data' not in st.session_state:
+    st.session_state.documents_data = None
+if 'analysis_done' not in st.session_state:
+    st.session_state.analysis_done = False
+if 'search_performed' not in st.session_state:
+    st.session_state.search_performed = False
+if 'visualizations' not in st.session_state:
+    st.session_state.visualizations = None
+
+# Sidebar
+with st.sidebar:
+    st.header("🔧 Contrôles")
+    
+    # Mode de fonctionnement
+    mode = st.radio(
+        "Mode d'opération",
+        ["Scraping réel", "Données de démonstration", "Test unitaire"],
+        help="Choisissez le mode de récupération des documents"
+    )
+    
+    # Options de scraping
+    st.subheader("Options de recherche")
+    max_documents = st.slider("Nombre max de documents", 10, 100, 50)
+    
+    # Bouton d'action principal
+    if st.button("🚀 Lancer la recherche et l'analyse", type="primary", use_container_width=True):
+        with st.spinner("Scraping et analyse en cours..."):
+            try:
+                # Recherche des documents
+                if mode == "Scraping réel":
+                    documents = search_bumidom_documents_real()
+                elif mode == "Test unitaire":
+                    documents = get_sample_documents()[:5]
+                else:  # Mode démo
+                    documents = get_sample_documents()[:max_documents]
+                
+                if documents:
+                    # Analyse des documents
+                    analysis_results = analyze_all_documents(documents)
+                    
+                    # Créer les visualisations
+                    visualizations = create_visualizations(analysis_results)
+                    
+                    # Stocker dans la session
+                    st.session_state.documents_data = analysis_results
+                    st.session_state.visualizations = visualizations
+                    st.session_state.analysis_done = True
+                    st.session_state.search_performed = True
+                    
+                    st.success(f"✅ Analyse terminée! {len(documents)} documents traités.")
+                else:
+                    st.error("❌ Aucun document trouvé.")
+                    
+            except Exception as e:
+                st.error(f"❌ Erreur: {str(e)}")
+    
+    st.divider()
+    
+    # Gestion du cache
+    st.header("💾 Gestion des données")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("🧹 Vider le cache", type="secondary"):
+            if os.path.exists("pdf_cache"):
+                import shutil
+                shutil.rmtree("pdf_cache")
+                st.success("Cache vidé!")
                 st.rerun()
+    
+    with col2:
+        if st.button("🔄 Rafraîchir", type="secondary"):
+            st.rerun()
+    
+    # Informations
+    if st.session_state.analysis_done:
+        st.divider()
+        st.header("📊 Statistiques")
         
-        st.markdown("---")
+        data = st.session_state.documents_data
+        if data and 'corpus_analysis' in data:
+            stats = data['corpus_analysis']
+            
+            st.metric("Documents totaux", stats.get('total_documents', 0))
+            st.metric("Documents valides", stats.get('valid_documents', 0))
+            st.metric("Mots analysés", f"{stats.get('total_words', 0):,}")
+    
+    st.divider()
+    st.caption("Dashboard BUMIDOM v1.0 • Archives Assemblée Nationale")
+
+# ==================== CONTENU PRINCIPAL ====================
+
+if st.session_state.search_performed and st.session_state.analysis_done:
+    data = st.session_state.documents_data
+    visuals = st.session_state.visualizations
+    
+    # Métriques principales
+    st.header("📈 Vue d'ensemble")
+    
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        total_docs = len(data['document_stats'])
+        st.metric("Documents", total_docs)
+    
+    with col2:
+        valid_docs = sum(1 for doc in data['document_stats'] if doc['Valide'] == '✅')
+        st.metric("Documents valides", valid_docs)
+    
+    with col3:
+        total_pages = sum(doc['Pages'] for doc in data['document_stats'])
+        st.metric("Pages totales", total_pages)
+    
+    with col4:
+        if data['corpus_analysis']:
+            total_words = data['corpus_analysis'].get('total_words', 0)
+            st.metric("Mots analysés", f"{total_words:,}")
+    
+    # Tableau des documents
+    st.header("📄 Documents analysés")
+    
+    stats_df = pd.DataFrame(data['document_stats'])
+    
+    # Filtres
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        if not stats_df.empty and 'Année' in stats_df.columns:
+            years = sorted([y for y in stats_df['Année'].unique() if str(y).isdigit()])
+            selected_years = st.multiselect("Filtrer par année", years, default=years)
+            if selected_years:
+                stats_df = stats_df[stats_df['Année'].isin(selected_years)]
+    
+    with col2:
+        if not stats_df.empty and 'Type' in stats_df.columns:
+            types = sorted(stats_df['Type'].unique())
+            selected_types = st.multiselect("Filtrer par type", types, default=types)
+            if selected_types:
+                stats_df = stats_df[stats_df['Type'].isin(selected_types)]
+    
+    with col3:
+        if not stats_df.empty and 'Valide' in stats_df.columns:
+            validity_filter = st.multiselect("État", ['✅', '❌'], default=['✅', '❌'])
+            if validity_filter:
+                stats_df = stats_df[stats_df['Valide'].isin(validity_filter)]
+    
+    # Afficher le tableau
+    st.dataframe(
+        stats_df,
+        use_container_width=True,
+        hide_index=True,
+        column_config={
+            "Titre": st.column_config.TextColumn(width="large"),
+            "URL": st.column_config.LinkColumn(display_text="Lien")
+        }
+    )
+    
+    # Visualisations
+    st.header("📊 Visualisations interactives")
+    
+    if visuals:
+        # Onglets pour les graphiques
+        tab1, tab2, tab3, tab4 = st.tabs(["📅 Chronologie", "📋 Types", "🏷️ Thèmes", "🔤 Mots"])
         
-        st.markdown("### ℹ️ Information")
-        st.info(f"""
-        **Configuration:**
-        - Pages HTML: {total_pages}
-        - Période: {min_year}-{max_year}
-        - Types: {len(doc_types)} sélectionnés
+        with tab1:
+            if 'years_chart' in visuals:
+                st.plotly_chart(visuals['years_chart'], use_container_width=True)
+            else:
+                st.info("Graphique chronologique non disponible")
         
-        **Source:**
-        Données réelles extraites du HTML fourni
+        with tab2:
+            if 'types_chart' in visuals:
+                st.plotly_chart(visuals['types_chart'], use_container_width=True)
+            else:
+                st.info("Graphique des types non disponible")
+        
+        with tab3:
+            if 'themes_chart' in visuals:
+                st.plotly_chart(visuals['themes_chart'], use_container_width=True)
+            else:
+                st.info("Graphique des thèmes non disponible")
+        
+        with tab4:
+            col1, col2 = st.columns(2)
+            with col1:
+                if 'words_chart' in visuals:
+                    st.plotly_chart(visuals['words_chart'], use_container_width=True)
+            with col2:
+                if 'wordcloud' in visuals:
+                    st.plotly_chart(visuals['wordcloud'], use_container_width=True)
+    
+    # Analyse détaillée par document
+    st.header("🔍 Analyse document par document")
+    
+    for i, doc_analysis in enumerate(data['document_analyses']):
+        # Appliquer les filtres
+        if not stats_df.empty:
+            if doc_analysis['title'][:80] not in stats_df['Titre'].values:
+                continue
+        
+        with st.expander(f"{doc_analysis['title']} ({doc_analysis['date']}) - {doc_analysis['type']}"):
+            col1, col2, col3, col4 = st.columns(4)
+            
+            with col1:
+                st.metric("Mots", doc_analysis['word_count'])
+            
+            with col2:
+                st.metric("Pages", doc_analysis['pages'])
+            
+            with col3:
+                bumidom_count = doc_analysis['keyword_counts'].get('BUMIDOM', 0)
+                st.metric("BUMIDOM", bumidom_count)
+            
+            with col4:
+                migrant_count = doc_analysis['keyword_counts'].get('migrant', 0) + doc_analysis['keyword_counts'].get('migrants', 0)
+                st.metric("Migrants", migrant_count)
+            
+            # Aperçu du texte
+            st.subheader("Extrait")
+            st.text(doc_analysis['text_preview'])
+            
+            # Mots-clés
+            st.subheader("Mots-clés principaux")
+            if doc_analysis['keyword_counts']:
+                keywords_df = pd.DataFrame(
+                    list(doc_analysis['keyword_counts'].items()),
+                    columns=['Mot-clé', 'Occurrences']
+                ).sort_values('Occurrences', ascending=False)
+                
+                st.dataframe(keywords_df, use_container_width=True, hide_index=True)
+            
+            # Thèmes détectés
+            st.subheader("Thèmes détectés")
+            if doc_analysis['themes']:
+                themes_df = pd.DataFrame(
+                    list(doc_analysis['themes'].items()),
+                    columns=['Thème', 'Occurrences']
+                ).sort_values('Occurrences', ascending=False)
+                
+                st.dataframe(themes_df, use_container_width=True, hide_index=True)
+    
+    # Export des données
+    st.header("💾 Export des résultats")
+    
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        # Export CSV
+        csv_data = stats_df.to_csv(index=False).encode('utf-8')
+        st.download_button(
+            label="📥 Télécharger CSV",
+            data=csv_data,
+            file_name="bumidom_analysis.csv",
+            mime="text/csv",
+            use_container_width=True
+        )
+    
+    with col2:
+        # Export JSON
+        export_data = {
+            'metadata': {
+                'date_export': datetime.now().isoformat(),
+                'total_documents': len(data['document_analyses']),
+                'source': 'Archives Assemblée Nationale'
+            },
+            'documents': data['document_analyses']
+        }
+        
+        json_data = json.dumps(export_data, ensure_ascii=False, indent=2)
+        st.download_button(
+            label="📥 Télécharger JSON",
+            data=json_data,
+            file_name="bumidom_analysis.json",
+            mime="application/json",
+            use_container_width=True
+        )
+    
+    with col3:
+        # Rapport texte
+        report_text = f"""RAPPORT D'ANALYSE BUMIDOM
+{'='*50}
+
+Date d'analyse: {datetime.now().strftime('%Y-%m-%d %H:%M')}
+Documents analysés: {len(data['document_analyses'])}
+Documents valides: {valid_docs}
+Pages totales: {total_pages}
+Mots analysés: {total_words:,}
+
+THÈMES PRINCIPAUX:
+"""
+        
+        if data['corpus_analysis'].get('theme_frequencies'):
+            for theme, freq in data['corpus_analysis']['theme_frequencies'].items():
+                report_text += f"\n- {theme}: {freq} occurrences"
+        
+        report_text += "\n\nDOCUMENTS ANALYSÉS:\n"
+        for doc in data['document_stats'][:20]:  # Limiter aux 20 premiers
+            report_text += f"\n- {doc['Titre'][:60]}... ({doc['Année']}, {doc['Type']}, {doc['Pages']} pages)"
+        
+        if len(data['document_stats']) > 20:
+            report_text += f"\n\n... et {len(data['document_stats']) - 20} autres documents"
+        
+        st.download_button(
+            label="📄 Rapport texte",
+            data=report_text.encode('utf-8'),
+            file_name="rapport_bumidom.txt",
+            mime="text/plain",
+            use_container_width=True
+        )
+
+else:
+    # Écran d'accueil
+    st.header("Bienvenue dans l'Analyseur BUMIDOM")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.markdown("""
+        ### 🎯 À propos
+        Cet outil analyse les documents parlementaires français concernant le **BUMIDOM**, organisme ayant géré les migrations des DOM-TOM vers la métropole entre 1963 et 1982.
+        
+        ### 🔍 Sources
+        - Archives de l'Assemblée Nationale
+        - Documents parlementaires
+        - Rapports officiels
+        - Comptes rendus de débats
         """)
     
-    # Initialisation
-    if 'analysis_results' not in st.session_state:
-        st.session_state.analysis_results = None
-    
-    # Analyse
-    if analyze_btn:
-        with st.spinner("Analyse des pages HTML..."):
-            all_results = []
-            stats = {
-                'total_documents': 0,
-                'pages_analysées': 0,
-                'start_time': time.time()
-            }
-            
-            progress_bar = st.progress(0)
-            status_text = st.empty()
-            
-            for page_num in range(1, total_pages + 1):
-                status_text.text(f"Analyse page {page_num}/{total_pages}...")
-                
-                # Récupérer le HTML de la page
-                page_key = f"page{page_num}"
-                if page_key in REAL_HTML_DATA:
-                    html_content = REAL_HTML_DATA[page_key]
-                    page_results = parse_html_results(html_content, page_num)
-                    
-                    if page_results:
-                        all_results.extend(page_results)
-                        stats['pages_analysées'] += 1
-                        st.success(f"✓ Page {page_num}: {len(page_results)} documents")
-                    else:
-                        st.warning(f"⚠ Page {page_num}: Aucun document extrait")
-                else:
-                    st.warning(f"⚠ Page {page_num}: Données non disponibles")
-                
-                progress_bar.progress(page_num / total_pages)
-                time.sleep(0.5)
-            
-            stats['total_documents'] = len(all_results)
-            stats['end_time'] = time.time()
-            stats['duration'] = stats['end_time'] - stats['start_time']
-            
-            st.session_state.analysis_results = all_results
-            st.session_state.analysis_stats = stats
-            
-            progress_bar.empty()
-            status_text.empty()
-            
-            if all_results:
-                st.success(f"✅ Analyse terminée ! {len(all_results)} documents extraits en {stats['duration']:.1f}s.")
-            else:
-                st.warning("⚠️ Aucun document extrait")
-    
-    # Affichage des résultats
-    if st.session_state.analysis_results is not None:
-        results = st.session_state.analysis_results
-        stats = st.session_state.analysis_stats
+    with col2:
+        st.markdown("""
+        ### 🚀 Comment utiliser
+        1. **Configurez** le mode dans la sidebar
+        2. **Lancez** la recherche et l'analyse
+        3. **Explorez** les résultats via les visualisations
+        4. **Exportez** les données pour vos recherches
         
-        if results:
-            # Statistiques
-            st.subheader("📊 Statistiques d'analyse")
-            
-            col_stat1, col_stat2, col_stat3, col_stat4, col_stat5 = st.columns(5)
-            
-            with col_stat1:
-                st.metric("Documents", stats.get('total_documents', 0))
-            with col_stat2:
-                st.metric("Pages analysées", stats.get('pages_analysées', 0))
-            with col_stat3:
-                st.metric("Durée", f"{stats.get('duration', 0):.1f}s")
-            with col_stat4:
-                years = len(set(r.get('année') for r in results if r.get('année')))
-                st.metric("Années", years)
-            with col_stat5:
-                total_mentions = sum(r.get('mentions', 0) for r in results)
-                st.metric("Mentions BUMIDOM", total_mentions)
-            
-            # Filtrage
-            st.subheader("🎯 Filtrage des résultats")
-            
-            filtered_results = []
-            for doc in results:
-                # Filtre année
-                year = doc.get('année')
-                if year and (year < min_year or year > max_year):
-                    continue
-                
-                # Filtre type
-                doc_type = doc.get('type', 'Document')
-                if "Tous" not in doc_types and doc_type not in doc_types:
-                    continue
-                
-                # Filtre législature
-                leg = doc.get('législature', '')
-                if "Toutes" not in legislatures and leg not in legislatures:
-                    continue
-                
-                filtered_results.append(doc)
-            
-            st.info(f"📄 {len(filtered_results)} documents après filtrage")
-            
-            # Affichage des documents
-            st.subheader("📋 Documents extraits")
-            
-            if filtered_results:
-                # Pagination
-                items_per_page = st.slider("Documents par page:", 5, 50, 10, key="display_pagination")
-                total_pages_view = max(1, (len(filtered_results) + items_per_page - 1) // items_per_page)
-                
-                if total_pages_view > 1:
-                    current_page = st.number_input("Page:", 1, total_pages_view, 1, key="display_page")
-                    start_idx = (current_page - 1) * items_per_page
-                    end_idx = min(start_idx + items_per_page, len(filtered_results))
-                    current_docs = filtered_results[start_idx:end_idx]
-                    st.caption(f"Documents {start_idx+1}-{end_idx} sur {len(filtered_results)}")
-                else:
-                    current_docs = filtered_results
-                
-                # Tableau
-                df_data = []
-                for doc in current_docs:
-                    df_data.append({
-                        'ID': doc.get('id', ''),
-                        'Titre': doc.get('titre', '')[:60] + ('...' if len(doc.get('titre', '')) > 60 else ''),
-                        'Type': doc.get('type', ''),
-                        'Année': doc.get('année', ''),
-                        'Législature': doc.get('législature', ''),
-                        'Page': doc.get('page_source', ''),
-                        'Mentions': doc.get('mentions', 0),
-                        'Fichier': doc.get('fichier', '')[:15]
-                    })
-                
-                df = pd.DataFrame(df_data)
-                st.dataframe(df, use_container_width=True, hide_index=True)
-                
-                # Détail d'un document
-                st.subheader("🔍 Détail du document")
-                
-                if current_docs:
-                    doc_options = [f"{doc['id']} - {doc['titre'][:50]}..." for doc in current_docs]
-                    selected_option = st.selectbox("Sélectionner un document:", doc_options, key="doc_select")
-                    
-                    if selected_option:
-                        selected_id = selected_option.split(' - ')[0]
-                        selected_doc = next((d for d in current_docs if d['id'] == selected_id), None)
-                        
-                        if selected_doc:
-                            col_detail1, col_detail2 = st.columns([2, 1])
-                            
-                            with col_detail1:
-                                st.markdown(f"**ID:** {selected_doc.get('id', '')}")
-                                st.markdown(f"**Titre:** {selected_doc.get('titre', '')}")
-                                st.markdown(f"**Type:** {selected_doc.get('type', '')}")
-                                st.markdown(f"**Législature:** {selected_doc.get('législature', '')}")
-                                st.markdown(f"**Session:** {selected_doc.get('session', '')}")
-                                st.markdown(f"**Année:** {selected_doc.get('année', '')}")
-                                st.markdown(f"**Date:** {selected_doc.get('date', '')}")
-                                st.markdown(f"**Page source:** {selected_doc.get('page_source', '')}")
-                                st.markdown(f"**Page PDF:** {selected_doc.get('page_pdf', '')}")
-                                st.markdown(f"**Mentions BUMIDOM:** {selected_doc.get('mentions', 0)}")
-                                st.markdown(f"**Fichier:** {selected_doc.get('fichier', '')}")
-                                
-                                if selected_doc.get('extrait'):
-                                    st.markdown("**Extrait:**")
-                                    extrait = selected_doc['extrait']
-                                    # Mettre en évidence BUMIDOM
-                                    highlighted = re.sub(
-                                        r'(BUMIDOM|Bumidom)',
-                                        r'**\1**',
-                                        extrait
-                                    )
-                                    st.markdown(f"> {highlighted}")
-                                
-                                if selected_doc.get('url'):
-                                    st.markdown("**URL:**")
-                                    st.code(selected_doc['url'])
-                            
-                            with col_detail2:
-                                st.markdown("**Actions:**")
-                                
-                                if selected_doc.get('url') and test_access:
-                                    # Test d'accès
-                                    if st.button("🔗 Tester l'accès PDF", key=f"test_{selected_id}"):
-                                        access_info = test_pdf_access(selected_doc['url'])
-                                        
-                                        if access_info.get('accessible'):
-                                            st.success(f"✅ Accessible (HTTP {access_info.get('status')})")
-                                            
-                                            if access_info.get('is_pdf'):
-                                                st.success("📄 Fichier PDF détecté")
-                                                if access_info.get('size'):
-                                                    size_mb = int(access_info.get('size')) / (1024 * 1024)
-                                                    st.info(f"Taille: {size_mb:.1f} MB")
-                                                
-                                                # Téléchargement
-                                                if st.button("📥 Télécharger PDF", key=f"dl_{selected_id}"):
-                                                    pdf_content = download_pdf(selected_doc['url'])
-                                                    if pdf_content:
-                                                        filename = selected_doc.get('fichier', f"{selected_id}.pdf")
-                                                        st.download_button(
-                                                            label="💾 Sauvegarder PDF",
-                                                            data=pdf_content,
-                                                            file_name=filename,
-                                                            mime="application/pdf",
-                                                            key=f"save_{selected_id}"
-                                                        )
-                                            else:
-                                                st.warning(f"Type: {access_info.get('content_type', 'Inconnu')}")
-                                        else:
-                                            st.error(f"❌ Non accessible")
-                                            if access_info.get('error'):
-                                                st.error(f"Erreur: {access_info.get('error')}")
-                                    
-                                    # Lien direct
-                                    st.markdown(f"[🔗 Ouvrir le PDF]({selected_doc['url']})")
-            
-            # Analyses
-            st.subheader("📈 Analyses")
-            
-            tab1, tab2, tab3, tab4 = st.tabs(["Par année", "Par type", "Par législature", "Par page"])
-            
-            with tab1:
-                year_counts = {}
-                for doc in filtered_results:
-                    year = doc.get('année')
-                    if year:
-                        if year not in year_counts:
-                            year_counts[year] = 0
-                        year_counts[year] += 1
-                
-                if year_counts:
-                    df_years = pd.DataFrame({
-                        'Année': list(year_counts.keys()),
-                        'Documents': list(year_counts.values())
-                    }).sort_values('Année')
-                    
-                    st.bar_chart(df_years.set_index('Année'))
-            
-            with tab2:
-                type_counts = {}
-                for doc in filtered_results:
-                    doc_type = doc.get('type', 'Inconnu')
-                    if doc_type not in type_counts:
-                        type_counts[doc_type] = 0
-                    type_counts[doc_type] += 1
-                
-                if type_counts:
-                    df_types = pd.DataFrame({
-                        'Type': list(type_counts.keys()),
-                        'Documents': list(type_counts.values())
-                    })
-                    
-                    st.bar_chart(df_types.set_index('Type'))
-            
-            with tab3:
-                leg_counts = {}
-                for doc in filtered_results:
-                    leg = doc.get('législature')
-                    if leg:
-                        if leg not in leg_counts:
-                            leg_counts[leg] = 0
-                        leg_counts[leg] += 1
-                
-                if leg_counts:
-                    df_leg = pd.DataFrame({
-                        'Législature': list(leg_counts.keys()),
-                        'Documents': list(leg_counts.values())
-                    })
-                    
-                    try:
-                        df_leg['Num'] = df_leg['Législature'].str.extract(r'(\d+)').astype(int)
-                        df_leg = df_leg.sort_values('Num')
-                    except:
-                        pass
-                    
-                    st.bar_chart(df_leg.set_index('Législature'))
-            
-            with tab4:
-                page_counts = {}
-                for doc in filtered_results:
-                    page = doc.get('page_source', 1)
-                    if page not in page_counts:
-                        page_counts[page] = 0
-                    page_counts[page] += 1
-                
-                if page_counts:
-                    df_pages = pd.DataFrame({
-                        'Page': list(page_counts.keys()),
-                        'Documents': list(page_counts.values())
-                    }).sort_values('Page')
-                    
-                    st.bar_chart(df_pages.set_index('Page'))
-            
-            # Export
-            st.subheader("💾 Export des données")
-            
-            export_format = st.selectbox(
-                "Format d'export:",
-                ["CSV", "JSON", "Excel", "URLs seulement"]
-            )
-            
-            if st.button("📤 Exporter les résultats"):
-                timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-                
-                if export_format == "CSV":
-                    df_export = pd.DataFrame(filtered_results)
-                    csv_data = df_export.to_csv(index=False, encoding='utf-8-sig')
-                    
-                    st.download_button(
-                        label="📥 Télécharger CSV",
-                        data=csv_data,
-                        file_name=f"bumidom_html_{timestamp}.csv",
-                        mime="text/csv"
-                    )
-                
-                elif export_format == "JSON":
-                    json_data = json.dumps(filtered_results, ensure_ascii=False, indent=2)
-                    
-                    st.download_button(
-                        label="📥 Télécharger JSON",
-                        data=json_data,
-                        file_name=f"bumidom_html_{timestamp}.json",
-                        mime="application/json"
-                    )
-                
-                elif export_format == "Excel":
-                    df_export = pd.DataFrame(filtered_results)
-                    
-                    output = io.BytesIO()
-                    with pd.ExcelWriter(output, engine='openpyxl') as writer:
-                        df_export.to_excel(writer, index=False, sheet_name='Documents')
-                    
-                    excel_data = output.getvalue()
-                    
-                    st.download_button(
-                        label="📥 Télécharger Excel",
-                        data=excel_data,
-                        file_name=f"bumidom_html_{timestamp}.xlsx",
-                        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                    )
-                
-                elif export_format == "URLs seulement":
-                    urls = "\n".join([doc.get('url', '') for doc in filtered_results if doc.get('url')])
-                    
-                    st.download_button(
-                        label="📥 Télécharger URLs",
-                        data=urls,
-                        file_name=f"bumidom_urls_{timestamp}.txt",
-                        mime="text/plain"
-                    )
-        
-        else:
-            st.warning("⚠️ Aucun document extrait")
+        ### 📊 Fonctionnalités
+        - Scraping automatique des archives
+        - Extraction de texte depuis PDF
+        - Analyse lexicale et thématique
+        - Visualisations interactives
+        - Export multi-formats
+        """)
     
-    else:
-        # Écran d'accueil
-        st.markdown(""
+    st.divider()
+    
+    # Section technique
+    with st.expander("🛠️ Configuration technique"):
+        st.markdown("""
+        **Dépendances Python:**
+        ```bash
+        pip install streamlit requests beautifulsoup4 pymupdf pandas plotly nltk
+        ```
+        
+        **Fonctions principales:**
+        1. `search_bumidom_documents_real()` - Scraping du site
+        2. `extract_text_from_pdf_real()` - Extraction PDF
+        3. `analyze_all_documents()` - Analyse textuelle
+        4. `create_visualizations()` - Génération de graphiques
+        
+        **Structure des données:**
+        - Cache PDF local pour éviter les re-téléchargements
+        - Analyse NLTK pour le traitement du langage
+        - Visualisations Plotly pour l'interactivité
+        - Interface Streamlit responsive
+        """)
+
+# ==================== PIED DE PAGE ====================
+
+st.divider()
+st.markdown(
+    """
+    <div style='text-align: center; color: #666; font-size: 0.9em;'>
+    Dashboard d'analyse BUMIDOM • Archives de l'Assemblée Nationale • 
+    <a href='https://archives.assemblée-nationale.fr' target='_blank'>Source des données</a> • 
+    Outil de recherche historique
+    </div>
+    """,
+    unsafe_allow_html=True
+)
