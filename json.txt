@@ -395,3 +395,3500 @@ google.search.cse.api12938({
     "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
   }
 });
+
+/*O_o*/
+google.search.cse.api987({
+  "cursor": {
+    "currentPageIndex": 1,
+    "estimatedResultCount": "131",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=10&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "131",
+    "searchResultTime": "0.18",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/017.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIChAC&usg=AOvVaw1yjtGRseh69GAH8D0jDcGT",
+      "content": "16 févr. 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e faire une formation professionnelle en métropole . En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et&nbsp;...",
+      "contentNoFormatting": "16 févr. 2025 ... Bumidom faire une formation professionnelle en métropole . En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et ...",
+      "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../017.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/017.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/017.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///6b330bf377f7f8c4247e3bf435e8ba1f6eae86729c3cc9cc0b3c80ec1010090e"
+        },
+        "metatags": {
+          "moddate": "D:20080923185914+02'00'",
+          "creationdate": "D:20080923185914+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnleNteAH3hanUJyhbZFFdITPshVHSExSuwmDcN6jKYPdxC--4kyY1zNQF&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-08-23.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIAxAC&usg=AOvVaw2kW2FMVLL9Ykp9ecGL0sjf",
+      "content": "30 déc. 2025 \u003cb\u003e...\u003c/b\u003e en métropole au titre du \u003cb\u003eBumidom\u003c/b\u003e la même année, M . le minist re de l &#39;économie et des finances indiquait dans sa réponse qu &#39; il n &#39; était.",
+      "contentNoFormatting": "30 déc. 2025 ... en métropole au titre du Bumidom la même année, M . le minist re de l 'économie et des finances indiquait dans sa réponse qu ' il n ' était.",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-08-23.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-08-23.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-08-23.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///70b7e39a44ccf77ff0824cb2804f53e23efda71b23dc8a5bfa434b3dcbfc9e17"
+        },
+        "metatags": {
+          "moddate": "D:20080529170453+02'00'",
+          "creationdate": "D:20080529170453+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2ArtncpnlrnrHYSv55wPFED9cL36s5MEJVyK1Z00OK8rzQ0D_Brdtgis&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1969-08-23"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/021.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQICxAB&usg=AOvVaw0ADV7ngmkpNyub7IhXysHB",
+      "content": "écrit, ce n&#39;est pas le \u003cb\u003eBUMIDOM\u003c/b\u003e qui a mis à la disposition des migrants ... le \u003cb\u003eBUMIDOM\u003c/b\u003e ayant apporté toutefois son aide, sous la forme d&#39;une subvention&nbsp;...",
+      "contentNoFormatting": "écrit, ce n'est pas le BUMIDOM qui a mis à la disposition des migrants ... le BUMIDOM ayant apporté toutefois son aide, sous la forme d'une subvention ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/2/cri/1964-1965.../021.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/021.pdf",
+      "url": "https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/021.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///20eaf7f640aabc780bbe4d996e488c5c5db43988dad0002ed8851921d5f4b061"
+        },
+        "metatags": {
+          "moddate": "D:20081006181215+02'00'",
+          "creationdate": "D:20081006181215+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4v0J_Jif1q629gCU-fOtfshuJP-5snGKtMHNAZtrt0g7k-SILLWzDQyk&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1964-1965-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/051.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBhAB&usg=AOvVaw3eCHD5m4dY5AW7yREVBs-H",
+      "content": "De même, il est exact que le \u003cb\u003eBumidom\u003c/b\u003e offre aux candidats à la migration des stages de rattrapage scolaire ou de préformation dans ses centres de Simandes et&nbsp;...",
+      "contentNoFormatting": "De même, il est exact que le Bumidom offre aux candidats à la migration des stages de rattrapage scolaire ou de préformation dans ses centres de Simandes et ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977.../051.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/051.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/051.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1976-1977-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/022.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBBAB&usg=AOvVaw3nd6EeRKHl3_He4wsLD-Dl",
+      "content": "Le \u003cb\u003eBumidom\u003c/b\u003e s&#39;est donc efforcé de préparer pour les arrivants les meilleures ... En 1965, le \u003cb\u003eBumidom\u003c/b\u003e envisage d&#39;accroître le nombre de loge- ments&nbsp;...",
+      "contentNoFormatting": "Le Bumidom s'est donc efforcé de préparer pour les arrivants les meilleures ... En 1965, le Bumidom envisage d'accroître le nombre de loge- ments ...",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 2° Législature",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 2° Législature",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/2/cri/1964-1965.../022.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/022.pdf",
+      "url": "https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/022.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///2e3262ec6620bdd4156dee7016005d53bb0647919216bb4967f2f5b74725850c"
+        },
+        "metatags": {
+          "moddate": "D:20081006181349+02'00'",
+          "creationdate": "D:20081006181349+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdCs24jD3bishkSREBDQY69NKP5wiLFgM1xtlU8_EW5YCOiBbgvduKBHEy&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1964-1965-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/3/cri/1967-1968-ordinaire1/037.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIAhAC&usg=AOvVaw2f3Kf_onLh9M2Eam-MJuu4",
+      "content": "31 juil. 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBUMIDOM\u003c/b\u003e perd son emploi, le B1&#39;MIDO,1 est toujours capable de le replacer dans un délai de quatre à cinq jours. En ce qui concerne le&nbsp;...",
+      "contentNoFormatting": "31 juil. 2025 ... BUMIDOM perd son emploi, le B1'MIDO,1 est toujours capable de le replacer dans un délai de quatre à cinq jours. En ce qui concerne le ...",
+      "title": "constitution du 4 octobre 1958 - Assemblée nationale - Archives",
+      "titleNoFormatting": "constitution du 4 octobre 1958 - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/3/cri/1967-1968.../037.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/3/cri/1967-1968-ordinaire1/037.pdf",
+      "url": "https://archives.assemblee-nationale.fr/3/cri/1967-1968-ordinaire1/037.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///6127c2ace7a26376690c54e5f21b394d4dce13bc9ebeb25468f49dfd660be4e8"
+        },
+        "metatags": {
+          "moddate": "D:20080918133039+02'00'",
+          "creationdate": "D:20080918133039+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScnPUJHWYWVNyUCwCEUfv8UVYDrMxWDm5UQa8JLnbDnLYGgsleSQmERgg&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1967-1968-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/061.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQICRAC&usg=AOvVaw203Rddj_WgT31W8go0Qwvx",
+      "content": "15 déc. 2025 \u003cb\u003e...\u003c/b\u003e pour augmenter le contingent concerné par le \u003cb\u003eBumidom\u003c/b\u003e . Et nous savons aussi, sans équivoque, qu&#39;outre-mer, en dépit des progrès réalisés&nbsp;...",
+      "contentNoFormatting": "15 déc. 2025 ... pour augmenter le contingent concerné par le Bumidom . Et nous savons aussi, sans équivoque, qu'outre-mer, en dépit des progrès réalisés ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977.../061.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/061.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/061.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///94709ba66e7f2ac18ebe58aa5e80d37280fad18e721eea695c37e0168f93a86c"
+        },
+        "metatags": {
+          "moddate": "D:20081008162447+02'00'",
+          "creationdate": "D:20081008162447+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB3jfpF6A11PZ-CXUHw5O_xbs8X4ABcr7iA-iRfl_LDjEcyXg_xWdORCk&s",
+          "width": "196",
+          "height": "258"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1976-1977-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/065.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBxAC&usg=AOvVaw2QIC1esRCsgl0GJfyQMHGO",
+      "content": "30 avr. 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e dans des centres de formation professionne&#39;le ; 7.789 dans des centres F. P. A. ; 3.241 dans des centres du \u003cb\u003eBumidom\u003c/b\u003e;. 943 dans d&nbsp;...",
+      "contentNoFormatting": "30 avr. 2025 ... Bumidom dans des centres de formation professionne'le ; 7.789 dans des centres F. P. A. ; 3.241 dans des centres du Bumidom;. 943 dans d ...",
+      "title": "JOURS AL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURS AL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971.../065.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/065.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/065.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///8593a1437e68245a0960b3a276e5ebecae9eadf34eabbc43247718894d885165"
+        },
+        "metatags": {
+          "moddate": "D:20080922164005+02'00'",
+          "creationdate": "D:20080922164005+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaWegEJRq1zgEOFQO5GV9NT14aKySQIJIchWP3HIQaMeNkXzdhjnZypSBi&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1970-1971-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire2/038.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQICBAC&usg=AOvVaw2YRR1Y2k2eLMJry9tQcLU4",
+      "content": "5 janv. 2025 \u003cb\u003e...\u003c/b\u003e 5 novembre 1971 par l&#39;intermédiaire du \u003cb\u003eBumidom\u003c/b\u003e . Après avoir subi l&#39;exploitation habituelle réservée à ces travailleurs, pendant son court&nbsp;...",
+      "contentNoFormatting": "5 janv. 2025 ... 5 novembre 1971 par l'intermédiaire du Bumidom . Après avoir subi l'exploitation habituelle réservée à ces travailleurs, pendant son court ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1971-1972.../038.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire2/038.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire2/038.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///5cac9c0d61bcefe4c93711f2d22df714d0b39a7e07005187d9b59ce3388931aa"
+        },
+        "metatags": {
+          "moddate": "D:20080702172928+02'00'",
+          "creationdate": "D:20080702172928+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIGcqb0zefqIHDOrIEAzIArL2loXPri2G_FXMMMhLgErKA1evu24rgOwAw&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1971-1972-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/042.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBRAC&usg=AOvVaw0GNmAzxfdAHHSDSk8fz36H",
+      "content": "3 mars 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e faire une formation professionnelle en métropole. En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et de&nbsp;...",
+      "contentNoFormatting": "3 mars 2025 ... Bumidom faire une formation professionnelle en métropole. En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et de ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../042.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/042.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/042.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///a9d5977038deb36d71603daf1235d6452dcbc1b1f27c97a3197b65f84838b4dc"
+        },
+        "metatags": {
+          "moddate": "D:20080925091057+02'00'",
+          "creationdate": "D:20080925091057+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMOBdRSijuQ5DUTV6CJ1Jkon7_spRFmXEerkoDNjfWKnOCWAL52VWaSHQ&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api11504({
+  "cursor": {
+    "currentPageIndex": 3,
+    "estimatedResultCount": "130",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=30&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "130",
+    "searchResultTime": "0.12",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-02-15.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIAxAC&usg=AOvVaw2CSuOlMYA0jXush9ragcp2",
+      "content": "23 janv. 2025 \u003cb\u003e...\u003c/b\u003e Le. Page 3. 15 Février 1969. ASSEMBI .EE NATIONALE. 351. \u003cb\u003eBumidom\u003c/b\u003e par ailleurs indique comme effectif de migrants réunion- nais vers la métropole&nbsp;...",
+      "contentNoFormatting": "23 janv. 2025 ... Le. Page 3. 15 Février 1969. ASSEMBI .EE NATIONALE. 351. Bumidom par ailleurs indique comme effectif de migrants réunion- nais vers la métropole ...",
+      "title": "JOUB:NAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOUB:NAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-02-15.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-02-15.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-02-15.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///39538a2695a8fd3ce35568a87e7d9bfa830254bbc7774db69b651b1e2636df48"
+        },
+        "metatags": {
+          "moddate": "D:20080529165030+02'00'",
+          "creationdate": "D:20080529165030+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfK7tkEyoN889WTM_PRRNsVGe0bNEENTX1bqHC70a65bQFve-XqeXCXUgI&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1969-02-15"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-09-27.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBhAB&usg=AOvVaw1LWIIRh9s8l2Db7Vu985i5",
+      "content": "en métropole au titre du \u003cb\u003eBumidom\u003c/b\u003e la même année, M . le ministre de l &#39;économie et des finances indiquait dans sa réponse qu &#39; il n &#39; était pas possible d&nbsp;...",
+      "contentNoFormatting": "en métropole au titre du Bumidom la même année, M . le ministre de l 'économie et des finances indiquait dans sa réponse qu ' il n ' était pas possible d ...",
+      "title": "JOUR-AL O1?I?I( :ILL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOUR-\\AL O1?I?I( :ILL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-09-27.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-09-27.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-09-27.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///b5ad451ae9c746f6a8db95ca8c86fe197724a92b2d661e5114466b38e7e21ec5"
+        },
+        "metatags": {
+          "moddate": "D:20080529170559+02'00'",
+          "creationdate": "D:20080529170559+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnPsgQ045iLjHucvEWG9Wf7-nfoMMpUZAFfStweAPwq95gdME0oGYjWWc&s",
+          "width": "195",
+          "height": "258"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1969-09-27"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire1/070.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQICxAC&usg=AOvVaw2haNsNUqgmJ7PZuWRRqbPg",
+      "content": "28 oct. 2025 \u003cb\u003e...\u003c/b\u003e En attendant, une transformation du-\u003cb\u003eBumidom\u003c/b\u003e s&#39;impose . Elle devra être définie avec les intéressés eux-mémes et tendre à orienter cet&nbsp;...",
+      "contentNoFormatting": "28 oct. 2025 ... En attendant, une transformation du-Bumidom s'impose . Elle devra être définie avec les intéressés eux-mémes et tendre à orienter cet ...",
+      "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1981-1982.../070.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire1/070.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire1/070.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///a34c85d0e3f280539f258d2e31441f2a31ae921a81a41888a752d811e4a62fb7"
+        },
+        "metatags": {
+          "moddate": "D:20080905200112+02'00'",
+          "creationdate": "D:20080905200112+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFlmQUTBOM7h7sgxd1d398eO3R0_ZTrwm9gpiBmOzmyJfBFzUCZv_bmSk&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1981-1982-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/032.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBxAC&usg=AOvVaw31ljKQONppBQv2GD4WcmWN",
+      "content": "1 juil. 2025 \u003cb\u003e...\u003c/b\u003e médiaire du \u003cb\u003eBumidom\u003c/b\u003e et du Casadom aient disparu de la grille tarifaire ? Pourquoi les ressortissants des départements d&#39;outre- mer, qui&nbsp;...",
+      "contentNoFormatting": "1 juil. 2025 ... médiaire du Bumidom et du Casadom aient disparu de la grille tarifaire ? Pourquoi les ressortissants des départements d'outre- mer, qui ...",
+      "title": "32` SEANCE 3` Séance du Mardi 23 Octobre &#39;1979.",
+      "titleNoFormatting": "32` SEANCE 3` Séance du Mardi 23 Octobre '1979.",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980.../032.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/032.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/032.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///53e40fc422123f405e3eea16eabfd6b6f535999ce8c9ba92b8de065f05ba6e44"
+        },
+        "metatags": {
+          "moddate": "D:20080923195512+02'00'",
+          "creationdate": "D:20080923195512+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaR1wo-xH69kPSwMDjbeYRiDbjLQf8sXJryyFojweuBRA7cY126sgpkos&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1979-1980-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire1/076.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQICBAC&usg=AOvVaw11KKiXIpmtTB7kQjq_2z5j",
+      "content": "18 nov. 1983 \u003cb\u003e...\u003c/b\u003e d&#39;outre-mer, le \u003cb\u003eBumidom\u003c/b\u003e. Elle a toujours mission de faire venir — les textes ne sont pas abrogés — à titre gratuit les. Réunionnais ou les&nbsp;...",
+      "contentNoFormatting": "18 nov. 1983 ... d'outre-mer, le Bumidom. Elle a toujours mission de faire venir — les textes ne sont pas abrogés — à titre gratuit les. Réunionnais ou les ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1983-1984.../076.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire1/076.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire1/076.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///fa9a14728bc26d8ec01b31f056096c0ecff51e031156262ce4afd75f31603978"
+        },
+        "metatags": {
+          "moddate": "D:20080917173821+02'00'",
+          "creationdate": "D:20080917173821+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7P5nzIUIWLXRndMOzvfnQTdK9odzRkyO0GxVAeLNTr9ckrloYOy6B3GE-&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1983-1984-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/038.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIChAC&usg=AOvVaw3pj45_2-wrfdYAucryRCIX",
+      "content": "15 août 2025 \u003cb\u003e...\u003c/b\u003e diaire du \u003cb\u003eBumidom\u003c/b\u003e et décédé sur le territoire métropolitain . Il lui demande en particulier à quel organisme doit s &#39;adresser la famille et&nbsp;...",
+      "contentNoFormatting": "15 août 2025 ... diaire du Bumidom et décédé sur le territoire métropolitain . Il lui demande en particulier à quel organisme doit s 'adresser la famille et ...",
+      "title": "COMPTE RENDU INTEGRAL - 38° SEANCE",
+      "titleNoFormatting": "COMPTE RENDU INTEGRAL - 38° SEANCE",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976.../038.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/038.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/038.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///63da704233c8b66cd9f3f6d582d9291712def9b8f875aca95d93f578511c8143"
+        },
+        "metatags": {
+          "moddate": "D:20081008104559+02'00'",
+          "creationdate": "D:20081008104559+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxdguYNvsvdk8huGLFYGma2Yx336One6xSyVCAwVLPhxGJCv8q4GnLjis&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1975-1976-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/063.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBBAC&usg=AOvVaw3fY6TOKccpRq8T-2L-bOSJ",
+      "content": "21 nov. 1972 \u003cb\u003e...\u003c/b\u003e métropolitaine sans passer par le \u003cb\u003eBumidom\u003c/b\u003e . Cette antenne pour- rait s&#39;occuper tout particulièrement des jeunes à la recherche d&#39;un premier&nbsp;...",
+      "contentNoFormatting": "21 nov. 1972 ... métropolitaine sans passer par le Bumidom . Cette antenne pour- rait s'occuper tout particulièrement des jeunes à la recherche d'un premier ...",
+      "title": "JOURNAL OFFIC1EL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFIC1EL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1972-1973.../063.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/063.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/063.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///386d08ee9cf1de8f93a1d566af09ffd2b86be1251a7264c4a4671215a70a8b96"
+        },
+        "metatags": {
+          "moddate": "D:20080529164220+02'00'",
+          "creationdate": "D:20080529164220+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJA8eZxumxqvcZ7aozdMjk9rlIISvYvCEPvpkcU2aYSXs8dp3ITYYX9yU&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1972-1973-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/035.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIAhAC&usg=AOvVaw0YbtmgMtL5yM5s_pUFIT8K",
+      "content": "4 nov. 1977 \u003cb\u003e...\u003c/b\u003e l&#39;action du \u003cb\u003eBumidom\u003c/b\u003e et aux efforts de formation, a porté des fruits incontestables ; mais il convient d&#39;intensifier notablement les efforts&nbsp;...",
+      "contentNoFormatting": "4 nov. 1977 ... l'action du Bumidom et aux efforts de formation, a porté des fruits incontestables ; mais il convient d'intensifier notablement les efforts ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1977-1978.../035.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/035.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/035.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///7e0f4ebab06fb56b0d49ffc6f7f82a7cf6a9dd013313bafbeff6678e04864520"
+        },
+        "metatags": {
+          "moddate": "D:20081008175223+02'00'",
+          "creationdate": "D:20081008175223+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ1Vz1pyJcR9OTw4f-q--cnie1giYWuPpGv505SVag1BBwMuCA4lQQ4eof&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1977-1978-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire2/103.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBRAB&usg=AOvVaw3w4qCmm2MCVZUWaye6ROxa",
+      "content": "l&#39;expatriation par le canal du \u003cb\u003eBumidom\u003c/b\u003e. Par conséquent, monsieur le ministre d&#39;Etat, je souhaite une autre orientation en commençant par une plus large&nbsp;...",
+      "contentNoFormatting": "l'expatriation par le canal du Bumidom. Par conséquent, monsieur le ministre d'Etat, je souhaite une autre orientation en commençant par une plus large ...",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 7° Législature COMPTE ...",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 7° Législature COMPTE ...",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1981-1982.../103.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire2/103.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire2/103.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1981-1982-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/039.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQICRAB&usg=AOvVaw290xxdrZ2RDZiLwhVdK7cg",
+      "content": "\u003cb\u003eBumidom\u003c/b\u003e de sinistre mémoire en une agence d&#39;insertion des ressortissants d&#39;outre-mer . En deux ans l&#39;A . N. T. a conduit des actions louables qui ne&nbsp;...",
+      "contentNoFormatting": "Bumidom de sinistre mémoire en une agence d'insertion des ressortissants d'outre-mer . En deux ans l'A . N. T. a conduit des actions louables qui ne ...",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 7&#39; Législature",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 7' Législature",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1984-1985.../039.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/039.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/039.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///97b341633a34b5213c47c670060d7ad2ebe6b9e0b26c9eb66e2e15f3a5100018"
+        },
+        "metatags": {
+          "moddate": "D:20080524192957+02'00'",
+          "creationdate": "D:20080524192957+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWba2RJIt2wn94OgPcg_P7mxPw5ZDOLfxIefqSwbxJ3eL0f14Dcej_8OrE&s",
+          "width": "199",
+          "height": "253"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1984-1985-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api7607({
+  "cursor": {
+    "currentPageIndex": 2,
+    "estimatedResultCount": "130",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=20&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "130",
+    "searchResultTime": "0.12",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/qst/2-qst-1964-09-12.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBRAC&usg=AOvVaw3JBWntKlVTaQiTR3B8sh-9",
+      "content": "27 juin 2025 \u003cb\u003e...\u003c/b\u003e La création récente du \u003cb\u003eBumidom\u003c/b\u003e et l&#39;importance des crédits dégagés à cet effet sur le budget du ministère d&#39;Etat manifestent de la volonté&nbsp;...",
+      "contentNoFormatting": "27 juin 2025 ... La création récente du Bumidom et l'importance des crédits dégagés à cet effet sur le budget du ministère d'Etat manifestent de la volonté ...",
+      "title": "Journal officiel du samedi 12 septembre 1964",
+      "titleNoFormatting": "Journal officiel du samedi 12 septembre 1964",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/2/qst/2-qst-1964-09-12.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/2/qst/2-qst-1964-09-12.pdf",
+      "url": "https://archives.assemblee-nationale.fr/2/qst/2-qst-1964-09-12.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///92eab69cc932a9afaf0204101f89a1b7c25216c0bb92d779eeafdc79ec1d6f58"
+        },
+        "metatags": {
+          "moddate": "D:20081007162417+02'00'",
+          "creationdate": "D:20081007162417+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaWyMhN1fWzdzmgkZP_Q76Ejgw9KnuPGvK1OL7wAJyGk3oMzKlTB5mepY&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "2-qst-1964-09-12"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/057.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQICRAC&usg=AOvVaw2DcTDxuJVV_bNf27LzMamT",
+      "content": "13 nov. 1975 \u003cb\u003e...\u003c/b\u003e les crédits du \u003cb\u003eBumidom\u003c/b\u003e n&#39;augmentent que de 4 .8 p. 100, ce qui constitue en fait un affaiblissement des moyens qui sont mis à sa disposition&nbsp;...",
+      "contentNoFormatting": "13 nov. 1975 ... les crédits du Bumidom n'augmentent que de 4 .8 p. 100, ce qui constitue en fait un affaiblissement des moyens qui sont mis à sa disposition ...",
+      "title": "JOUIUAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOUIUAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976.../057.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/057.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/057.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///48acdbcd19e8d567b3048506149c1ea20455574557edb3d7ce154f26a54de949"
+        },
+        "metatags": {
+          "moddate": "D:20081008105012+02'00'",
+          "creationdate": "D:20081008105012+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRd_Odv-KYXo5iPpam9qXaRg1j7pGGjzvN8ox5aeoio7PHaPuvgyGzpaoi7&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1975-1976-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/086.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQICxAC&usg=AOvVaw2y6BrTWxqrvoA3mgqLu7Bg",
+      "content": "9 juin 2025 \u003cb\u003e...\u003c/b\u003e par l&#39;inter-méeiaire du \u003cb\u003eBumidom\u003c/b\u003e . ils n&#39;ont pas droit, dans l&#39;état actuel des choses, aux tarifs préférentiels dont bénéficient les tra&nbsp;...",
+      "contentNoFormatting": "9 juin 2025 ... par l'inter-méeiaire du Bumidom . ils n'ont pas droit, dans l'état actuel des choses, aux tarifs préférentiels dont bénéficient les tra ...",
+      "title": "86° SEANCE 2° Séance du Vendredi 25 Juin 1976.",
+      "titleNoFormatting": "86° SEANCE 2° Séance du Vendredi 25 Juin 1976.",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976.../086.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/086.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/086.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///f9f7e69ea1d09611c303de7bf7763004ae752e54622661071a5d7d5f7c9b17af"
+        },
+        "metatags": {
+          "moddate": "D:20081008141005+02'00'",
+          "creationdate": "D:20081008141005+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaIMbb2Ib3gFgbBdjYHXsFnna85_kfoe3t7j6rrOfQ7zwcEqVzIoz1aaE&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1975-1976-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/045.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIChAC&usg=AOvVaw1ACsWyXgudi5m7UZkvO8ig",
+      "content": "13 nov. 1972 \u003cb\u003e...\u003c/b\u003e Or le \u003cb\u003eBumidom\u003c/b\u003e, vous le savez, intervient non seulement pour faciliter ces migrations, mais aussi pour donner une préfor- mation&nbsp;...",
+      "contentNoFormatting": "13 nov. 1972 ... Or le Bumidom, vous le savez, intervient non seulement pour faciliter ces migrations, mais aussi pour donner une préfor- mation ...",
+      "title": "JOURNAL OFFICIE - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1972-1973.../045.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/045.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/045.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///be0db22371c5d61a940e1c597c293e31c29c9b5007061a1184cc1f7644ed2ff3"
+        },
+        "metatags": {
+          "moddate": "D:20080702153501+02'00'",
+          "creationdate": "D:20080702153501+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRALvgLgW636vkCKp5hl0mmn6c6I3xO-a6oXVa5gb8O5f91Iytdvkjt_qn3&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1972-1973-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/113.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIAxAB&usg=AOvVaw3zvmp2FuuL5c--qT10rNnn",
+      "content": "\u003cb\u003eBumidom\u003c/b\u003e ou par l&#39;Agence nationale pour l&#39;emploi ; enfin, faire en sorte que, grâce à la formation, l&#39;insertion des jeunes Fran- çais d&#39;outre-mer dans la vie&nbsp;...",
+      "contentNoFormatting": "Bumidom ou par l'Agence nationale pour l'emploi ; enfin, faire en sorte que, grâce à la formation, l'insertion des jeunes Fran- çais d'outre-mer dans la vie ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980.../113.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/113.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/113.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1979-1980-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/048.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBBAC&usg=AOvVaw1dgb-jIVBlFM6cX1xVqkGb",
+      "content": "14 nov. 1977 \u003cb\u003e...\u003c/b\u003e l&#39;intermédiaire du \u003cb\u003eBUMIDOM\u003c/b\u003e — bureau pour le développement des migrations intéressas les départements d&#39;outre-mer. Tous les rapports établis&nbsp;...",
+      "contentNoFormatting": "14 nov. 1977 ... l'intermédiaire du BUMIDOM — bureau pour le développement des migrations intéressas les départements d'outre-mer. Tous les rapports établis ...",
+      "title": "48&quot; SEANCE 2&#39; Séance du Lundi 14 Novembre 1977.",
+      "titleNoFormatting": "48\" SEANCE 2' Séance du Lundi 14 Novembre 1977.",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1977-1978.../048.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/048.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/048.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///22628978d56b3a45b37bbe0438679a41334cd8916bdabf4b146297515e37ecff"
+        },
+        "metatags": {
+          "moddate": "D:20081008175602+02'00'",
+          "creationdate": "D:20081008175602+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrlc0NYnmwAqMSo7E3c7kw4VOITcWPV6rNPp1syLV6013YlLKZcv5XmEw&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1977-1978-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/090.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBhAC&usg=AOvVaw0oc0i8Recr7Fp7Zxp267-u",
+      "content": "28 nov. 1986 \u003cb\u003e...\u003c/b\u003e de la mise en application du \u003cb\u003eBumidom\u003c/b\u003e . A cette époque, l&#39;es- pace économique métropolitain entrait dans une phase d&#39;ex-. Page 9. ASSEMBLEE&nbsp;...",
+      "contentNoFormatting": "28 nov. 1986 ... de la mise en application du Bumidom . A cette époque, l'es- pace économique métropolitain entrait dans une phase d'ex-. Page 9. ASSEMBLEE ...",
+      "title": "DE LA RÉPUBLIQUE FRANÇAISE . - Assemblée nationale - Archives",
+      "titleNoFormatting": "DE LA RÉPUBLIQUE FRANÇAISE . - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987.../090.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/090.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/090.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///d2fffee5b1cd0e8c9f495521a8089a70a941eefa72917774e147b78996499f27"
+        },
+        "metatags": {
+          "moddate": "D:20080929070435+02'00'",
+          "creationdate": "D:20080929070435+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdt9sZH0Rb1cyCxR-5bVUeX3mxW3RCKX8sglXfXBQR-bbOquallzl3lZeH&s",
+          "width": "191",
+          "height": "264"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1986-1987-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/032.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQICBAC&usg=AOvVaw0Og-Sp_iYuuNfcxPShuk0o",
+      "content": "11 oct. 2025 \u003cb\u003e...\u003c/b\u003e tion par le \u003cb\u003eBumidom\u003c/b\u003e, lequel a touché 820 personnes. Il y a aussi la formation dans le cadre du service militaire adapté auquel j&#39;ai déjà&nbsp;...",
+      "contentNoFormatting": "11 oct. 2025 ... tion par le Bumidom, lequel a touché 820 personnes. Il y a aussi la formation dans le cadre du service militaire adapté auquel j'ai déjà ...",
+      "title": "32° SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "32° SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974.../032.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/032.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/032.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///cda91f26de19040da22f34e5f04423bb13fc9b12892a7667e75eccb4d1b23479"
+        },
+        "metatags": {
+          "moddate": "D:20170303150907+01'00'",
+          "creationdate": "D:20170303150857+01'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRI5VI8QhM8D8Pop2UXu8X-NXALj12Rwa0gOb6Oy9-LV4WmvCsNM3A5lL4&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1973-1974-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/024.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBxAC&usg=AOvVaw2L73VO-n_iya0wy2Ri8q53",
+      "content": "4 mai 2022 \u003cb\u003e...\u003c/b\u003e D.O.M. (maniant des crédits affectés eu \u003cb\u003eBumidom\u003c/b\u003e pour 1976 et 1977). 37720. — 4 mai 1977. — M. Alain Vivien demande à M. le ministre de l&nbsp;...",
+      "contentNoFormatting": "4 mai 2022 ... D.O.M. (maniant des crédits affectés eu Bumidom pour 1976 et 1977). 37720. — 4 mai 1977. — M. Alain Vivien demande à M. le ministre de l ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977.../024.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/024.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/024.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///37588dccd54c435aaf123d64a570e6def7e1b8c85f3c37fdf03236c286668a37"
+        },
+        "metatags": {
+          "moddate": "D:20081008180630+02'00'",
+          "creationdate": "D:20081008172510+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-egaAvB2aGo5WZr8eqCuGwz3Kqki5VwTdOG7RoLyHEkcUG1_pKLjfLLjE&s",
+          "width": "198",
+          "height": "254"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1976-1977-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/3/tanalytique/1967-1968_tmatieres_AZ.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIAhAB&usg=AOvVaw3xLTcd-pB3X4GSSkEJdDzz",
+      "content": "... \u003cb\u003eB.U.M.I.D.O.M.\u003c/b\u003e ; l&#39;écart entre les dotations de la section locale et de la section centrale du F.I.D.O.M. ; la crise de la pro- duction sucrière à la&nbsp;...",
+      "contentNoFormatting": "... B.U.M.I.D.O.M. ; l'écart entre les dotations de la section locale et de la section centrale du F.I.D.O.M. ; la crise de la pro- duction sucrière à la ...",
+      "title": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
+      "titleNoFormatting": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/3/.../1967-1968_tmatieres_AZ.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/3/tanalytique/1967-1968_tmatieres_AZ.pdf",
+      "url": "https://archives.assemblee-nationale.fr/3/tanalytique/1967-1968_tmatieres_AZ.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "metatags": {
+          "moddate": "D:20080624221922+02'00'",
+          "creationdate": "D:20060812130653Z",
+          "creator": "OmniPage Pro 14 http://www.scansoft.com",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "tanalytique",
+          "1967-1968_tmatieres_AZ"
+        ]
+      }
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api10813({
+  "cursor": {
+    "currentPageIndex": 4,
+    "estimatedResultCount": "128",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=40&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "128",
+    "searchResultTime": "0.18",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/050.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBhAB&usg=AOvVaw1oiHbxWMpGfjucu7KdWHfZ",
+      "content": "France grâce au \u003cb\u003eBumidom\u003c/b\u003e, mais votre rapporteur avait signalé ... tions des départements d&#39;outre-mer — le \u003cb\u003eBUMIDOM\u003c/b\u003e — 3.103 installations ont&nbsp;...",
+      "contentNoFormatting": "France grâce au Bumidom, mais votre rapporteur avait signalé ... tions des départements d'outre-mer — le BUMIDOM — 3.103 installations ont ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1969-1970.../050.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/050.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/050.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///c5bded443f48d8bdd19145e7e4eb97c8a9ffab043b89ed15a3b649cf6ff6dd97"
+        },
+        "metatags": {
+          "moddate": "D:20080702135445+02'00'",
+          "creationdate": "D:20080702135445+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-G43rUsE4BryCBq3z-J8meZ1khEmApi57DQEQIsgoPBbw9o6sMKEKLWQM&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1969-1970-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-03-22.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIAhAC&usg=AOvVaw1lmL8xapctLwAtqrpLGtNa",
+      "content": "13 mars 2025 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3 .011 unités&nbsp;...",
+      "contentNoFormatting": "13 mars 2025 ... ... Bumidom par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3 .011 unités ...",
+      "title": "JOURNAL OTTICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OTTICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-03-22.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-03-22.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-03-22.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///db6c8bd0a0502d54e4d2ab1ba8fdd94afa1b8db38bb46a0595a54a57717a2030"
+        },
+        "metatags": {
+          "moddate": "D:20080529165248+02'00'",
+          "creationdate": "D:20080529165248+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRH86Dw4GT-TjdwGKL5LdLvpND0mx6XopQPrwxq78UM1iz5-24ewk5whpO&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1969-03-22"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/047.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQICRAB&usg=AOvVaw2gbVrVN7pTqvG8zOz9kQOK",
+      "content": "le \u003cb\u003eBumidom\u003c/b\u003e est considéré comme une so lution de désespoir, tel qu&#39;il est conçu et depuis la recrudescence du racisme en. France, sous toutes ses formes ; que&nbsp;...",
+      "contentNoFormatting": "le Bumidom est considéré comme une so lution de désespoir, tel qu'il est conçu et depuis la recrudescence du racisme en. France, sous toutes ses formes ; que ...",
+      "title": "JOURS AL OFFICIAL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURS AL OFFICIAL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1974-1975.../047.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/047.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/047.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///088da767eef581342224831bec80161413b0ad5a3a2b87af40a8647156c9b343"
+        },
+        "metatags": {
+          "moddate": "D:20150615130020+02'00'",
+          "creationdate": "D:20081007211441+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqD5XaMwnGLvojb6gtPq8krM5xaSozCkoH57IwJlo5OCknYgNcbkA1mMQ&s",
+          "width": "199",
+          "height": "254"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1974-1975-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-02-18.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQICxAC&usg=AOvVaw0PdgdzkMZx0871XJsofmv2",
+      "content": "18 févr. 1980 \u003cb\u003e...\u003c/b\u003e leur refusant par la suite le bénéfice du \u003cb\u003eBumidom\u003c/b\u003e. Réponse . — La première question appelle des réponses distinctes selon qu&#39;il s&#39;agit : des&nbsp;...",
+      "contentNoFormatting": "18 févr. 1980 ... leur refusant par la suite le bénéfice du Bumidom. Réponse . — La première question appelle des réponses distinctes selon qu'il s'agit : des ...",
+      "title": "Journal officiel du lundi 18 février 1980",
+      "titleNoFormatting": "Journal officiel du lundi 18 février 1980",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-02-18.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-02-18.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-02-18.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///0df54f717743dd57833d44dbc63e6888fa5e1dece5ddb4ea4178d36580e36e11"
+        },
+        "metatags": {
+          "moddate": "D:20080925111643+02'00'",
+          "creationdate": "D:20080925111643+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLQEn1eknjDx4CBy7NDfteq_vB4gl60HO9SJ-lZ8-tKI28hNudcXVdcPM&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1980-02-18"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/067.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBBAC&usg=AOvVaw1NEaARfhd8Pn7suT6DZD-h",
+      "content": "11 juin 1980 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, existe. Elle a, certes, réalisé un excellent travail dans le passé. Je ne suis pas convaincu, devant l&#39;évolution de la migration&nbsp;...",
+      "contentNoFormatting": "11 juin 1980 ... Bumidom, existe. Elle a, certes, réalisé un excellent travail dans le passé. Je ne suis pas convaincu, devant l'évolution de la migration ...",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 6&#39; Législature",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 6' Législature",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980.../067.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/067.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/067.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///b914f5a4c462c5df65bbd53634e89e8711704d1ea637b85cdd7be7e13bb0e607"
+        },
+        "metatags": {
+          "moddate": "D:20080704183011+02'00'",
+          "creationdate": "D:20080704183011+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsjZKKRfO-y-7R6jRqbEV3Um4sYtzv3IlnIly0bJkoVI7TdcT5TB-fcs0&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1979-1980-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/046.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBxAC&usg=AOvVaw0kOKi21N4GWNa2xLin0bOj",
+      "content": "26 déc. 2025 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e dans ce domaine. Il serait également souhaitable que dans chaque agence départementale de. FA. N. P . E . il soit désignô un&nbsp;...",
+      "contentNoFormatting": "26 déc. 2025 ... ... Bumidom dans ce domaine. Il serait également souhaitable que dans chaque agence départementale de. FA. N. P . E . il soit désignô un ...",
+      "title": "46` SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "46` SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1977-1978.../046.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/046.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/046.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///36a5dfc0adceea4e4a5e72f13d09bd8386e54c56209a84681b0dedd95172f1be"
+        },
+        "metatags": {
+          "moddate": "D:20081008175529+02'00'",
+          "creationdate": "D:20081008175529+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeAiFasXMrdNZ5VRv8W_xcfKNM9l140zks1e591i3FX53zOCKPLjy6ziCC&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1977-1978-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/044.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIChAB&usg=AOvVaw2RgUEFz3QLlhiKjN1Ok6n_",
+      "content": "en métropole, l&#39;action du \u003cb\u003eBumidom\u003c/b\u003e doit être renforcée pour faciliter l&#39;insertion économique et sociale de tous nos compa- triotes. En effet, la situation&nbsp;...",
+      "contentNoFormatting": "en métropole, l'action du Bumidom doit être renforcée pour faciliter l'insertion économique et sociale de tous nos compa- triotes. En effet, la situation ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980.../044.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/044.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/044.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///3fd16472daac9ac8d0a42316d9717fc6492cd4b7d9d0625347d074438cf55d96"
+        },
+        "metatags": {
+          "moddate": "D:20080923195939+02'00'",
+          "creationdate": "D:20080923195939+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQowXVMoUi91yE0a0GgIUlHYLZdmR6QDjPX_Wdu92NPt3HHIWKGrFc4_fw&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1979-1980-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/080.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBRAC&usg=AOvVaw0HVQ5Yw0wx2LDEq8eI3sNw",
+      "content": "24 nov. 1984 \u003cb\u003e...\u003c/b\u003e l&#39;A. N. T. qui succède au \u003cb\u003eBumidom\u003c/b\u003e reçu des instructions contraires à celles qui avaient fait le succès de ce dernier. La thèse officielle&nbsp;...",
+      "contentNoFormatting": "24 nov. 1984 ... l'A. N. T. qui succède au Bumidom reçu des instructions contraires à celles qui avaient fait le succès de ce dernier. La thèse officielle ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1984-1985.../080.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/080.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/080.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///a95ad814e6390299b4138314f15706d0826ee3a719520ed4cd0c3971ff9bfd42"
+        },
+        "metatags": {
+          "moddate": "D:20080524193852+02'00'",
+          "creationdate": "D:20080524193852+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQggBLV1udTSGfGU2QrKlyhdJ4SqDMDHm1XQXrWyn3USmdGA_5sEJPhSFxa&s",
+          "width": "196",
+          "height": "258"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1984-1985-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1981-05-11.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQICBAC&usg=AOvVaw1dPXNo5vMrTqPNmtQsHVIt",
+      "content": "11 mai 1981 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e de verser une rémunération complémentaire aux sta- giaires qui n&#39;auraient dû percevoir que 25 p. 100 du S.M.I.C., pour la porter à&nbsp;...",
+      "contentNoFormatting": "11 mai 1981 ... ... Bumidom de verser une rémunération complémentaire aux sta- giaires qui n'auraient dû percevoir que 25 p. 100 du S.M.I.C., pour la porter à ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1981-05-11.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1981-05-11.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1981-05-11.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///5d44877c8a48095a26872021ea069c7e152f7b73b4e4aa68de32988cd475dc25"
+        },
+        "metatags": {
+          "moddate": "D:20080925124055+02'00'",
+          "creationdate": "D:20080925124055+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOkoSuAh9K15Whclre0qc7n3Bg8iYV-0iC6TEjUzDwjkixkG6jRsCL1Kw&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1981-05-11"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/058.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIAxAC&usg=AOvVaw0RB-hmCBMl0HsQ3dF-zB6h",
+      "content": "13 nov. 1975 \u003cb\u003e...\u003c/b\u003e parle donc pas du \u003cb\u003eBumidom\u003c/b\u003e, puisque M . Michel Debré l&#39;a fait, ni du prix du sucre, puisque mon collègue Cerneau vous en parlera, ni de votre&nbsp;...",
+      "contentNoFormatting": "13 nov. 1975 ... parle donc pas du Bumidom, puisque M . Michel Debré l'a fait, ni du prix du sucre, puisque mon collègue Cerneau vous en parlera, ni de votre ...",
+      "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976.../058.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/058.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/058.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///0dadc8f1fc4c6b90575ad39b28a15eae70ef0076e4efd4affcdfa105ee2ad395"
+        },
+        "metatags": {
+          "moddate": "D:20081008105022+02'00'",
+          "creationdate": "D:20081008105022+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRbi2rL1ib1gPO3QTYK2sWJsUNu5iieBCmkYXogxpmS-xZ3wJ8APLIo-PY&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1975-1976-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api16059({
+  "cursor": {
+    "currentPageIndex": 5,
+    "estimatedResultCount": "124",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=50&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "124",
+    "searchResultTime": "0.11",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/044.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIChAC&usg=AOvVaw1MH8ElTsIfeDmzhuc6fl28",
+      "content": "8 juin 1971 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, et logés, en attendant qu&#39;ils trouvent du travail, dans le foyer Rush del Campo, 84, rue de Charenton, Paris (129, se sont vus&nbsp;...",
+      "contentNoFormatting": "8 juin 1971 ... Bumidom, et logés, en attendant qu'ils trouvent du travail, dans le foyer Rush del Campo, 84, rue de Charenton, Paris (129, se sont vus ...",
+      "title": "44° SEANCE 3e Séance du Mardi 8 Juin 1971.",
+      "titleNoFormatting": "44° SEANCE 3e Séance du Mardi 8 Juin 1971.",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971.../044.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/044.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/044.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///2c34be4aa8d73aa14a5e85d40e73e0d4a3ba4678ba16791fd4248d9fa9020527"
+        },
+        "metatags": {
+          "moddate": "D:20080922171955+02'00'",
+          "creationdate": "D:20080922171955+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRciKNwWj5DS_wX2zT4Hie92YdaXCoVvvWFB8L8RbkIYATusS6zJe0Qy7c&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1970-1971-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1987-1988-ordinaire1/025.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBhAC&usg=AOvVaw0k6yr5vVRGOPDEDtQfQ9cC",
+      "content": "22 oct. 1987 \u003cb\u003e...\u003c/b\u003e rité nationale, reprise des objectifs du \u003cb\u003eBUMIDOM\u003c/b\u003e - mobi- lité, insertion des Antillais et surtout des Réunionnais en métropole - tels sont&nbsp;...",
+      "contentNoFormatting": "22 oct. 1987 ... rité nationale, reprise des objectifs du BUMIDOM - mobi- lité, insertion des Antillais et surtout des Réunionnais en métropole - tels sont ...",
+      "title": "AL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "AL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1987-1988.../025.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1987-1988-ordinaire1/025.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1987-1988-ordinaire1/025.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///1e8c89da15fdd4db84f897f8158d9e59cd6b776cb97145945ed37d41c1d555e3"
+        },
+        "metatags": {
+          "moddate": "D:20080929070747+02'00'",
+          "creationdate": "D:20080929070747+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNB5Lx_EcurpNTPsYNH8PDJ3Kr0fsDCeX0azGn5USUoFfwFBlu9DFlKLg&s",
+          "width": "191",
+          "height": "264"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1987-1988-ordinaire1"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire2/008.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBBAC&usg=AOvVaw1xvpk__yxGsqQw2SQ7XHDj",
+      "content": "7 avr. 2018 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e. M. Michel Debré. Ce n&#39;est pas exact. Mme Georgina Dufoix, secrétaire d&#39;Etat. De plus, la société d&#39;Etat et le conseil régional de&nbsp;...",
+      "contentNoFormatting": "7 avr. 2018 ... Bumidom. M. Michel Debré. Ce n'est pas exact. Mme Georgina Dufoix, secrétaire d'Etat. De plus, la société d'Etat et le conseil régional de ...",
+      "title": "JOURNAI . OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAI . OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1983-1984.../008.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire2/008.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire2/008.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///1e9c9c7561738d54efeaa1e44d9de6358662acc72997f1128d4c579d273c87f6"
+        },
+        "metatags": {
+          "moddate": "D:20080524173228+02'00'",
+          "creationdate": "D:20080524173228+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxQPK6Sxzk9CfVFqaNHcK3uUgKy6lBL6eml0CdNlhRKpW1oxwNReoUyQM&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1983-1984-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/046.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQICxAC&usg=AOvVaw1_D8ZDNo3Wx6DHQQf1zxOu",
+      "content": "12 nov. 1974 \u003cb\u003e...\u003c/b\u003e encore cette année la migration, par le \u003cb\u003eBumidom\u003c/b\u003e . de dix mille jeunes venant des départements d&#39;outre-mer, chiffre non négli- geable. Depuis&nbsp;...",
+      "contentNoFormatting": "12 nov. 1974 ... encore cette année la migration, par le Bumidom . de dix mille jeunes venant des départements d'outre-mer, chiffre non négli- geable. Depuis ...",
+      "title": "46° SEANCE 3° Séance du Mardi &#39;12 Novembre 1974.",
+      "titleNoFormatting": "46° SEANCE 3° Séance du Mardi '12 Novembre 1974.",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1974-1975.../046.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/046.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/046.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///471cc6f4a573901338fff184aa19fe1ea24336a8abb52c60dbd8d16c1b29ad67"
+        },
+        "metatags": {
+          "moddate": "D:20150615125805+02'00'",
+          "creationdate": "D:20150615125755+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeZw5qtVHWdFdj7iavHSkwt_39M9EC0ajGR5wldfby-SjLdiBuyE7X0uME&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1974-1975-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/9/tanalytique/1990_tmatieres_AV.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIAhAC&usg=AOvVaw3lyNXxzpqcHaxvKdmWF0Lf",
+      "content": "31 déc. 1990 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eB.U.M.I.D.O.M\u003c/b\u003e. Bureau pour le développement des migra- tions intéressant les D .O .M. C .A .E .C .L. Caisse d&#39;aide à l&#39;équipement des&nbsp;...",
+      "contentNoFormatting": "31 déc. 1990 ... ... B.U.M.I.D.O.M. Bureau pour le développement des migra- tions intéressant les D .O .M. C .A .E .C .L. Caisse d'aide à l'équipement des ...",
+      "title": "TABLE DESMATI.ÈRES - Assemblée nationale - Archives",
+      "titleNoFormatting": "TABLE DESMATI.ÈRES - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/9/tanalytique/1990_tmatieres_AV.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/9/tanalytique/1990_tmatieres_AV.pdf",
+      "url": "https://archives.assemblee-nationale.fr/9/tanalytique/1990_tmatieres_AV.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///cd6a493315a29fbb2be21a6b92daa2ac31f773907c4cc5fcadcbba7556fa4602"
+        },
+        "metatags": {
+          "moddate": "D:20080624221610+02'00'",
+          "creationdate": "D:20060816153049Z",
+          "creator": "OmniPage Pro 14 http://www.scansoft.com",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt7YpipABJb4KfqIsIQfUFWJX-QjuE9mKCeOcHtZ-eEFc05SuXt7WAkl0d&s",
+          "width": "187",
+          "height": "270"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "tanalytique",
+          "1990_tmatieres_AV"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_EL.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBRAC&usg=AOvVaw0YJJeTHEEStqeUU_AtpZiu",
+      "content": "22 mai 1981 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBUMIDOM\u003c/b\u003e tarifs aériens. Environnement et cadre de vie . Discussion générale [30 octobre 1980] (p. 3325) : dimi- nution des crédits affectés&nbsp;...",
+      "contentNoFormatting": "22 mai 1981 ... ... BUMIDOM tarifs aériens. Environnement et cadre de vie . Discussion générale [30 octobre 1980] (p. 3325) : dimi- nution des crédits affectés ...",
+      "title": "TABLES DES DÉBATS - Assemblée nationale - Archives",
+      "titleNoFormatting": "TABLES DES DÉBATS - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/.../1978-1981_tnominative_EL.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_EL.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_EL.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "metatags": {
+          "moddate": "D:20071026181237+02'00'",
+          "creationdate": "D:20060730195723Z",
+          "creator": "OmniPage Pro 14 http://www.scansoft.com",
+          "producer": "OmniPage Pro 14 http://www.scansoft.com"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "1978-1981_tnominative_EL"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/tnominative/1986_tnominative_AZ.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQICRAB&usg=AOvVaw098ci5c_ihgHYV9JMAgXG3",
+      "content": "... \u003cb\u003eB.U.M.I.D.O.M\u003c/b\u003e. C.A.E.C.L. C.D.J.A. C.D.S. C.E.A. C.E.C.A. Afrique, Caraïbes, Pacifique. Agence centrale de presse. Association départementale d&#39;aménagement des&nbsp;...",
+      "contentNoFormatting": "... B.U.M.I.D.O.M. C.A.E.C.L. C.D.J.A. C.D.S. C.E.A. C.E.C.A. Afrique, Caraïbes, Pacifique. Agence centrale de presse. Association départementale d'aménagement des ...",
+      "title": "TABLE NOMINATIVE - Assemblée nationale - Archives",
+      "titleNoFormatting": "TABLE NOMINATIVE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/.../1986_tnominative_AZ.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/tnominative/1986_tnominative_AZ.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/tnominative/1986_tnominative_AZ.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "metatags": {
+          "moddate": "D:20080625130046+02'00'",
+          "creationdate": "D:20060814152415Z",
+          "creator": "OmniPage Pro 14 http://www.scansoft.com",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "tnominative",
+          "1986_tnominative_AZ"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-01-19.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQICBAC&usg=AOvVaw2FtOoB6jHjDWFKdImdauzL",
+      "content": "19 janv. 1974 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e, a été présenté à cet organisme. Cette demande se fonde sur l &#39;article 5 de la déci- sion du conseil du février 1971 qui dispose r&nbsp;...",
+      "contentNoFormatting": "19 janv. 1974 ... ... Bumidom, a été présenté à cet organisme. Cette demande se fonde sur l 'article 5 de la déci- sion du conseil du février 1971 qui dispose r ...",
+      "title": "Journal officiel du samedi 19 janvier 1974",
+      "titleNoFormatting": "Journal officiel du samedi 19 janvier 1974",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-01-19.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-01-19.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-01-19.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///2c8e06af58d1187c977096536dcca1b665d0c915e4fc238916a67067d5c79fcd"
+        },
+        "metatags": {
+          "moddate": "D:20081008184421+02'00'",
+          "creationdate": "D:20081008184421+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTV9oqO73Nrnw1hUNM7wxYbO4Nfn362WK4am3TZWu31C5Z_mJ6xzhmh7YQ&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "5-qst-1974-01-19"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/qst/7-qst-1981-10-19.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIAxAC&usg=AOvVaw2NKjud7NcT7J5x0ZXbgU0C",
+      "content": "19 oct. 2019 \u003cb\u003e...\u003c/b\u003e colonialiste qu&#39;est le \u003cb\u003eBumidom\u003c/b\u003e. Aujourd&#39;hui, le coût élevé du transport aérien met dans l&#39;impossibilité des milliers de familles de revoir&nbsp;...",
+      "contentNoFormatting": "19 oct. 2019 ... colonialiste qu'est le Bumidom. Aujourd'hui, le coût élevé du transport aérien met dans l'impossibilité des milliers de familles de revoir ...",
+      "title": "Journal officiel du lundi 19 octobre 1981",
+      "titleNoFormatting": "Journal officiel du lundi 19 octobre 1981",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/qst/7-qst-1981-10-19.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/qst/7-qst-1981-10-19.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/qst/7-qst-1981-10-19.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///368bea85981dda36ae2db4e7871b627ac85349c2ff8e6a5e775f48007f31cfa2"
+        },
+        "metatags": {
+          "moddate": "D:20080917102107+02'00'",
+          "creationdate": "D:20080917102107+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbxjfRdYBID4-WlFVLqyMi8Ba3ksmv5qYSx-Zn208vPYj3Ox1VJttIWdZU&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "7-qst-1981-10-19"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-11-17.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBxAC&usg=AOvVaw0OR0xwoJPKDFmliTy8_Xsc",
+      "content": "17 nov. 1986 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e (Bureau pour le développe- ment des migrations intéressant les départements d&#39;outre-mer),. I&#39;A.N .T . (Agence nationale pour l&nbsp;...",
+      "contentNoFormatting": "17 nov. 1986 ... ... Bumidom (Bureau pour le développe- ment des migrations intéressant les départements d'outre-mer),. I'A.N .T . (Agence nationale pour l ...",
+      "title": "JOU.&#39; S T A ICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOU.' S T A ICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-11-17.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-11-17.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-11-17.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///25055c7ca3b9574ef77a2c43d8ff29e4865ab443c67663a59b4076f7057e83dc"
+        },
+        "metatags": {
+          "moddate": "D:20080929071209+02'00'",
+          "creationdate": "D:20080929071209+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrK49c2jGKIRQOn2-IBzJ8zRMAPxbCff1k8mo7bG0rhGQBMaSvFNNt_QA&s",
+          "width": "192",
+          "height": "263"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "8-qst-1986-11-17"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api2633({
+  "cursor": {
+    "currentPageIndex": 6,
+    "estimatedResultCount": "120",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=60&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "120",
+    "searchResultTime": "0.12",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/035.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIAxAC&usg=AOvVaw2gm9mYBOxycZETuNT1dkjo",
+      "content": "9 janv. 1976 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, bureau pour le développement des migrations inté- ressant les départements d&#39;outre-mer. Ainsi, à la fin de 1975, plus de 100 000&nbsp;...",
+      "contentNoFormatting": "9 janv. 1976 ... Bumidom, bureau pour le développement des migrations inté- ressant les départements d'outre-mer. Ainsi, à la fin de 1975, plus de 100 000 ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976.../035.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/035.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/035.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///5c90d9914d2eba351b6bca67a042cf0415d7978e417af7705f9cc53cc81249f1"
+        },
+        "metatags": {
+          "moddate": "D:20081008135234+02'00'",
+          "creationdate": "D:20081008135234+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUPjtN19B_F-P7m50OZl1lyT0xv4oPQYvfOXPyBVgbdIJb39Jy7l-nZaU&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1975-1976-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/118.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIChAB&usg=AOvVaw2ECTIbCrGlYQgm0bcnYfyU",
+      "content": "serait bon d &#39;autoriser, par la voie du \u003cb\u003eBumidom\u003c/b\u003e, la venue de travailleurs qui ont déjà, à leurs propres frais, effectué une ten- tative de recherche d&nbsp;...",
+      "contentNoFormatting": "serait bon d 'autoriser, par la voie du Bumidom, la venue de travailleurs qui ont déjà, à leurs propres frais, effectué une ten- tative de recherche d ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980.../118.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/118.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/118.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///f9a5000f6e956b23ab8ecbe9df6884c2f633e929030778d8f379811b2d150b6b"
+        },
+        "metatags": {
+          "moddate": "D:20080924172130+02'00'",
+          "creationdate": "D:20080924172130+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUjaLPuwdrUa5z4lXzOKhQ4NYdpL1HDj6tET6ZSJEZ2_ROtCPNvArQSKI&s",
+          "width": "198",
+          "height": "254"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1979-1980-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/038.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQICxAC&usg=AOvVaw2agZlO8jqJjw3oHASCNymf",
+      "content": "12 mai 2025 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e : 6 5611 794,50 franc,- Les comptes rendus d &#39;utilisation de ces crédits ne sont pas encore parvenus aux administrations centrales&nbsp;...",
+      "contentNoFormatting": "12 mai 2025 ... ... Bumidom : 6 5611 794,50 franc,- Les comptes rendus d 'utilisation de ces crédits ne sont pas encore parvenus aux administrations centrales ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976.../038.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/038.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/038.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///e8190e1ccc7b9dd8b032eb41749a7ca46b2fd89c9d2b69a85220acc4ddd8d4c4"
+        },
+        "metatags": {
+          "moddate": "D:20081008135327+02'00'",
+          "creationdate": "D:20081008135327+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaLVQn1U34bEzgti9yJ--CDKnx380-TSK1mqmY2ezISE0qv_9bM_4Zye3G&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1975-1976-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-15.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBhAC&usg=AOvVaw160BSPHjfUVLl_adSffUCT",
+      "content": "6 juin 2019 \u003cb\u003e...\u003c/b\u003e 5 novembre 1971 par l&#39;intermédiaire du \u003cb\u003eBumidom\u003c/b\u003e. Après avoir subi l&#39;exploitation habituelle réservée à ces travailleurs, pendant son court&nbsp;...",
+      "contentNoFormatting": "6 juin 2019 ... 5 novembre 1971 par l'intermédiaire du Bumidom. Après avoir subi l'exploitation habituelle réservée à ces travailleurs, pendant son court ...",
+      "title": "JOUR-NÀL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOUR-NÀL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-15.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-15.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-15.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///588b6404959a2daa5a7e827fb4a4da58c4cfcfa7b5c28c4ae67c9bd7d233fc95"
+        },
+        "metatags": {
+          "moddate": "D:20080529173511+02'00'",
+          "creationdate": "D:20080529173511+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_VD5pPoTa5IIcfIYFytI-o9wyQKHhCFPTw_WnGeCZvlQURie1liCzgOs&s",
+          "width": "195",
+          "height": "258"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1972-07-15"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-08-11.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBxAC&usg=AOvVaw2hWraK_zqHByYx7lXXLJXI",
+      "content": "11 août 1979 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e seraient de nouveau autorisés n&#39;ont pas eu de suite ; que le nombre de jeunes chômeurs augmente à la Réunion ; lui demande si son.",
+      "contentNoFormatting": "11 août 1979 ... ... Bumidom seraient de nouveau autorisés n'ont pas eu de suite ; que le nombre de jeunes chômeurs augmente à la Réunion ; lui demande si son.",
+      "title": "Journal officiel du samedi 11 août 1979",
+      "titleNoFormatting": "Journal officiel du samedi 11 août 1979",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-08-11.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-08-11.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-08-11.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///4553edb32a7d8c34068135b64a15d0c65a92eb6a21d6a734f9be11f25ddbad3c"
+        },
+        "metatags": {
+          "moddate": "D:20080925105721+02'00'",
+          "creationdate": "D:20080925105721+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROYpX7dyZWAC7UGlNWFLOlDjEWT9rpP-J8R7g7WIFoPBZeikkakJ_pXvc&s",
+          "width": "200",
+          "height": "253"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1979-08-11"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1981-1982-extraordinaire4/014.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQICBAC&usg=AOvVaw1NAaORhM2KXiDA45YNAdvZ",
+      "content": "1 oct. 1982 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e fut un voyage sans retour ? Avez-vous le courage de leur jeter un regard sur les trottoirs de Paris ? Vous est-il indifférent que se&nbsp;...",
+      "contentNoFormatting": "1 oct. 1982 ... Bumidom fut un voyage sans retour ? Avez-vous le courage de leur jeter un regard sur les trottoirs de Paris ? Vous est-il indifférent que se ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/7/cri/1981-1982.../014.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/7/cri/1981-1982-extraordinaire4/014.pdf",
+      "url": "https://archives.assemblee-nationale.fr/7/cri/1981-1982-extraordinaire4/014.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///a6a3d1f5e8a086ff5ebee4a4165c63c1b4b4a5b47d678e3d3a106b25e35d8409"
+        },
+        "metatags": {
+          "moddate": "D:20080908171429+02'00'",
+          "creationdate": "D:20080908102351+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0H-2spak1iiqTNNqfu13JbbvSUoclfcucZuBVHQMVvYwOSnSVTMVgImY&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1981-1982-extraordinaire4"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/085.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQICRAC&usg=AOvVaw2ugBpsrWWdTBvLd-LD2LBz",
+      "content": "26 nov. 1986 \u003cb\u003e...\u003c/b\u003e susciter des « \u003cb\u003eBumidom\u003c/b\u003e » obsolètes . (Applaudissements sur les bancs du groupe socialiste.) M . Ernest Moutoussamy. Très bien ! M. Aimé&nbsp;...",
+      "contentNoFormatting": "26 nov. 1986 ... susciter des « Bumidom » obsolètes . (Applaudissements sur les bancs du groupe socialiste.) M . Ernest Moutoussamy. Très bien ! M. Aimé ...",
+      "title": "DÉBATS PARLEMENTAIRES - Assemblée nationale - Archives",
+      "titleNoFormatting": "DÉBATS PARLEMENTAIRES - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987.../085.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/085.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/085.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///cef1ad1a5ea52b6b9e87f5c862a4b8847feec0499107f844728616c0703cfd05"
+        },
+        "metatags": {
+          "moddate": "D:20150605114605+02'00'",
+          "creationdate": "D:20080929070430+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp6J_LM4iGp6nBxVcgLPtUkdAhlfVUyabWp-rJGtQGzfzcfGM06bgDAzI&s",
+          "width": "193",
+          "height": "261"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1986-1987-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1985-1986-ordinaire2/049.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIAhAC&usg=AOvVaw1CKONAckI2ys24FYRiFJ1q",
+      "content": "29 mai 1986 \u003cb\u003e...\u003c/b\u003e Elle trop attendu et n &#39;a rien vu venir, sinon le \u003cb\u003eBumidom\u003c/b\u003e. - qui vous est cher, monsieur Debré. Donc, ce n &#39;est pas faire preuve de&nbsp;...",
+      "contentNoFormatting": "29 mai 1986 ... Elle trop attendu et n 'a rien vu venir, sinon le Bumidom. - qui vous est cher, monsieur Debré. Donc, ce n 'est pas faire preuve de ...",
+      "title": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
+      "titleNoFormatting": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1985-1986.../049.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1985-1986-ordinaire2/049.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1985-1986-ordinaire2/049.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///c9f499e7c4357b20057c8aa4d0d08f7e71851a54af911d387b9ffba91195ed80"
+        },
+        "metatags": {
+          "moddate": "D:20080929180950+02'00'",
+          "creationdate": "D:20080929180950+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6vxPq5Eg8QDqJ36La8cj4k_ytPW8A_k2tF8SkrERRxMV041-l3hCuQ7BN&s",
+          "width": "192",
+          "height": "263"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1985-1986-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-04-27.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBBAC&usg=AOvVaw3m1OaVbF_QGNmJ3EPP5LHH",
+      "content": "27 avr. 1974 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e qui est d&#39;un niveau analogue : 1 978 francs. Transports aériens (ouverture d &#39;une ligne aérienne régulière reliant Johannesburg à&nbsp;...",
+      "contentNoFormatting": "27 avr. 1974 ... ... Bumidom qui est d'un niveau analogue : 1 978 francs. Transports aériens (ouverture d 'une ligne aérienne régulière reliant Johannesburg à ...",
+      "title": "Journal officiel du samedi 27 avril 1974",
+      "titleNoFormatting": "Journal officiel du samedi 27 avril 1974",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-04-27.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-04-27.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-04-27.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///d0a940a48145596986140c2ae31815169100a8520add3db4c8527ecc2f1e222e"
+        },
+        "metatags": {
+          "moddate": "D:20081009103005+02'00'",
+          "creationdate": "D:20081009103005+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnbDIH1wulgUuZOnjjzeGNetALipwA7Grk68dqTBu02anRmJPynbv5e0XQ&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "5-qst-1974-04-27"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/050.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBRAC&usg=AOvVaw10Z4FAJ3tTxRB0AqomON6p",
+      "content": "25 mai 2025 \u003cb\u003e...\u003c/b\u003e Ne parlons pas des tarifs du \u003cb\u003eBumidom\u003c/b\u003e, uniquement destinés à ceux qui désirent venir en métropole et qui ont bien du courage d&#39;attendre deux&nbsp;...",
+      "contentNoFormatting": "25 mai 2025 ... Ne parlons pas des tarifs du Bumidom, uniquement destinés à ceux qui désirent venir en métropole et qui ont bien du courage d'attendre deux ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../050.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/050.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/050.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///516911171d859f7800cf36e296df9e6415e2ba3c020588eaec05e5704a23ae92"
+        },
+        "metatags": {
+          "moddate": "D:20080923184531+02'00'",
+          "creationdate": "D:20080923184531+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_jBFiaoIxJVaCKsHJUupIVF2U-hiKV89PWbToaNsBWwM5gota9SiAwN0&s",
+          "width": "199",
+          "height": "254"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api4383({
+  "cursor": {
+    "currentPageIndex": 7,
+    "estimatedResultCount": "117",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=70&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "117",
+    "searchResultTime": "0.28",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/064.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBhAC&usg=AOvVaw3GBXudxAVZabUY4rGaW7tf",
+      "content": "10 juin 1980 \u003cb\u003e...\u003c/b\u003e Les études faites par le \u003cb\u003eBumidom\u003c/b\u003e demeurent secrètes. Ces «cachotteries » ne visent-elles pas à masquer la dégradation constante de la&nbsp;...",
+      "contentNoFormatting": "10 juin 1980 ... Les études faites par le Bumidom demeurent secrètes. Ces «cachotteries » ne visent-elles pas à masquer la dégradation constante de la ...",
+      "title": "CONSTITUTION DU 4 OCTOBRE 1958 6&#39; Législature",
+      "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 6' Législature",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980.../064.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/064.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/064.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///aee82cbe517487dbb15673f94d83e1faf7f5f9d78fe56e1c4f9e4df4cd29886b"
+        },
+        "metatags": {
+          "moddate": "D:20080704182940+02'00'",
+          "creationdate": "D:20080704182940+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNZxyBqhT-9YTwtyiTvgdSr7YfP3iSzlsOhvpro7c_g02NwoxCC100rac&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1979-1980-ordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/087.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIChAC&usg=AOvVaw3Da3HW4Bc37Fd59Rn8qMgx",
+      "content": "27 nov. 1986 \u003cb\u003e...\u003c/b\u003e d&#39;outre-mer organisée par l&#39;ex-\u003cb\u003eBumidom\u003c/b\u003e que vous voulez réveiller de ses cendres pour conduire la même politique. Le développement de la&nbsp;...",
+      "contentNoFormatting": "27 nov. 1986 ... d'outre-mer organisée par l'ex-Bumidom que vous voulez réveiller de ses cendres pour conduire la même politique. Le développement de la ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987.../087.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/087.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/087.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///72ba0ffd276de6edeb064fcb6a55be6750a6a373971b9e79b9f825f5f2243ab2"
+        },
+        "metatags": {
+          "moddate": "D:20080929070431+02'00'",
+          "creationdate": "D:20080929070431+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBVNiyWfO5d5DFHbvuCYA1neviURdiNht5H0n-bQ_5hxarBfulo9Pwc0Q&s",
+          "width": "189",
+          "height": "266"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1986-1987-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQICxAB&usg=AOvVaw33HR2VtB1j3uiHt_Iuahpw",
+      "content": "départements d &#39; outre-mer IBUMIDOM), Le \u003cb\u003eBUMIDOM\u003c/b\u003e n &#39;ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n &#39;a&nbsp;...",
+      "contentNoFormatting": "départements d ' outre-mer IBUMIDOM), Le BUMIDOM n 'ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n 'a ...",
+      "title": "25° SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "25° SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../025.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///d6ae7af49fe477ec618a4b35d805a21918b1da7a4c10478fe59ac32134f5ae19"
+        },
+        "metatags": {
+          "moddate": "D:20080923155406+02'00'",
+          "creationdate": "D:20080923155406+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWVH80bXhYwXpepZVgq2Pf4EqE8dLMXLcaNETUjzK-QpcO1s6wbcMXFJnf&s",
+          "width": "199",
+          "height": "253"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-08-25.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBxAC&usg=AOvVaw0m3lCWbMPnsx0kYkk5PeTA",
+      "content": "25 août 1980 \u003cb\u003e...\u003c/b\u003e et \u003cb\u003eBumidom\u003c/b\u003e, l &#39;adap- tation aux D.O.M. des législation et réglementation relatives aux aides à la mobilité géographique et la prime de&nbsp;...",
+      "contentNoFormatting": "25 août 1980 ... et Bumidom, l 'adap- tation aux D.O.M. des législation et réglementation relatives aux aides à la mobilité géographique et la prime de ...",
+      "title": "Journal officiel du lundi 25 août 1980 - Assemblée nationale - Archives",
+      "titleNoFormatting": "Journal officiel du lundi 25 août 1980 - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-08-25.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-08-25.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-08-25.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///9350e877a330c7fd76f3222892ebce54df11d8946066d4375b8e7088ea22456f"
+        },
+        "metatags": {
+          "moddate": "D:20080925115252+02'00'",
+          "creationdate": "D:20080925115252+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdBT2aOrrl3_5sp1_FqvsnD-SD6f7CajwfAEU_ePgLf_Fed1cL9FrC4jU&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1980-08-25"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-09-08.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBBAC&usg=AOvVaw0aIuOsa5JupsXm56Jsi3XW",
+      "content": "8 sept. 1980 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e ; e) de rétablir certaines missions de recrutement, des entreprises nationales notamment, dont le succès a été sensible au cours des&nbsp;...",
+      "contentNoFormatting": "8 sept. 1980 ... Bumidom ; e) de rétablir certaines missions de recrutement, des entreprises nationales notamment, dont le succès a été sensible au cours des ...",
+      "title": "AN 8 septembre 1980 - Assemblée nationale - Archives",
+      "titleNoFormatting": "AN 8 septembre 1980 - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-09-08.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-09-08.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-09-08.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///eca4a4ed154c4901c5f97ca1997a489d060ec6367592e0ae90c375b298de626f"
+        },
+        "metatags": {
+          "moddate": "D:20080925115517+02'00'",
+          "creationdate": "D:20080925115517+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE_5eCTK0qD2whuvItC5ueNjdsa_82sGqaqjpZtp9DhRNxqzrKhlxTcC66&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1980-09-08"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-extraordinaire2/006.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIAhAC&usg=AOvVaw2jq9C5f4KtgWYhryW0lqqa",
+      "content": "17 mars 1979 \u003cb\u003e...\u003c/b\u003e connu sous le sigle de \u003cb\u003eBumidom\u003c/b\u003e, qui est un organisme chargé d&#39;orienter la migration des ressortissants des départements d&#39;outre-mer vers l&nbsp;...",
+      "contentNoFormatting": "17 mars 1979 ... connu sous le sigle de Bumidom, qui est un organisme chargé d'orienter la migration des ressortissants des départements d'outre-mer vers l ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../006.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-extraordinaire2/006.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-extraordinaire2/006.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///2f8f849e13989e6a464236142c99f3220906859a2b1deedf20468b121903052c"
+        },
+        "metatags": {
+          "moddate": "D:20080923153913+02'00'",
+          "creationdate": "D:20080923153913+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTNT8tlifFy_efdHPJ3Ij49PSwE86JBxizf-JSm35sByyoMn1Jfv5pNsn6K&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-extraordinaire2"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-06-16.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQICBAC&usg=AOvVaw0EsQhmneJEQe3SqPJX-uyr",
+      "content": "16 juin 1986 \u003cb\u003e...\u003c/b\u003e populations en créant le \u003cb\u003eBumidom\u003c/b\u003e (Bureau pour le développe- ment des migrations intéressant les départements d&#39;outre-mer), l&#39;A.N.T. (Agence&nbsp;...",
+      "contentNoFormatting": "16 juin 1986 ... populations en créant le Bumidom (Bureau pour le développe- ment des migrations intéressant les départements d'outre-mer), l'A.N.T. (Agence ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-06-16.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-06-16.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-06-16.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///4def256b8d202abef3dbe18cbbe2dbfb4d41d3972736af77098d31e8b304362c"
+        },
+        "metatags": {
+          "moddate": "D:20080929071013+02'00'",
+          "creationdate": "D:20080929071013+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1xHoJpyglVimTCdhlSlTEVDKL2NnJ93NLksWe_yiI-brRPfuOr0ppf_Rm&s",
+          "width": "191",
+          "height": "265"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "8-qst-1986-06-16"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/033.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIAxAB&usg=AOvVaw1ugDIG2vx-R8S0CLAj5sdo",
+      "content": "titre du \u003cb\u003eBumidom\u003c/b\u003e la même année, M. le ministre de l &#39;économie et des finances indiquait dans sa réponse qu&#39;il n&#39;était pas possible d&#39;établir, à partir de&nbsp;...",
+      "contentNoFormatting": "titre du Bumidom la même année, M. le ministre de l 'économie et des finances indiquait dans sa réponse qu'il n'était pas possible d'établir, à partir de ...",
+      "title": "a• si .NI - Assemblée nationale - Archives",
+      "titleNoFormatting": "a• si .\\NI - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/cri/1969-1970.../033.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/033.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/033.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///1b7ad64b06112fe8d109060e3c046ce1fe01b57e6d6df3234c9b96cc96e39b9f"
+        },
+        "metatags": {
+          "moddate": "D:20080702135115+02'00'",
+          "creationdate": "D:20080702135115+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqwm_wakLg-_DMtuCQudWtrfXGuXTgV0XJ6I5EYQAqSxRM-Din97aZ2-ib&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1969-1970-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/062.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBRAC&usg=AOvVaw3q8Z0rvl6l0OpOXAnwVyiK",
+      "content": "30 déc. 1975 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, utilement orientées vers une formation ; ils viennent en métropole, où ils rencontrent parfois des déceptions. Telle est, trop&nbsp;...",
+      "contentNoFormatting": "30 déc. 1975 ... Bumidom, utilement orientées vers une formation ; ils viennent en métropole, où ils rencontrent parfois des déceptions. Telle est, trop ...",
+      "title": "62° SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "62° SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977.../062.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/062.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/062.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///da8b5de79088ed71b7b80a2e451dae234797e01c34c3a114d632a4fd25dee649"
+        },
+        "metatags": {
+          "moddate": "D:20081008162503+02'00'",
+          "creationdate": "D:20081008162503+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1h0QABMn2aeUmjljIwRdAwEQO0lCDuuGQun7eBlwlZSWo7unxBZ3oOdo&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1976-1977-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/064.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQICRAC&usg=AOvVaw21uUOaE_h6S6x212ygRgF9",
+      "content": "15 nov. 1973 \u003cb\u003e...\u003c/b\u003e d&#39;un seul voyage gratuit pour la métropole par le \u003cb\u003eBumidom\u003c/b\u003e). 5251. — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements&nbsp;...",
+      "contentNoFormatting": "15 nov. 1973 ... d'un seul voyage gratuit pour la métropole par le Bumidom). 5251. — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements ...",
+      "title": "64&#39; SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "64' SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974.../064.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/064.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/064.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///a9c330f0329c0fe5e515e5114344762c4b312050465b3012ad71cefca7250fc1"
+        },
+        "metatags": {
+          "moddate": "D:20170303105451+01'00'",
+          "creationdate": "D:20170303105440+01'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6dWuRi5D82eYN7Hu7x9HM2Ub9jXjt3Z4MDBuLoVQZuTpfreqf-qenp9mC&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1973-1974-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api2789({
+  "cursor": {
+    "currentPageIndex": 8,
+    "estimatedResultCount": "116",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=80&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "116",
+    "searchResultTime": "0.13",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-04-19.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIChAC&usg=AOvVaw0QpHQPvOaaO-ly-qN3f35d",
+      "content": "24 sept. 2019 \u003cb\u003e...\u003c/b\u003e Le \u003cb\u003eBumidom\u003c/b\u003e par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3.011 unités&nbsp;...",
+      "contentNoFormatting": "24 sept. 2019 ... Le Bumidom par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3.011 unités ...",
+      "title": "Journal officiel du samedi 19 avril 1969",
+      "titleNoFormatting": "Journal officiel du samedi 19 avril 1969",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-04-19.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-04-19.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-04-19.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///06c39bf60563c57a1825c62e44ea9302013c7691729f819cf97deeb2a9c373ea"
+        },
+        "metatags": {
+          "moddate": "D:20080529165406+02'00'",
+          "creationdate": "D:20080529165406+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsvOSFOz6yfW2clRur0ubrfJHt0Uglz9HFODLiqy2QNtV8tlhdAPoExLyS&s",
+          "width": "196",
+          "height": "258"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1969-04-19"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/088.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBxAC&usg=AOvVaw3Er8OlHWDp9BOqeGLW8dza",
+      "content": "5 déc. 1973 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e s&#39;ils règlent, avant leur départ, avec la société d&#39;Etat, les modalités de leur réimplantation. C&#39;est. ainsi, également, que des&nbsp;...",
+      "contentNoFormatting": "5 déc. 1973 ... Bumidom s'ils règlent, avant leur départ, avec la société d'Etat, les modalités de leur réimplantation. C'est. ainsi, également, que des ...",
+      "title": "88&#39; SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "88' SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974.../088.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/088.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/088.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///a47d58cd16dc227447fb90a5f3de0fb2f7962a1b37a418c02688cc1d7bc2d567"
+        },
+        "metatags": {
+          "moddate": "D:20170303143244+01'00'",
+          "creationdate": "D:20170303143232+01'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxqMUtv8d_OXrkrEdHf6izoqX3RMcz0GEdkmCg5XcpWINLJDw0aGvCaz8&s",
+          "width": "198",
+          "height": "254"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1973-1974-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/014.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBRAC&usg=AOvVaw0RPsr17OmGs5wzVI1Ulocw",
+      "content": "12 oct. 1973 \u003cb\u003e...\u003c/b\u003e d&#39;un seul voyage gratuit pour la métropole par le \u003cb\u003eBumidom\u003c/b\u003e). 5251 . — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements&nbsp;...",
+      "contentNoFormatting": "12 oct. 1973 ... d'un seul voyage gratuit pour la métropole par le Bumidom). 5251 . — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements ...",
+      "title": "COMPTE RENDU 1NTEGRAL - Assemblée nationale - Archives",
+      "titleNoFormatting": "COMPTE RENDU 1NTEGRAL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974.../014.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/014.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/014.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///8124b1f5d50f2361ba5d4117f3120ba43ba0587d1d851f767546a76db16788f4"
+        },
+        "metatags": {
+          "moddate": "D:20150623174017+02'00'",
+          "creationdate": "D:20150623174008+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmfRihKgP-jawif1hhb9nzE8h1OS1OXV17-ukK5gu3zB_gmvAQTRXiW7bm&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1973-1974-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/106.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQICxAC&usg=AOvVaw04wjgRhlZrcWXhH3bW2ylE",
+      "content": "20 déc. 1978 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBUMIDOM\u003c/b\u003e . POSTES ET TELECOMMUNICATIONS. Téléphone (redevance). 8787. — 18 novembre 1978 . — M. Joseph Franceschi appelle à nouveau l&nbsp;...",
+      "contentNoFormatting": "20 déc. 1978 ... BUMIDOM . POSTES ET TELECOMMUNICATIONS. Téléphone (redevance). 8787. — 18 novembre 1978 . — M. Joseph Franceschi appelle à nouveau l ...",
+      "title": "106&#39; SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "106' SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../106.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/106.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/106.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///e37faddcbbe8fcec07cea8e3bc26b209ee13fe4b30c67c1bdf1432b78d65bb8e"
+        },
+        "metatags": {
+          "moddate": "D:20080923184635+02'00'",
+          "creationdate": "D:20080923184635+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRigWG9fclW4zewEKdLZAN-pWceR-pL5oftRbc6lw-edWNUqRkitddhA9z0&s",
+          "width": "199",
+          "height": "253"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1977-07-09.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIAxAC&usg=AOvVaw3EbVYnkqHlkmDVnFneUfxp",
+      "content": "9 juil. 1977 \u003cb\u003e...\u003c/b\u003e De même, il est exact que le \u003cb\u003eBumidom\u003c/b\u003e offre aux candidats à la migration des stages de rattra page scolaire ou de préformation dans ses&nbsp;...",
+      "contentNoFormatting": "9 juil. 1977 ... De même, il est exact que le Bumidom offre aux candidats à la migration des stages de rattra page scolaire ou de préformation dans ses ...",
+      "title": "Journal officiel du samedi 9 juillet 1977",
+      "titleNoFormatting": "Journal officiel du samedi 9 juillet 1977",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1977-07-09.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1977-07-09.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1977-07-09.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///001d0df487c2de2489d2bd4f356419d1efc6fee5028f3f380e237349f3ab663d"
+        },
+        "metatags": {
+          "moddate": "D:20081009172849+02'00'",
+          "creationdate": "D:20081009172849+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-aYrxRcgQ5MKhuiUmPLQjKbT8rXkd5nMD1N4OW_H9ZbiNbsItFqLYaTP3&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "5-qst-1977-07-09"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/065.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQICBAC&usg=AOvVaw1sxDKR-HGSW_aznsu5-mIt",
+      "content": "9 nov. 1986 \u003cb\u003e...\u003c/b\u003e mobilité qu&#39;accordait jusqu&#39;en 1981 le \u003cb\u003eBUMIDOM\u003c/b\u003e, le bureau pour le développement des migrations intéressant les départe- ments d&#39;outre-mer&nbsp;...",
+      "contentNoFormatting": "9 nov. 1986 ... mobilité qu'accordait jusqu'en 1981 le BUMIDOM, le bureau pour le développement des migrations intéressant les départe- ments d'outre-mer ...",
+      "title": "&#39;t2ATS PARLEMENTAIRES - Assemblée nationale - Archives",
+      "titleNoFormatting": "'t2ATS PARLEMENTAIRES - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987.../065.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/065.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/065.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///30aa249e32dcc801d4d596e1d82fdc00468476b2b505de7a187d3bce3504ec6e"
+        },
+        "metatags": {
+          "moddate": "D:20080929070407+02'00'",
+          "creationdate": "D:20080929070407+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkD-VpMIZaNbqiCK9WIqHftkPjBoszCP6cYlp41JIK7Aa5fEhpx1CQk5Tn&s",
+          "width": "191",
+          "height": "264"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1986-1987-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/086.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQICRAC&usg=AOvVaw3nMKN6eYE_gzE9nJFfedpf",
+      "content": "26 nov. 1986 \u003cb\u003e...\u003c/b\u003e le \u003cb\u003eBumidom\u003c/b\u003e, vous avez pu l&#39;imposer, mais c&#39;était à une époque de croissance de l&#39;économie française, et les métropo- litains étaient trop&nbsp;...",
+      "contentNoFormatting": "26 nov. 1986 ... le Bumidom, vous avez pu l'imposer, mais c'était à une époque de croissance de l'économie française, et les métropo- litains étaient trop ...",
+      "title": "FICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "FICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987.../086.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/086.pdf",
+      "url": "https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/086.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///f188f9b0968b2e8f107cdfbbd20cbc58802cec4fce7567b0d1d6761f52340e69"
+        },
+        "metatags": {
+          "moddate": "D:20150605114534+02'00'",
+          "creationdate": "D:20150605114503+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3UeZ5QbCET15fLKBcjP1BHRGia2sIpBULo4Wzqo8WB2LgGb2kNp7LfG8&s",
+          "width": "192",
+          "height": "262"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1986-1987-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/tnominative/1968-1973_tnominative_IO.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBhAB&usg=AOvVaw0qKZoPiwSAdeb_WjCy8-Ug",
+      "content": "... \u003cb\u003eBumidom\u003c/b\u003e ; situation des. Réunionnais et des Antillais venus en métro- pole ; ses observations sur les migrants spon- tanés ; expérience d&#39;installation&nbsp;...",
+      "contentNoFormatting": "... Bumidom ; situation des. Réunionnais et des Antillais venus en métro- pole ; ses observations sur les migrants spon- tanés ; expérience d'installation ...",
+      "title": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
+      "titleNoFormatting": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/.../1968-1973_tnominative_IO.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/tnominative/1968-1973_tnominative_IO.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/tnominative/1968-1973_tnominative_IO.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "metatags": {
+          "moddate": "D:20071025234655+02'00'",
+          "creationdate": "D:20070926124000Z",
+          "creator": "OmniPage Pro 14 http://www.scansoft.com",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "1968-1973_tnominative_IO"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1971-07-10.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBBAC&usg=AOvVaw3vmg__sHd9EWevqyQoeYaX",
+      "content": "10 juil. 1971 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e a dénoncé le contrat de location et clans le même temps s&#39;est efforcé de se procurer des places dans d &#39;autres foyers mieux équipés&nbsp;...",
+      "contentNoFormatting": "10 juil. 1971 ... Bumidom a dénoncé le contrat de location et clans le même temps s'est efforcé de se procurer des places dans d 'autres foyers mieux équipés ...",
+      "title": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1971-07-10.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1971-07-10.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1971-07-10.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///ea5da084014d37e044c536dc7ddfbabbf7dfa67d9d8b1a6c8facf9513b129ea4"
+        },
+        "metatags": {
+          "moddate": "D:20080529172422+02'00'",
+          "creationdate": "D:20080529172422+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_Gjs2W-pRMc6Cbm2tQfhyJEEUGmyYG-jZjtf7Mk_C_3wHx_jerTt7uw5S&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1971-07-10"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-02-24.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIAhAC&usg=AOvVaw2CUsHVtkAN0IF4eyl5kERS",
+      "content": "24 févr. 1979 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e de reprendre ses activités de placement, vont enfin être concrétisées . Il lut rappelle que le monopole du placement officiellement&nbsp;...",
+      "contentNoFormatting": "24 févr. 1979 ... ... Bumidom de reprendre ses activités de placement, vont enfin être concrétisées . Il lut rappelle que le monopole du placement officiellement ...",
+      "title": "Journal officiel du samedi 24 février 1979",
+      "titleNoFormatting": "Journal officiel du samedi 24 février 1979",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-02-24.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-02-24.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-02-24.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///42243a734fe3e2814b4f1bdcc9487d4f395e381be27a006d95cc9bbb8b3619f9"
+        },
+        "metatags": {
+          "moddate": "D:20080925103827+02'00'",
+          "creationdate": "D:20080925103827+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5SAb5zSOMe8vcsES8_kFkBR9aamfW7G9kAkptoRLIOZ2hrT_irtyrAqM&s",
+          "width": "200",
+          "height": "252"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1979-02-24"
+        ]
+      }
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+/*O_o*/
+google.search.cse.api17494({
+  "cursor": {
+    "currentPageIndex": 9,
+    "estimatedResultCount": "114",
+    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=90&cx=014917347718038151697:kltwr00yvbk",
+    "resultCount": "114",
+    "searchResultTime": "0.13",
+    "pages": [
+      {
+        "label": 1,
+        "start": "0"
+      },
+      {
+        "label": 2,
+        "start": "10"
+      },
+      {
+        "label": 3,
+        "start": "20"
+      },
+      {
+        "label": 4,
+        "start": "30"
+      },
+      {
+        "label": 5,
+        "start": "40"
+      },
+      {
+        "label": 6,
+        "start": "50"
+      },
+      {
+        "label": 7,
+        "start": "60"
+      },
+      {
+        "label": 8,
+        "start": "70"
+      },
+      {
+        "label": 9,
+        "start": "80"
+      },
+      {
+        "label": 10,
+        "start": "90"
+      }
+    ]
+  },
+  "results": [
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/056.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQICBAB&usg=AOvVaw0UI6hEGfd7Quy-qYHo_sHu",
+      "content": "rement assurées par le \u003cb\u003eBUMIDOM\u003c/b\u003e, n&#39;a pas fait, jusqu&#39;à présent, la preuve de son efficacité. Du côté des dépenses d&#39;équipement, le projet de budget est.",
+      "contentNoFormatting": "rement assurées par le BUMIDOM, n'a pas fait, jusqu'à présent, la preuve de son efficacité. Du côté des dépenses d'équipement, le projet de budget est.",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../056.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/056.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/056.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///7fbd949f8021e3dcea9ae3ef0f79c63ea350f8a2f511a0775c2c819f34bfd1f7"
+        },
+        "metatags": {
+          "moddate": "D:20080923184822+02'00'",
+          "creationdate": "D:20080923184822+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZnBq2J_dMS0moDZFqVPjfLJiGUV7bx92F2ZP8ufUCAlxo1-srVp2CbG_Z&s",
+          "width": "198",
+          "height": "254"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/058.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBhAB&usg=AOvVaw39QqM0nVKW3VewMVJ3Rn5A",
+      "content": "anciennes attributions du \u003cb\u003eBumidom\u003c/b\u003e . Il lui demande s&#39;il compte réaliser prochainement l&#39;une ou l&#39;autre de ces réformes, dont l&#39;urgence est certaine&nbsp;...",
+      "contentNoFormatting": "anciennes attributions du Bumidom . Il lui demande s'il compte réaliser prochainement l'une ou l'autre de ces réformes, dont l'urgence est certaine ...",
+      "title": "58&#39; SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "58' SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../058.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/058.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/058.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///3c53e7994e3b8bf07c392882d177ad42f70cd466f396431a429bbd75c2f28d51"
+        },
+        "metatags": {
+          "moddate": "D:20080923184933+02'00'",
+          "creationdate": "D:20080923184933+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWshwVSVfL8L0z7pdzSde0zkQ7CHH1QaiOvQUwbGZDimCh5gBZ6yGMgKwl&s",
+          "width": "199",
+          "height": "254"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_MZ.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBBAC&usg=AOvVaw0gFuc_T9yJyL0_ZbXeovlV",
+      "content": "22 mai 1981 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBUMIDOM\u003c/b\u003e ; lenteur de l&#39;indemnisation des cultures sinistrées par les cyclones ; diversi- fication agricole et difficultés de la commer&nbsp;...",
+      "contentNoFormatting": "22 mai 1981 ... ... BUMIDOM ; lenteur de l'indemnisation des cultures sinistrées par les cyclones ; diversi- fication agricole et difficultés de la commer ...",
+      "title": "TABLES DES DÉBATS - Assemblée nationale - Archives",
+      "titleNoFormatting": "TABLES DES DÉBATS - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/.../1978-1981_tnominative_MZ.pd...",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_MZ.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_MZ.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "metatags": {
+          "moddate": "D:20071025234856+02'00'",
+          "creationdate": "D:20060731005719Z",
+          "creator": "OmniPage Pro 14 http://www.scansoft.com",
+          "producer": "OmniPage Pro 14 http://www.scansoft.com"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "1978-1981_tnominative_MZ"
+        ]
+      }
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-04-07.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQICxAC&usg=AOvVaw1RJfBr2V4TtCtP5gxpyexR",
+      "content": "7 avr. 1980 \u003cb\u003e...\u003c/b\u003e médiaire du \u003cb\u003eBumidom\u003c/b\u003e et du Casodom, ce qui, ajouté au glissement que chacun connaît des prix des carburants, se traduit en effet par l&nbsp;...",
+      "contentNoFormatting": "7 avr. 1980 ... médiaire du Bumidom et du Casodom, ce qui, ajouté au glissement que chacun connaît des prix des carburants, se traduit en effet par l ...",
+      "title": "Journal officiel du lundi 7 avril 1980 - Assemblée nationale - Archives",
+      "titleNoFormatting": "Journal officiel du lundi 7 avril 1980 - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-04-07.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-04-07.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-04-07.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///766e7c1578daa91524dc3341c8400ba8d57fe926002e8ab4733068401bfd95d1"
+        },
+        "metatags": {
+          "moddate": "D:20080925112528+02'00'",
+          "creationdate": "D:20080925112528+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn3d_OuQHuOkQPDHGeTW6KsdaujeeYB3LslPzdBkfW6dU09QOWwEYvghA&s",
+          "width": "198",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1980-04-07"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/076.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIAhAC&usg=AOvVaw2MNqHDOQsmjL-_PMx1pNr3",
+      "content": "2 déc. 1978 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e :bureau d &#39;immigration des départements d &#39; outre-mer&#39; et du ... \u003cb\u003eBumidom\u003c/b\u003e et au Casadom, dont l &#39;intervention se trouve ainsi&nbsp;...",
+      "contentNoFormatting": "2 déc. 1978 ... ... Bumidom :bureau d 'immigration des départements d ' outre-mer' et du ... Bumidom et au Casadom, dont l 'intervention se trouve ainsi ...",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../076.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/076.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/076.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///b47da67c90b3227c5ae7d381990aab32d1db602ef875c1b3d4f48d5606849fae"
+        },
+        "metatags": {
+          "moddate": "D:20080923190557+02'00'",
+          "creationdate": "D:20080923190557+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPTInO6t7T-Jai0XfvYY52Ci6kkNaPxUqwzbC0_fNusu80gUNVA2OssGeN&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQICRAB&usg=AOvVaw22uxn2mXGq-AXvtzj4cb50",
+      "content": "départements d &#39; outre-mer IBUMIDOM), Le \u003cb\u003eBUMIDOM\u003c/b\u003e n &#39;ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n &#39;a&nbsp;...",
+      "contentNoFormatting": "départements d ' outre-mer IBUMIDOM), Le BUMIDOM n 'ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n 'a ...",
+      "title": "25° SEANCE - Assemblée nationale - Archives",
+      "titleNoFormatting": "25° SEANCE - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979.../025.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///be0e863c5cc86223c0d7e14fde34cd6df065085d9cd842a5fd50b9960fef14b2"
+        },
+        "metatags": {
+          "moddate": "D:20080923155406+02'00'",
+          "creationdate": "D:20080923155406+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkoh-3tMsmIxijoj5fEwN0sufsPMRSGUp5z6YXbVfKnWPw1GeYf2pb1cc&s",
+          "width": "199",
+          "height": "253"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1978-1979-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-12-01.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBxAC&usg=AOvVaw0jqRaZgxe4MC7P-Pjb2MHt",
+      "content": "1 déc. 1980 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e et d&#39;Air France, de façon à compléter sa politique de la migration. Il ne faut cependant pas oublier dans ce domaine les.",
+      "contentNoFormatting": "1 déc. 1980 ... Bumidom et d'Air France, de façon à compléter sa politique de la migration. Il ne faut cependant pas oublier dans ce domaine les.",
+      "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-12-01.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-12-01.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-12-01.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///5a61af2387d3b16db5c688a6c9feb3d9575a785ccc95c47f602e5daeb2d81daf"
+        },
+        "metatags": {
+          "moddate": "D:20080925121047+02'00'",
+          "creationdate": "D:20080925121047+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFBjXkWjMk3mOnnll039QwKwS--yJm3VyelR0YwwebDrCFXD1q8KdvjMg&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "6-qst-1980-12-01"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-29.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIChAC&usg=AOvVaw3VmFYVGRiwogPUlxQNF1aH",
+      "content": "29 juil. 1972 \u003cb\u003e...\u003c/b\u003e bre 1971 par l &#39;intermédiaire du \u003cb\u003eBumidom\u003c/b\u003e . Après avoir subi l &#39;exploi- tation habituelle réservée à ces travailleurs, pendant son court.",
+      "contentNoFormatting": "29 juil. 1972 ... bre 1971 par l 'intermédiaire du Bumidom . Après avoir subi l 'exploi- tation habituelle réservée à ces travailleurs, pendant son court.",
+      "title": "Journal officiel du samedi 29 juillet 1972",
+      "titleNoFormatting": "Journal officiel du samedi 29 juillet 1972",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-29.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-29.pdf",
+      "url": "https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-29.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///f398cd463fbbd839ffa3d017426dd3c0e96388163e6a64332d089dca86b0efd6"
+        },
+        "metatags": {
+          "moddate": "D:20080529173602+02'00'",
+          "creationdate": "D:20080529173602+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTj4CAhpokEm-HwRr7EO8bK2DlCHiqxtnMDaEm6lbol9iory_uDoMwaAx8&s",
+          "width": "196",
+          "height": "257"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "4-qst-1972-07-29"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/045.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBRAC&usg=AOvVaw1Q3fDH1kS4oNXxRxxJxhvk",
+      "content": "25 oct. 2018 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBUMIDOM\u003c/b\u003e s&#39;est améliorée. J&#39;y veillais moi-même depuis quelques mois. Elle nous vaudra confirmation des résultats significatifs que nous&nbsp;...",
+      "contentNoFormatting": "25 oct. 2018 ... BUMIDOM s'est améliorée. J'y veillais moi-même depuis quelques mois. Elle nous vaudra confirmation des résultats significatifs que nous ...",
+      "title": "Assemblée nationale - Archives",
+      "titleNoFormatting": "Assemblée nationale - Archives",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980.../045.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/045.pdf",
+      "url": "https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/045.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///d63d312ac1618a62c31e443cf6edc919e2eecf1ebb51929381a3a79d9f35bda7"
+        },
+        "metatags": {
+          "moddate": "D:20080923200034+02'00'",
+          "creationdate": "D:20080923200034+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQamLkUDo1XQsG5Z6NQc95K6gI2bB8wPocwWoPlK5_rueY5yFePB05GrO2N&s",
+          "width": "197",
+          "height": "256"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "cri",
+          "1979-1980-ordinaire1"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    },
+    {
+      "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1975-07-19.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIAxAC&usg=AOvVaw2n-bSXXoUx5AQyXkygeMgf",
+      "content": "19 juil. 2019 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e qui donne du travail et transporte en métropole environ. 10000 &#39; ressortissants par an . Parmi les mesures décidées récemment par le&nbsp;...",
+      "contentNoFormatting": "19 juil. 2019 ... Bumidom qui donne du travail et transporte en métropole environ. 10000 ' ressortissants par an . Parmi les mesures décidées récemment par le ...",
+      "title": "Journal officiel du samedi 19 juillet 1975",
+      "titleNoFormatting": "Journal officiel du samedi 19 juillet 1975",
+      "formattedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1975-07-19.pdf",
+      "unescapedUrl": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1975-07-19.pdf",
+      "url": "https://archives.assemblee-nationale.fr/5/qst/5-qst-1975-07-19.pdf",
+      "visibleUrl": "archives.assemblee-nationale.fr",
+      "richSnippet": {
+        "cseImage": {
+          "src": "x-raw-image:///fb33e4739d0cdea531e45655fd9af923c9262a742d331e8d0bed0e4159b67a8f"
+        },
+        "metatags": {
+          "moddate": "D:20081009105109+02'00'",
+          "creationdate": "D:20081009105109+02'00'",
+          "producer": "Recoded by LuraDocument PDF v2.15"
+        },
+        "cseThumbnail": {
+          "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmlDUg1Kj-gn7mCyE43jp9xAcVmcEEI2Rr71yZgy854nozuGJvsF2DZ_Kx&s",
+          "width": "197",
+          "height": "255"
+        }
+      },
+      "breadcrumbUrl": {
+        "host": "archives.assemblee-nationale.fr",
+        "crumbs": [
+          "qst",
+          "5-qst-1975-07-19"
+        ]
+      },
+      "fileFormat": "PDF/Adobe Acrobat"
+    }
+  ],
+  "findMoreOnGoogle": {
+    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
+  }
+});
+
+
+
+
+
+
+
