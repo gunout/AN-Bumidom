@@ -7,7 +7,7 @@ import plotly.graph_objects as go
 from datetime import datetime
 import urllib.parse
 import time
-import re  # Importé au début
+import re
 import os
 
 # ==================== CONFIGURATION ====================
@@ -43,8 +43,6 @@ def parser_json_google_cse(json_data, page_num=1):
                     if isinstance(value[0], dict):
                         items = value
                         break
-        
-        st.info(f"📊 {len(items)} éléments trouvés dans le JSON")
         
         for i, item in enumerate(items):
             try:
@@ -145,6 +143,85 @@ def parser_json_google_cse(json_data, page_num=1):
     except Exception as e:
         st.error(f"Erreur lors du parsing JSON: {str(e)}")
         return []
+
+def scraper_toutes_pages_api(nombre_pages=10):
+    """Scrape toutes les pages via l'API Google CSE"""
+    tous_resultats = []
+    base_url = "https://syndicatedsearch.goog/cse_v2/ads"
+    
+    progress_bar = st.progress(0)
+    status_text = st.empty()
+    
+    for page in range(nombre_pages):
+        start_index = page * 10  # Google utilise start=0, 10, 20, ...
+        status_text.text(f"📄 Scraping page {page + 1}/{nombre_pages} (start={start_index})")
+        
+        # Paramètres de l'API
+        params = {
+            'cx': '014917347718038151697:kltwr00yvbk',
+            'q': 'bumidom',
+            'start': start_index,
+            'num': 10,
+            'hl': 'fr',
+            'output': 'json',
+            'source': 'gcsc'
+        }
+        
+        # Construire l'URL
+        url = f"{base_url}?{urllib.parse.urlencode(params)}"
+        
+        try:
+            # Headers pour simuler un navigateur
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+                'Accept': 'application/json',
+                'Referer': 'https://archives.assemblee-nationale.fr/'
+            }
+            
+            # Appeler l'API
+            response = requests.get(url, headers=headers, timeout=30)
+            
+            if response.status_code == 200:
+                # Essayer de parser la réponse
+                try:
+                    json_data = response.json()
+                    
+                    # Vérifier si c'est une fonction wrapper
+                    if isinstance(json_data, dict) and len(json_data) == 1:
+                        func_name = list(json_data.keys())[0]
+                        data = json_data[func_name]
+                    else:
+                        data = json_data
+                    
+                    # Parser les résultats
+                    resultats_page = parser_json_google_cse(data, page + 1)
+                    
+                    if resultats_page:
+                        tous_resultats.extend(resultats_page)
+                        st.success(f"✅ Page {page + 1}: {len(resultats_page)} résultats")
+                    else:
+                        st.warning(f"⚠️ Page {page + 1}: Aucun résultat trouvé")
+                    
+                except json.JSONDecodeError:
+                    st.error(f"❌ Page {page + 1}: Réponse JSON invalide")
+                    st.code(response.text[:500])
+                    
+            else:
+                st.error(f"❌ Page {page + 1}: HTTP {response.status_code}")
+                
+        except requests.exceptions.RequestException as e:
+            st.error(f"❌ Page {page + 1}: Erreur réseau - {str(e)}")
+        
+        # Mettre à jour la barre de progression
+        progress_bar.progress((page + 1) / nombre_pages)
+        
+        # Pause pour éviter le rate limiting
+        time.sleep(1)
+    
+    progress_bar.empty()
+    status_text.empty()
+    
+    return tous_resultats
 
 def charger_json_depuis_fichier():
     """Charge le JSON depuis le fichier json.txt"""
@@ -598,13 +675,19 @@ with st.sidebar:
     # Options de chargement
     option_chargement = st.radio(
         "Source des données:",
-        ["JSON intégré (exemple)", "Fichier json.txt"],
+        ["JSON intégré (10 résultats)", "Fichier json.txt", "Scraper l'API (100+ résultats)"],
         index=0
     )
     
+    if option_chargement == "Scraper l'API (100+ résultats)":
+        nombre_pages = st.slider("Nombre de pages à scraper", 1, 10, 10)
+        st.info(f"⚠️ Cette opération peut prendre 10-15 secondes")
+    
     # Bouton pour charger le JSON
-    if st.button("📁 Analyser le JSON", type="primary", use_container_width=True):
-        with st.spinner("Chargement et analyse du JSON..."):
+    btn_text = "📁 Analyser le JSON" if option_chargement != "Scraper l'API (100+ résultats)" else "🚀 Scraper toutes les pages"
+    
+    if st.button(btn_text, type="primary", use_container_width=True):
+        with st.spinner("Chargement et analyse en cours..."):
             if option_chargement == "Fichier json.txt":
                 # Tentative de charger depuis le fichier
                 if os.path.exists('json.txt'):
@@ -628,6 +711,25 @@ with st.sidebar:
                 else:
                     st.error("Fichier json.txt introuvable")
                     json_data = None
+                    
+            elif option_chargement == "Scraper l'API (100+ résultats)":
+                # Scraper toutes les pages via l'API
+                json_data = None  # Pas de données JSON brutes pour le scraping
+                resultats = scraper_toutes_pages_api(nombre_pages)
+                
+                if resultats:
+                    st.session_state.resultats_parses = resultats
+                    st.success(f"✅ Scraping terminé: {len(resultats)} résultats trouvés!")
+                    
+                    # Calculer les statistiques estimées
+                    estimated_total = min(len(resultats), 100)  # Google limite à 100
+                    st.info(f"📈 Résultats disponibles: ~{estimated_total} sur 131 estimés")
+                else:
+                    st.error("❌ Aucun résultat trouvé lors du scraping")
+                
+                # Ne pas continuer pour éviter d'écraser les résultats
+                st.stop()
+                
             else:
                 # Utiliser le JSON intégré
                 json_data = charger_json_depuis_fichier()
@@ -645,7 +747,8 @@ with st.sidebar:
                 actual_count = len(resultats)
                 
                 st.success(f"✅ JSON analysé: {actual_count} résultats trouvés!")
-                st.info(f"📈 Résultats estimés par Google: {estimated_count}")
+                if option_chargement != "Scraper l'API (100+ résultats)":
+                    st.info(f"📈 Résultats estimés par Google: {estimated_count}")
             else:
                 st.error("❌ Impossible de charger le JSON")
     
@@ -665,6 +768,10 @@ with st.sidebar:
             st.metric("Total", total)
         with col2:
             st.metric("Types", len(types_counts))
+        
+        # Compter les pages uniques
+        pages_uniques = len(set(r['page'] for r in st.session_state.resultats_parses))
+        st.metric("Pages", pages_uniques)
         
         # Liste des types
         st.write("**Types trouvés:**")
@@ -694,8 +801,22 @@ if st.session_state.resultats_parses:
         jo_count = df[df['type'] == 'Journal Officiel'].shape[0]
         st.metric("Journaux Officiels", jo_count)
     
+    # Statistiques supplémentaires
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric("Pages", df['page'].nunique())
+    with col2:
+        leg_count = df[df['legislature'] != '']['legislature'].nunique()
+        st.metric("Législatures", leg_count)
+    with col3:
+        periode_count = df[df['periode'] != 'Inconnue']['periode'].nunique()
+        st.metric("Périodes", periode_count)
+    with col4:
+        domaine_count = df['visible_url'].nunique()
+        st.metric("Domaines", domaine_count)
+    
     # ==================== TABLEAU DES RÉSULTATS ====================
-    st.header("📄 Résultats extraits du JSON")
+    st.header("📄 Résultats extraits")
     
     # Filtres
     with st.expander("🔍 Filtres", expanded=True):
@@ -713,21 +834,30 @@ if st.session_state.resultats_parses:
             periodes = sorted([p for p in df['periode'].unique() if p != "Inconnue"])
             periode_selection = st.multiselect("Périodes", periodes, default=periodes[:5] if len(periodes) > 5 else periodes)
     
+    # Filtre par pages
+    pages_uniques = sorted(df['page'].unique())
+    if len(pages_uniques) > 1:
+        with st.expander("📑 Pages", expanded=False):
+            pages_selection = st.multiselect("Pages spécifiques", pages_uniques, default=pages_uniques)
+    else:
+        pages_selection = pages_uniques
+    
     # Appliquer les filtres
     df_filtre = df[
         (df['type'].isin(types_selection)) &
+        (df['page'].isin(pages_selection)) &
         (df['legislature'].isin(leg_selection) | (df['legislature'] == '')) &
         (df['periode'].isin(periode_selection) | (df['periode'] == "Inconnue") if periode_selection else True)
     ]
     
     # Informations sur le filtrage
-    st.info(f"📋 Affichage de {len(df_filtre)} documents sur {len(df)}")
+    st.info(f"📋 Affichage de {len(df_filtre)} documents sur {len(df)} (Pages: {len(pages_selection)})")
     
-    # Afficher le tableau avec pagination
-    if len(df_filtre) > 20:
+    # Pagination pour les grands ensembles
+    if len(df_filtre) > 50:
         # Pagination
-        items_per_page = 20
-        total_pages = (len(df_filtre) + items_per_page - 1) // items_per_page
+        items_per_page = st.selectbox("Résultats par page", [20, 50, 100], index=0)
+        total_pages = max(1, (len(df_filtre) + items_per_page - 1) // items_per_page)
         
         page = st.number_input("Page", min_value=1, max_value=total_pages, value=1, step=1)
         start_idx = (page - 1) * items_per_page
@@ -741,13 +871,14 @@ if st.session_state.resultats_parses:
     
     # Afficher le tableau
     st.dataframe(
-        df_page[['id', 'titre', 'type', 'legislature', 'periode', 'date_doc', 'score']],
+        df_page[['id', 'titre', 'type', 'page', 'legislature', 'periode', 'date_doc', 'score']],
         use_container_width=True,
         hide_index=True,
         column_config={
             "id": st.column_config.TextColumn("ID", width="small"),
             "titre": st.column_config.TextColumn("Titre", width="large"),
             "type": st.column_config.TextColumn("Type"),
+            "page": st.column_config.NumberColumn("Page"),
             "legislature": st.column_config.TextColumn("Législature"),
             "periode": st.column_config.TextColumn("Période"),
             "date_doc": st.column_config.TextColumn("Date"),
@@ -758,13 +889,15 @@ if st.session_state.resultats_parses:
     # ==================== VISUALISATIONS ====================
     st.header("📊 Analyses visuelles")
     
-    tab1, tab2, tab3, tab4 = st.tabs(["📅 Chronologie", "📊 Distribution", "🌐 Sources", "📈 Évolution"])
+    tab1, tab2, tab3, tab4, tab5 = st.tabs(["📅 Chronologie", "📊 Distribution", "🌐 Sources", "📈 Évolution", "📑 Par page"])
     
     with tab1:
         # Graphique par période
         if 'periode' in df_filtre.columns and not df_filtre.empty:
-            period_counts = df_filtre[df_filtre['periode'] != "Inconnue"]['periode'].value_counts()
-            if len(period_counts) > 0:
+            period_data = df_filtre[df_filtre['periode'] != "Inconnue"]
+            if len(period_data) > 0:
+                period_counts = period_data['periode'].value_counts()
+                
                 fig = px.bar(
                     x=period_counts.index,
                     y=period_counts.values,
@@ -775,6 +908,14 @@ if st.session_state.resultats_parses:
                 )
                 fig.update_layout(xaxis_tickangle=-45, height=400)
                 st.plotly_chart(fig, use_container_width=True)
+                
+                # Tableau des périodes
+                st.write("**📋 Détails par période:**")
+                period_table = pd.DataFrame({
+                    'Période': period_counts.index,
+                    'Documents': period_counts.values
+                }).sort_values('Documents', ascending=False)
+                st.dataframe(period_table, use_container_width=True, hide_index=True)
             else:
                 st.info("Aucune donnée de période disponible")
     
@@ -807,23 +948,47 @@ if st.session_state.resultats_parses:
                         color=leg_counts.values,
                         color_continuous_scale='Blues'
                     )
+                    fig.update_layout(xaxis_tickangle=-45)
                     st.plotly_chart(fig, use_container_width=True)
     
     with tab3:
-        # Analyse des domaines
-        if 'visible_url' in df_filtre.columns:
-            domain_counts = df_filtre['visible_url'].value_counts()
-            if len(domain_counts) > 0:
-                fig = px.bar(
-                    x=domain_counts.index[:10],
-                    y=domain_counts.values[:10],
-                    title="Top 10 des domaines sources",
-                    labels={'x': 'Domaine', 'y': 'Nombre'},
-                    color=domain_counts.values[:10],
-                    color_continuous_scale='Reds'
-                )
-                fig.update_layout(xaxis_tickangle=-45, height=400)
-                st.plotly_chart(fig, use_container_width=True)
+        col1, col2 = st.columns(2)
+        
+        with col1:
+            # Analyse des domaines
+            if 'visible_url' in df_filtre.columns:
+                domain_data = df_filtre[df_filtre['visible_url'] != '']
+                if len(domain_data) > 0:
+                    domain_counts = domain_data['visible_url'].value_counts().head(15)
+                    
+                    fig = px.bar(
+                        x=domain_counts.index,
+                        y=domain_counts.values,
+                        title="Top 15 des domaines sources",
+                        labels={'x': 'Domaine', 'y': 'Nombre'},
+                        color=domain_counts.values,
+                        color_continuous_scale='Reds'
+                    )
+                    fig.update_layout(xaxis_tickangle=-45, height=400)
+                    st.plotly_chart(fig, use_container_width=True)
+        
+        with col2:
+            # Distribution des formats
+            if 'format' in df_filtre.columns:
+                format_data = df_filtre[df_filtre['format'] != '']
+                if len(format_data) > 0:
+                    format_counts = format_data['format'].value_counts().head(10)
+                    
+                    fig = px.bar(
+                        x=format_counts.index,
+                        y=format_counts.values,
+                        title="Top 10 des formats",
+                        labels={'x': 'Format', 'y': 'Nombre'},
+                        color=format_counts.values,
+                        color_continuous_scale='Greens'
+                    )
+                    fig.update_layout(xaxis_tickangle=-45, height=400)
+                    st.plotly_chart(fig, use_container_width=True)
     
     with tab4:
         # Analyse chronologique détaillée
@@ -849,6 +1014,51 @@ if st.session_state.resultats_parses:
                 fig.update_traces(line=dict(width=3))
                 fig.update_layout(height=400)
                 st.plotly_chart(fig, use_container_width=True)
+                
+                # Statistiques par décennie
+                df_annee['decennie'] = (df_annee['annee'] // 10) * 10
+                decennie_counts = df_annee['decennie'].value_counts().sort_index()
+                
+                fig2 = px.bar(
+                    x=decennie_counts.index.astype(str) + "s",
+                    y=decennie_counts.values,
+                    title="Documents par décennie",
+                    labels={'x': 'Décennie', 'y': 'Nombre'},
+                    color=decennie_counts.values,
+                    color_continuous_scale='Purples'
+                )
+                fig2.update_layout(height=300)
+                st.plotly_chart(fig2, use_container_width=True)
+    
+    with tab5:
+        # Analyse par page
+        if 'page' in df_filtre.columns and len(df_filtre) > 0:
+            page_counts = df_filtre['page'].value_counts().sort_index()
+            
+            fig = px.bar(
+                x=page_counts.index.astype(str),
+                y=page_counts.values,
+                title="Distribution des documents par page",
+                labels={'x': 'Page API', 'y': 'Nombre de documents'},
+                color=page_counts.values,
+                color_continuous_scale='Oranges'
+            )
+            fig.update_layout(height=400)
+            st.plotly_chart(fig, use_container_width=True)
+            
+            # Score moyen par page
+            if 'score' in df_filtre.columns:
+                score_par_page = df_filtre.groupby('page')['score'].mean().reset_index()
+                fig2 = px.line(
+                    x=score_par_page['page'],
+                    y=score_par_page['score'],
+                    title="Score moyen par page",
+                    labels={'x': 'Page', 'y': 'Score moyen'},
+                    markers=True
+                )
+                fig2.update_traces(line=dict(width=3))
+                fig2.update_layout(height=300)
+                st.plotly_chart(fig2, use_container_width=True)
     
     # ==================== DÉTAILS DES DOCUMENTS ====================
     st.header("🔍 Détails par document")
@@ -902,9 +1112,16 @@ if st.session_state.resultats_parses:
             with col2:
                 # Informations techniques
                 st.markdown("**⚙️ Détails:**")
+                st.metric("Page", doc['page'])
                 st.metric("Position", doc['position'])
-                st.metric("Date", doc['date_doc'])
                 st.metric("Score", int(doc['score']))
+                
+                # Informations supplémentaires
+                with st.expander("Plus d'infos"):
+                    st.write(f"**Date:** {doc['date_doc']}")
+                    st.write(f"**Format:** {doc['format']}")
+                    st.write(f"**Domaine:** {doc['visible_url']}")
+                    st.write(f"**ID:** {doc['id']}")
                 
                 # Métadonnées brutes
                 if doc['metadonnees'] and doc['metadonnees'] != '{}' and doc['metadonnees'] != 'None':
@@ -918,7 +1135,7 @@ if st.session_state.resultats_parses:
     # ==================== EXPORT ====================
     st.header("💾 Export des données")
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     
     with col1:
         # Export CSV
@@ -954,19 +1171,22 @@ if st.session_state.resultats_parses:
             use_container_width=True
         )
     
+    with col4:
+        # Export filtres appliqués
+        if len(df_filtre) < len(df):
+            csv_filtre = df_filtre.to_csv(index=False).encode('utf-8')
+            st.download_button(
+                label="📊 CSV filtré",
+                data=csv_filtre,
+                file_name=f"google_cse_filtre_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv",
+                mime="text/csv",
+                use_container_width=True
+            )
+    
     # ==================== DONNÉES BRUTES ====================
-    with st.expander("📊 Données brutes du JSON", expanded=False):
-        if st.session_state.donnees_json:
+    if st.session_state.donnees_json and option_chargement != "Scraper l'API (100+ résultats)":
+        with st.expander("📊 Données brutes du JSON", expanded=False):
             st.json(st.session_state.donnees_json)
-            
-            # Informations sur le cursor
-            if 'cursor' in st.session_state.donnees_json:
-                cursor = st.session_state.donnees_json['cursor']
-                st.write("**Informations de pagination:**")
-                st.write(f"- Résultats estimés: {cursor.get('estimatedResultCount', 'N/A')}")
-                st.write(f"- Résultats comptés: {cursor.get('resultCount', 'N/A')}")
-                st.write(f"- Temps de recherche: {cursor.get('searchResultTime', 'N/A')}s")
-                st.write(f"- Pages disponibles: {len(cursor.get('pages', []))}")
 
 else:
     # ==================== ÉCRAN D'ACCUEIL ====================
@@ -981,67 +1201,66 @@ else:
         **Google Custom Search Engine** utilisée par les archives 
         de l'Assemblée Nationale.
         
-        ### ✅ Fonctionnalités
-        - **Analyse automatique** du format JSON Google CSE
-        - **Extraction intelligente** des métadonnées
-        - **Détection automatique** des types de documents
-        - **Visualisations interactives**
+        ### ✅ NOUVEAU : Scraping multi-pages
+        - **Scrape automatiquement** 10 pages d'API
+        - **Récupère ~100 résultats** sur les 131 estimés
+        - **Analyse complète** avec visualisations
         - **Export multi-formats**
-        - **Support de fichiers externes**
         
-        ### 📋 Format supporté
-        Format JSON Google CSE avec structure:
-        ```json
-        {
-          "results": [...],
-          "cursor": {...}
-        }
-        ```
+        ### 📋 Sources disponibles
+        1. **JSON intégré** - 10 résultats d'exemple
+        2. **Fichier json.txt** - Vos données JSON
+        3. **Scraper l'API** - Récupère 100+ résultats
         """)
     
     with col2:
         st.markdown("""
         ### 🚀 Comment l'utiliser
-        1. **Choisissez** la source des données dans la sidebar
-        2. **Cliquez** sur "Analyser le JSON"
+        1. **Choisissez** la source dans la sidebar
+        2. **Cliquez** sur le bouton correspondant
         3. **Explorez** les résultats via les tableaux
         4. **Analysez** avec les visualisations
-        5. **Consultez** les détails par document
-        6. **Exportez** les données
+        5. **Exportez** les données
         
-        ### 🔍 Champs extraits
-        - Titre et description
-        - URL et domaine visible
-        - Type de document (PDF, CR, JO...)
-        - Législature et période
-        - Date d'origine
-        - Score de pertinence
-        - Métadonnées techniques
+        ### ⚡ Scraping API
+        Pour récupérer les **100+ résultats** :
+        - Sélectionnez **"Scraper l'API"**
+        - Choisissez **10 pages** (défaut)
+        - Cliquez sur **"Scraper toutes les pages"**
+        - Attendez **10-15 secondes**
+        
+        ### 🔍 Données extraites
+        - Titres et descriptions
+        - URLs et domaines
+        - Types de documents
+        - Législatures et périodes
+        - Scores de pertinence
         """)
     
-    # Instructions pour utiliser le fichier
-    with st.expander("📁 Utilisation avec votre propre fichier", expanded=True):
+    # Instructions pour le scraping
+    with st.expander("🔧 Détails techniques du scraping", expanded=True):
         st.markdown("""
-        ### Pour analyser VOTRE fichier JSON complet:
-        
-        1. **Placez votre fichier** `json.txt` dans le même répertoire que ce script
-        2. **Sélectionnez** "Fichier json.txt" dans la sidebar
-        3. **Cliquez** sur "Analyser le JSON"
-        
-        ### Format attendu:
-        Votre fichier doit contenir le JSON brut de l'API Google CSE, par exemple:
-        ```json
-        google.search.cse.apiXXXX({
-          "cursor": {...},
-          "results": [...]
-        });
+        ### 📡 URLs API appelées :
+        ```
+        https://syndicatedsearch.goog/cse_v2/ads?cx=014917347718038151697:kltwr00yvbk&q=bumidom&start=0
+        https://syndicatedsearch.goog/cse_v2/ads?cx=014917347718038151697:kltwr00yvbk&q=bumidom&start=10
+        https://syndicatedsearch.goog/cse_v2/ads?cx=014917347718038151697:kltwr00yvbk&q=bumidom&start=20
+        ...
+        https://syndicatedsearch.goog/cse_v2/ads?cx=014917347718038151697:kltwr00yvbk&q=bumidom&start=90
         ```
         
-        ### Fichier fourni:
-        - **Résultats estimés:** 131
-        - **Pages disponibles:** 10
-        - **Résultats par page:** 10
-        - **Total possible:** jusqu'à 100 résultats
+        ### ⚙️ Paramètres utilisés :
+        - **cx** : 014917347718038151697:kltwr00yvbk
+        - **q** : bumidom
+        - **start** : 0, 10, 20, ..., 90
+        - **num** : 10 résultats par page
+        - **hl** : fr (langue française)
+        - **output** : json
+        
+        ### ⏱️ Temps d'exécution :
+        - ~1 seconde par page
+        - ~10 secondes pour 10 pages
+        - Pauses intégrées pour éviter le rate limiting
         """)
 
 # ==================== PIED DE PAGE ====================
@@ -1049,7 +1268,7 @@ st.divider()
 st.markdown(
     """
     <div style='text-align: center; color: #666; font-size: 0.9em;'>
-    Dashboard d'analyse JSON Google CSE • Format: Google Custom Search API • 
+    Dashboard d'analyse JSON Google CSE • Scraping multi-pages • 
     <span id='date'></span>
     <script>
         document.getElementById('date').innerHTML = new Date().toLocaleDateString('fr-FR');
