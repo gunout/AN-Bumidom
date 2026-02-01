@@ -1,1091 +1,518 @@
-# bumidom_dashboard.py
 import streamlit as st
 import requests
 from bs4 import BeautifulSoup
-import re
 import pandas as pd
-from io import BytesIO
-import fitz  # PyMuPDF
+import re
+from datetime import datetime
 import time
-from collections import Counter
 import plotly.express as px
 import plotly.graph_objects as go
-import nltk
-from nltk.corpus import stopwords
-from nltk.tokenize import word_tokenize
-import string
-import hashlib
-import pickle
-import os
-import urllib.parse
-from datetime import datetime
+from urllib.parse import urljoin, quote
 import json
-
-# ==================== CONFIGURATION INITIALE ====================
 
 # Configuration de la page
 st.set_page_config(
-    page_title="Dashboard Analyse BUMIDOM",
-    page_icon="📊",
+    page_title="Archives AN - Dashboard Google CSE",
+    page_icon="🔍",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-# Télécharger les ressources NLTK
-try:
-    nltk.data.find('tokenizers/punkt_tab')
-    nltk.data.find('corpora/stopwords')
-except:
-    nltk.download('punkt', quiet=True)
-    nltk.download('stopwords', quiet=True)
+# Titre principal
+st.title("🔍 Dashboard Archives Assemblée Nationale")
+st.markdown("**Extraction des résultats depuis la Recherche Personnalisée Google (CSE)**")
 
-# Titre de l'application
-st.title("📊 Dashboard d'Analyse BUMIDOM - Archives Assemblée Nationale")
-st.markdown("""
-Analyse des documents parlementaires relatifs au **BUMIDOM** (Bureau pour le développement 
-des migrations dans les départements d'outre-mer, 1963-1982).
-""")
+# Initialisation session state
+if 'scraped_data' not in st.session_state:
+    st.session_state.scraped_data = None
+if 'current_page' not in st.session_state:
+    st.session_state.current_page = 1
+if 'total_pages' not in st.session_state:
+    st.session_state.total_pages = 0
 
-# ==================== CLASSES ET FONCTIONS UTILITAIRES ====================
+# ==================== FONCTIONS DE SCRAPING ====================
 
-class DocumentCache:
-    """Cache pour stocker les PDFs téléchargés"""
+def extract_google_cse_results(html_content, page_num=1):
+    """
+    Extrait les résultats depuis le HTML de la Google CSE popup
+    """
+    soup = BeautifulSoup(html_content, 'html.parser')
+    results = []
     
-    def __init__(self, cache_dir="pdf_cache"):
-        self.cache_dir = cache_dir
-        os.makedirs(cache_dir, exist_ok=True)
+    # Trouver tous les résultats (div avec class gsc-webResult)
+    result_divs = soup.find_all('div', class_='gsc-webResult')
     
-    def get_cache_key(self, url):
-        """Génère une clé unique pour une URL"""
-        return hashlib.md5(url.encode()).hexdigest()
+    st.info(f"📊 {len(result_divs)} résultats trouvés sur la page {page_num}")
     
-    def get_cached_text(self, url):
-        """Récupère le texte depuis le cache"""
-        cache_key = self.get_cache_key(url)
-        cache_file = os.path.join(self.cache_dir, f"{cache_key}.pkl")
-        
-        if os.path.exists(cache_file):
-            try:
-                with open(cache_file, 'rb') as f:
-                    data = pickle.load(f)
-                    return data.get('text', ''), data.get('pages', 0)
-            except:
-                return None, 0
-        return None, 0
-    
-    def cache_text(self, url, text, pages):
-        """Stocke le texte dans le cache"""
-        cache_key = self.get_cache_key(url)
-        cache_file = os.path.join(self.cache_dir, f"{cache_key}.pkl")
-        
+    for i, result in enumerate(result_divs):
         try:
-            with open(cache_file, 'wb') as f:
-                pickle.dump({'text': text, 'pages': pages, 'url': url, 'timestamp': time.time()}, f)
+            # Extraire le titre
+            title_elem = result.find('a', class_='gs-title')
+            title = title_elem.get_text(strip=True) if title_elem else "Sans titre"
+            
+            # Extraire l'URL
+            url = title_elem.get('href', '') if title_elem else ""
+            data_ctorig = title_elem.get('data-ctorig', '') if title_elem else ""
+            final_url = data_ctorig if data_ctorig else url
+            
+            # Extraire l'URL visible
+            visible_url_elem = result.find('div', class_='gs-visibleUrl')
+            visible_url = visible_url_elem.get_text(strip=True) if visible_url_elem else ""
+            
+            # Extraire la description/snippet
+            snippet_elem = result.find('div', class_='gs-snippet')
+            snippet = snippet_elem.get_text(strip=True) if snippet_elem else ""
+            
+            # Extraire le format du fichier
+            file_format_elem = result.find('div', class_='gs-fileFormat')
+            file_format = file_format_elem.get_text(strip=True).replace('Format de fichier : ', '') if file_format_elem else ""
+            
+            # Extraire la date depuis l'URL ou le snippet
+            date_match = re.search(r'/(\d{4})-(\d{4})/', final_url)
+            year_range = f"{date_match.group(1)}-{date_match.group(2)}" if date_match else ""
+            
+            # Extraire la législature depuis le titre ou l'URL
+            legislature_match = re.search(r'(\d+)[e°\']?\s*(?:L|l)égislature', title)
+            legislature = legislature_match.group(1) if legislature_match else ""
+            
+            # Extraire le type de session
+            session_type = "ordinaire"
+            if 'extraordinaire' in final_url:
+                session_type = "extraordinaire"
+            
+            results.append({
+                'index': (page_num - 1) * 10 + i + 1,
+                'titre': title,
+                'url': final_url,
+                'url_visible': visible_url,
+                'description': snippet,
+                'format': file_format,
+                'periode': year_range,
+                'legislature': legislature,
+                'session': session_type,
+                'page': page_num,
+                'date_extraction': datetime.now().strftime("%Y-%m-%d %H:%M")
+            })
+            
         except Exception as e:
-            st.warning(f"Erreur cache: {str(e)}")
-
-# Initialisation du cache
-document_cache = DocumentCache()
-
-# ==================== FONCTIONS DE SCRAPING RÉEL ====================
-
-def search_bumidom_documents_real():
-    """
-    Scrape réel du site des archives pour trouver les documents BUMIDOM
-    """
-    base_url = "https://archives.assemblee-nationale.fr"
-    search_url = f"{base_url}/r/1/search?q=BUMIDOM"
+            st.warning(f"Erreur sur le résultat {i+1}: {str(e)}")
+            continue
     
-    documents = []
+    return results
+
+def simulate_cse_request(search_term="Bumidom", page=1, results_per_page=10):
+    """
+    Simule une requête à la Google Custom Search Engine
+    Note: En production, vous pourriez utiliser l'API Google CSE
+    """
+    
+    # Paramètres de base Google CSE
+    cse_id = "014917347718038151697:kltwr00yvbk"  # Trouvé dans le HTML
+    base_url = "https://cse.google.com/cse"
+    
+    # Pour la simulation, on va parser le HTML fourni
+    # En réalité, vous devriez faire une vraie requête à l'API
+    
+    # HEADERS pour simuler un navigateur
+    headers = {
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
+        'Referer': 'https://archives.assemblee-nationale.fr/'
+    }
     
     try:
-        st.info("🔍 Scraping du site des archives en cours...")
+        # URL de l'API Google CSE (version publique)
+        api_url = f"https://www.googleapis.com/customsearch/v1"
         
-        # Headers pour simuler un navigateur
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Language': 'fr-FR,fr;q=0.9,en-US;q=0.8,en;q=0.7',
-            'Accept-Encoding': 'gzip, deflate, br',
-            'Connection': 'keep-alive',
-            'Upgrade-Insecure-Requests': '1',
+        params = {
+            'key': 'YOUR_API_KEY',  # À configurer si vous avez une clé API
+            'cx': cse_id,
+            'q': search_term,
+            'start': (page - 1) * results_per_page + 1,
+            'num': results_per_page,
+            'hl': 'fr'
         }
         
-        # Requête HTTP
-        response = requests.get(search_url, headers=headers, timeout=30)
-        response.raise_for_status()
+        # Pour cette démo, on va utiliser le HTML que vous avez fourni
+        # En production, décommentez la ligne ci-dessous:
+        # response = requests.get(api_url, params=params, headers=headers)
         
-        # Parser le HTML
-        soup = BeautifulSoup(response.content, 'html.parser')
+        # Pour l'instant, on utilise le HTML statique
+        html_content = """[VOTRE HTML ICI - celui que vous avez fourni]"""
         
-        # Plusieurs stratégies pour trouver les documents
-        found_documents = []
-        
-        # Stratégie 1: Chercher tous les liens PDF
-        pdf_links = soup.find_all('a', href=re.compile(r'\.pdf$', re.I))
-        
-        # Stratégie 2: Chercher les résultats de recherche
-        search_results = soup.find_all(['div', 'li'], class_=re.compile(r'(result|item|document)', re.I))
-        
-        # Stratégie 3: Chercher par texte
-        bumidom_elements = soup.find_all(text=re.compile(r'bumidom', re.I))
-        
-        st.info(f"PDF trouvés: {len(pdf_links)}, Résultats: {len(search_results)}, Éléments BUMIDOM: {len(bumidom_elements)}")
-        
-        # Combiner toutes les sources
-        all_elements = []
-        
-        # Ajouter les liens PDF directs
-        for link in pdf_links[:50]:  # Limiter pour les tests
-            title = link.get_text(strip=True) or link.get('href', 'Document PDF')
-            url = link.get('href', '')
-            
-            if not url.startswith('http'):
-                url = urllib.parse.urljoin(base_url, url)
-            
-            all_elements.append({
-                'title': title,
-                'url': url,
-                'element': link
-            })
-        
-        # Traiter les résultats de recherche
-        for result in search_results[:30]:
-            # Essayer d'extraire un titre
-            title_elem = result.find(['h3', 'h4', 'a', 'strong'])
-            title = title_elem.get_text(strip=True) if title_elem else "Document sans titre"
-            
-            # Chercher un lien PDF dans ce résultat
-            pdf_link = result.find('a', href=re.compile(r'\.pdf$', re.I))
-            if pdf_link:
-                url = pdf_link.get('href', '')
-                if not url.startswith('http'):
-                    url = urllib.parse.urljoin(base_url, url)
-                
-                all_elements.append({
-                    'title': title,
-                    'url': url,
-                    'element': result
-                })
-        
-        # Filtrer et organiser les documents
-        seen_urls = set()
-        for elem in all_elements:
-            url = elem['url']
-            
-            # Éviter les doublons
-            if url in seen_urls or not url:
-                continue
-            
-            seen_urls.add(url)
-            
-            # Extraire la date si possible
-            date_match = re.search(r'(19\d{2}|20\d{2})', elem['title'])
-            date = date_match.group(1) if date_match else "ND"
-            
-            # Déterminer le type de document
-            doc_type = "Document"
-            title_lower = elem['title'].lower()
-            
-            type_patterns = [
-                ('rapport', 'Rapport'),
-                ('compte rendu', 'Compte rendu'),
-                ('audition', 'Audition'),
-                ('débat', 'Débats'),
-                ('budget', 'Budget'),
-                ('question', 'Question'),
-                ('loi', 'Loi'),
-                ('délibération', 'Délibération'),
-                ('arrêté', 'Arrêté')
-            ]
-            
-            for pattern, doc_type_name in type_patterns:
-                if pattern in title_lower:
-                    doc_type = doc_type_name
-                    break
-            
-            documents.append({
-                'title': elem['title'][:200],  # Limiter la longueur
-                'url': url,
-                'date': date,
-                'type': doc_type,
-                'pages': 0,  # Sera mis à jour lors de l'extraction
-                'source': 'Archives AN'
-            })
-        
-        # Si peu de documents trouvés, en ajouter des simulés pour la démo
-        if len(documents) < 5:
-            st.warning("Peu de documents trouvés. Ajout de documents de démonstration...")
-            documents.extend(get_sample_documents()[:10])
-        
-        st.success(f"✅ {len(documents)} documents trouvés pour analyse")
-        return documents[:100]  # Limiter à 100 documents max
+        return html_content
         
     except Exception as e:
-        st.error(f"❌ Erreur lors du scraping: {str(e)}")
-        # Retourner des documents de démo en cas d'échec
-        return get_sample_documents()[:20]
+        st.error(f"Erreur API: {str(e)}")
+        return None
 
-def get_sample_documents():
-    """Documents de démonstration si le scraping échoue"""
-    base_url = "https://archives.assemblee-nationale.fr"
-    
-    sample_docs = [
-        {
-            "title": "Rapport sur les activités du BUMIDOM 1963-1965",
-            "url": f"{base_url}/documents/example1.pdf",
-            "date": "1966",
-            "type": "Rapport",
-            "pages": 45,
-            "source": "Démo"
-        },
-        {
-            "title": "Audition du directeur du BUMIDOM - Commission des affaires culturelles",
-            "url": f"{base_url}/documents/example2.pdf",
-            "date": "1970",
-            "type": "Compte rendu",
-            "pages": 28,
-            "source": "Démo"
-        },
-        {
-            "title": "Bilan des migrations DOM-TOM organisées par le BUMIDOM 1963-1977",
-            "url": f"{base_url}/documents/example3.pdf",
-            "date": "1978",
-            "type": "Bilan",
-            "pages": 62,
-            "source": "Démo"
-        },
-        {
-            "title": "Questions au gouvernement concernant le BUMIDOM",
-            "url": f"{base_url}/documents/example4.pdf",
-            "date": "1975",
-            "type": "Question écrite",
-            "pages": 12,
-            "source": "Démo"
-        },
-        {
-            "title": "Débats parlementaires sur le financement du BUMIDOM",
-            "url": f"{base_url}/documents/example5.pdf",
-            "date": "1972",
-            "type": "Débats",
-            "pages": 35,
-            "source": "Démo"
-        },
-        {
-            "title": "Rapport d'enquête sur les conditions d'accueil des migrants du BUMIDOM",
-            "url": f"{base_url}/documents/example6.pdf",
-            "date": "1980",
-            "type": "Rapport d'enquête",
-            "pages": 78,
-            "source": "Démo"
-        },
-        {
-            "title": "Statistiques des migrations BUMIDOM 1963-1981",
-            "url": f"{base_url}/documents/example7.pdf",
-            "date": "1982",
-            "type": "Statistiques",
-            "pages": 54,
-            "source": "Démo"
-        },
-        {
-            "title": "Projet de loi de finances - Budget BUMIDOM 1974",
-            "url": f"{base_url}/documents/example8.pdf",
-            "date": "1974",
-            "type": "Budget",
-            "pages": 42,
-            "source": "Démo"
-        }
-    ]
-    
-    # Ajouter plus de documents variés
-    for i in range(9, 21):
-        year = 1963 + (i * 2) % 20
-        sample_docs.append({
-            "title": f"Document BUMIDOM {i} - Analyse {year}",
-            "url": f"{base_url}/documents/example{i}.pdf",
-            "date": str(year),
-            "type": ["Rapport", "Note", "Étude", "Communication"][i % 4],
-            "pages": 20 + (i * 3) % 40,
-            "source": "Démo"
-        })
-    
-    return sample_docs
-
-# ==================== FONCTIONS D'EXTRACTION PDF ====================
-
-def extract_text_from_pdf_real(pdf_url, max_pages=50):
+def scrape_all_pages(search_term, total_pages=10):
     """
-    Extrait le texte d'un PDF réel depuis une URL
+    Scrape toutes les pages de résultats
     """
-    # Vérifier le cache d'abord
-    cached_text, cached_pages = document_cache.get_cached_text(pdf_url)
-    if cached_text is not None:
-        return cached_text, cached_pages
+    all_results = []
     
-    try:
-        # Headers pour la requête
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'application/pdf, */*',
-            'Referer': 'https://archives.assemblee-nationale.fr/'
-        }
-        
-        # Télécharger le PDF
-        response = requests.get(pdf_url, headers=headers, timeout=60, stream=True)
-        response.raise_for_status()
-        
-        # Vérifier le type de contenu
-        content_type = response.headers.get('content-type', '')
-        is_pdf = 'pdf' in content_type.lower() or response.content[:4] == b'%PDF'
-        
-        if not is_pdf:
-            # Essayer de lire quand même
-            st.warning(f"Type de contenu suspect pour {pdf_url}: {content_type}")
-        
-        # Ouvrir le PDF avec PyMuPDF
-        pdf_document = fitz.open(stream=response.content, filetype="pdf")
-        
-        # Extraire le texte page par page
-        text = ""
-        total_pages = pdf_document.page_count
-        
-        # Limiter le nombre de pages pour les gros documents
-        pages_to_extract = min(max_pages, total_pages)
-        
-        for page_num in range(pages_to_extract):
-            page = pdf_document.load_page(page_num)
-            page_text = page.get_text("text")
-            
-            if page_text:
-                # Nettoyer le texte
-                page_text = re.sub(r'\s+', ' ', page_text)
-                page_text = re.sub(r'\n\s*\n', '\n\n', page_text)
-                text += f"--- Page {page_num + 1} ---\n{page_text}\n\n"
-        
-        pdf_document.close()
-        
-        # Mettre en cache
-        document_cache.cache_text(pdf_url, text, total_pages)
-        
-        return text, total_pages
-        
-    except requests.exceptions.RequestException as e:
-        error_msg = f"Erreur réseau: {str(e)}"
-        st.warning(f"❌ {error_msg} pour {pdf_url}")
-        return error_msg, 0
-    except fitz.FileDataError as e:
-        error_msg = f"Fichier PDF invalide: {str(e)}"
-        return error_msg, 0
-    except Exception as e:
-        error_msg = f"Erreur d'extraction: {str(e)}"
-        return error_msg, 0
-
-# ==================== FONCTIONS D'ANALYSE ====================
-
-def analyze_document_text(text):
-    """Analyse le texte d'un document"""
-    if not isinstance(text, str) or len(text.strip()) < 10:
-        return {
-            'word_count': 0,
-            'keyword_counts': {},
-            'top_words': [],
-            'themes': {},
-            'is_valid': False
-        }
-    
-    try:
-        # Compter les mots
-        words = text.split()
-        word_count = len(words)
-        
-        # Mots-clés spécifiques BUMIDOM
-        keywords = [
-            "BUMIDOM", "bumidom", "migration", "migrant", "migrants",
-            "outre-mer", "DOM", "TOM", "département", "départements",
-            "Guadeloupe", "Martinique", "Réunion", "Guyane", "Mayotte",
-            "emploi", "travail", "chômage", "intégration", "accueil",
-            "organisé", "développement", "bureau", "politique", "métropole",
-            "transport", "logement", "santé", "éducation", "formation",
-            "famille", "jeunes", "contrat", "statistique", "bilan"
-        ]
-        
-        # Compter les occurrences
-        keyword_counts = {}
-        text_lower = text.lower()
-        
-        for keyword in keywords:
-            keyword_lower = keyword.lower()
-            # Utiliser regex pour des mots complets
-            pattern = r'\b' + re.escape(keyword_lower) + r'\b'
-            count = len(re.findall(pattern, text_lower))
-            if count > 0:
-                keyword_counts[keyword] = count
-        
-        # Mots les plus fréquents (hors mots vides)
-        try:
-            stop_words = set(stopwords.words('french'))
-            # Ajouter des mots vides courants
-            stop_words.update(['plus', 'tout', 'tous', 'toutes', 'comme', 'faire', 'très'])
-            
-            tokens = word_tokenize(text_lower)
-            filtered_tokens = [
-                word for word in tokens 
-                if word.isalnum() 
-                and word not in stop_words 
-                and len(word) > 2
-                and not any(char.isdigit() for char in word)
-            ]
-            
-            word_freq = Counter(filtered_tokens)
-            top_words = word_freq.most_common(10)
-        except:
-            top_words = []
-        
-        # Identifier les thèmes
-        themes = {
-            "Migration": ["migration", "migrant", "départ", "arrivée", "déplacement", "voyage"],
-            "Territoires": ["guadeloupe", "martinique", "réunion", "guyane", "mayotte", "dom", "tom"],
-            "Emploi": ["emploi", "travail", "chômage", "qualification", "formation", "métier"],
-            "Politique": ["politique", "gouvernement", "ministère", "budget", "loi", "décision"],
-            "Social": ["intégration", "accueil", "logement", "famille", "santé", "éducation"],
-            "Administratif": ["bureau", "administration", "service", "direction", "organisation"]
-        }
-        
-        theme_counts = {}
-        for theme, theme_keywords in themes.items():
-            total = 0
-            for keyword in theme_keywords:
-                pattern = r'\b' + re.escape(keyword) + r'\b'
-                total += len(re.findall(pattern, text_lower))
-            if total > 0:
-                theme_counts[theme] = total
-        
-        return {
-            'word_count': word_count,
-            'keyword_counts': keyword_counts,
-            'top_words': top_words,
-            'themes': theme_counts,
-            'is_valid': True
-        }
-        
-    except Exception as e:
-        st.warning(f"Erreur analyse texte: {str(e)}")
-        return {
-            'word_count': 0,
-            'keyword_counts': {},
-            'top_words': [],
-            'themes': {},
-            'is_valid': False
-        }
-
-def analyze_all_documents(documents):
-    """Analyse tous les documents"""
-    st.info(f"🔬 Analyse de {len(documents)} documents en cours...")
-    
-    all_analyses = []
-    all_stats = []
-    all_text = ""
-    corpus_word_freq = Counter()
-    theme_frequencies = Counter()
-    
-    # Barre de progression
     progress_bar = st.progress(0)
     status_text = st.empty()
     
-    # Initialiser les compteurs de thèmes
-    theme_categories = ["Migration", "Territoires", "Emploi", "Politique", "Social", "Administratif"]
-    for theme in theme_categories:
-        theme_frequencies[theme] = 0
-    
-    for idx, doc in enumerate(documents):
-        # Mise à jour de la progression
-        progress = (idx + 1) / len(documents)
-        progress_bar.progress(progress)
-        status_text.text(f"📄 Document {idx+1}/{len(documents)}: {doc['title'][:50]}...")
+    for page_num in range(1, total_pages + 1):
+        status_text.text(f"📄 Scraping page {page_num}/{total_pages}...")
         
-        # Extraire le texte
-        text, pages = extract_text_from_pdf_real(doc['url'])
-        
-        # Mettre à jour le nombre de pages
-        doc['pages'] = pages
-        
-        # Analyser le texte
-        analysis = analyze_document_text(text)
-        
-        # Préparer l'analyse du document
-        doc_analysis = {
-            'title': doc['title'],
-            'date': doc['date'],
-            'type': doc['type'],
-            'pages': pages,
-            'url': doc['url'],
-            'source': doc.get('source', 'Archive'),
-            'word_count': analysis['word_count'],
-            'keyword_counts': analysis['keyword_counts'],
-            'top_words': analysis['top_words'],
-            'themes': analysis['themes'],
-            'is_valid': analysis['is_valid'],
-            'text_preview': text[:500] + "..." if isinstance(text, str) and len(text) > 500 else text
-        }
-        
-        all_analyses.append(doc_analysis)
-        
-        # Ajouter aux statistiques
-        all_stats.append({
-            'Titre': doc['title'][:80],
-            'Année': doc['date'],
-            'Type': doc['type'],
-            'Pages': pages,
-            'Mots': analysis['word_count'],
-            'Fréq. BUMIDOM': analysis['keyword_counts'].get('BUMIDOM', 0),
-            'Migrants': analysis['keyword_counts'].get('migrant', 0) + analysis['keyword_counts'].get('migrants', 0),
-            'Valide': "✅" if analysis['is_valid'] else "❌"
-        })
-        
-        # Ajouter au corpus global
-        if isinstance(text, str) and analysis['is_valid']:
-            all_text += text + " "
+        try:
+            # Simuler la requête
+            html_content = simulate_cse_request(search_term, page_num)
             
-            # Ajouter aux fréquences de mots du corpus
-            try:
-                stop_words = set(stopwords.words('french'))
-                tokens = word_tokenize(text.lower())
-                filtered_tokens = [
-                    word for word in tokens 
-                    if word.isalnum() 
-                    and word not in stop_words 
-                    and len(word) > 3
-                ]
-                corpus_word_freq.update(filtered_tokens)
-            except:
-                pass
-            
-            # Ajouter aux thèmes
-            for theme, count in analysis['themes'].items():
-                theme_frequencies[theme] += count
+            if html_content:
+                page_results = extract_google_cse_results(html_content, page_num)
+                all_results.extend(page_results)
+                
+                st.success(f"✅ Page {page_num}: {len(page_results)} résultats extraits")
+            else:
+                st.warning(f"Page {page_num}: Aucun contenu")
+                
+        except Exception as e:
+            st.error(f"❌ Erreur page {page_num}: {str(e)}")
         
-        # Petite pause pour ne pas surcharger
-        time.sleep(0.05)
-    
-    # Analyser le corpus complet
-    corpus_analysis = {}
-    if all_text:
-        # Thèmes principaux dans tout le corpus
-        corpus_analysis['theme_frequencies'] = dict(theme_frequencies)
-        
-        # Mots les plus fréquents
-        corpus_analysis['top_corpus_words'] = corpus_word_freq.most_common(20)
-        
-        # Statistiques générales
-        total_words = len(all_text.split())
-        valid_docs = sum(1 for a in all_analyses if a['is_valid'])
-        
-        corpus_analysis['total_words'] = total_words
-        corpus_analysis['valid_documents'] = valid_docs
-        corpus_analysis['total_documents'] = len(documents)
+        # Mise à jour progression
+        progress_bar.progress(page_num / total_pages)
+        time.sleep(1)  # Pause pour éviter le rate limiting
     
     progress_bar.empty()
     status_text.empty()
     
-    return {
-        'document_analyses': all_analyses,
-        'document_stats': all_stats,
-        'corpus_analysis': corpus_analysis,
-        'all_text': all_text
-    }
-
-# ==================== FONCTIONS DE VISUALISATION ====================
-
-def create_visualizations(data):
-    """Crée les visualisations pour le dashboard"""
-    
-    # Extraire les données
-    stats_df = pd.DataFrame(data['document_stats'])
-    corpus_analysis = data['corpus_analysis']
-    
-    visualizations = {}
-    
-    # 1. Graphique des documents par année
-    if not stats_df.empty and 'Année' in stats_df.columns:
-        try:
-            # Nettoyer les années
-            stats_df['Année_clean'] = stats_df['Année'].apply(
-                lambda x: int(x) if str(x).isdigit() and 1900 <= int(x) <= 2024 else None
-            )
-            stats_df = stats_df.dropna(subset=['Année_clean'])
-            
-            year_counts = stats_df['Année_clean'].value_counts().sort_index()
-            
-            fig_years = px.bar(
-                x=year_counts.index.astype(str),
-                y=year_counts.values,
-                title="📅 Documents par année",
-                labels={'x': 'Année', 'y': 'Nombre de documents'},
-                color=year_counts.values,
-                color_continuous_scale='Blues'
-            )
-            fig_years.update_layout(xaxis_tickangle=-45)
-            visualizations['years_chart'] = fig_years
-        except:
-            pass
-    
-    # 2. Graphique par type de document
-    if not stats_df.empty and 'Type' in stats_df.columns:
-        type_counts = stats_df['Type'].value_counts()
-        fig_types = px.pie(
-            values=type_counts.values,
-            names=type_counts.index,
-            title="📋 Répartition par type de document",
-            hole=0.3
-        )
-        fig_types.update_traces(textposition='inside', textinfo='percent+label')
-        visualizations['types_chart'] = fig_types
-    
-    # 3. Graphique des thèmes principaux
-    if 'theme_frequencies' in corpus_analysis:
-        theme_data = corpus_analysis['theme_frequencies']
-        if theme_data:
-            themes_df = pd.DataFrame({
-                'Thème': list(theme_data.keys()),
-                'Fréquence': list(theme_data.values())
-            }).sort_values('Fréquence', ascending=False)
-            
-            fig_themes = px.bar(
-                themes_df,
-                x='Thème',
-                y='Fréquence',
-                title="🏷️ Thèmes principaux du corpus",
-                color='Fréquence',
-                color_continuous_scale='Viridis'
-            )
-            visualizations['themes_chart'] = fig_themes
-    
-    # 4. Mots les plus fréquents
-    if 'top_corpus_words' in corpus_analysis:
-        top_words = corpus_analysis['top_corpus_words'][:15]
-        if top_words:
-            words, counts = zip(*top_words)
-            fig_words = px.bar(
-                x=list(words),
-                y=list(counts),
-                title="🔤 Mots les plus fréquents (hors mots vides)",
-                labels={'x': 'Mot', 'y': 'Fréquence'},
-                color=list(counts),
-                color_continuous_scale='thermal'
-            )
-            fig_words.update_layout(xaxis_tickangle=-45)
-            visualizations['words_chart'] = fig_words
-    
-    # 5. Nuage de mots (simplifié)
-    if 'top_corpus_words' in corpus_analysis:
-        top_words = corpus_analysis['top_corpus_words'][:30]
-        if top_words:
-            words, counts = zip(*top_words)
-            sizes = [c * 2 for c in counts]  # Ajuster la taille
-            
-            fig_cloud = go.Figure()
-            
-            # Positionner les mots aléatoirement
-            import random
-            for word, size in zip(words, sizes):
-                fig_cloud.add_trace(go.Scatter(
-                    x=[random.random()],
-                    y=[random.random()],
-                    mode='text',
-                    text=[word],
-                    textfont=dict(size=size, color=f'rgb({random.randint(50,200)},{random.randint(50,200)},{random.randint(50,200)})'),
-                    showlegend=False
-                ))
-            
-            fig_cloud.update_layout(
-                title="☁️ Nuage de mots clés",
-                xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                yaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
-                plot_bgcolor='white'
-            )
-            visualizations['wordcloud'] = fig_cloud
-    
-    return visualizations
+    return all_results
 
 # ==================== INTERFACE STREAMLIT ====================
 
-# Initialisation de l'état de session
-if 'documents_data' not in st.session_state:
-    st.session_state.documents_data = None
-if 'analysis_done' not in st.session_state:
-    st.session_state.analysis_done = False
-if 'search_performed' not in st.session_state:
-    st.session_state.search_performed = False
-if 'visualizations' not in st.session_state:
-    st.session_state.visualizations = None
-
 # Sidebar
 with st.sidebar:
-    st.header("🔧 Contrôles")
+    st.header("⚙️ Configuration")
     
-    # Mode de fonctionnement
-    mode = st.radio(
-        "Mode d'opération",
-        ["Scraping réel", "Données de démonstration", "Test unitaire"],
-        help="Choisissez le mode de récupération des documents"
-    )
+    search_term = st.text_input("Terme de recherche", "Bumidom")
+    total_pages = st.slider("Nombre de pages à scraper", 1, 10, 10)
     
-    # Options de scraping
-    st.subheader("Options de recherche")
-    max_documents = st.slider("Nombre max de documents", 10, 100, 50)
+    # Options d'affichage
+    st.subheader("Options d'affichage")
+    show_preview = st.checkbox("Aperçu des PDF", value=True)
+    group_by_year = st.checkbox("Grouper par année", value=True)
     
     # Bouton d'action principal
-    if st.button("🚀 Lancer la recherche et l'analyse", type="primary", use_container_width=True):
-        with st.spinner("Scraping et analyse en cours..."):
-            try:
-                # Recherche des documents
-                if mode == "Scraping réel":
-                    documents = search_bumidom_documents_real()
-                elif mode == "Test unitaire":
-                    documents = get_sample_documents()[:5]
-                else:  # Mode démo
-                    documents = get_sample_documents()[:max_documents]
-                
-                if documents:
-                    # Analyse des documents
-                    analysis_results = analyze_all_documents(documents)
-                    
-                    # Créer les visualisations
-                    visualizations = create_visualizations(analysis_results)
-                    
-                    # Stocker dans la session
-                    st.session_state.documents_data = analysis_results
-                    st.session_state.visualizations = visualizations
-                    st.session_state.analysis_done = True
-                    st.session_state.search_performed = True
-                    
-                    st.success(f"✅ Analyse terminée! {len(documents)} documents traités.")
-                else:
-                    st.error("❌ Aucun document trouvé.")
-                    
-            except Exception as e:
-                st.error(f"❌ Erreur: {str(e)}")
-    
-    st.divider()
-    
-    # Gestion du cache
-    st.header("💾 Gestion des données")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        if st.button("🧹 Vider le cache", type="secondary"):
-            if os.path.exists("pdf_cache"):
-                import shutil
-                shutil.rmtree("pdf_cache")
-                st.success("Cache vidé!")
-                st.rerun()
-    
-    with col2:
-        if st.button("🔄 Rafraîchir", type="secondary"):
-            st.rerun()
-    
-    # Informations
-    if st.session_state.analysis_done:
-        st.divider()
-        st.header("📊 Statistiques")
-        
-        data = st.session_state.documents_data
-        if data and 'corpus_analysis' in data:
-            stats = data['corpus_analysis']
+    if st.button("🚀 Lancer le scraping", type="primary", use_container_width=True):
+        with st.spinner(f"Scraping de {total_pages} pages en cours..."):
+            results = scrape_all_pages(search_term, total_pages)
             
-            st.metric("Documents totaux", stats.get('total_documents', 0))
-            st.metric("Documents valides", stats.get('valid_documents', 0))
-            st.metric("Mots analysés", f"{stats.get('total_words', 0):,}")
+            if results:
+                st.session_state.scraped_data = results
+                st.session_state.total_pages = total_pages
+                st.success(f"✅ {len(results)} résultats scrapés avec succès!")
+            else:
+                st.error("❌ Aucun résultat trouvé")
     
     st.divider()
-    st.caption("Dashboard BUMIDOM v1.0 • Archives Assemblée Nationale")
+    
+    # Informations techniques
+    st.header("ℹ️ Informations")
+    st.markdown("""
+    **Source:** Google Custom Search Engine  
+    **CSE ID:** 014917347718038151697:kltwr00yvbk  
+    **Site:** Archives Assemblée Nationale  
+    **Format:** PDF documents parlementaires
+    """)
 
-# ==================== CONTENU PRINCIPAL ====================
-
-if st.session_state.search_performed and st.session_state.analysis_done:
-    data = st.session_state.documents_data
-    visuals = st.session_state.visualizations
+# Contenu principal
+if st.session_state.scraped_data:
+    data = st.session_state.scraped_data
+    df = pd.DataFrame(data)
     
     # Métriques principales
     st.header("📈 Vue d'ensemble")
     
     col1, col2, col3, col4 = st.columns(4)
-    
     with col1:
-        total_docs = len(data['document_stats'])
-        st.metric("Documents", total_docs)
-    
+        st.metric("Total résultats", len(df))
     with col2:
-        valid_docs = sum(1 for doc in data['document_stats'] if doc['Valide'] == '✅')
-        st.metric("Documents valides", valid_docs)
-    
+        unique_years = df['periode'].nunique()
+        st.metric("Périodes couvertes", unique_years)
     with col3:
-        total_pages = sum(doc['Pages'] for doc in data['document_stats'])
-        st.metric("Pages totales", total_pages)
-    
+        pdf_count = df[df['format'].str.contains('PDF', na=False)].shape[0]
+        st.metric("Documents PDF", pdf_count)
     with col4:
-        if data['corpus_analysis']:
-            total_words = data['corpus_analysis'].get('total_words', 0)
-            st.metric("Mots analysés", f"{total_words:,}")
+        legislatures = df['legislature'].nunique()
+        st.metric("Législatures", legislatures)
     
-    # Tableau des documents
-    st.header("📄 Documents analysés")
-    
-    stats_df = pd.DataFrame(data['document_stats'])
+    # Tableau des résultats
+    st.header("📄 Résultats détaillés")
     
     # Filtres
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        if not stats_df.empty and 'Année' in stats_df.columns:
-            years = sorted([y for y in stats_df['Année'].unique() if str(y).isdigit()])
-            selected_years = st.multiselect("Filtrer par année", years, default=years)
-            if selected_years:
-                stats_df = stats_df[stats_df['Année'].isin(selected_years)]
+        if not df.empty and 'periode' in df.columns:
+            periods = sorted(df['periode'].unique())
+            selected_periods = st.multiselect("Filtrer par période", periods, default=periods)
+            if selected_periods:
+                df = df[df['periode'].isin(selected_periods)]
     
     with col2:
-        if not stats_df.empty and 'Type' in stats_df.columns:
-            types = sorted(stats_df['Type'].unique())
-            selected_types = st.multiselect("Filtrer par type", types, default=types)
-            if selected_types:
-                stats_df = stats_df[stats_df['Type'].isin(selected_types)]
+        if not df.empty and 'legislature' in df.columns:
+            legislatures = sorted([l for l in df['legislature'].unique() if l])
+            selected_leg = st.multiselect("Filtrer par législature", legislatures, default=legislatures)
+            if selected_leg:
+                df = df[df['legislature'].isin(selected_leg)]
     
     with col3:
-        if not stats_df.empty and 'Valide' in stats_df.columns:
-            validity_filter = st.multiselect("État", ['✅', '❌'], default=['✅', '❌'])
-            if validity_filter:
-                stats_df = stats_df[stats_df['Valide'].isin(validity_filter)]
+        if not df.empty and 'page' in df.columns:
+            pages = sorted(df['page'].unique())
+            selected_pages = st.multiselect("Filtrer par page", pages, default=pages)
+            if selected_pages:
+                df = df[df['page'].isin(selected_pages)]
     
     # Afficher le tableau
     st.dataframe(
-        stats_df,
+        df[['index', 'titre', 'periode', 'legislature', 'page', 'format']],
         use_container_width=True,
         hide_index=True,
         column_config={
-            "Titre": st.column_config.TextColumn(width="large"),
-            "URL": st.column_config.LinkColumn(display_text="Lien")
+            "titre": st.column_config.TextColumn("Titre", width="large"),
+            "periode": st.column_config.TextColumn("Période"),
+            "legislature": st.column_config.TextColumn("Législature"),
+            "page": st.column_config.NumberColumn("Page"),
+            "format": st.column_config.TextColumn("Format")
         }
     )
     
     # Visualisations
-    st.header("📊 Visualisations interactives")
+    st.header("📊 Analyses visuelles")
     
-    if visuals:
-        # Onglets pour les graphiques
-        tab1, tab2, tab3, tab4 = st.tabs(["📅 Chronologie", "📋 Types", "🏷️ Thèmes", "🔤 Mots"])
-        
-        with tab1:
-            if 'years_chart' in visuals:
-                st.plotly_chart(visuals['years_chart'], use_container_width=True)
-            else:
-                st.info("Graphique chronologique non disponible")
-        
-        with tab2:
-            if 'types_chart' in visuals:
-                st.plotly_chart(visuals['types_chart'], use_container_width=True)
-            else:
-                st.info("Graphique des types non disponible")
-        
-        with tab3:
-            if 'themes_chart' in visuals:
-                st.plotly_chart(visuals['themes_chart'], use_container_width=True)
-            else:
-                st.info("Graphique des thèmes non disponible")
-        
-        with tab4:
+    tab1, tab2, tab3 = st.tabs(["📅 Par période", "🏛️ Par législature", "📈 Distribution"])
+    
+    with tab1:
+        if not df.empty and 'periode' in df.columns:
+            period_counts = df['periode'].value_counts().sort_index()
+            fig = px.bar(
+                x=period_counts.index,
+                y=period_counts.values,
+                title="Documents par période",
+                labels={'x': 'Période', 'y': 'Nombre de documents'},
+                color=period_counts.values,
+                color_continuous_scale='Viridis'
+            )
+            fig.update_layout(xaxis_tickangle=-45)
+            st.plotly_chart(fig, use_container_width=True)
+    
+    with tab2:
+        if not df.empty and 'legislature' in df.columns:
+            leg_counts = df['legislature'].value_counts()
+            fig = px.pie(
+                values=leg_counts.values,
+                names=leg_counts.index,
+                title="Répartition par législature",
+                hole=0.3
+            )
+            fig.update_traces(textposition='inside', textinfo='percent+label')
+            st.plotly_chart(fig, use_container_width=True)
+    
+    with tab3:
+        if not df.empty and 'page' in df.columns:
+            page_dist = df['page'].value_counts().sort_index()
+            fig = px.line(
+                x=page_dist.index,
+                y=page_dist.values,
+                title="Distribution des résultats par page",
+                labels={'x': 'Page de résultats', 'y': 'Nombre de résultats'},
+                markers=True
+            )
+            st.plotly_chart(fig, use_container_width=True)
+    
+    # Détails des documents
+    st.header("🔍 Détails des documents")
+    
+    for idx, row in df.iterrows():
+        with st.expander(f"{row['titre']} ({row['periode']})"):
             col1, col2 = st.columns(2)
-            with col1:
-                if 'words_chart' in visuals:
-                    st.plotly_chart(visuals['words_chart'], use_container_width=True)
-            with col2:
-                if 'wordcloud' in visuals:
-                    st.plotly_chart(visuals['wordcloud'], use_container_width=True)
-    
-    # Analyse détaillée par document
-    st.header("🔍 Analyse document par document")
-    
-    for i, doc_analysis in enumerate(data['document_analyses']):
-        # Appliquer les filtres
-        if not stats_df.empty:
-            if doc_analysis['title'][:80] not in stats_df['Titre'].values:
-                continue
-        
-        with st.expander(f"{doc_analysis['title']} ({doc_analysis['date']}) - {doc_analysis['type']}"):
-            col1, col2, col3, col4 = st.columns(4)
             
             with col1:
-                st.metric("Mots", doc_analysis['word_count'])
+                st.markdown(f"**URL:** [{row['url_visible']}]({row['url']})")
+                st.markdown(f"**Format:** {row['format']}")
+                st.markdown(f"**Législature:** {row['legislature']}")
+                st.markdown(f"**Session:** {row['session']}")
             
             with col2:
-                st.metric("Pages", doc_analysis['pages'])
+                st.markdown(f"**Page de résultats:** {row['page']}")
+                st.markdown(f"**Index:** {row['index']}")
+                st.markdown(f"**Date d'extraction:** {row['date_extraction']}")
             
-            with col3:
-                bumidom_count = doc_analysis['keyword_counts'].get('BUMIDOM', 0)
-                st.metric("BUMIDOM", bumidom_count)
+            st.markdown("**Description:**")
+            st.info(row['description'])
             
-            with col4:
-                migrant_count = doc_analysis['keyword_counts'].get('migrant', 0) + doc_analysis['keyword_counts'].get('migrants', 0)
-                st.metric("Migrants", migrant_count)
-            
-            # Aperçu du texte
-            st.subheader("Extrait")
-            st.text(doc_analysis['text_preview'])
-            
-            # Mots-clés
-            st.subheader("Mots-clés principaux")
-            if doc_analysis['keyword_counts']:
-                keywords_df = pd.DataFrame(
-                    list(doc_analysis['keyword_counts'].items()),
-                    columns=['Mot-clé', 'Occurrences']
-                ).sort_values('Occurrences', ascending=False)
-                
-                st.dataframe(keywords_df, use_container_width=True, hide_index=True)
-            
-            # Thèmes détectés
-            st.subheader("Thèmes détectés")
-            if doc_analysis['themes']:
-                themes_df = pd.DataFrame(
-                    list(doc_analysis['themes'].items()),
-                    columns=['Thème', 'Occurrences']
-                ).sort_values('Occurrences', ascending=False)
-                
-                st.dataframe(themes_df, use_container_width=True, hide_index=True)
+            # Bouton pour accéder au PDF
+            if st.button(f"📄 Ouvrir le PDF {row['index']}", key=f"pdf_{row['index']}"):
+                st.markdown(f'<a href="{row["url"]}" target="_blank">Ouvrir le document PDF</a>', unsafe_allow_html=True)
     
     # Export des données
-    st.header("💾 Export des résultats")
+    st.header("💾 Export des données")
     
     col1, col2, col3 = st.columns(3)
     
     with col1:
         # Export CSV
-        csv_data = stats_df.to_csv(index=False).encode('utf-8')
+        csv = df.to_csv(index=False).encode('utf-8')
         st.download_button(
             label="📥 Télécharger CSV",
-            data=csv_data,
-            file_name="bumidom_analysis.csv",
+            data=csv,
+            file_name=f"archives_cse_{search_term}_{datetime.now().strftime('%Y%m%d')}.csv",
             mime="text/csv",
             use_container_width=True
         )
     
     with col2:
         # Export JSON
-        export_data = {
-            'metadata': {
-                'date_export': datetime.now().isoformat(),
-                'total_documents': len(data['document_analyses']),
-                'source': 'Archives Assemblée Nationale'
-            },
-            'documents': data['document_analyses']
-        }
-        
-        json_data = json.dumps(export_data, ensure_ascii=False, indent=2)
+        json_data = df.to_json(orient='records', force_ascii=False)
         st.download_button(
             label="📥 Télécharger JSON",
             data=json_data,
-            file_name="bumidom_analysis.json",
+            file_name=f"archives_cse_{search_term}_{datetime.now().strftime('%Y%m%d')}.json",
             mime="application/json",
             use_container_width=True
         )
     
     with col3:
-        # Rapport texte
-        report_text = f"""RAPPORT D'ANALYSE BUMIDOM
-{'='*50}
-
-Date d'analyse: {datetime.now().strftime('%Y-%m-%d %H:%M')}
-Documents analysés: {len(data['document_analyses'])}
-Documents valides: {valid_docs}
-Pages totales: {total_pages}
-Mots analysés: {total_words:,}
-
-THÈMES PRINCIPAUX:
-"""
+        # Rapport HTML
+        html_report = f"""
+        <html>
+        <head>
+            <title>Rapport Archives AN - {search_term}</title>
+            <style>
+                body {{ font-family: Arial, sans-serif; margin: 40px; }}
+                h1 {{ color: #333; }}
+                .result {{ border: 1px solid #ddd; padding: 15px; margin: 10px 0; }}
+                .url {{ color: #0066cc; font-size: 0.9em; }}
+            </style>
+        </head>
+        <body>
+            <h1>Rapport Archives Assemblée Nationale</h1>
+            <p><strong>Recherche:</strong> {search_term}</p>
+            <p><strong>Date:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M')}</p>
+            <p><strong>Nombre de résultats:</strong> {len(df)}</p>
+            <hr>
+        """
         
-        if data['corpus_analysis'].get('theme_frequencies'):
-            for theme, freq in data['corpus_analysis']['theme_frequencies'].items():
-                report_text += f"\n- {theme}: {freq} occurrences"
+        for idx, row in df.iterrows():
+            html_report += f"""
+            <div class="result">
+                <h3>{row['titre']}</h3>
+                <p class="url"><a href="{row['url']}" target="_blank">{row['url_visible']}</a></p>
+                <p><strong>Période:</strong> {row['periode']} | <strong>Législature:</strong> {row['legislature']}</p>
+                <p>{row['description']}</p>
+            </div>
+            """
         
-        report_text += "\n\nDOCUMENTS ANALYSÉS:\n"
-        for doc in data['document_stats'][:20]:  # Limiter aux 20 premiers
-            report_text += f"\n- {doc['Titre'][:60]}... ({doc['Année']}, {doc['Type']}, {doc['Pages']} pages)"
-        
-        if len(data['document_stats']) > 20:
-            report_text += f"\n\n... et {len(data['document_stats']) - 20} autres documents"
+        html_report += "</body></html>"
         
         st.download_button(
-            label="📄 Rapport texte",
-            data=report_text.encode('utf-8'),
-            file_name="rapport_bumidom.txt",
-            mime="text/plain",
+            label="🌐 Télécharger HTML",
+            data=html_report,
+            file_name=f"rapport_{search_term}.html",
+            mime="text/html",
             use_container_width=True
         )
 
 else:
     # Écran d'accueil
-    st.header("Bienvenue dans l'Analyseur BUMIDOM")
+    st.header("Bienvenue dans le dashboard de scraping Google CSE")
     
     col1, col2 = st.columns(2)
     
     with col1:
         st.markdown("""
-        ### 🎯 À propos
-        Cet outil analyse les documents parlementaires français concernant le **BUMIDOM**, organisme ayant géré les migrations des DOM-TOM vers la métropole entre 1963 et 1982.
+        ### 🎯 Fonctionnalités
+        - **Scraping Google CSE** des archives
+        - **Extraction des métadonnées** PDF
+        - **Analyse par période** et législature
+        - **Visualisations interactives**
+        - **Export multi-formats**
         
-        ### 🔍 Sources
-        - Archives de l'Assemblée Nationale
-        - Documents parlementaires
-        - Rapports officiels
-        - Comptes rendus de débats
+        ### 📋 Données extraites
+        - Titres des documents
+        - URLs des PDF
+        - Périodes couvertes
+        - Législatures
+        - Descriptions/snippets
         """)
     
     with col2:
         st.markdown("""
         ### 🚀 Comment utiliser
-        1. **Configurez** le mode dans la sidebar
-        2. **Lancez** la recherche et l'analyse
-        3. **Explorez** les résultats via les visualisations
-        4. **Exportez** les données pour vos recherches
+        1. **Configurez** la recherche dans la sidebar
+        2. **Cliquez** sur "Lancer le scraping"
+        3. **Explorez** les résultats via les onglets
+        4. **Filtrez** par période/législature
+        5. **Exportez** les données
         
-        ### 📊 Fonctionnalités
-        - Scraping automatique des archives
-        - Extraction de texte depuis PDF
-        - Analyse lexicale et thématique
-        - Visualisations interactives
-        - Export multi-formats
+        ### ⚠️ Notes importantes
+        - Le scraping utilise la Google CSE du site
+        - Les résultats sont limités à 10 pages
+        - Certains PDF peuvent être volumineux
+        - Respectez les conditions d'utilisation
         """)
     
-    st.divider()
-    
-    # Section technique
-    with st.expander("🛠️ Configuration technique"):
+    # Instructions détaillées
+    with st.expander("🔧 Configuration avancée", expanded=False):
         st.markdown("""
-        **Dépendances Python:**
-        ```bash
-        pip install streamlit requests beautifulsoup4 pymupdf pandas plotly nltk
+        ### Pour utiliser l'API Google CSE officielle:
+        
+        1. **Créez un projet** sur Google Cloud Console
+        2. **Activez l'API** Custom Search
+        3. **Créez des identifiants** API
+        4. **Configurez la CSE** sur [cse.google.com](https://cse.google.com)
+        5. **Remplacez dans le code:**
+        
+        ```python
+        # Dans simulate_cse_request():
+        params = {
+            'key': 'VOTRE_CLE_API',  # Votre clé API Google
+            'cx': 'VOTRE_CSE_ID',     # Votre ID CSE
+            'q': search_term,
+            'start': (page - 1) * 10 + 1,
+            'num': 10,
+            'hl': 'fr'
+        }
+        
+        response = requests.get('https://www.googleapis.com/customsearch/v1', 
+                              params=params)
+        data = response.json()
         ```
         
-        **Fonctions principales:**
-        1. `search_bumidom_documents_real()` - Scraping du site
-        2. `extract_text_from_pdf_real()` - Extraction PDF
-        3. `analyze_all_documents()` - Analyse textuelle
-        4. `create_visualizations()` - Génération de graphiques
-        
-        **Structure des données:**
-        - Cache PDF local pour éviter les re-téléchargements
-        - Analyse NLTK pour le traitement du langage
-        - Visualisations Plotly pour l'interactivité
-        - Interface Streamlit responsive
+        ### Structure des résultats Google CSE:
+        ```json
+        {
+          "items": [
+            {
+              "title": "Titre du document",
+              "link": "https://.../document.pdf",
+              "snippet": "Description...",
+              "pagemap": {
+                "metatags": [...],
+                "cse_thumbnail": [...]
+              }
+            }
+          ],
+          "queries": {...},
+          "searchInformation": {...}
+        }
+        ```
         """)
 
-# ==================== PIED DE PAGE ====================
-
+# Pied de page
 st.divider()
 st.markdown(
     """
     <div style='text-align: center; color: #666; font-size: 0.9em;'>
-    Dashboard d'analyse BUMIDOM • Archives de l'Assemblée Nationale • 
-    <a href='https://archives.assemblée-nationale.fr' target='_blank'>Source des données</a> • 
-    Outil de recherche historique
+    Dashboard Google CSE • Archives Assemblée Nationale • 
+    Recherche personnalisée Google • 
+    Données extraites: <span id='date'></span>
+    <script>document.getElementById('date').innerHTML = new Date().toLocaleDateString('fr-FR');</script>
     </div>
     """,
     unsafe_allow_html=True
