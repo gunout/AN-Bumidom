@@ -4,420 +4,625 @@ from bs4 import BeautifulSoup
 import pandas as pd
 import re
 import time
-from urllib.parse import urljoin, quote, urlparse
+import random
+from urllib.parse import urljoin, quote
 import json
 import base64
-from io import BytesIO
-import fitz  # PyMuPDF
+from datetime import datetime
+import cloudscraper  # Pour contourner Cloudflare
+import undetected_chromedriver as uc  # Alternative avec Selenium
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+import threading
+from queue import Queue
+import os
 
 # Configuration
 st.set_page_config(
-    page_title="Scraper PDF BUMIDOM - Archives AN", 
+    page_title="Scraper BUMIDOM - Contournement AN", 
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("🔍 Scraper des 100 PDF BUMIDOM - Archives AN")
-st.markdown("Scraping des résultats de recherche interne du site archives.assemblee-nationale.fr")
+st.title("🛡️ Scraper BUMIDOM - Contournement des protections AN")
+st.markdown("Scraping avancé avec contournement des protections anti-bot")
 
-class PDFBUMIDOMScraper:
+class AdvancedBUMIDOMScraper:
     def __init__(self):
-        self.base_url = "https://archives.assemblee-nationale.fr"
-        self.session = requests.Session()
-        self.session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
-            'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
-            'Referer': 'https://archives.assemblee-nationale.fr/'
-        })
+        self.base_url = "https://www.assemblee-nationale.fr"
+        self.search_url = "https://www.assemblee-nationale.fr/recherche/"
+        self.user_agents = [
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:121.0) Gecko/20100101 Firefox/121.0',
+            'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        ]
+        self.session = None
+        self.driver = None
     
-    def search_pdfs_google_cse(self, keyword="Bumidom", max_pages=10):
-        """Utilise le moteur Google Custom Search intégré au site"""
+    def create_stealth_session(self):
+        """Crée une session furtive pour contourner les protections"""
+        try:
+            # Essayer cloudscraper d'abord (contourne Cloudflare)
+            scraper = cloudscraper.create_scraper(
+                browser={
+                    'browser': 'chrome',
+                    'platform': 'windows',
+                    'mobile': False,
+                    'desktop': True,
+                }
+            )
+            
+            # Headers aléatoires
+            headers = {
+                'User-Agent': random.choice(self.user_agents),
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1',
+                'Sec-Fetch-Dest': 'document',
+                'Sec-Fetch-Mode': 'navigate',
+                'Sec-Fetch-Site': 'none',
+                'Sec-Fetch-User': '?1',
+                'Cache-Control': 'max-age=0',
+                'TE': 'trailers',
+            }
+            
+            scraper.headers.update(headers)
+            return scraper
+            
+        except Exception as e:
+            st.warning(f"Cloudscraper échoué: {e}")
+            # Fallback à requests normal
+            session = requests.Session()
+            session.headers.update({
+                'User-Agent': random.choice(self.user_agents),
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                'Accept-Language': 'fr-FR,fr;q=0.9,en;q=0.8',
+                'Referer': 'https://www.google.com/',
+                'DNT': '1',
+            })
+            return session
+    
+    def setup_selenium_driver(self):
+        """Configure Selenium pour le scraping JavaScript"""
+        try:
+            options = uc.ChromeOptions()
+            
+            # Options de furtivité
+            options.add_argument('--disable-blink-features=AutomationControlled')
+            options.add_argument('--disable-dev-shm-usage')
+            options.add_argument('--no-sandbox')
+            options.add_argument('--disable-gpu')
+            options.add_argument('--window-size=1920,1080')
+            options.add_argument('--disable-notifications')
+            options.add_argument('--disable-popup-blocking')
+            
+            # Exécuter en mode headless (sans interface)
+            options.add_argument('--headless')
+            
+            # Désactiver les logs
+            options.add_experimental_option('excludeSwitches', ['enable-logging'])
+            
+            driver = uc.Chrome(options=options)
+            
+            # Exécuter du JavaScript pour masquer WebDriver
+            driver.execute_script("""
+                Object.defineProperty(navigator, 'webdriver', {
+                    get: () => undefined
+                });
+            """)
+            
+            return driver
+            
+        except Exception as e:
+            st.error(f"Erreur Selenium: {e}")
+            return None
+    
+    def search_with_selenium(self, keyword="BUMIDOM", max_pages=10):
+        """Recherche avec Selenium (contourne JavaScript)"""
         
-        st.info(f"Recherche de '{keyword}' via Google CSE...")
+        if not self.driver:
+            self.driver = self.setup_selenium_driver()
+            if not self.driver:
+                return []
+        
+        st.info(f"Recherche Selenium pour '{keyword}'...")
         
         all_pdf_links = []
         
-        # Le site utilise Google Custom Search Engine
-        for page_num in range(0, max_pages):
-            try:
-                # Construction de l'URL Google CSE
-                start_index = page_num * 10
-                search_url = f"https://www.google.com/cse?cx=014917347718038151697:kltwr00yvbk&q={quote(keyword)}&start={start_index}"
+        try:
+            # Accéder à la page de recherche
+            self.driver.get(self.search_url)
+            time.sleep(3)  # Attendre le chargement
+            
+            # Remplir le formulaire de recherche
+            search_box = WebDriverWait(self.driver, 10).until(
+                EC.presence_of_element_located((By.NAME, "quoi"))
+            )
+            
+            search_box.clear()
+            search_box.send_keys(keyword)
+            time.sleep(1)
+            
+            # Soumettre la recherche
+            search_button = self.driver.find_element(By.XPATH, "//input[@type='submit' or @type='button']")
+            search_button.click()
+            time.sleep(3)
+            
+            # Parcourir les pages
+            for page_num in range(1, max_pages + 1):
+                st.write(f"📄 Page {page_num} via Selenium...")
                 
-                st.write(f"📄 Page {page_num + 1} (résultats {start_index + 1}-{start_index + 10})...")
+                # Extraire les liens de la page actuelle
+                page_source = self.driver.page_source
+                soup = BeautifulSoup(page_source, 'html.parser')
                 
-                # Ajouter des headers spécifiques pour Google
-                headers = {
-                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-                }
+                # Chercher les liens PDF
+                pdf_elements = soup.find_all('a', href=re.compile(r'\.pdf$', re.I))
                 
-                response = requests.get(search_url, headers=headers, timeout=15)
+                for element in pdf_elements:
+                    href = element.get('href', '')
+                    if href and 'assemblee-nationale.fr' in href:
+                        full_url = href if href.startswith('http') else urljoin(self.base_url, href)
+                        
+                        title = element.get_text(strip=True)
+                        if not title:
+                            title = full_url.split('/')[-1]
+                        
+                        pdf_info = {
+                            'url': full_url,
+                            'title': title[:200],
+                            'page': page_num,
+                            'method': 'Selenium',
+                            'timestamp': datetime.now().isoformat()
+                        }
+                        
+                        if not any(p['url'] == full_url for p in all_pdf_links):
+                            all_pdf_links.append(pdf_info)
+                            st.write(f"  → {title[:80]}...")
                 
-                if response.status_code != 200:
-                    st.warning(f"Erreur page {page_num + 1}: HTTP {response.status_code}")
-                    
-                    # Essayer une méthode alternative
-                    return self.search_pdfs_alternative(keyword, max_pages)
-                
+                # Essayer d'aller à la page suivante
+                if page_num < max_pages:
+                    try:
+                        next_buttons = self.driver.find_elements(
+                            By.XPATH, 
+                            "//a[contains(text(), 'suivant') or contains(text(), 'Suivant') or contains(text(), '>')]"
+                        )
+                        
+                        if next_buttons:
+                            next_buttons[0].click()
+                            time.sleep(3)
+                        else:
+                            # Chercher la pagination
+                            page_links = self.driver.find_elements(
+                                By.XPATH, f"//a[contains(text(), '{page_num + 1}')]"
+                            )
+                            if page_links:
+                                page_links[0].click()
+                                time.sleep(3)
+                            else:
+                                st.info("Dernière page atteinte")
+                                break
+                                
+                    except Exception as e:
+                        st.warning(f"Impossible d'aller à la page {page_num + 1}: {e}")
+                        break
+            
+            return all_pdf_links[:100]
+            
+        except Exception as e:
+            st.error(f"Erreur Selenium: {str(e)[:200]}")
+            return []
+    
+    def search_with_google_dork(self, keyword="BUMIDOM", max_results=100):
+        """Utilise Google Dorking pour trouver des PDF"""
+        
+        st.info(f"Recherche Google Dork pour '{keyword}'...")
+        
+        all_pdf_links = []
+        
+        # Construction de la requête Google Dork
+        dork_query = f'site:assemblee-nationale.fr filetype:pdf "{keyword}"'
+        google_url = f"https://www.google.com/search?q={quote(dork_query)}&num=100"
+        
+        try:
+            # Créer une session furtive
+            session = self.create_stealth_session()
+            
+            response = session.get(google_url, timeout=15)
+            
+            if response.status_code == 200:
                 soup = BeautifulSoup(response.content, 'html.parser')
                 
-                # Rechercher tous les liens dans les résultats
-                # Google CSE a généralement des divs avec class 'g' pour les résultats
-                results = soup.find_all('div', class_='g')
-                
-                if not results:
-                    # Essayer une autre structure
-                    results = soup.find_all('div', class_=re.compile(r'result|item', re.I))
+                # Chercher les résultats Google
+                results = soup.find_all('div', class_=re.compile(r'^g\b'))
                 
                 for result in results:
-                    # Chercher les liens dans chaque résultat
-                    links = result.find_all('a', href=True)
-                    
-                    for link in links:
+                    link = result.find('a', href=True)
+                    if link:
                         href = link['href']
                         
-                        # Vérifier si c'est un lien PDF (soit finit par .pdf, soit contient pdf dans l'URL)
-                        if ('.pdf' in href.lower() or 'pdf' in href.lower()) and 'archives.assemblee-nationale.fr' in href:
+                        # Nettoyer l'URL Google
+                        if '/url?q=' in href:
+                            match = re.search(r'/url\?q=([^&]+)', href)
+                            if match:
+                                href = requests.utils.unquote(match.group(1))
+                        
+                        # Vérifier si c'est un PDF de l'AN
+                        if ('.pdf' in href.lower() and 
+                            'assemblee-nationale.fr' in href and
+                            keyword.lower() in href.lower()):
                             
-                            # Nettoyer l'URL (enlever les paramètres Google)
-                            if 'url=' in href:
-                                # URL encodée dans le paramètre Google
-                                match = re.search(r'url=([^&]+)', href)
-                                if match:
-                                    href = match.group(1)
-                                    href = requests.utils.unquote(href)
+                            title_elem = result.find('h3')
+                            title = title_elem.get_text(strip=True) if title_elem else link.get_text(strip=True)
                             
-                            # Vérifier que c'est bien une URL de l'Assemblée Nationale
-                            if 'assemblee-nationale.fr' in href:
-                                # Extraire le titre
-                                title_elem = link.find(['h3', 'div', 'span'])
-                                title = title_elem.get_text(strip=True) if title_elem else link.get_text(strip=True)
-                                
-                                if not title or len(title) < 3:
-                                    # Prendre le texte du lien
-                                    title = link.get_text(strip=True)
-                                    if not title:
-                                        # Utiliser l'URL comme titre
-                                        title = href.split('/')[-1]
-                                
-                                pdf_info = {
-                                    'url': href,
-                                    'title': title[:250],
-                                    'page': page_num + 1,
-                                    'position': len([p for p in all_pdf_links if p['page'] == page_num + 1]) + 1,
-                                    'source': 'Google CSE'
-                                }
-                                
-                                # Vérifier si ce PDF n'est pas déjà dans la liste
-                                if not any(p['url'] == href for p in all_pdf_links):
-                                    all_pdf_links.append(pdf_info)
-                                    st.write(f"  → PDF trouvé: {title[:80]}...")
+                            pdf_info = {
+                                'url': href,
+                                'title': title[:200],
+                                'page': 1,
+                                'method': 'Google Dork',
+                                'timestamp': datetime.now().isoformat()
+                            }
+                            
+                            if not any(p['url'] == href for p in all_pdf_links):
+                                all_pdf_links.append(pdf_info)
+                                st.write(f"  → Google Dork: {title[:80]}...")
                 
-                # Vérifier s'il y a plus de pages
-                next_link = soup.find('a', {'id': 'pnnext'})
-                if not next_link and page_num < max_pages - 1:
-                    # Chercher d'autres indicateurs de pagination
-                    next_links = soup.find_all('a', string=re.compile(r'suivant|next|>\s*$', re.I))
-                    if not next_links:
-                        st.info(f"Dernière page atteinte: {page_num + 1}")
-                        break
+                # Si on a besoin de plus de résultats, on peut simuler le scroll
+                if len(all_pdf_links) < max_results:
+                    st.info("Tentative de récupération de plus de résultats...")
+                    
+                    # Ajouter des paramètres pour plus de résultats
+                    for start in [100, 200, 300]:
+                        more_url = f"https://www.google.com/search?q={quote(dork_query)}&num=100&start={start}"
+                        try:
+                            response = session.get(more_url, timeout=15)
+                            soup = BeautifulSoup(response.content, 'html.parser')
+                            
+                            more_results = soup.find_all('div', class_=re.compile(r'^g\b'))
+                            for result in more_results:
+                                link = result.find('a', href=True)
+                                if link:
+                                    href = link['href']
+                                    if '/url?q=' in href:
+                                        match = re.search(r'/url\?q=([^&]+)', href)
+                                        if match:
+                                            href = requests.utils.unquote(match.group(1))
+                                    
+                                    if ('.pdf' in href.lower() and 
+                                        'assemblee-nationale.fr' in href):
+                                        
+                                        title_elem = result.find('h3')
+                                        title = title_elem.get_text(strip=True) if title_elem else ''
+                                        
+                                        pdf_info = {
+                                            'url': href,
+                                            'title': title[:200],
+                                            'page': start // 100 + 1,
+                                            'method': 'Google Dork',
+                                            'timestamp': datetime.now().isoformat()
+                                        }
+                                        
+                                        if not any(p['url'] == href for p in all_pdf_links):
+                                            all_pdf_links.append(pdf_info)
+                            
+                            time.sleep(2)
+                            
+                        except:
+                            break
                 
-                time.sleep(2)  # Pause plus longue pour Google
+                return all_pdf_links[:max_results]
                 
-            except Exception as e:
-                st.error(f"Erreur page {page_num + 1}: {str(e)[:100]}")
-                continue
-        
-        return all_pdf_links[:100]
+            else:
+                st.warning(f"Google a bloqué la requête: HTTP {response.status_code}")
+                return []
+                
+        except Exception as e:
+            st.error(f"Erreur Google Dork: {str(e)[:200]}")
+            return []
     
-    def search_pdfs_alternative(self, keyword="Bumidom", max_pages=10):
-        """Méthode alternative de recherche"""
+    def search_with_proxies(self, keyword="BUMIDOM"):
+        """Essaie avec différents proxies pour contourner le blocage"""
         
-        st.info("Utilisation de la méthode alternative de recherche...")
+        st.info("Tentative avec rotation de proxies...")
+        
+        # Liste de proxies publics (à utiliser avec précaution)
+        proxies_list = [
+            None,  # Pas de proxy
+            {'http': 'http://proxy:8080', 'https': 'https://proxy:8080'},
+        ]
         
         all_pdf_links = []
         
-        # URLs spécifiques où chercher des PDF
-        search_patterns = [
-            f"https://archives.assemblee-nationale.fr/recherche?query={quote(keyword)}",
-            f"https://www.assemblee-nationale.fr/recherche/query.asp?quoi={quote(keyword)}&type=pdf",
+        for proxy in proxies_list:
+            try:
+                st.write(f"Essai avec proxy: {proxy}")
+                
+                session = requests.Session()
+                session.headers.update({
+                    'User-Agent': random.choice(self.user_agents),
+                    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+                })
+                
+                # Construire l'URL de recherche
+                search_params = {
+                    'quoi': keyword,
+                    'type': 'pdf',
+                    'legislature': 'toutes',
+                    'sort': 'date',
+                }
+                
+                response = session.get(
+                    self.search_url, 
+                    params=search_params,
+                    proxies=proxy,
+                    timeout=15
+                )
+                
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.content, 'html.parser')
+                    
+                    # Extraire les résultats
+                    results = soup.find_all(['a', 'div'], class_=re.compile(r'result|doc|pdf', re.I))
+                    
+                    for result in results:
+                        link = result.find('a', href=re.compile(r'\.pdf$', re.I))
+                        if link:
+                            href = link.get('href', '')
+                            if href:
+                                full_url = urljoin(self.base_url, href)
+                                
+                                title = link.get_text(strip=True)
+                                if not title:
+                                    title = result.get_text(strip=True)[:200]
+                                
+                                pdf_info = {
+                                    'url': full_url,
+                                    'title': title[:200],
+                                    'page': 1,
+                                    'method': f'Proxy {proxy}' if proxy else 'Direct',
+                                    'timestamp': datetime.now().isoformat()
+                                }
+                                
+                                if not any(p['url'] == full_url for p in all_pdf_links):
+                                    all_pdf_links.append(pdf_info)
+                                    st.write(f"  → Proxy: {title[:80]}...")
+                    
+                    if all_pdf_links:
+                        break
+                        
+                time.sleep(2)
+                
+            except Exception as e:
+                st.warning(f"Proxy échoué: {str(e)[:100]}")
+                continue
+        
+        return all_pdf_links
+    
+    def search_alternative_sites(self, keyword="BUMIDOM"):
+        """Cherche sur des sites alternatifs qui référencent les PDF"""
+        
+        st.info("Recherche sur sites alternatifs...")
+        
+        all_pdf_links = []
+        
+        # Sites qui pourraient référencer les PDF
+        alternative_sites = [
+            f"https://gallica.bnf.fr/services/engine/search/sru?operation=searchRetrieve&version=1.2&query=(gallica%20all%20%22{quote(keyword)}%22)%20and%20(gallica%20all%20%22assemblee%20nationale%22)",
+            f"https://www.senat.fr/recherche/index.html?q={quote(keyword)}&type=pdf",
+            f"https://www.vie-publique.fr/recherche?search_api_fulltext={quote(keyword)}&type%5B0%5D=pdf",
         ]
         
-        for search_url in search_patterns:
+        for site_url in alternative_sites:
             try:
-                st.write(f"Essai avec: {search_url}")
+                st.write(f"Recherche sur: {site_url[:80]}...")
                 
-                response = self.session.get(search_url, timeout=15)
-                soup = BeautifulSoup(response.content, 'html.parser')
+                session = self.create_stealth_session()
+                response = session.get(site_url, timeout=15)
                 
-                # Chercher tous les liens PDF
-                pdf_links = soup.find_all('a', href=re.compile(r'\.pdf$', re.I))
-                
-                for link in pdf_links[:50]:  # Limiter aux 50 premiers
-                    href = link.get('href', '')
+                if response.status_code == 200:
+                    soup = BeautifulSoup(response.content, 'html.parser')
                     
-                    if href:
-                        # Compléter l'URL si nécessaire
-                        if not href.startswith('http'):
-                            href = urljoin(search_url, href)
-                        
-                        # Vérifier que c'est bien une URL AN
-                        if 'assemblee-nationale.fr' in href:
+                    # Chercher les liens PDF
+                    pdf_links = soup.find_all('a', href=re.compile(r'\.pdf$', re.I))
+                    
+                    for link in pdf_links:
+                        href = link.get('href', '')
+                        if href and 'assemblee-nationale.fr' in href:
+                            full_url = href if href.startswith('http') else urljoin(site_url, href)
+                            
                             title = link.get_text(strip=True)
                             if not title:
                                 title = href.split('/')[-1]
                             
                             pdf_info = {
-                                'url': href,
-                                'title': title[:250],
+                                'url': full_url,
+                                'title': title[:200],
                                 'page': 1,
-                                'position': len(all_pdf_links) + 1,
-                                'source': 'Recherche alternative'
+                                'method': 'Site alternatif',
+                                'timestamp': datetime.now().isoformat()
                             }
                             
-                            if not any(p['url'] == href for p in all_pdf_links):
+                            if not any(p['url'] == full_url for p in all_pdf_links):
                                 all_pdf_links.append(pdf_info)
-                                st.write(f"  → PDF: {title[:80]}...")
+                                st.write(f"  → Alternatif: {title[:80]}...")
                 
                 time.sleep(1)
                 
             except Exception as e:
-                st.warning(f"Erreur avec méthode alternative: {str(e)[:100]}")
+                st.warning(f"Site alternatif échoué: {str(e)[:100]}")
+                continue
         
-        return all_pdf_links[:100]
+        return all_pdf_links
     
-    def search_pdfs_simple(self, keyword="Bumidom"):
-        """Méthode simple pour tester rapidement"""
+    def multi_method_search(self, keyword="BUMIDOM", max_results=100):
+        """Combine toutes les méthodes de recherche"""
         
-        st.info(f"Recherche simple de '{keyword}'...")
+        st.info(f"Lancement de la recherche multi-méthodes pour '{keyword}'...")
         
-        # Liste d'URLs de PDF potentiels basée sur la structure connue
-        pdf_urls = []
+        all_pdf_links = []
+        methods = [
+            ("Google Dork", self.search_with_google_dork),
+            ("Selenium", self.search_with_selenium),
+            ("Sites alternatifs", self.search_alternative_sites),
+            ("Proxies", self.search_with_proxies),
+        ]
         
-        # Générer des URLs basées sur la structure des archives
-        for legislature in [4, 5, 6, 7, 8]:  # Législatures 4 à 8
-            for year in range(1963, 1983):
-                # Différents types de documents
-                doc_types = ['cri', 'qst', 'rapports']
+        progress_bar = st.progress(0)
+        
+        for idx, (method_name, method_func) in enumerate(methods):
+            progress = (idx + 1) / len(methods)
+            progress_bar.progress(progress)
+            
+            st.write(f"🔍 Méthode: {method_name}...")
+            
+            try:
+                results = method_func(keyword)
                 
-                for doc_type in doc_types:
-                    # Essayer différents patterns d'URL
-                    patterns = [
-                        f"https://archives.assemblee-nationale.fr/{legislature}/{doc_type}/",
-                        f"https://archives.assemblee-nationale.fr/{legislature}/{doc_type}/{year}/",
-                        f"https://archives.assemblee-nationale.fr/{legislature}/{doc_type}/{year}-",
-                    ]
-                    
-                    for base_url in patterns:
-                        try:
-                            response = self.session.get(base_url, timeout=10)
-                            if response.status_code == 200:
-                                soup = BeautifulSoup(response.content, 'html.parser')
-                                
-                                # Chercher des liens contenant le mot-clé
-                                for link in soup.find_all('a', href=True, string=re.compile(keyword, re.I)):
-                                    href = link['href']
-                                    if '.pdf' in href.lower():
-                                        full_url = urljoin(base_url, href)
-                                        pdf_urls.append({
-                                            'url': full_url,
-                                            'title': link.get_text(strip=True),
-                                            'page': 1,
-                                            'position': len(pdf_urls) + 1,
-                                            'source': f'Législature {legislature}'
-                                        })
-                                        st.write(f"  → Trouvé: {link.get_text(strip=True)[:80]}...")
-                        
-                        except:
-                            continue
+                # Fusionner les résultats
+                for pdf in results:
+                    if not any(p['url'] == pdf['url'] for p in all_pdf_links):
+                        all_pdf_links.append(pdf)
+                
+                st.success(f"  → {len(results)} PDF trouvés avec {method_name}")
+                time.sleep(1)
+                
+            except Exception as e:
+                st.warning(f"  → {method_name} échoué: {str(e)[:100]}")
         
-        return pdf_urls[:50]
+        progress_bar.empty()
+        
+        # Limiter aux meilleurs résultats
+        return all_pdf_links[:max_results]
     
-    def scrape_pdf_content(self, pdf_info, keyword="Bumidom"):
-        """Télécharge et analyse le contenu d'un PDF"""
+    def analyze_pdf_content(self, pdf_info, keyword="BUMIDOM"):
+        """Analyse le contenu d'un PDF"""
         try:
-            st.write(f"📥 Analyse: {pdf_info['title'][:50]}...")
+            # Utiliser une session furtive
+            session = self.create_stealth_session()
             
-            # Headers pour le téléchargement
-            headers = {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-                'Referer': 'https://archives.assemblee-nationale.fr/',
-                'Accept': 'application/pdf,text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
-            }
+            st.write(f"📥 Téléchargement: {pdf_info['title'][:50]}...")
             
-            response = requests.get(pdf_info['url'], headers=headers, timeout=30, stream=True)
+            response = session.get(pdf_info['url'], timeout=30, stream=True)
             
             if response.status_code != 200:
                 return {
                     **pdf_info,
                     'error': f"HTTP {response.status_code}",
-                    'content': '',
                     'keyword_count': 0,
-                    'size_kb': 0,
-                    'page_count': 0,
                     'analyzed': False
                 }
             
-            # Taille du fichier
             content = response.content
-            size_kb = len(content) / 1024
             
-            # Vérifier si c'est bien un PDF
+            # Vérifier si c'est un PDF
             if not content.startswith(b'%PDF'):
                 return {
                     **pdf_info,
                     'error': "Fichier non PDF",
-                    'content': '',
                     'keyword_count': 0,
-                    'size_kb': round(size_kb, 2),
-                    'page_count': 0,
                     'analyzed': False
                 }
             
-            # Analyser le PDF
+            # Analyser avec PyMuPDF
             try:
+                import fitz
+                
                 with fitz.open(stream=content, filetype="pdf") as pdf_doc:
                     page_count = pdf_doc.page_count
                     
-                    # Extraire le texte (limité pour performance)
+                    # Extraire le texte (limité)
                     full_text = ""
-                    max_pages = min(50, page_count)  # Analyser max 50 pages
-                    
-                    for page_num in range(max_pages):
+                    for page_num in range(min(20, page_count)):
                         page = pdf_doc[page_num]
-                        text = page.get_text()
-                        full_text += text + "\n"
+                        full_text += page.get_text() + "\n"
                     
                     # Rechercher le mot-clé
-                    keyword_lower = keyword.lower()
-                    text_lower = full_text.lower()
+                    keyword_count = full_text.lower().count(keyword.lower())
                     
-                    # Compter les occurrences
-                    keyword_count = text_lower.count(keyword_lower)
-                    
-                    # Extraire le contexte des premières occurrences
+                    # Extraire le contexte
                     contexts = []
                     if keyword_count > 0:
-                        # Trouver les positions
-                        start_pos = 0
-                        found_count = 0
-                        
-                        while found_count < 3:  # 3 premiers contextes max
-                            pos = text_lower.find(keyword_lower, start_pos)
-                            if pos == -1:
-                                break
-                            
+                        text_lower = full_text.lower()
+                        pos = text_lower.find(keyword.lower())
+                        if pos != -1:
                             start = max(0, pos - 150)
                             end = min(len(full_text), pos + len(keyword) + 150)
-                            context = full_text[start:end].replace('\n', ' ').strip()
-                            contexts.append(context)
-                            
-                            start_pos = pos + 1
-                            found_count += 1
+                            contexts.append(full_text[start:end].replace('\n', ' ').strip())
                     
                     return {
                         **pdf_info,
-                        'content': full_text[:3000],  # Stocker 3000 caractères max
                         'keyword_count': keyword_count,
-                        'size_kb': round(size_kb, 2),
                         'page_count': page_count,
-                        'contexts': contexts,
+                        'size_kb': len(content) / 1024,
+                        'contexts': contexts[:2],
                         'analyzed': True,
                         'error': None
                     }
                     
-            except Exception as pdf_error:
+            except ImportError:
+                # Fallback: recherche simple dans les bytes
+                keyword_count = content.lower().count(keyword.lower().encode())
                 return {
                     **pdf_info,
-                    'error': f"Erreur PDF: {str(pdf_error)[:100]}",
-                    'content': '',
-                    'keyword_count': 0,
-                    'size_kb': round(size_kb, 2),
-                    'page_count': 0,
-                    'analyzed': False,
-                    'contexts': []
+                    'keyword_count': keyword_count,
+                    'analyzed': True,
+                    'error': 'PyMuPDF non disponible'
                 }
                 
         except Exception as e:
             return {
                 **pdf_info,
-                'error': f"Téléchargement: {str(e)[:100]}",
-                'content': '',
+                'error': f"Analyse: {str(e)[:100]}",
                 'keyword_count': 0,
-                'size_kb': 0,
-                'page_count': 0,
-                'analyzed': False,
-                'contexts': []
+                'analyzed': False
             }
-    
-    def batch_scrape_pdfs(self, pdf_links, keyword="Bumidom", max_pdfs=50):
-        """Scrape un lot de PDF"""
-        results = []
-        
-        st.info(f"Analyse de {len(pdf_links[:max_pdfs])} PDF...")
-        
-        progress_bar = st.progress(0)
-        
-        for idx, pdf_info in enumerate(pdf_links[:max_pdfs]):
-            progress = (idx + 1) / min(len(pdf_links), max_pdfs)
-            progress_bar.progress(progress)
-            
-            # Analyser le PDF
-            pdf_data = self.scrape_pdf_content(pdf_info, keyword)
-            results.append(pdf_data)
-            
-            # Afficher le résultat
-            if pdf_data.get('analyzed') and pdf_data['keyword_count'] > 0:
-                st.success(f"  ✓ {pdf_data['keyword_count']} occurrence(s) dans {pdf_data['title'][:60]}...")
-            elif pdf_data.get('error'):
-                st.warning(f"  ⚠️ {pdf_data['error']}")
-            else:
-                st.write(f"  ○ Aucune occurrence")
-            
-            time.sleep(0.3)  # Pause courte
-        
-        progress_bar.empty()
-        return results
 
 def main():
     # Sidebar
     with st.sidebar:
-        st.header("⚙️ Paramètres")
+        st.header("⚙️ Méthodes de contournement")
         
-        keyword = st.text_input("Mot-clé de recherche:", value="Bumidom")
+        keyword = st.text_input("Mot-clé:", value="BUMIDOM")
         
-        col1, col2 = st.columns(2)
-        with col1:
-            search_method = st.selectbox(
-                "Méthode de recherche",
-                ["Google CSE (recommandé)", "Alternative", "Simple test"]
-            )
-        with col2:
-            max_pdfs = st.number_input("PDF max à analyser", 10, 200, 50)
+        search_method = st.selectbox(
+            "Méthode de recherche:",
+            [
+                "Multi-méthodes (recommandé)",
+                "Google Dorking", 
+                "Selenium (JavaScript)",
+                "Sites alternatifs",
+                "Test rapide"
+            ]
+        )
+        
+        max_results = st.slider("Résultats max:", 10, 200, 50)
         
         st.markdown("---")
         
-        # Boutons d'action
         col_btn1, col_btn2 = st.columns(2)
         
         with col_btn1:
-            search_only = st.button("🔍 Rechercher PDF", use_container_width=True)
+            search_btn = st.button("🔍 Rechercher PDF", use_container_width=True)
         
         with col_btn2:
-            full_scrape = st.button("🚀 Scraper complet", type="primary", use_container_width=True)
+            analyze_btn = st.button("🔬 Analyser PDF", type="primary", use_container_width=True)
         
         st.markdown("---")
         st.info("""
         **Méthodes disponibles:**
-        1. **Google CSE** : Utilise le moteur intégré
-        2. **Alternative** : Cherche dans différentes URLs
-        3. **Simple test** : Pour tester rapidement
+        1. **Multi-méthodes** : Combine toutes les techniques
+        2. **Google Dork** : Recherche Google avancée
+        3. **Selenium** : Contourne JavaScript
+        4. **Alternatifs** : Cherche ailleurs
         """)
     
     # Initialisation
-    scraper = PDFBUMIDOMScraper()
+    scraper = AdvancedBUMIDOMScraper()
     
     # État de session
     if 'pdf_links' not in st.session_state:
@@ -426,229 +631,190 @@ def main():
         st.session_state.pdf_data = []
     
     # Actions
-    if search_only:
-        with st.spinner("Recherche des PDF en cours..."):
-            if search_method == "Google CSE (recommandé)":
-                pdf_links = scraper.search_pdfs_google_cse(keyword, 10)
-            elif search_method == "Alternative":
-                pdf_links = scraper.search_pdfs_alternative(keyword, 10)
+    if search_btn:
+        with st.spinner("Recherche en cours (peut prendre 1-2 minutes)..."):
+            if search_method == "Multi-méthodes (recommandé)":
+                pdf_links = scraper.multi_method_search(keyword, max_results)
+            elif search_method == "Google Dorking":
+                pdf_links = scraper.search_with_google_dork(keyword, max_results)
+            elif search_method == "Selenium (JavaScript)":
+                pdf_links = scraper.search_with_selenium(keyword, 5)
+            elif search_method == "Sites alternatifs":
+                pdf_links = scraper.search_alternative_sites(keyword)
             else:
-                pdf_links = scraper.search_pdfs_simple(keyword)
+                pdf_links = scraper.search_with_proxies(keyword)
             
             st.session_state.pdf_links = pdf_links
             
             if pdf_links:
                 st.success(f"✅ {len(pdf_links)} PDF trouvés")
                 
-                # Afficher la liste
-                df_links = pd.DataFrame(pdf_links)
-                st.dataframe(df_links[['title', 'source', 'url']], use_container_width=True)
+                # Afficher les résultats
+                df = pd.DataFrame(pdf_links)
                 
                 # Statistiques
-                col_stat1, col_stat2, col_stat3 = st.columns(3)
-                with col_stat1:
-                    st.metric("PDF trouvés", len(pdf_links))
-                with col_stat2:
-                    sources = df_links['source'].nunique()
-                    st.metric("Sources", sources)
-                with col_stat3:
-                    st.metric("URLs uniques", df_links['url'].nunique())
-            else:
-                st.warning("Aucun PDF trouvé.")
+                col1, col2, col3 = st.columns(3)
+                with col1:
+                    st.metric("PDF trouvés", len(df))
+                with col2:
+                    methods = df['method'].nunique()
+                    st.metric("Méthodes", methods)
+                with col3:
+                    unique_urls = df['url'].nunique()
+                    st.metric("URLs uniques", unique_urls)
                 
-                # Afficher des conseils
-                with st.expander("💡 Conseils pour la recherche"):
+                # Table des résultats
+                st.subheader("📋 PDF trouvés")
+                st.dataframe(df[['title', 'method', 'url']], use_container_width=True)
+                
+                # Export
+                csv = df.to_csv(index=False, encoding='utf-8-sig')
+                st.download_button(
+                    label="📥 Télécharger la liste",
+                    data=csv,
+                    file_name=f"bumidom_urls_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
+                    mime="text/csv"
+                )
+                
+            else:
+                st.warning("❌ Aucun PDF trouvé")
+                
+                with st.expander("🔧 Dépannage"):
                     st.markdown("""
-                    1. **Essayez en majuscules** : BUMIDOM
-                    2. **Termes alternatifs** :
-                       - Bureau migrations DOM
-                       - Migration outre-mer
-                       - Départements d'outre-mer
-                    3. **Cherchez directement** sur :
-                       - [Archives AN](https://archives.assemblee-nationale.fr)
-                       - [Recherche AN](https://www.assemblee-nationale.fr/recherche)
+                    **Si aucune méthode ne fonctionne:**
+                    
+                    1. **Testez manuellement:**
+                       - Allez sur https://www.assemblee-nationale.fr/recherche/
+                       - Cherchez "BUMIDOM"
+                       - Capturez l'URL de la page de résultats
+                    
+                    2. **Utilisez Google directement:**
+                       ```
+                       site:assemblee-nationale.fr filetype:pdf BUMIDOM
+                       ```
+                    
+                    3. **Explorez les archives:**
+                       - https://archives.assemblee-nationale.fr
+                       - https://gallica.bnf.fr (Journal Officiel)
                     """)
     
-    elif full_scrape:
+    elif analyze_btn:
         if not st.session_state.pdf_links:
             st.warning("Veuillez d'abord rechercher des PDF")
         else:
-            with st.spinner(f"Scraping de {len(st.session_state.pdf_links[:max_pdfs])} PDF..."):
-                pdf_data = scraper.batch_scrape_pdfs(
-                    st.session_state.pdf_links, 
-                    keyword, 
-                    max_pdfs
-                )
-                st.session_state.pdf_data = pdf_data
-            
-            # Afficher les résultats
-            if pdf_data:
-                # Filtrer les PDF analysés avec succès
-                analyzed_pdfs = [p for p in pdf_data if p.get('analyzed')]
-                pdfs_with_keyword = [p for p in analyzed_pdfs if p['keyword_count'] > 0]
+            with st.spinner(f"Analyse de {len(st.session_state.pdf_links[:max_results])} PDF..."):
+                results = []
                 
-                st.success(f"""
-                ✅ Analyse terminée:
-                - {len(analyzed_pdfs)}/{len(pdf_data)} PDF analysés
-                - {len(pdfs_with_keyword)} contiennent '{keyword}'
-                """)
+                for pdf_info in st.session_state.pdf_links[:max_results]:
+                    result = scraper.analyze_pdf_content(pdf_info, keyword)
+                    results.append(result)
                 
-                if pdfs_with_keyword:
-                    # Afficher les résultats détaillés
-                    display_results(pdfs_with_keyword, keyword)
-                else:
-                    st.warning(f"Aucun PDF ne contient '{keyword}'")
+                st.session_state.pdf_data = results
+                
+                # Filtrer les PDF avec occurrences
+                pdfs_with_keyword = [p for p in results if p.get('keyword_count', 0) > 0]
+                analyzed_pdfs = [p for p in results if p.get('analyzed', False)]
+                
+                if analyzed_pdfs:
+                    st.success(f"""
+                    ✅ Analyse terminée:
+                    - {len(analyzed_pdfs)} PDF analysés
+                    - {len(pdfs_with_keyword)} contiennent '{keyword}'
+                    """)
                     
-                    # Afficher quand même quelques PDF analysés
-                    if analyzed_pdfs:
-                        st.subheader("📋 PDF analysés (sans occurrence)")
-                        for pdf in analyzed_pdfs[:5]:
-                            st.write(f"- {pdf['title'][:80]}... ({pdf['page_count']} pages, {pdf['size_kb']} KB)")
+                    if pdfs_with_keyword:
+                        # Afficher les résultats
+                        df_results = pd.DataFrame(pdfs_with_keyword)
+                        
+                        st.subheader(f"📊 {len(pdfs_with_keyword)} PDF avec occurrences")
+                        
+                        for pdf in pdfs_with_keyword:
+                            with st.expander(f"📄 {pdf['title'][:80]}... ({pdf['keyword_count']} occ.)"):
+                                col_a, col_b = st.columns([3, 1])
+                                
+                                with col_a:
+                                    st.markdown(f"**URL:** `{pdf['url']}`")
+                                    st.markdown(f"**Méthode:** {pdf.get('method', 'N/A')}")
+                                    st.markdown(f"**Pages:** {pdf.get('page_count', 'N/A')}")
+                                    
+                                    if pdf.get('contexts'):
+                                        st.markdown("**Contexte:**")
+                                        for ctx in pdf['contexts']:
+                                            highlighted = re.sub(
+                                                r'(' + re.escape(keyword) + ')',
+                                                r'**\1**',
+                                                ctx,
+                                                flags=re.IGNORECASE
+                                            )
+                                            st.markdown(f"> {highlighted}")
+                                
+                                with col_b:
+                                    st.markdown(f"[🌐 Ouvrir]({pdf['url']})", unsafe_allow_html=True)
+                        
+                        # Export
+                        st.subheader("💾 Export des analyses")
+                        csv_data = pd.DataFrame(pdfs_with_keyword).to_csv(index=False, encoding='utf-8-sig')
+                        st.download_button(
+                            label="📥 Télécharger analyses",
+                            data=csv_data,
+                            file_name=f"bumidom_analysis_{datetime.now().strftime('%Y%m%d_%H%M')}.csv",
+                            mime="text/csv"
+                        )
+                    
+                else:
+                    st.warning("Aucun PDF n'a pu être analysé")
     
     else:
         # Écran d'accueil
         st.markdown("""
-        ## 📋 Guide d'utilisation
+        ## 🛡️ Pourquoi 403 Forbidden ?
         
-        Ce scraper recherche **BUMIDOM** dans les archives de l'Assemblée Nationale.
+        Le site `www.assemblee-nationale.fr` utilise des protections avancées:
         
-        ### Étapes recommandées :
-        1. **Cliquez sur "🔍 Rechercher PDF"** avec "Google CSE"
-        2. **Puis "🚀 Scraper complet"** pour analyser le contenu
-        3. **Explorez** les PDF avec occurrences
+        **Protections détectées:**
+        1. **WAF (Web Application Firewall)** : Bloque les requêtes automatiques
+        2. **Cloudflare** : Protection DDoS et anti-bot
+        3. **JavaScript requis** : Le contenu est chargé dynamiquement
+        4. **Rate limiting** : Limite le nombre de requêtes
         
-        ### Méthodes disponibles :
+        ## 🔧 Solutions implémentées
         
-        **1. Google CSE (recommandé)**
-        - Utilise le moteur de recherche intégré au site
-        - Trouve les PDF via Google Custom Search
-        - Meilleurs résultats
+        ### 1. **Multi-méthodes**
+        Combine plusieurs approches pour maximiser les résultats
         
-        **2. Méthode alternative**
-        - Cherche dans différentes URLs connues
-        - Bonne alternative si Google CSE échoue
+        ### 2. **Google Dorking**
+        Utilise Google pour trouver des PDF indexés
         
-        **3. Simple test**
-        - Test rapide avec peu de PDF
-        - Pour vérifier que le scraper fonctionne
+        ### 3. **Selenium**
+        Simule un vrai navigateur avec JavaScript
         
-        ### Note :
-        - L'analyse de PDF peut prendre quelques minutes
-        - Certains PDF peuvent être scannés (OCR nécessaire)
-        - Le site peut limiter les accès rapides
+        ### 4. **Rotation d'User-Agents**
+        Change l'identité du navigateur
+        
+        ### 5. **Sites alternatifs**
+        Cherche sur d'autres sites qui référencent les PDF
+        
+        ## 🚀 Instructions
+        
+        1. **Cliquez sur "🔍 Rechercher PDF"** avec "Multi-méthodes"
+        2. **Attendez 1-2 minutes** pour la recherche
+        3. **Puis "🔬 Analyser PDF"** pour lire le contenu
+        
+        ## ⚠️ Limitations
+        
+        - Le site peut détecter et bloquer le scraping
+        - Certains PDF peuvent être protégés
+        - La recherche Google peut être limitée
         """)
 
-def display_results(pdfs_with_keyword, keyword):
-    """Affiche les résultats détaillés"""
-    
-    st.subheader(f"📊 {len(pdfs_with_keyword)} PDF avec occurrences de '{keyword}'")
-    
-    # Statistiques
-    col_stat1, col_stat2, col_stat3, col_stat4 = st.columns(4)
-    with col_stat1:
-        total_occurrences = sum(p['keyword_count'] for p in pdfs_with_keyword)
-        st.metric("Occurrences totales", total_occurrences)
-    with col_stat2:
-        avg_occurrences = total_occurrences / len(pdfs_with_keyword)
-        st.metric("Moyenne par PDF", f"{avg_occurrences:.1f}")
-    with col_stat3:
-        total_pages = sum(p['page_count'] for p in pdfs_with_keyword)
-        st.metric("Pages totales", total_pages)
-    with col_stat4:
-        total_size = sum(p['size_kb'] for p in pdfs_with_keyword)
-        st.metric("Taille totale", f"{total_size/1024:.1f} MB")
-    
-    # Table des résultats
-    st.subheader("📋 Liste détaillée")
-    
-    for idx, pdf in enumerate(pdfs_with_keyword):
-        with st.expander(f"📄 {pdf['title'][:100]}... ({pdf['keyword_count']} occ.)"):
-            col1, col2 = st.columns([3, 1])
-            
-            with col1:
-                st.markdown(f"**URL:** `{pdf['url']}`")
-                st.markdown(f"**Source:** {pdf.get('source', 'N/A')}")
-                st.markdown(f"**Pages:** {pdf['page_count']} | **Taille:** {pdf['size_kb']} KB")
-                
-                if pdf.get('contexts'):
-                    st.markdown("**Contextes trouvés:**")
-                    for i, context in enumerate(pdf['contexts'][:2]):
-                        # Mettre en évidence le mot-clé
-                        highlighted = re.sub(
-                            r'(' + re.escape(keyword) + ')',
-                            r'**\1**',
-                            context,
-                            flags=re.IGNORECASE
-                        )
-                        st.markdown(f"{i+1}. *\"{highlighted}\"*")
-            
-            with col2:
-                # Boutons d'action
-                st.markdown(f"[🌐 Ouvrir PDF]({pdf['url']})", unsafe_allow_html=True)
-                
-                if st.button("📥 Télécharger", key=f"dl_{idx}"):
-                    try:
-                        response = requests.get(pdf['url'])
-                        st.download_button(
-                            label="Cliquer pour télécharger",
-                            data=response.content,
-                            file_name=pdf['url'].split('/')[-1],
-                            mime="application/pdf",
-                            key=f"dld_{idx}"
-                        )
-                    except:
-                        st.warning("Téléchargement échoué")
-    
-    # Export des données
-    st.subheader("💾 Export des résultats")
-    
-    col_exp1, col_exp2 = st.columns(2)
-    
-    with col_exp1:
-        # CSV des métadonnées
-        df_summary = pd.DataFrame(pdfs_with_keyword)[['title', 'keyword_count', 'url', 'page_count', 'size_kb', 'source']]
-        csv_data = df_summary.to_csv(index=False, encoding='utf-8-sig')
-        st.download_button(
-            label="📊 CSV des résultats",
-            data=csv_data,
-            file_name=f"bumidom_results_{time.strftime('%Y%m%d_%H%M')}.csv",
-            mime="text/csv"
-        )
-    
-    with col_exp2:
-        # JSON complet
-        json_data = json.dumps(pdfs_with_keyword, ensure_ascii=False, indent=2)
-        st.download_button(
-            label="📈 JSON complet",
-            data=json_data,
-            file_name=f"bumidom_full_{time.strftime('%Y%m%d_%H%M')}.json",
-            mime="application/json"
-        )
-    
-    # Graphiques
-    st.subheader("📈 Visualisations")
-    
-    if len(pdfs_with_keyword) > 1:
-        col_chart1, col_chart2 = st.columns(2)
-        
-        with col_chart1:
-            # Graphique des occurrences
-            df_chart = pd.DataFrame({
-                'PDF': [p['title'][:30] + '...' for p in pdfs_with_keyword],
-                'Occurrences': [p['keyword_count'] for p in pdfs_with_keyword]
-            })
-            st.bar_chart(df_chart.set_index('PDF'))
-            st.caption("Occurrences par PDF")
-        
-        with col_chart2:
-            # Relation taille/occurrences
-            df_scatter = pd.DataFrame({
-                'Taille (KB)': [p['size_kb'] for p in pdfs_with_keyword],
-                'Occurrences': [p['keyword_count'] for p in pdfs_with_keyword],
-                'Pages': [p['page_count'] for p in pdfs_with_keyword]
-            })
-            st.scatter_chart(df_scatter, x='Taille (KB)', y='Occurrences', size='Pages')
-            st.caption("Taille vs Occurrences")
+# Installation requirements
+st.sidebar.markdown("---")
+st.sidebar.markdown("### 📦 Installation requise")
+st.sidebar.code("""
+pip install streamlit requests beautifulsoup4 \
+pandas cloudscraper undetected-chromedriver \
+selenium pymupdf
+""")
 
 if __name__ == "__main__":
     main()
