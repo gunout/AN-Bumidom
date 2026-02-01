@@ -1,58 +1,12 @@
-/*O_o*/
-google.search.cse.api12938({
-  "cursor": {
-    "currentPageIndex": 0,
-    "estimatedResultCount": "131",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&cx=014917347718038151697:kltwr00yvbk&start=0",
-    "resultCount": "131",
-    "searchResultTime": "0.30",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
+{
+  "context": {
+    "title": "Données fusionnées Bumidom",
+    "date": "2026-02-01T22:39:02.075Z"
   },
   "results": [
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire1/024.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAgQAg&usg=AOvVaw3XQEsRa-ZOw0c9nxuM7XyR",
-      "content": "26 oct. 1971 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e. Nous avons donc fait un effort très sérieux — je crois qu&#39;il commence à porter ses fruits — pour l&#39;information, comme on l&#39;a&nbsp;...",
+      "content": "26 oct. 1971 <b>...</b> <b>Bumidom</b>. Nous avons donc fait un effort très sérieux — je crois qu&#39;il commence à porter ses fruits — pour l&#39;information, comme on l&#39;a&nbsp;...",
       "contentNoFormatting": "26 oct. 1971 ... Bumidom. Nous avons donc fait un effort très sérieux — je crois qu'il commence à porter ses fruits — pour l'information, comme on l'a ...",
       "title": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
@@ -86,7 +40,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1968-1969-ordinaire1/050.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAUQAg&usg=AOvVaw1o2mlaBef0JNNpzSDXWzFK",
-      "content": "9 nov. 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e. Dès mon arrivée au ministère, je me suis essentielle- ment préoccupé des conditions d&#39;accueil et d&#39;adaptation des originaires des&nbsp;...",
+      "content": "9 nov. 2025 <b>...</b> <b>Bumidom</b>. Dès mon arrivée au ministère, je me suis essentielle- ment préoccupé des conditions d&#39;accueil et d&#39;adaptation des originaires des&nbsp;...",
       "contentNoFormatting": "9 nov. 2025 ... Bumidom. Dès mon arrivée au ministère, je me suis essentielle- ment préoccupé des conditions d'accueil et d'adaptation des originaires des ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 4&#39; Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 4' Législature",
@@ -120,7 +74,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/cri/1966-1967-ordinaire1/021.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAYQAQ&usg=AOvVaw0kEy49-XtbL0tnPLfpTQKs",
-      "content": "le \u003cb\u003eBUMIDOM\u003c/b\u003e qui, en 1965, a facilité l&#39;installation en métropole. La réalisation effective de la parité globale se poursuivra de 7.000 personnes. en. 1967 . C&nbsp;...",
+      "content": "le <b>BUMIDOM</b> qui, en 1965, a facilité l&#39;installation en métropole. La réalisation effective de la parité globale se poursuivra de 7.000 personnes. en. 1967 . C&nbsp;...",
       "contentNoFormatting": "le BUMIDOM qui, en 1965, a facilité l'installation en métropole. La réalisation effective de la parité globale se poursuivra de 7.000 personnes. en. 1967 . C ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -154,7 +108,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1982-1983-ordinaire1/057.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAsQAg&usg=AOvVaw04USMOeX35eApIZjnsjlUo",
-      "content": "5 nov. 1982 \u003cb\u003e...\u003c/b\u003e Le \u003cb\u003eBumidom\u003c/b\u003e, tant décrié par vos amis, a été, dans la pratique, remplacé par un succédané — l&#39;agence nationale pour l&#39;insertion et la&nbsp;...",
+      "content": "5 nov. 1982 <b>...</b> Le <b>Bumidom</b>, tant décrié par vos amis, a été, dans la pratique, remplacé par un succédané — l&#39;agence nationale pour l&#39;insertion et la&nbsp;...",
       "contentNoFormatting": "5 nov. 1982 ... Le Bumidom, tant décrié par vos amis, a été, dans la pratique, remplacé par un succédané — l'agence nationale pour l'insertion et la ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 7&#39; Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 7' Législature",
@@ -188,7 +142,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/057.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAMQAg&usg=AOvVaw2jle1EbjAQkSzu2F-Wew8T",
-      "content": "27 janv. 2025 \u003cb\u003e...\u003c/b\u003e des crédits affectés au \u003cb\u003eBumidom\u003c/b\u003e pour les années 1976 et 1977;. 2° les raisons de la réduction des crédits pour l&#39;année 1977 si tou- tefois&nbsp;...",
+      "content": "27 janv. 2025 <b>...</b> des crédits affectés au <b>Bumidom</b> pour les années 1976 et 1977;. 2° les raisons de la réduction des crédits pour l&#39;année 1977 si tou- tefois&nbsp;...",
       "contentNoFormatting": "27 janv. 2025 ... des crédits affectés au Bumidom pour les années 1976 et 1977;. 2° les raisons de la réduction des crédits pour l'année 1977 si tou- tefois ...",
       "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
       "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
@@ -222,7 +176,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/060.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAcQAg&usg=AOvVaw2Q2De_fn4jbWIJ0SYAJsRl",
-      "content": "16 nov. 1970 \u003cb\u003e...\u003c/b\u003e des départements d&#39;outre-mer — \u003cb\u003eBumidom\u003c/b\u003e — dont l&#39;objectif est à la fois de faciliter l&#39;immigration et d&#39;orienter les tra- vailleurs vers un&nbsp;...",
+      "content": "16 nov. 1970 <b>...</b> des départements d&#39;outre-mer — <b>Bumidom</b> — dont l&#39;objectif est à la fois de faciliter l&#39;immigration et d&#39;orienter les tra- vailleurs vers un&nbsp;...",
       "contentNoFormatting": "16 nov. 1970 ... des départements d'outre-mer — Bumidom — dont l'objectif est à la fois de faciliter l'immigration et d'orienter les tra- vailleurs vers un ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
@@ -256,7 +210,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire1/067.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAoQAg&usg=AOvVaw1TiSVlBpTiOQirHZDFP_tL",
-      "content": "5 nov. 2025 \u003cb\u003e...\u003c/b\u003e société d &#39;Etat « \u003cb\u003eBumidom\u003c/b\u003e », qui prend à sa charge les frais du voyage. En conséquence, il lui demande quelles mesures il compte prendre&nbsp;...",
+      "content": "5 nov. 2025 <b>...</b> société d &#39;Etat « <b>Bumidom</b> », qui prend à sa charge les frais du voyage. En conséquence, il lui demande quelles mesures il compte prendre&nbsp;...",
       "contentNoFormatting": "5 nov. 2025 ... société d 'Etat « Bumidom », qui prend à sa charge les frais du voyage. En conséquence, il lui demande quelles mesures il compte prendre ...",
       "title": "JOUR AL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOUR AL OFFICIEL - Assemblée nationale - Archives",
@@ -290,7 +244,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/023.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAQQAg&usg=AOvVaw0ECR2XP0VoZVS_Z-aq_LrA",
-      "content": "26 oct. 1970 \u003cb\u003e...\u003c/b\u003e Le \u003cb\u003eBumidom\u003c/b\u003e ne devrait pas être traité comme un instrument de la ... tés d&#39;accueil et du \u003cb\u003eBumidom\u003c/b\u003e, c&#39;est-à-dire du bureau des migrations.",
+      "content": "26 oct. 1970 <b>...</b> Le <b>Bumidom</b> ne devrait pas être traité comme un instrument de la ... tés d&#39;accueil et du <b>Bumidom</b>, c&#39;est-à-dire du bureau des migrations.",
       "contentNoFormatting": "26 oct. 1970 ... Le Bumidom ne devrait pas être traité comme un instrument de la ... tés d'accueil et du Bumidom, c'est-à-dire du bureau des migrations.",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 4° Législature",
@@ -324,7 +278,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1985-1986-extraordinaire1/015.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAkQAg&usg=AOvVaw07d_SBR4NkuRf5WSuqkmP2",
-      "content": "11 juil. 1986 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e . On crée l &#39; A.N.T., Agence nationale pour l &#39; inser- tion et la promotion des travailleurs. Le slogan gouverne- mental était&nbsp;...",
+      "content": "11 juil. 1986 <b>...</b> <b>Bumidom</b> . On crée l &#39; A.N.T., Agence nationale pour l &#39; inser- tion et la promotion des travailleurs. Le slogan gouverne- mental était&nbsp;...",
       "contentNoFormatting": "11 juil. 1986 ... Bumidom . On crée l ' A.N.T., Agence nationale pour l ' inser- tion et la promotion des travailleurs. Le slogan gouverne- mental était ...",
       "title": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
       "titleNoFormatting": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
@@ -358,7 +312,7 @@ google.search.cse.api12938({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/007.pdf&sa=U&ved=2ahUKEwjS4N_VnrmSAxUESPEDHXjqFW4QFnoECAIQAg&usg=AOvVaw3owLd8J1Cyt0hy5hFXzdAo",
-      "content": "7 mars 2025 \u003cb\u003e...\u003c/b\u003e nisée par le \u003cb\u003eBumidom\u003c/b\u003e, est loin d&#39;être satisfaisante. Ses effets sont du reste annihilés par l&#39;entrée d&#39;une main-d&#39;oeuvre impor- tante dans&nbsp;...",
+      "content": "7 mars 2025 <b>...</b> nisée par le <b>Bumidom</b>, est loin d&#39;être satisfaisante. Ses effets sont du reste annihilés par l&#39;entrée d&#39;une main-d&#39;oeuvre impor- tante dans&nbsp;...",
       "contentNoFormatting": "7 mars 2025 ... nisée par le Bumidom, est loin d'être satisfaisante. Ses effets sont du reste annihilés par l'entrée d'une main-d'oeuvre impor- tante dans ...",
       "title": "JOUR: AL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOUR:\\ AL OFFICIEL - Assemblée nationale - Archives",
@@ -389,68 +343,10 @@ google.search.cse.api12938({
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api987({
-  "cursor": {
-    "currentPageIndex": 1,
-    "estimatedResultCount": "131",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=10&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "131",
-    "searchResultTime": "0.18",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/017.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIChAC&usg=AOvVaw1yjtGRseh69GAH8D0jDcGT",
-      "content": "16 févr. 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e faire une formation professionnelle en métropole . En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et&nbsp;...",
+      "content": "16 févr. 2025 <b>...</b> <b>Bumidom</b> faire une formation professionnelle en métropole . En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et&nbsp;...",
       "contentNoFormatting": "16 févr. 2025 ... Bumidom faire une formation professionnelle en métropole . En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et ...",
       "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
       "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
@@ -484,7 +380,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-08-23.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIAxAC&usg=AOvVaw2kW2FMVLL9Ykp9ecGL0sjf",
-      "content": "30 déc. 2025 \u003cb\u003e...\u003c/b\u003e en métropole au titre du \u003cb\u003eBumidom\u003c/b\u003e la même année, M . le minist re de l &#39;économie et des finances indiquait dans sa réponse qu &#39; il n &#39; était.",
+      "content": "30 déc. 2025 <b>...</b> en métropole au titre du <b>Bumidom</b> la même année, M . le minist re de l &#39;économie et des finances indiquait dans sa réponse qu &#39; il n &#39; était.",
       "contentNoFormatting": "30 déc. 2025 ... en métropole au titre du Bumidom la même année, M . le minist re de l 'économie et des finances indiquait dans sa réponse qu ' il n ' était.",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -518,7 +414,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/021.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQICxAB&usg=AOvVaw0ADV7ngmkpNyub7IhXysHB",
-      "content": "écrit, ce n&#39;est pas le \u003cb\u003eBUMIDOM\u003c/b\u003e qui a mis à la disposition des migrants ... le \u003cb\u003eBUMIDOM\u003c/b\u003e ayant apporté toutefois son aide, sous la forme d&#39;une subvention&nbsp;...",
+      "content": "écrit, ce n&#39;est pas le <b>BUMIDOM</b> qui a mis à la disposition des migrants ... le <b>BUMIDOM</b> ayant apporté toutefois son aide, sous la forme d&#39;une subvention&nbsp;...",
       "contentNoFormatting": "écrit, ce n'est pas le BUMIDOM qui a mis à la disposition des migrants ... le BUMIDOM ayant apporté toutefois son aide, sous la forme d'une subvention ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -552,7 +448,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/051.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBhAB&usg=AOvVaw3eCHD5m4dY5AW7yREVBs-H",
-      "content": "De même, il est exact que le \u003cb\u003eBumidom\u003c/b\u003e offre aux candidats à la migration des stages de rattrapage scolaire ou de préformation dans ses centres de Simandes et&nbsp;...",
+      "content": "De même, il est exact que le <b>Bumidom</b> offre aux candidats à la migration des stages de rattrapage scolaire ou de préformation dans ses centres de Simandes et&nbsp;...",
       "contentNoFormatting": "De même, il est exact que le Bumidom offre aux candidats à la migration des stages de rattrapage scolaire ou de préformation dans ses centres de Simandes et ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -571,7 +467,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/cri/1964-1965-ordinaire1/022.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBBAB&usg=AOvVaw3nd6EeRKHl3_He4wsLD-Dl",
-      "content": "Le \u003cb\u003eBumidom\u003c/b\u003e s&#39;est donc efforcé de préparer pour les arrivants les meilleures ... En 1965, le \u003cb\u003eBumidom\u003c/b\u003e envisage d&#39;accroître le nombre de loge- ments&nbsp;...",
+      "content": "Le <b>Bumidom</b> s&#39;est donc efforcé de préparer pour les arrivants les meilleures ... En 1965, le <b>Bumidom</b> envisage d&#39;accroître le nombre de loge- ments&nbsp;...",
       "contentNoFormatting": "Le Bumidom s'est donc efforcé de préparer pour les arrivants les meilleures ... En 1965, le Bumidom envisage d'accroître le nombre de loge- ments ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 2° Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 2° Législature",
@@ -605,7 +501,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/3/cri/1967-1968-ordinaire1/037.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIAhAC&usg=AOvVaw2f3Kf_onLh9M2Eam-MJuu4",
-      "content": "31 juil. 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBUMIDOM\u003c/b\u003e perd son emploi, le B1&#39;MIDO,1 est toujours capable de le replacer dans un délai de quatre à cinq jours. En ce qui concerne le&nbsp;...",
+      "content": "31 juil. 2025 <b>...</b> <b>BUMIDOM</b> perd son emploi, le B1&#39;MIDO,1 est toujours capable de le replacer dans un délai de quatre à cinq jours. En ce qui concerne le&nbsp;...",
       "contentNoFormatting": "31 juil. 2025 ... BUMIDOM perd son emploi, le B1'MIDO,1 est toujours capable de le replacer dans un délai de quatre à cinq jours. En ce qui concerne le ...",
       "title": "constitution du 4 octobre 1958 - Assemblée nationale - Archives",
       "titleNoFormatting": "constitution du 4 octobre 1958 - Assemblée nationale - Archives",
@@ -639,7 +535,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/061.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQICRAC&usg=AOvVaw203Rddj_WgT31W8go0Qwvx",
-      "content": "15 déc. 2025 \u003cb\u003e...\u003c/b\u003e pour augmenter le contingent concerné par le \u003cb\u003eBumidom\u003c/b\u003e . Et nous savons aussi, sans équivoque, qu&#39;outre-mer, en dépit des progrès réalisés&nbsp;...",
+      "content": "15 déc. 2025 <b>...</b> pour augmenter le contingent concerné par le <b>Bumidom</b> . Et nous savons aussi, sans équivoque, qu&#39;outre-mer, en dépit des progrès réalisés&nbsp;...",
       "contentNoFormatting": "15 déc. 2025 ... pour augmenter le contingent concerné par le Bumidom . Et nous savons aussi, sans équivoque, qu'outre-mer, en dépit des progrès réalisés ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -673,7 +569,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire1/065.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBxAC&usg=AOvVaw2QIC1esRCsgl0GJfyQMHGO",
-      "content": "30 avr. 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e dans des centres de formation professionne&#39;le ; 7.789 dans des centres F. P. A. ; 3.241 dans des centres du \u003cb\u003eBumidom\u003c/b\u003e;. 943 dans d&nbsp;...",
+      "content": "30 avr. 2025 <b>...</b> <b>Bumidom</b> dans des centres de formation professionne&#39;le ; 7.789 dans des centres F. P. A. ; 3.241 dans des centres du <b>Bumidom</b>;. 943 dans d&nbsp;...",
       "contentNoFormatting": "30 avr. 2025 ... Bumidom dans des centres de formation professionne'le ; 7.789 dans des centres F. P. A. ; 3.241 dans des centres du Bumidom;. 943 dans d ...",
       "title": "JOURS AL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURS AL OFFICIEL - Assemblée nationale - Archives",
@@ -707,7 +603,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1971-1972-ordinaire2/038.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQICBAC&usg=AOvVaw2YRR1Y2k2eLMJry9tQcLU4",
-      "content": "5 janv. 2025 \u003cb\u003e...\u003c/b\u003e 5 novembre 1971 par l&#39;intermédiaire du \u003cb\u003eBumidom\u003c/b\u003e . Après avoir subi l&#39;exploitation habituelle réservée à ces travailleurs, pendant son court&nbsp;...",
+      "content": "5 janv. 2025 <b>...</b> 5 novembre 1971 par l&#39;intermédiaire du <b>Bumidom</b> . Après avoir subi l&#39;exploitation habituelle réservée à ces travailleurs, pendant son court&nbsp;...",
       "contentNoFormatting": "5 janv. 2025 ... 5 novembre 1971 par l'intermédiaire du Bumidom . Après avoir subi l'exploitation habituelle réservée à ces travailleurs, pendant son court ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -741,7 +637,7 @@ google.search.cse.api987({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire2/042.pdf&sa=U&ved=2ahUKEwiQ1uXdobmSAxWhSfEDHVmELMg4ChAWegQIBRAC&usg=AOvVaw0GNmAzxfdAHHSDSk8fz36H",
-      "content": "3 mars 2025 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e faire une formation professionnelle en métropole. En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et de&nbsp;...",
+      "content": "3 mars 2025 <b>...</b> <b>Bumidom</b> faire une formation professionnelle en métropole. En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et de&nbsp;...",
       "contentNoFormatting": "3 mars 2025 ... Bumidom faire une formation professionnelle en métropole. En effet, la somme allouée aux stagiaires qui se trouvent loin de leur foyer et de ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -772,68 +668,10 @@ google.search.cse.api987({
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api11504({
-  "cursor": {
-    "currentPageIndex": 3,
-    "estimatedResultCount": "130",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=30&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "130",
-    "searchResultTime": "0.12",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-02-15.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIAxAC&usg=AOvVaw2CSuOlMYA0jXush9ragcp2",
-      "content": "23 janv. 2025 \u003cb\u003e...\u003c/b\u003e Le. Page 3. 15 Février 1969. ASSEMBI .EE NATIONALE. 351. \u003cb\u003eBumidom\u003c/b\u003e par ailleurs indique comme effectif de migrants réunion- nais vers la métropole&nbsp;...",
+      "content": "23 janv. 2025 <b>...</b> Le. Page 3. 15 Février 1969. ASSEMBI .EE NATIONALE. 351. <b>Bumidom</b> par ailleurs indique comme effectif de migrants réunion- nais vers la métropole&nbsp;...",
       "contentNoFormatting": "23 janv. 2025 ... Le. Page 3. 15 Février 1969. ASSEMBI .EE NATIONALE. 351. Bumidom par ailleurs indique comme effectif de migrants réunion- nais vers la métropole ...",
       "title": "JOUB:NAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOUB:NAL OFFICIEL - Assemblée nationale - Archives",
@@ -867,7 +705,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-09-27.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBhAB&usg=AOvVaw1LWIIRh9s8l2Db7Vu985i5",
-      "content": "en métropole au titre du \u003cb\u003eBumidom\u003c/b\u003e la même année, M . le ministre de l &#39;économie et des finances indiquait dans sa réponse qu &#39; il n &#39; était pas possible d&nbsp;...",
+      "content": "en métropole au titre du <b>Bumidom</b> la même année, M . le ministre de l &#39;économie et des finances indiquait dans sa réponse qu &#39; il n &#39; était pas possible d&nbsp;...",
       "contentNoFormatting": "en métropole au titre du Bumidom la même année, M . le ministre de l 'économie et des finances indiquait dans sa réponse qu ' il n ' était pas possible d ...",
       "title": "JOUR-AL O1?I?I( :ILL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOUR-\\AL O1?I?I( :ILL - Assemblée nationale - Archives",
@@ -901,7 +739,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire1/070.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQICxAC&usg=AOvVaw2haNsNUqgmJ7PZuWRRqbPg",
-      "content": "28 oct. 2025 \u003cb\u003e...\u003c/b\u003e En attendant, une transformation du-\u003cb\u003eBumidom\u003c/b\u003e s&#39;impose . Elle devra être définie avec les intéressés eux-mémes et tendre à orienter cet&nbsp;...",
+      "content": "28 oct. 2025 <b>...</b> En attendant, une transformation du-<b>Bumidom</b> s&#39;impose . Elle devra être définie avec les intéressés eux-mémes et tendre à orienter cet&nbsp;...",
       "contentNoFormatting": "28 oct. 2025 ... En attendant, une transformation du-Bumidom s'impose . Elle devra être définie avec les intéressés eux-mémes et tendre à orienter cet ...",
       "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
       "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
@@ -935,7 +773,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/032.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBxAC&usg=AOvVaw31ljKQONppBQv2GD4WcmWN",
-      "content": "1 juil. 2025 \u003cb\u003e...\u003c/b\u003e médiaire du \u003cb\u003eBumidom\u003c/b\u003e et du Casadom aient disparu de la grille tarifaire ? Pourquoi les ressortissants des départements d&#39;outre- mer, qui&nbsp;...",
+      "content": "1 juil. 2025 <b>...</b> médiaire du <b>Bumidom</b> et du Casadom aient disparu de la grille tarifaire ? Pourquoi les ressortissants des départements d&#39;outre- mer, qui&nbsp;...",
       "contentNoFormatting": "1 juil. 2025 ... médiaire du Bumidom et du Casadom aient disparu de la grille tarifaire ? Pourquoi les ressortissants des départements d'outre- mer, qui ...",
       "title": "32` SEANCE 3` Séance du Mardi 23 Octobre &#39;1979.",
       "titleNoFormatting": "32` SEANCE 3` Séance du Mardi 23 Octobre '1979.",
@@ -969,7 +807,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire1/076.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQICBAC&usg=AOvVaw11KKiXIpmtTB7kQjq_2z5j",
-      "content": "18 nov. 1983 \u003cb\u003e...\u003c/b\u003e d&#39;outre-mer, le \u003cb\u003eBumidom\u003c/b\u003e. Elle a toujours mission de faire venir — les textes ne sont pas abrogés — à titre gratuit les. Réunionnais ou les&nbsp;...",
+      "content": "18 nov. 1983 <b>...</b> d&#39;outre-mer, le <b>Bumidom</b>. Elle a toujours mission de faire venir — les textes ne sont pas abrogés — à titre gratuit les. Réunionnais ou les&nbsp;...",
       "contentNoFormatting": "18 nov. 1983 ... d'outre-mer, le Bumidom. Elle a toujours mission de faire venir — les textes ne sont pas abrogés — à titre gratuit les. Réunionnais ou les ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -1003,7 +841,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/038.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIChAC&usg=AOvVaw3pj45_2-wrfdYAucryRCIX",
-      "content": "15 août 2025 \u003cb\u003e...\u003c/b\u003e diaire du \u003cb\u003eBumidom\u003c/b\u003e et décédé sur le territoire métropolitain . Il lui demande en particulier à quel organisme doit s &#39;adresser la famille et&nbsp;...",
+      "content": "15 août 2025 <b>...</b> diaire du <b>Bumidom</b> et décédé sur le territoire métropolitain . Il lui demande en particulier à quel organisme doit s &#39;adresser la famille et&nbsp;...",
       "contentNoFormatting": "15 août 2025 ... diaire du Bumidom et décédé sur le territoire métropolitain . Il lui demande en particulier à quel organisme doit s 'adresser la famille et ...",
       "title": "COMPTE RENDU INTEGRAL - 38° SEANCE",
       "titleNoFormatting": "COMPTE RENDU INTEGRAL - 38° SEANCE",
@@ -1037,7 +875,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/063.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBBAC&usg=AOvVaw3fY6TOKccpRq8T-2L-bOSJ",
-      "content": "21 nov. 1972 \u003cb\u003e...\u003c/b\u003e métropolitaine sans passer par le \u003cb\u003eBumidom\u003c/b\u003e . Cette antenne pour- rait s&#39;occuper tout particulièrement des jeunes à la recherche d&#39;un premier&nbsp;...",
+      "content": "21 nov. 1972 <b>...</b> métropolitaine sans passer par le <b>Bumidom</b> . Cette antenne pour- rait s&#39;occuper tout particulièrement des jeunes à la recherche d&#39;un premier&nbsp;...",
       "contentNoFormatting": "21 nov. 1972 ... métropolitaine sans passer par le Bumidom . Cette antenne pour- rait s'occuper tout particulièrement des jeunes à la recherche d'un premier ...",
       "title": "JOURNAL OFFIC1EL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFIC1EL - Assemblée nationale - Archives",
@@ -1071,7 +909,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/035.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIAhAC&usg=AOvVaw0YbtmgMtL5yM5s_pUFIT8K",
-      "content": "4 nov. 1977 \u003cb\u003e...\u003c/b\u003e l&#39;action du \u003cb\u003eBumidom\u003c/b\u003e et aux efforts de formation, a porté des fruits incontestables ; mais il convient d&#39;intensifier notablement les efforts&nbsp;...",
+      "content": "4 nov. 1977 <b>...</b> l&#39;action du <b>Bumidom</b> et aux efforts de formation, a porté des fruits incontestables ; mais il convient d&#39;intensifier notablement les efforts&nbsp;...",
       "contentNoFormatting": "4 nov. 1977 ... l'action du Bumidom et aux efforts de formation, a porté des fruits incontestables ; mais il convient d'intensifier notablement les efforts ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -1105,7 +943,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1981-1982-ordinaire2/103.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQIBRAB&usg=AOvVaw3w4qCmm2MCVZUWaye6ROxa",
-      "content": "l&#39;expatriation par le canal du \u003cb\u003eBumidom\u003c/b\u003e. Par conséquent, monsieur le ministre d&#39;Etat, je souhaite une autre orientation en commençant par une plus large&nbsp;...",
+      "content": "l&#39;expatriation par le canal du <b>Bumidom</b>. Par conséquent, monsieur le ministre d&#39;Etat, je souhaite une autre orientation en commençant par une plus large&nbsp;...",
       "contentNoFormatting": "l'expatriation par le canal du Bumidom. Par conséquent, monsieur le ministre d'Etat, je souhaite une autre orientation en commençant par une plus large ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 7° Législature COMPTE ...",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 7° Législature COMPTE ...",
@@ -1124,7 +962,7 @@ google.search.cse.api11504({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/039.pdf&sa=U&ved=2ahUKEwjF__-sqLmSAxVNKvsDHQsbCYQ4HhAWegQICRAB&usg=AOvVaw290xxdrZ2RDZiLwhVdK7cg",
-      "content": "\u003cb\u003eBumidom\u003c/b\u003e de sinistre mémoire en une agence d&#39;insertion des ressortissants d&#39;outre-mer . En deux ans l&#39;A . N. T. a conduit des actions louables qui ne&nbsp;...",
+      "content": "<b>Bumidom</b> de sinistre mémoire en une agence d&#39;insertion des ressortissants d&#39;outre-mer . En deux ans l&#39;A . N. T. a conduit des actions louables qui ne&nbsp;...",
       "contentNoFormatting": "Bumidom de sinistre mémoire en une agence d'insertion des ressortissants d'outre-mer . En deux ans l'A . N. T. a conduit des actions louables qui ne ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 7&#39; Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 7' Législature",
@@ -1155,68 +993,10 @@ google.search.cse.api11504({
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api7607({
-  "cursor": {
-    "currentPageIndex": 2,
-    "estimatedResultCount": "130",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=20&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "130",
-    "searchResultTime": "0.12",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/2/qst/2-qst-1964-09-12.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBRAC&usg=AOvVaw3JBWntKlVTaQiTR3B8sh-9",
-      "content": "27 juin 2025 \u003cb\u003e...\u003c/b\u003e La création récente du \u003cb\u003eBumidom\u003c/b\u003e et l&#39;importance des crédits dégagés à cet effet sur le budget du ministère d&#39;Etat manifestent de la volonté&nbsp;...",
+      "content": "27 juin 2025 <b>...</b> La création récente du <b>Bumidom</b> et l&#39;importance des crédits dégagés à cet effet sur le budget du ministère d&#39;Etat manifestent de la volonté&nbsp;...",
       "contentNoFormatting": "27 juin 2025 ... La création récente du Bumidom et l'importance des crédits dégagés à cet effet sur le budget du ministère d'Etat manifestent de la volonté ...",
       "title": "Journal officiel du samedi 12 septembre 1964",
       "titleNoFormatting": "Journal officiel du samedi 12 septembre 1964",
@@ -1250,7 +1030,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/057.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQICRAC&usg=AOvVaw2DcTDxuJVV_bNf27LzMamT",
-      "content": "13 nov. 1975 \u003cb\u003e...\u003c/b\u003e les crédits du \u003cb\u003eBumidom\u003c/b\u003e n&#39;augmentent que de 4 .8 p. 100, ce qui constitue en fait un affaiblissement des moyens qui sont mis à sa disposition&nbsp;...",
+      "content": "13 nov. 1975 <b>...</b> les crédits du <b>Bumidom</b> n&#39;augmentent que de 4 .8 p. 100, ce qui constitue en fait un affaiblissement des moyens qui sont mis à sa disposition&nbsp;...",
       "contentNoFormatting": "13 nov. 1975 ... les crédits du Bumidom n'augmentent que de 4 .8 p. 100, ce qui constitue en fait un affaiblissement des moyens qui sont mis à sa disposition ...",
       "title": "JOUIUAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOUIUAL OFFICIEL - Assemblée nationale - Archives",
@@ -1284,7 +1064,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/086.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQICxAC&usg=AOvVaw2y6BrTWxqrvoA3mgqLu7Bg",
-      "content": "9 juin 2025 \u003cb\u003e...\u003c/b\u003e par l&#39;inter-méeiaire du \u003cb\u003eBumidom\u003c/b\u003e . ils n&#39;ont pas droit, dans l&#39;état actuel des choses, aux tarifs préférentiels dont bénéficient les tra&nbsp;...",
+      "content": "9 juin 2025 <b>...</b> par l&#39;inter-méeiaire du <b>Bumidom</b> . ils n&#39;ont pas droit, dans l&#39;état actuel des choses, aux tarifs préférentiels dont bénéficient les tra&nbsp;...",
       "contentNoFormatting": "9 juin 2025 ... par l'inter-méeiaire du Bumidom . ils n'ont pas droit, dans l'état actuel des choses, aux tarifs préférentiels dont bénéficient les tra ...",
       "title": "86° SEANCE 2° Séance du Vendredi 25 Juin 1976.",
       "titleNoFormatting": "86° SEANCE 2° Séance du Vendredi 25 Juin 1976.",
@@ -1318,7 +1098,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1972-1973-ordinaire1/045.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIChAC&usg=AOvVaw1ACsWyXgudi5m7UZkvO8ig",
-      "content": "13 nov. 1972 \u003cb\u003e...\u003c/b\u003e Or le \u003cb\u003eBumidom\u003c/b\u003e, vous le savez, intervient non seulement pour faciliter ces migrations, mais aussi pour donner une préfor- mation&nbsp;...",
+      "content": "13 nov. 1972 <b>...</b> Or le <b>Bumidom</b>, vous le savez, intervient non seulement pour faciliter ces migrations, mais aussi pour donner une préfor- mation&nbsp;...",
       "contentNoFormatting": "13 nov. 1972 ... Or le Bumidom, vous le savez, intervient non seulement pour faciliter ces migrations, mais aussi pour donner une préfor- mation ...",
       "title": "JOURNAL OFFICIE - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIE - Assemblée nationale - Archives",
@@ -1352,7 +1132,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/113.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIAxAB&usg=AOvVaw3zvmp2FuuL5c--qT10rNnn",
-      "content": "\u003cb\u003eBumidom\u003c/b\u003e ou par l&#39;Agence nationale pour l&#39;emploi ; enfin, faire en sorte que, grâce à la formation, l&#39;insertion des jeunes Fran- çais d&#39;outre-mer dans la vie&nbsp;...",
+      "content": "<b>Bumidom</b> ou par l&#39;Agence nationale pour l&#39;emploi ; enfin, faire en sorte que, grâce à la formation, l&#39;insertion des jeunes Fran- çais d&#39;outre-mer dans la vie&nbsp;...",
       "contentNoFormatting": "Bumidom ou par l'Agence nationale pour l'emploi ; enfin, faire en sorte que, grâce à la formation, l'insertion des jeunes Fran- çais d'outre-mer dans la vie ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -1371,7 +1151,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/048.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBBAC&usg=AOvVaw1dgb-jIVBlFM6cX1xVqkGb",
-      "content": "14 nov. 1977 \u003cb\u003e...\u003c/b\u003e l&#39;intermédiaire du \u003cb\u003eBUMIDOM\u003c/b\u003e — bureau pour le développement des migrations intéressas les départements d&#39;outre-mer. Tous les rapports établis&nbsp;...",
+      "content": "14 nov. 1977 <b>...</b> l&#39;intermédiaire du <b>BUMIDOM</b> — bureau pour le développement des migrations intéressas les départements d&#39;outre-mer. Tous les rapports établis&nbsp;...",
       "contentNoFormatting": "14 nov. 1977 ... l'intermédiaire du BUMIDOM — bureau pour le développement des migrations intéressas les départements d'outre-mer. Tous les rapports établis ...",
       "title": "48&quot; SEANCE 2&#39; Séance du Lundi 14 Novembre 1977.",
       "titleNoFormatting": "48\" SEANCE 2' Séance du Lundi 14 Novembre 1977.",
@@ -1405,7 +1185,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/090.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBhAC&usg=AOvVaw0oc0i8Recr7Fp7Zxp267-u",
-      "content": "28 nov. 1986 \u003cb\u003e...\u003c/b\u003e de la mise en application du \u003cb\u003eBumidom\u003c/b\u003e . A cette époque, l&#39;es- pace économique métropolitain entrait dans une phase d&#39;ex-. Page 9. ASSEMBLEE&nbsp;...",
+      "content": "28 nov. 1986 <b>...</b> de la mise en application du <b>Bumidom</b> . A cette époque, l&#39;es- pace économique métropolitain entrait dans une phase d&#39;ex-. Page 9. ASSEMBLEE&nbsp;...",
       "contentNoFormatting": "28 nov. 1986 ... de la mise en application du Bumidom . A cette époque, l'es- pace économique métropolitain entrait dans une phase d'ex-. Page 9. ASSEMBLEE ...",
       "title": "DE LA RÉPUBLIQUE FRANÇAISE . - Assemblée nationale - Archives",
       "titleNoFormatting": "DE LA RÉPUBLIQUE FRANÇAISE . - Assemblée nationale - Archives",
@@ -1439,7 +1219,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/032.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQICBAC&usg=AOvVaw0Og-Sp_iYuuNfcxPShuk0o",
-      "content": "11 oct. 2025 \u003cb\u003e...\u003c/b\u003e tion par le \u003cb\u003eBumidom\u003c/b\u003e, lequel a touché 820 personnes. Il y a aussi la formation dans le cadre du service militaire adapté auquel j&#39;ai déjà&nbsp;...",
+      "content": "11 oct. 2025 <b>...</b> tion par le <b>Bumidom</b>, lequel a touché 820 personnes. Il y a aussi la formation dans le cadre du service militaire adapté auquel j&#39;ai déjà&nbsp;...",
       "contentNoFormatting": "11 oct. 2025 ... tion par le Bumidom, lequel a touché 820 personnes. Il y a aussi la formation dans le cadre du service militaire adapté auquel j'ai déjà ...",
       "title": "32° SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "32° SEANCE - Assemblée nationale - Archives",
@@ -1473,7 +1253,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire2/024.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIBxAC&usg=AOvVaw2L73VO-n_iya0wy2Ri8q53",
-      "content": "4 mai 2022 \u003cb\u003e...\u003c/b\u003e D.O.M. (maniant des crédits affectés eu \u003cb\u003eBumidom\u003c/b\u003e pour 1976 et 1977). 37720. — 4 mai 1977. — M. Alain Vivien demande à M. le ministre de l&nbsp;...",
+      "content": "4 mai 2022 <b>...</b> D.O.M. (maniant des crédits affectés eu <b>Bumidom</b> pour 1976 et 1977). 37720. — 4 mai 1977. — M. Alain Vivien demande à M. le ministre de l&nbsp;...",
       "contentNoFormatting": "4 mai 2022 ... D.O.M. (maniant des crédits affectés eu Bumidom pour 1976 et 1977). 37720. — 4 mai 1977. — M. Alain Vivien demande à M. le ministre de l ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -1507,7 +1287,7 @@ google.search.cse.api7607({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/3/tanalytique/1967-1968_tmatieres_AZ.pdf&sa=U&ved=2ahUKEwiP_7W4qLmSAxUuS_EDHRm5IDI4FBAWegQIAhAB&usg=AOvVaw3xLTcd-pB3X4GSSkEJdDzz",
-      "content": "... \u003cb\u003eB.U.M.I.D.O.M.\u003c/b\u003e ; l&#39;écart entre les dotations de la section locale et de la section centrale du F.I.D.O.M. ; la crise de la pro- duction sucrière à la&nbsp;...",
+      "content": "... <b>B.U.M.I.D.O.M.</b> ; l&#39;écart entre les dotations de la section locale et de la section centrale du F.I.D.O.M. ; la crise de la pro- duction sucrière à la&nbsp;...",
       "contentNoFormatting": "... B.U.M.I.D.O.M. ; l'écart entre les dotations de la section locale et de la section centrale du F.I.D.O.M. ; la crise de la pro- duction sucrière à la ...",
       "title": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
       "titleNoFormatting": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
@@ -1530,68 +1310,10 @@ google.search.cse.api7607({
           "1967-1968_tmatieres_AZ"
         ]
       }
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api10813({
-  "cursor": {
-    "currentPageIndex": 4,
-    "estimatedResultCount": "128",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=40&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "128",
-    "searchResultTime": "0.18",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/050.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBhAB&usg=AOvVaw1oiHbxWMpGfjucu7KdWHfZ",
-      "content": "France grâce au \u003cb\u003eBumidom\u003c/b\u003e, mais votre rapporteur avait signalé ... tions des départements d&#39;outre-mer — le \u003cb\u003eBUMIDOM\u003c/b\u003e — 3.103 installations ont&nbsp;...",
+      "content": "France grâce au <b>Bumidom</b>, mais votre rapporteur avait signalé ... tions des départements d&#39;outre-mer — le <b>BUMIDOM</b> — 3.103 installations ont&nbsp;...",
       "contentNoFormatting": "France grâce au Bumidom, mais votre rapporteur avait signalé ... tions des départements d'outre-mer — le BUMIDOM — 3.103 installations ont ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -1625,7 +1347,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-03-22.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIAhAC&usg=AOvVaw1lmL8xapctLwAtqrpLGtNa",
-      "content": "13 mars 2025 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3 .011 unités&nbsp;...",
+      "content": "13 mars 2025 <b>...</b> ... <b>Bumidom</b> par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3 .011 unités&nbsp;...",
       "contentNoFormatting": "13 mars 2025 ... ... Bumidom par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3 .011 unités ...",
       "title": "JOURNAL OTTICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OTTICIEL - Assemblée nationale - Archives",
@@ -1659,7 +1381,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/047.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQICRAB&usg=AOvVaw2gbVrVN7pTqvG8zOz9kQOK",
-      "content": "le \u003cb\u003eBumidom\u003c/b\u003e est considéré comme une so lution de désespoir, tel qu&#39;il est conçu et depuis la recrudescence du racisme en. France, sous toutes ses formes ; que&nbsp;...",
+      "content": "le <b>Bumidom</b> est considéré comme une so lution de désespoir, tel qu&#39;il est conçu et depuis la recrudescence du racisme en. France, sous toutes ses formes ; que&nbsp;...",
       "contentNoFormatting": "le Bumidom est considéré comme une so lution de désespoir, tel qu'il est conçu et depuis la recrudescence du racisme en. France, sous toutes ses formes ; que ...",
       "title": "JOURS AL OFFICIAL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURS AL OFFICIAL - Assemblée nationale - Archives",
@@ -1693,7 +1415,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-02-18.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQICxAC&usg=AOvVaw0PdgdzkMZx0871XJsofmv2",
-      "content": "18 févr. 1980 \u003cb\u003e...\u003c/b\u003e leur refusant par la suite le bénéfice du \u003cb\u003eBumidom\u003c/b\u003e. Réponse . — La première question appelle des réponses distinctes selon qu&#39;il s&#39;agit : des&nbsp;...",
+      "content": "18 févr. 1980 <b>...</b> leur refusant par la suite le bénéfice du <b>Bumidom</b>. Réponse . — La première question appelle des réponses distinctes selon qu&#39;il s&#39;agit : des&nbsp;...",
       "contentNoFormatting": "18 févr. 1980 ... leur refusant par la suite le bénéfice du Bumidom. Réponse . — La première question appelle des réponses distinctes selon qu'il s'agit : des ...",
       "title": "Journal officiel du lundi 18 février 1980",
       "titleNoFormatting": "Journal officiel du lundi 18 février 1980",
@@ -1727,7 +1449,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/067.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBBAC&usg=AOvVaw1NEaARfhd8Pn7suT6DZD-h",
-      "content": "11 juin 1980 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, existe. Elle a, certes, réalisé un excellent travail dans le passé. Je ne suis pas convaincu, devant l&#39;évolution de la migration&nbsp;...",
+      "content": "11 juin 1980 <b>...</b> <b>Bumidom</b>, existe. Elle a, certes, réalisé un excellent travail dans le passé. Je ne suis pas convaincu, devant l&#39;évolution de la migration&nbsp;...",
       "contentNoFormatting": "11 juin 1980 ... Bumidom, existe. Elle a, certes, réalisé un excellent travail dans le passé. Je ne suis pas convaincu, devant l'évolution de la migration ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 6&#39; Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 6' Législature",
@@ -1761,7 +1483,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1977-1978-ordinaire1/046.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBxAC&usg=AOvVaw0kOKi21N4GWNa2xLin0bOj",
-      "content": "26 déc. 2025 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e dans ce domaine. Il serait également souhaitable que dans chaque agence départementale de. FA. N. P . E . il soit désignô un&nbsp;...",
+      "content": "26 déc. 2025 <b>...</b> ... <b>Bumidom</b> dans ce domaine. Il serait également souhaitable que dans chaque agence départementale de. FA. N. P . E . il soit désignô un&nbsp;...",
       "contentNoFormatting": "26 déc. 2025 ... ... Bumidom dans ce domaine. Il serait également souhaitable que dans chaque agence départementale de. FA. N. P . E . il soit désignô un ...",
       "title": "46` SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "46` SEANCE - Assemblée nationale - Archives",
@@ -1795,7 +1517,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/044.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIChAB&usg=AOvVaw2RgUEFz3QLlhiKjN1Ok6n_",
-      "content": "en métropole, l&#39;action du \u003cb\u003eBumidom\u003c/b\u003e doit être renforcée pour faciliter l&#39;insertion économique et sociale de tous nos compa- triotes. En effet, la situation&nbsp;...",
+      "content": "en métropole, l&#39;action du <b>Bumidom</b> doit être renforcée pour faciliter l&#39;insertion économique et sociale de tous nos compa- triotes. En effet, la situation&nbsp;...",
       "contentNoFormatting": "en métropole, l'action du Bumidom doit être renforcée pour faciliter l'insertion économique et sociale de tous nos compa- triotes. En effet, la situation ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -1829,7 +1551,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1984-1985-ordinaire1/080.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIBRAC&usg=AOvVaw0HVQ5Yw0wx2LDEq8eI3sNw",
-      "content": "24 nov. 1984 \u003cb\u003e...\u003c/b\u003e l&#39;A. N. T. qui succède au \u003cb\u003eBumidom\u003c/b\u003e reçu des instructions contraires à celles qui avaient fait le succès de ce dernier. La thèse officielle&nbsp;...",
+      "content": "24 nov. 1984 <b>...</b> l&#39;A. N. T. qui succède au <b>Bumidom</b> reçu des instructions contraires à celles qui avaient fait le succès de ce dernier. La thèse officielle&nbsp;...",
       "contentNoFormatting": "24 nov. 1984 ... l'A. N. T. qui succède au Bumidom reçu des instructions contraires à celles qui avaient fait le succès de ce dernier. La thèse officielle ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -1863,7 +1585,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1981-05-11.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQICBAC&usg=AOvVaw1dPXNo5vMrTqPNmtQsHVIt",
-      "content": "11 mai 1981 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e de verser une rémunération complémentaire aux sta- giaires qui n&#39;auraient dû percevoir que 25 p. 100 du S.M.I.C., pour la porter à&nbsp;...",
+      "content": "11 mai 1981 <b>...</b> ... <b>Bumidom</b> de verser une rémunération complémentaire aux sta- giaires qui n&#39;auraient dû percevoir que 25 p. 100 du S.M.I.C., pour la porter à&nbsp;...",
       "contentNoFormatting": "11 mai 1981 ... ... Bumidom de verser une rémunération complémentaire aux sta- giaires qui n'auraient dû percevoir que 25 p. 100 du S.M.I.C., pour la porter à ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -1897,7 +1619,7 @@ google.search.cse.api10813({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire1/058.pdf&sa=U&ved=2ahUKEwi42_7DqLmSAxXAAvsDHff_AjY4KBAWegQIAxAC&usg=AOvVaw0RB-hmCBMl0HsQ3dF-zB6h",
-      "content": "13 nov. 1975 \u003cb\u003e...\u003c/b\u003e parle donc pas du \u003cb\u003eBumidom\u003c/b\u003e, puisque M . Michel Debré l&#39;a fait, ni du prix du sucre, puisque mon collègue Cerneau vous en parlera, ni de votre&nbsp;...",
+      "content": "13 nov. 1975 <b>...</b> parle donc pas du <b>Bumidom</b>, puisque M . Michel Debré l&#39;a fait, ni du prix du sucre, puisque mon collègue Cerneau vous en parlera, ni de votre&nbsp;...",
       "contentNoFormatting": "13 nov. 1975 ... parle donc pas du Bumidom, puisque M . Michel Debré l'a fait, ni du prix du sucre, puisque mon collègue Cerneau vous en parlera, ni de votre ...",
       "title": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
       "titleNoFormatting": "COMPTE RENDU INTEGRAL - Assemblée nationale - Archives",
@@ -1928,68 +1650,10 @@ google.search.cse.api10813({
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api16059({
-  "cursor": {
-    "currentPageIndex": 5,
-    "estimatedResultCount": "124",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=50&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "124",
-    "searchResultTime": "0.11",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1970-1971-ordinaire2/044.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIChAC&usg=AOvVaw1MH8ElTsIfeDmzhuc6fl28",
-      "content": "8 juin 1971 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, et logés, en attendant qu&#39;ils trouvent du travail, dans le foyer Rush del Campo, 84, rue de Charenton, Paris (129, se sont vus&nbsp;...",
+      "content": "8 juin 1971 <b>...</b> <b>Bumidom</b>, et logés, en attendant qu&#39;ils trouvent du travail, dans le foyer Rush del Campo, 84, rue de Charenton, Paris (129, se sont vus&nbsp;...",
       "contentNoFormatting": "8 juin 1971 ... Bumidom, et logés, en attendant qu'ils trouvent du travail, dans le foyer Rush del Campo, 84, rue de Charenton, Paris (129, se sont vus ...",
       "title": "44° SEANCE 3e Séance du Mardi 8 Juin 1971.",
       "titleNoFormatting": "44° SEANCE 3e Séance du Mardi 8 Juin 1971.",
@@ -2023,7 +1687,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1987-1988-ordinaire1/025.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBhAC&usg=AOvVaw0k6yr5vVRGOPDEDtQfQ9cC",
-      "content": "22 oct. 1987 \u003cb\u003e...\u003c/b\u003e rité nationale, reprise des objectifs du \u003cb\u003eBUMIDOM\u003c/b\u003e - mobi- lité, insertion des Antillais et surtout des Réunionnais en métropole - tels sont&nbsp;...",
+      "content": "22 oct. 1987 <b>...</b> rité nationale, reprise des objectifs du <b>BUMIDOM</b> - mobi- lité, insertion des Antillais et surtout des Réunionnais en métropole - tels sont&nbsp;...",
       "contentNoFormatting": "22 oct. 1987 ... rité nationale, reprise des objectifs du BUMIDOM - mobi- lité, insertion des Antillais et surtout des Réunionnais en métropole - tels sont ...",
       "title": "AL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "AL OFFICIEL - Assemblée nationale - Archives",
@@ -2056,7 +1720,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1983-1984-ordinaire2/008.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBBAC&usg=AOvVaw1xvpk__yxGsqQw2SQ7XHDj",
-      "content": "7 avr. 2018 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e. M. Michel Debré. Ce n&#39;est pas exact. Mme Georgina Dufoix, secrétaire d&#39;Etat. De plus, la société d&#39;Etat et le conseil régional de&nbsp;...",
+      "content": "7 avr. 2018 <b>...</b> <b>Bumidom</b>. M. Michel Debré. Ce n&#39;est pas exact. Mme Georgina Dufoix, secrétaire d&#39;Etat. De plus, la société d&#39;Etat et le conseil régional de&nbsp;...",
       "contentNoFormatting": "7 avr. 2018 ... Bumidom. M. Michel Debré. Ce n'est pas exact. Mme Georgina Dufoix, secrétaire d'Etat. De plus, la société d'Etat et le conseil régional de ...",
       "title": "JOURNAI . OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAI . OFFICIEL - Assemblée nationale - Archives",
@@ -2090,7 +1754,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1974-1975-ordinaire1/046.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQICxAC&usg=AOvVaw1_D8ZDNo3Wx6DHQQf1zxOu",
-      "content": "12 nov. 1974 \u003cb\u003e...\u003c/b\u003e encore cette année la migration, par le \u003cb\u003eBumidom\u003c/b\u003e . de dix mille jeunes venant des départements d&#39;outre-mer, chiffre non négli- geable. Depuis&nbsp;...",
+      "content": "12 nov. 1974 <b>...</b> encore cette année la migration, par le <b>Bumidom</b> . de dix mille jeunes venant des départements d&#39;outre-mer, chiffre non négli- geable. Depuis&nbsp;...",
       "contentNoFormatting": "12 nov. 1974 ... encore cette année la migration, par le Bumidom . de dix mille jeunes venant des départements d'outre-mer, chiffre non négli- geable. Depuis ...",
       "title": "46° SEANCE 3° Séance du Mardi &#39;12 Novembre 1974.",
       "titleNoFormatting": "46° SEANCE 3° Séance du Mardi '12 Novembre 1974.",
@@ -2124,7 +1788,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/9/tanalytique/1990_tmatieres_AV.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIAhAC&usg=AOvVaw3lyNXxzpqcHaxvKdmWF0Lf",
-      "content": "31 déc. 1990 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eB.U.M.I.D.O.M\u003c/b\u003e. Bureau pour le développement des migra- tions intéressant les D .O .M. C .A .E .C .L. Caisse d&#39;aide à l&#39;équipement des&nbsp;...",
+      "content": "31 déc. 1990 <b>...</b> ... <b>B.U.M.I.D.O.M</b>. Bureau pour le développement des migra- tions intéressant les D .O .M. C .A .E .C .L. Caisse d&#39;aide à l&#39;équipement des&nbsp;...",
       "contentNoFormatting": "31 déc. 1990 ... ... B.U.M.I.D.O.M. Bureau pour le développement des migra- tions intéressant les D .O .M. C .A .E .C .L. Caisse d'aide à l'équipement des ...",
       "title": "TABLE DESMATI.ÈRES - Assemblée nationale - Archives",
       "titleNoFormatting": "TABLE DESMATI.ÈRES - Assemblée nationale - Archives",
@@ -2158,7 +1822,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_EL.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBRAC&usg=AOvVaw0YJJeTHEEStqeUU_AtpZiu",
-      "content": "22 mai 1981 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBUMIDOM\u003c/b\u003e tarifs aériens. Environnement et cadre de vie . Discussion générale [30 octobre 1980] (p. 3325) : dimi- nution des crédits affectés&nbsp;...",
+      "content": "22 mai 1981 <b>...</b> ... <b>BUMIDOM</b> tarifs aériens. Environnement et cadre de vie . Discussion générale [30 octobre 1980] (p. 3325) : dimi- nution des crédits affectés&nbsp;...",
       "contentNoFormatting": "22 mai 1981 ... ... BUMIDOM tarifs aériens. Environnement et cadre de vie . Discussion générale [30 octobre 1980] (p. 3325) : dimi- nution des crédits affectés ...",
       "title": "TABLES DES DÉBATS - Assemblée nationale - Archives",
       "titleNoFormatting": "TABLES DES DÉBATS - Assemblée nationale - Archives",
@@ -2183,7 +1847,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/tnominative/1986_tnominative_AZ.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQICRAB&usg=AOvVaw098ci5c_ihgHYV9JMAgXG3",
-      "content": "... \u003cb\u003eB.U.M.I.D.O.M\u003c/b\u003e. C.A.E.C.L. C.D.J.A. C.D.S. C.E.A. C.E.C.A. Afrique, Caraïbes, Pacifique. Agence centrale de presse. Association départementale d&#39;aménagement des&nbsp;...",
+      "content": "... <b>B.U.M.I.D.O.M</b>. C.A.E.C.L. C.D.J.A. C.D.S. C.E.A. C.E.C.A. Afrique, Caraïbes, Pacifique. Agence centrale de presse. Association départementale d&#39;aménagement des&nbsp;...",
       "contentNoFormatting": "... B.U.M.I.D.O.M. C.A.E.C.L. C.D.J.A. C.D.S. C.E.A. C.E.C.A. Afrique, Caraïbes, Pacifique. Agence centrale de presse. Association départementale d'aménagement des ...",
       "title": "TABLE NOMINATIVE - Assemblée nationale - Archives",
       "titleNoFormatting": "TABLE NOMINATIVE - Assemblée nationale - Archives",
@@ -2209,7 +1873,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-01-19.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQICBAC&usg=AOvVaw2FtOoB6jHjDWFKdImdauzL",
-      "content": "19 janv. 1974 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e, a été présenté à cet organisme. Cette demande se fonde sur l &#39;article 5 de la déci- sion du conseil du février 1971 qui dispose r&nbsp;...",
+      "content": "19 janv. 1974 <b>...</b> ... <b>Bumidom</b>, a été présenté à cet organisme. Cette demande se fonde sur l &#39;article 5 de la déci- sion du conseil du février 1971 qui dispose r&nbsp;...",
       "contentNoFormatting": "19 janv. 1974 ... ... Bumidom, a été présenté à cet organisme. Cette demande se fonde sur l 'article 5 de la déci- sion du conseil du février 1971 qui dispose r ...",
       "title": "Journal officiel du samedi 19 janvier 1974",
       "titleNoFormatting": "Journal officiel du samedi 19 janvier 1974",
@@ -2242,7 +1906,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/qst/7-qst-1981-10-19.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIAxAC&usg=AOvVaw2NKjud7NcT7J5x0ZXbgU0C",
-      "content": "19 oct. 2019 \u003cb\u003e...\u003c/b\u003e colonialiste qu&#39;est le \u003cb\u003eBumidom\u003c/b\u003e. Aujourd&#39;hui, le coût élevé du transport aérien met dans l&#39;impossibilité des milliers de familles de revoir&nbsp;...",
+      "content": "19 oct. 2019 <b>...</b> colonialiste qu&#39;est le <b>Bumidom</b>. Aujourd&#39;hui, le coût élevé du transport aérien met dans l&#39;impossibilité des milliers de familles de revoir&nbsp;...",
       "contentNoFormatting": "19 oct. 2019 ... colonialiste qu'est le Bumidom. Aujourd'hui, le coût élevé du transport aérien met dans l'impossibilité des milliers de familles de revoir ...",
       "title": "Journal officiel du lundi 19 octobre 1981",
       "titleNoFormatting": "Journal officiel du lundi 19 octobre 1981",
@@ -2276,7 +1940,7 @@ google.search.cse.api16059({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-11-17.pdf&sa=U&ved=2ahUKEwiN4-fOqLmSAxXKRaQEHRyoHXs4MhAWegQIBxAC&usg=AOvVaw0OR0xwoJPKDFmliTy8_Xsc",
-      "content": "17 nov. 1986 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e (Bureau pour le développe- ment des migrations intéressant les départements d&#39;outre-mer),. I&#39;A.N .T . (Agence nationale pour l&nbsp;...",
+      "content": "17 nov. 1986 <b>...</b> ... <b>Bumidom</b> (Bureau pour le développe- ment des migrations intéressant les départements d&#39;outre-mer),. I&#39;A.N .T . (Agence nationale pour l&nbsp;...",
       "contentNoFormatting": "17 nov. 1986 ... ... Bumidom (Bureau pour le développe- ment des migrations intéressant les départements d'outre-mer),. I'A.N .T . (Agence nationale pour l ...",
       "title": "JOU.&#39; S T A ICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOU.' S T A ICIEL - Assemblée nationale - Archives",
@@ -2307,68 +1971,10 @@ google.search.cse.api16059({
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api2633({
-  "cursor": {
-    "currentPageIndex": 6,
-    "estimatedResultCount": "120",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=60&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "120",
-    "searchResultTime": "0.12",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/035.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIAxAC&usg=AOvVaw2gm9mYBOxycZETuNT1dkjo",
-      "content": "9 janv. 1976 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, bureau pour le développement des migrations inté- ressant les départements d&#39;outre-mer. Ainsi, à la fin de 1975, plus de 100 000&nbsp;...",
+      "content": "9 janv. 1976 <b>...</b> <b>Bumidom</b>, bureau pour le développement des migrations inté- ressant les départements d&#39;outre-mer. Ainsi, à la fin de 1975, plus de 100 000&nbsp;...",
       "contentNoFormatting": "9 janv. 1976 ... Bumidom, bureau pour le développement des migrations inté- ressant les départements d'outre-mer. Ainsi, à la fin de 1975, plus de 100 000 ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -2402,7 +2008,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/118.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIChAB&usg=AOvVaw2ECTIbCrGlYQgm0bcnYfyU",
-      "content": "serait bon d &#39;autoriser, par la voie du \u003cb\u003eBumidom\u003c/b\u003e, la venue de travailleurs qui ont déjà, à leurs propres frais, effectué une ten- tative de recherche d&nbsp;...",
+      "content": "serait bon d &#39;autoriser, par la voie du <b>Bumidom</b>, la venue de travailleurs qui ont déjà, à leurs propres frais, effectué une ten- tative de recherche d&nbsp;...",
       "contentNoFormatting": "serait bon d 'autoriser, par la voie du Bumidom, la venue de travailleurs qui ont déjà, à leurs propres frais, effectué une ten- tative de recherche d ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -2436,7 +2042,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1975-1976-ordinaire2/038.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQICxAC&usg=AOvVaw2agZlO8jqJjw3oHASCNymf",
-      "content": "12 mai 2025 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e : 6 5611 794,50 franc,- Les comptes rendus d &#39;utilisation de ces crédits ne sont pas encore parvenus aux administrations centrales&nbsp;...",
+      "content": "12 mai 2025 <b>...</b> ... <b>Bumidom</b> : 6 5611 794,50 franc,- Les comptes rendus d &#39;utilisation de ces crédits ne sont pas encore parvenus aux administrations centrales&nbsp;...",
       "contentNoFormatting": "12 mai 2025 ... ... Bumidom : 6 5611 794,50 franc,- Les comptes rendus d 'utilisation de ces crédits ne sont pas encore parvenus aux administrations centrales ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -2470,7 +2076,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-15.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBhAC&usg=AOvVaw160BSPHjfUVLl_adSffUCT",
-      "content": "6 juin 2019 \u003cb\u003e...\u003c/b\u003e 5 novembre 1971 par l&#39;intermédiaire du \u003cb\u003eBumidom\u003c/b\u003e. Après avoir subi l&#39;exploitation habituelle réservée à ces travailleurs, pendant son court&nbsp;...",
+      "content": "6 juin 2019 <b>...</b> 5 novembre 1971 par l&#39;intermédiaire du <b>Bumidom</b>. Après avoir subi l&#39;exploitation habituelle réservée à ces travailleurs, pendant son court&nbsp;...",
       "contentNoFormatting": "6 juin 2019 ... 5 novembre 1971 par l'intermédiaire du Bumidom. Après avoir subi l'exploitation habituelle réservée à ces travailleurs, pendant son court ...",
       "title": "JOUR-NÀL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOUR-NÀL OFFICIEL - Assemblée nationale - Archives",
@@ -2504,7 +2110,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-08-11.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBxAC&usg=AOvVaw2hWraK_zqHByYx7lXXLJXI",
-      "content": "11 août 1979 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e seraient de nouveau autorisés n&#39;ont pas eu de suite ; que le nombre de jeunes chômeurs augmente à la Réunion ; lui demande si son.",
+      "content": "11 août 1979 <b>...</b> ... <b>Bumidom</b> seraient de nouveau autorisés n&#39;ont pas eu de suite ; que le nombre de jeunes chômeurs augmente à la Réunion ; lui demande si son.",
       "contentNoFormatting": "11 août 1979 ... ... Bumidom seraient de nouveau autorisés n'ont pas eu de suite ; que le nombre de jeunes chômeurs augmente à la Réunion ; lui demande si son.",
       "title": "Journal officiel du samedi 11 août 1979",
       "titleNoFormatting": "Journal officiel du samedi 11 août 1979",
@@ -2538,7 +2144,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/7/cri/1981-1982-extraordinaire4/014.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQICBAC&usg=AOvVaw1NAaORhM2KXiDA45YNAdvZ",
-      "content": "1 oct. 1982 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e fut un voyage sans retour ? Avez-vous le courage de leur jeter un regard sur les trottoirs de Paris ? Vous est-il indifférent que se&nbsp;...",
+      "content": "1 oct. 1982 <b>...</b> <b>Bumidom</b> fut un voyage sans retour ? Avez-vous le courage de leur jeter un regard sur les trottoirs de Paris ? Vous est-il indifférent que se&nbsp;...",
       "contentNoFormatting": "1 oct. 1982 ... Bumidom fut un voyage sans retour ? Avez-vous le courage de leur jeter un regard sur les trottoirs de Paris ? Vous est-il indifférent que se ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -2572,7 +2178,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/085.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQICRAC&usg=AOvVaw2ugBpsrWWdTBvLd-LD2LBz",
-      "content": "26 nov. 1986 \u003cb\u003e...\u003c/b\u003e susciter des « \u003cb\u003eBumidom\u003c/b\u003e » obsolètes . (Applaudissements sur les bancs du groupe socialiste.) M . Ernest Moutoussamy. Très bien ! M. Aimé&nbsp;...",
+      "content": "26 nov. 1986 <b>...</b> susciter des « <b>Bumidom</b> » obsolètes . (Applaudissements sur les bancs du groupe socialiste.) M . Ernest Moutoussamy. Très bien ! M. Aimé&nbsp;...",
       "contentNoFormatting": "26 nov. 1986 ... susciter des « Bumidom » obsolètes . (Applaudissements sur les bancs du groupe socialiste.) M . Ernest Moutoussamy. Très bien ! M. Aimé ...",
       "title": "DÉBATS PARLEMENTAIRES - Assemblée nationale - Archives",
       "titleNoFormatting": "DÉBATS PARLEMENTAIRES - Assemblée nationale - Archives",
@@ -2606,7 +2212,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1985-1986-ordinaire2/049.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIAhAC&usg=AOvVaw1CKONAckI2ys24FYRiFJ1q",
-      "content": "29 mai 1986 \u003cb\u003e...\u003c/b\u003e Elle trop attendu et n &#39;a rien vu venir, sinon le \u003cb\u003eBumidom\u003c/b\u003e. - qui vous est cher, monsieur Debré. Donc, ce n &#39;est pas faire preuve de&nbsp;...",
+      "content": "29 mai 1986 <b>...</b> Elle trop attendu et n &#39;a rien vu venir, sinon le <b>Bumidom</b>. - qui vous est cher, monsieur Debré. Donc, ce n &#39;est pas faire preuve de&nbsp;...",
       "contentNoFormatting": "29 mai 1986 ... Elle trop attendu et n 'a rien vu venir, sinon le Bumidom. - qui vous est cher, monsieur Debré. Donc, ce n 'est pas faire preuve de ...",
       "title": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
       "titleNoFormatting": "DE LA RÉPUBLIQUE FRANÇAISE - Assemblée nationale - Archives",
@@ -2640,7 +2246,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1974-04-27.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBBAC&usg=AOvVaw3m1OaVbF_QGNmJ3EPP5LHH",
-      "content": "27 avr. 1974 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e qui est d&#39;un niveau analogue : 1 978 francs. Transports aériens (ouverture d &#39;une ligne aérienne régulière reliant Johannesburg à&nbsp;...",
+      "content": "27 avr. 1974 <b>...</b> ... <b>Bumidom</b> qui est d&#39;un niveau analogue : 1 978 francs. Transports aériens (ouverture d &#39;une ligne aérienne régulière reliant Johannesburg à&nbsp;...",
       "contentNoFormatting": "27 avr. 1974 ... ... Bumidom qui est d'un niveau analogue : 1 978 francs. Transports aériens (ouverture d 'une ligne aérienne régulière reliant Johannesburg à ...",
       "title": "Journal officiel du samedi 27 avril 1974",
       "titleNoFormatting": "Journal officiel du samedi 27 avril 1974",
@@ -2673,7 +2279,7 @@ google.search.cse.api2633({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/050.pdf&sa=U&ved=2ahUKEwjeuazXqLmSAxU3KvsDHfScKks4PBAWegQIBRAC&usg=AOvVaw10Z4FAJ3tTxRB0AqomON6p",
-      "content": "25 mai 2025 \u003cb\u003e...\u003c/b\u003e Ne parlons pas des tarifs du \u003cb\u003eBumidom\u003c/b\u003e, uniquement destinés à ceux qui désirent venir en métropole et qui ont bien du courage d&#39;attendre deux&nbsp;...",
+      "content": "25 mai 2025 <b>...</b> Ne parlons pas des tarifs du <b>Bumidom</b>, uniquement destinés à ceux qui désirent venir en métropole et qui ont bien du courage d&#39;attendre deux&nbsp;...",
       "contentNoFormatting": "25 mai 2025 ... Ne parlons pas des tarifs du Bumidom, uniquement destinés à ceux qui désirent venir en métropole et qui ont bien du courage d'attendre deux ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -2704,68 +2310,10 @@ google.search.cse.api2633({
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api4383({
-  "cursor": {
-    "currentPageIndex": 7,
-    "estimatedResultCount": "117",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=70&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "117",
-    "searchResultTime": "0.28",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire2/064.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBhAC&usg=AOvVaw3GBXudxAVZabUY4rGaW7tf",
-      "content": "10 juin 1980 \u003cb\u003e...\u003c/b\u003e Les études faites par le \u003cb\u003eBumidom\u003c/b\u003e demeurent secrètes. Ces «cachotteries » ne visent-elles pas à masquer la dégradation constante de la&nbsp;...",
+      "content": "10 juin 1980 <b>...</b> Les études faites par le <b>Bumidom</b> demeurent secrètes. Ces «cachotteries » ne visent-elles pas à masquer la dégradation constante de la&nbsp;...",
       "contentNoFormatting": "10 juin 1980 ... Les études faites par le Bumidom demeurent secrètes. Ces «cachotteries » ne visent-elles pas à masquer la dégradation constante de la ...",
       "title": "CONSTITUTION DU 4 OCTOBRE 1958 6&#39; Législature",
       "titleNoFormatting": "CONSTITUTION DU 4 OCTOBRE 1958 6' Législature",
@@ -2799,7 +2347,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/087.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIChAC&usg=AOvVaw3Da3HW4Bc37Fd59Rn8qMgx",
-      "content": "27 nov. 1986 \u003cb\u003e...\u003c/b\u003e d&#39;outre-mer organisée par l&#39;ex-\u003cb\u003eBumidom\u003c/b\u003e que vous voulez réveiller de ses cendres pour conduire la même politique. Le développement de la&nbsp;...",
+      "content": "27 nov. 1986 <b>...</b> d&#39;outre-mer organisée par l&#39;ex-<b>Bumidom</b> que vous voulez réveiller de ses cendres pour conduire la même politique. Le développement de la&nbsp;...",
       "contentNoFormatting": "27 nov. 1986 ... d'outre-mer organisée par l'ex-Bumidom que vous voulez réveiller de ses cendres pour conduire la même politique. Le développement de la ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -2833,7 +2381,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQICxAB&usg=AOvVaw33HR2VtB1j3uiHt_Iuahpw",
-      "content": "départements d &#39; outre-mer IBUMIDOM), Le \u003cb\u003eBUMIDOM\u003c/b\u003e n &#39;ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n &#39;a&nbsp;...",
+      "content": "départements d &#39; outre-mer IBUMIDOM), Le <b>BUMIDOM</b> n &#39;ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n &#39;a&nbsp;...",
       "contentNoFormatting": "départements d ' outre-mer IBUMIDOM), Le BUMIDOM n 'ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n 'a ...",
       "title": "25° SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "25° SEANCE - Assemblée nationale - Archives",
@@ -2867,7 +2415,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-08-25.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBxAC&usg=AOvVaw0m3lCWbMPnsx0kYkk5PeTA",
-      "content": "25 août 1980 \u003cb\u003e...\u003c/b\u003e et \u003cb\u003eBumidom\u003c/b\u003e, l &#39;adap- tation aux D.O.M. des législation et réglementation relatives aux aides à la mobilité géographique et la prime de&nbsp;...",
+      "content": "25 août 1980 <b>...</b> et <b>Bumidom</b>, l &#39;adap- tation aux D.O.M. des législation et réglementation relatives aux aides à la mobilité géographique et la prime de&nbsp;...",
       "contentNoFormatting": "25 août 1980 ... et Bumidom, l 'adap- tation aux D.O.M. des législation et réglementation relatives aux aides à la mobilité géographique et la prime de ...",
       "title": "Journal officiel du lundi 25 août 1980 - Assemblée nationale - Archives",
       "titleNoFormatting": "Journal officiel du lundi 25 août 1980 - Assemblée nationale - Archives",
@@ -2901,7 +2449,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-09-08.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBBAC&usg=AOvVaw0aIuOsa5JupsXm56Jsi3XW",
-      "content": "8 sept. 1980 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e ; e) de rétablir certaines missions de recrutement, des entreprises nationales notamment, dont le succès a été sensible au cours des&nbsp;...",
+      "content": "8 sept. 1980 <b>...</b> <b>Bumidom</b> ; e) de rétablir certaines missions de recrutement, des entreprises nationales notamment, dont le succès a été sensible au cours des&nbsp;...",
       "contentNoFormatting": "8 sept. 1980 ... Bumidom ; e) de rétablir certaines missions de recrutement, des entreprises nationales notamment, dont le succès a été sensible au cours des ...",
       "title": "AN 8 septembre 1980 - Assemblée nationale - Archives",
       "titleNoFormatting": "AN 8 septembre 1980 - Assemblée nationale - Archives",
@@ -2935,7 +2483,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-extraordinaire2/006.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIAhAC&usg=AOvVaw2jq9C5f4KtgWYhryW0lqqa",
-      "content": "17 mars 1979 \u003cb\u003e...\u003c/b\u003e connu sous le sigle de \u003cb\u003eBumidom\u003c/b\u003e, qui est un organisme chargé d&#39;orienter la migration des ressortissants des départements d&#39;outre-mer vers l&nbsp;...",
+      "content": "17 mars 1979 <b>...</b> connu sous le sigle de <b>Bumidom</b>, qui est un organisme chargé d&#39;orienter la migration des ressortissants des départements d&#39;outre-mer vers l&nbsp;...",
       "contentNoFormatting": "17 mars 1979 ... connu sous le sigle de Bumidom, qui est un organisme chargé d'orienter la migration des ressortissants des départements d'outre-mer vers l ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -2969,7 +2517,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/qst/8-qst-1986-06-16.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQICBAC&usg=AOvVaw0EsQhmneJEQe3SqPJX-uyr",
-      "content": "16 juin 1986 \u003cb\u003e...\u003c/b\u003e populations en créant le \u003cb\u003eBumidom\u003c/b\u003e (Bureau pour le développe- ment des migrations intéressant les départements d&#39;outre-mer), l&#39;A.N.T. (Agence&nbsp;...",
+      "content": "16 juin 1986 <b>...</b> populations en créant le <b>Bumidom</b> (Bureau pour le développe- ment des migrations intéressant les départements d&#39;outre-mer), l&#39;A.N.T. (Agence&nbsp;...",
       "contentNoFormatting": "16 juin 1986 ... populations en créant le Bumidom (Bureau pour le développe- ment des migrations intéressant les départements d'outre-mer), l'A.N.T. (Agence ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -3003,7 +2551,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/cri/1969-1970-ordinaire1/033.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIAxAB&usg=AOvVaw1ugDIG2vx-R8S0CLAj5sdo",
-      "content": "titre du \u003cb\u003eBumidom\u003c/b\u003e la même année, M. le ministre de l &#39;économie et des finances indiquait dans sa réponse qu&#39;il n&#39;était pas possible d&#39;établir, à partir de&nbsp;...",
+      "content": "titre du <b>Bumidom</b> la même année, M. le ministre de l &#39;économie et des finances indiquait dans sa réponse qu&#39;il n&#39;était pas possible d&#39;établir, à partir de&nbsp;...",
       "contentNoFormatting": "titre du Bumidom la même année, M. le ministre de l 'économie et des finances indiquait dans sa réponse qu'il n'était pas possible d'établir, à partir de ...",
       "title": "a• si .NI - Assemblée nationale - Archives",
       "titleNoFormatting": "a• si .\\NI - Assemblée nationale - Archives",
@@ -3037,7 +2585,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1976-1977-ordinaire1/062.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQIBRAC&usg=AOvVaw3q8Z0rvl6l0OpOXAnwVyiK",
-      "content": "30 déc. 1975 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e, utilement orientées vers une formation ; ils viennent en métropole, où ils rencontrent parfois des déceptions. Telle est, trop&nbsp;...",
+      "content": "30 déc. 1975 <b>...</b> <b>Bumidom</b>, utilement orientées vers une formation ; ils viennent en métropole, où ils rencontrent parfois des déceptions. Telle est, trop&nbsp;...",
       "contentNoFormatting": "30 déc. 1975 ... Bumidom, utilement orientées vers une formation ; ils viennent en métropole, où ils rencontrent parfois des déceptions. Telle est, trop ...",
       "title": "62° SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "62° SEANCE - Assemblée nationale - Archives",
@@ -3071,7 +2619,7 @@ google.search.cse.api4383({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/064.pdf&sa=U&ved=2ahUKEwjbjfXjqLmSAxWgQvEDHRsuIoI4RhAWegQICRAC&usg=AOvVaw21uUOaE_h6S6x212ygRgF9",
-      "content": "15 nov. 1973 \u003cb\u003e...\u003c/b\u003e d&#39;un seul voyage gratuit pour la métropole par le \u003cb\u003eBumidom\u003c/b\u003e). 5251. — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements&nbsp;...",
+      "content": "15 nov. 1973 <b>...</b> d&#39;un seul voyage gratuit pour la métropole par le <b>Bumidom</b>). 5251. — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements&nbsp;...",
       "contentNoFormatting": "15 nov. 1973 ... d'un seul voyage gratuit pour la métropole par le Bumidom). 5251. — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements ...",
       "title": "64&#39; SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "64' SEANCE - Assemblée nationale - Archives",
@@ -3102,68 +2650,10 @@ google.search.cse.api4383({
         ]
       },
       "fileFormat": "PDF/Adobe Acrobat"
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api2789({
-  "cursor": {
-    "currentPageIndex": 8,
-    "estimatedResultCount": "116",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=80&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "116",
-    "searchResultTime": "0.13",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1969-04-19.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIChAC&usg=AOvVaw0QpHQPvOaaO-ly-qN3f35d",
-      "content": "24 sept. 2019 \u003cb\u003e...\u003c/b\u003e Le \u003cb\u003eBumidom\u003c/b\u003e par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3.011 unités&nbsp;...",
+      "content": "24 sept. 2019 <b>...</b> Le <b>Bumidom</b> par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3.011 unités&nbsp;...",
       "contentNoFormatting": "24 sept. 2019 ... Le Bumidom par ailleurs indique comme effectif de migrants réunionnais vers la métropole pour la même année 1967, le chiffre de 3.011 unités ...",
       "title": "Journal officiel du samedi 19 avril 1969",
       "titleNoFormatting": "Journal officiel du samedi 19 avril 1969",
@@ -3197,7 +2687,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/088.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBxAC&usg=AOvVaw3Er8OlHWDp9BOqeGLW8dza",
-      "content": "5 déc. 1973 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e s&#39;ils règlent, avant leur départ, avec la société d&#39;Etat, les modalités de leur réimplantation. C&#39;est. ainsi, également, que des&nbsp;...",
+      "content": "5 déc. 1973 <b>...</b> <b>Bumidom</b> s&#39;ils règlent, avant leur départ, avec la société d&#39;Etat, les modalités de leur réimplantation. C&#39;est. ainsi, également, que des&nbsp;...",
       "contentNoFormatting": "5 déc. 1973 ... Bumidom s'ils règlent, avant leur départ, avec la société d'Etat, les modalités de leur réimplantation. C'est. ainsi, également, que des ...",
       "title": "88&#39; SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "88' SEANCE - Assemblée nationale - Archives",
@@ -3231,7 +2721,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/cri/1973-1974-ordinaire1/014.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBRAC&usg=AOvVaw0RPsr17OmGs5wzVI1Ulocw",
-      "content": "12 oct. 1973 \u003cb\u003e...\u003c/b\u003e d&#39;un seul voyage gratuit pour la métropole par le \u003cb\u003eBumidom\u003c/b\u003e). 5251 . — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements&nbsp;...",
+      "content": "12 oct. 1973 <b>...</b> d&#39;un seul voyage gratuit pour la métropole par le <b>Bumidom</b>). 5251 . — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements&nbsp;...",
       "contentNoFormatting": "12 oct. 1973 ... d'un seul voyage gratuit pour la métropole par le Bumidom). 5251 . — 13 octobre 1973. — M. Cerneau expose à M. le ministre des départements ...",
       "title": "COMPTE RENDU 1NTEGRAL - Assemblée nationale - Archives",
       "titleNoFormatting": "COMPTE RENDU 1NTEGRAL - Assemblée nationale - Archives",
@@ -3265,7 +2755,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/106.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQICxAC&usg=AOvVaw04wjgRhlZrcWXhH3bW2ylE",
-      "content": "20 déc. 1978 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBUMIDOM\u003c/b\u003e . POSTES ET TELECOMMUNICATIONS. Téléphone (redevance). 8787. — 18 novembre 1978 . — M. Joseph Franceschi appelle à nouveau l&nbsp;...",
+      "content": "20 déc. 1978 <b>...</b> <b>BUMIDOM</b> . POSTES ET TELECOMMUNICATIONS. Téléphone (redevance). 8787. — 18 novembre 1978 . — M. Joseph Franceschi appelle à nouveau l&nbsp;...",
       "contentNoFormatting": "20 déc. 1978 ... BUMIDOM . POSTES ET TELECOMMUNICATIONS. Téléphone (redevance). 8787. — 18 novembre 1978 . — M. Joseph Franceschi appelle à nouveau l ...",
       "title": "106&#39; SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "106' SEANCE - Assemblée nationale - Archives",
@@ -3299,7 +2789,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1977-07-09.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIAxAC&usg=AOvVaw3EbVYnkqHlkmDVnFneUfxp",
-      "content": "9 juil. 1977 \u003cb\u003e...\u003c/b\u003e De même, il est exact que le \u003cb\u003eBumidom\u003c/b\u003e offre aux candidats à la migration des stages de rattra page scolaire ou de préformation dans ses&nbsp;...",
+      "content": "9 juil. 1977 <b>...</b> De même, il est exact que le <b>Bumidom</b> offre aux candidats à la migration des stages de rattra page scolaire ou de préformation dans ses&nbsp;...",
       "contentNoFormatting": "9 juil. 1977 ... De même, il est exact que le Bumidom offre aux candidats à la migration des stages de rattra page scolaire ou de préformation dans ses ...",
       "title": "Journal officiel du samedi 9 juillet 1977",
       "titleNoFormatting": "Journal officiel du samedi 9 juillet 1977",
@@ -3333,7 +2823,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/065.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQICBAC&usg=AOvVaw1sxDKR-HGSW_aznsu5-mIt",
-      "content": "9 nov. 1986 \u003cb\u003e...\u003c/b\u003e mobilité qu&#39;accordait jusqu&#39;en 1981 le \u003cb\u003eBUMIDOM\u003c/b\u003e, le bureau pour le développement des migrations intéressant les départe- ments d&#39;outre-mer&nbsp;...",
+      "content": "9 nov. 1986 <b>...</b> mobilité qu&#39;accordait jusqu&#39;en 1981 le <b>BUMIDOM</b>, le bureau pour le développement des migrations intéressant les départe- ments d&#39;outre-mer&nbsp;...",
       "contentNoFormatting": "9 nov. 1986 ... mobilité qu'accordait jusqu'en 1981 le BUMIDOM, le bureau pour le développement des migrations intéressant les départe- ments d'outre-mer ...",
       "title": "&#39;t2ATS PARLEMENTAIRES - Assemblée nationale - Archives",
       "titleNoFormatting": "'t2ATS PARLEMENTAIRES - Assemblée nationale - Archives",
@@ -3367,7 +2857,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/8/cri/1986-1987-ordinaire1/086.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQICRAC&usg=AOvVaw3nMKN6eYE_gzE9nJFfedpf",
-      "content": "26 nov. 1986 \u003cb\u003e...\u003c/b\u003e le \u003cb\u003eBumidom\u003c/b\u003e, vous avez pu l&#39;imposer, mais c&#39;était à une époque de croissance de l&#39;économie française, et les métropo- litains étaient trop&nbsp;...",
+      "content": "26 nov. 1986 <b>...</b> le <b>Bumidom</b>, vous avez pu l&#39;imposer, mais c&#39;était à une époque de croissance de l&#39;économie française, et les métropo- litains étaient trop&nbsp;...",
       "contentNoFormatting": "26 nov. 1986 ... le Bumidom, vous avez pu l'imposer, mais c'était à une époque de croissance de l'économie française, et les métropo- litains étaient trop ...",
       "title": "FICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "FICIEL - Assemblée nationale - Archives",
@@ -3401,7 +2891,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/tnominative/1968-1973_tnominative_IO.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBhAB&usg=AOvVaw0qKZoPiwSAdeb_WjCy8-Ug",
-      "content": "... \u003cb\u003eBumidom\u003c/b\u003e ; situation des. Réunionnais et des Antillais venus en métro- pole ; ses observations sur les migrants spon- tanés ; expérience d&#39;installation&nbsp;...",
+      "content": "... <b>Bumidom</b> ; situation des. Réunionnais et des Antillais venus en métro- pole ; ses observations sur les migrants spon- tanés ; expérience d&#39;installation&nbsp;...",
       "contentNoFormatting": "... Bumidom ; situation des. Réunionnais et des Antillais venus en métro- pole ; ses observations sur les migrants spon- tanés ; expérience d'installation ...",
       "title": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
       "titleNoFormatting": "TABLES GÉNÉRALES - Assemblée nationale - Archives",
@@ -3426,7 +2916,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1971-07-10.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIBBAC&usg=AOvVaw3vmg__sHd9EWevqyQoeYaX",
-      "content": "10 juil. 1971 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e a dénoncé le contrat de location et clans le même temps s&#39;est efforcé de se procurer des places dans d &#39;autres foyers mieux équipés&nbsp;...",
+      "content": "10 juil. 1971 <b>...</b> <b>Bumidom</b> a dénoncé le contrat de location et clans le même temps s&#39;est efforcé de se procurer des places dans d &#39;autres foyers mieux équipés&nbsp;...",
       "contentNoFormatting": "10 juil. 1971 ... Bumidom a dénoncé le contrat de location et clans le même temps s'est efforcé de se procurer des places dans d 'autres foyers mieux équipés ...",
       "title": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIAL - Assemblée nationale - Archives",
@@ -3460,7 +2950,7 @@ google.search.cse.api2789({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1979-02-24.pdf&sa=U&ved=2ahUKEwj9kJyYq7mSAxUraqQEHVxaCSs4UBAWegQIAhAC&usg=AOvVaw2CUsHVtkAN0IF4eyl5kERS",
-      "content": "24 févr. 1979 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e de reprendre ses activités de placement, vont enfin être concrétisées . Il lut rappelle que le monopole du placement officiellement&nbsp;...",
+      "content": "24 févr. 1979 <b>...</b> ... <b>Bumidom</b> de reprendre ses activités de placement, vont enfin être concrétisées . Il lut rappelle que le monopole du placement officiellement&nbsp;...",
       "contentNoFormatting": "24 févr. 1979 ... ... Bumidom de reprendre ses activités de placement, vont enfin être concrétisées . Il lut rappelle que le monopole du placement officiellement ...",
       "title": "Journal officiel du samedi 24 février 1979",
       "titleNoFormatting": "Journal officiel du samedi 24 février 1979",
@@ -3490,68 +2980,10 @@ google.search.cse.api2789({
           "6-qst-1979-02-24"
         ]
       }
-    }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-/*O_o*/
-google.search.cse.api17494({
-  "cursor": {
-    "currentPageIndex": 9,
-    "estimatedResultCount": "114",
-    "moreResultsUrl": "http://www.google.com/cse?oe=utf8&ie=utf8&source=uds&q=bumidom&safe=off&start=90&cx=014917347718038151697:kltwr00yvbk",
-    "resultCount": "114",
-    "searchResultTime": "0.13",
-    "pages": [
-      {
-        "label": 1,
-        "start": "0"
-      },
-      {
-        "label": 2,
-        "start": "10"
-      },
-      {
-        "label": 3,
-        "start": "20"
-      },
-      {
-        "label": 4,
-        "start": "30"
-      },
-      {
-        "label": 5,
-        "start": "40"
-      },
-      {
-        "label": 6,
-        "start": "50"
-      },
-      {
-        "label": 7,
-        "start": "60"
-      },
-      {
-        "label": 8,
-        "start": "70"
-      },
-      {
-        "label": 9,
-        "start": "80"
-      },
-      {
-        "label": 10,
-        "start": "90"
-      }
-    ]
-  },
-  "results": [
+    },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/056.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQICBAB&usg=AOvVaw0UI6hEGfd7Quy-qYHo_sHu",
-      "content": "rement assurées par le \u003cb\u003eBUMIDOM\u003c/b\u003e, n&#39;a pas fait, jusqu&#39;à présent, la preuve de son efficacité. Du côté des dépenses d&#39;équipement, le projet de budget est.",
+      "content": "rement assurées par le <b>BUMIDOM</b>, n&#39;a pas fait, jusqu&#39;à présent, la preuve de son efficacité. Du côté des dépenses d&#39;équipement, le projet de budget est.",
       "contentNoFormatting": "rement assurées par le BUMIDOM, n'a pas fait, jusqu'à présent, la preuve de son efficacité. Du côté des dépenses d'équipement, le projet de budget est.",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -3585,7 +3017,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/058.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBhAB&usg=AOvVaw39QqM0nVKW3VewMVJ3Rn5A",
-      "content": "anciennes attributions du \u003cb\u003eBumidom\u003c/b\u003e . Il lui demande s&#39;il compte réaliser prochainement l&#39;une ou l&#39;autre de ces réformes, dont l&#39;urgence est certaine&nbsp;...",
+      "content": "anciennes attributions du <b>Bumidom</b> . Il lui demande s&#39;il compte réaliser prochainement l&#39;une ou l&#39;autre de ces réformes, dont l&#39;urgence est certaine&nbsp;...",
       "contentNoFormatting": "anciennes attributions du Bumidom . Il lui demande s'il compte réaliser prochainement l'une ou l'autre de ces réformes, dont l'urgence est certaine ...",
       "title": "58&#39; SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "58' SEANCE - Assemblée nationale - Archives",
@@ -3619,7 +3051,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/tnominative/1978-1981_tnominative_MZ.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBBAC&usg=AOvVaw0gFuc_T9yJyL0_ZbXeovlV",
-      "content": "22 mai 1981 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBUMIDOM\u003c/b\u003e ; lenteur de l&#39;indemnisation des cultures sinistrées par les cyclones ; diversi- fication agricole et difficultés de la commer&nbsp;...",
+      "content": "22 mai 1981 <b>...</b> ... <b>BUMIDOM</b> ; lenteur de l&#39;indemnisation des cultures sinistrées par les cyclones ; diversi- fication agricole et difficultés de la commer&nbsp;...",
       "contentNoFormatting": "22 mai 1981 ... ... BUMIDOM ; lenteur de l'indemnisation des cultures sinistrées par les cyclones ; diversi- fication agricole et difficultés de la commer ...",
       "title": "TABLES DES DÉBATS - Assemblée nationale - Archives",
       "titleNoFormatting": "TABLES DES DÉBATS - Assemblée nationale - Archives",
@@ -3644,7 +3076,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-04-07.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQICxAC&usg=AOvVaw1RJfBr2V4TtCtP5gxpyexR",
-      "content": "7 avr. 1980 \u003cb\u003e...\u003c/b\u003e médiaire du \u003cb\u003eBumidom\u003c/b\u003e et du Casodom, ce qui, ajouté au glissement que chacun connaît des prix des carburants, se traduit en effet par l&nbsp;...",
+      "content": "7 avr. 1980 <b>...</b> médiaire du <b>Bumidom</b> et du Casodom, ce qui, ajouté au glissement que chacun connaît des prix des carburants, se traduit en effet par l&nbsp;...",
       "contentNoFormatting": "7 avr. 1980 ... médiaire du Bumidom et du Casodom, ce qui, ajouté au glissement que chacun connaît des prix des carburants, se traduit en effet par l ...",
       "title": "Journal officiel du lundi 7 avril 1980 - Assemblée nationale - Archives",
       "titleNoFormatting": "Journal officiel du lundi 7 avril 1980 - Assemblée nationale - Archives",
@@ -3678,7 +3110,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/076.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIAhAC&usg=AOvVaw2MNqHDOQsmjL-_PMx1pNr3",
-      "content": "2 déc. 1978 \u003cb\u003e...\u003c/b\u003e ... \u003cb\u003eBumidom\u003c/b\u003e :bureau d &#39;immigration des départements d &#39; outre-mer&#39; et du ... \u003cb\u003eBumidom\u003c/b\u003e et au Casadom, dont l &#39;intervention se trouve ainsi&nbsp;...",
+      "content": "2 déc. 1978 <b>...</b> ... <b>Bumidom</b> :bureau d &#39;immigration des départements d &#39; outre-mer&#39; et du ... <b>Bumidom</b> et au Casadom, dont l &#39;intervention se trouve ainsi&nbsp;...",
       "contentNoFormatting": "2 déc. 1978 ... ... Bumidom :bureau d 'immigration des départements d ' outre-mer' et du ... Bumidom et au Casadom, dont l 'intervention se trouve ainsi ...",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -3712,7 +3144,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1978-1979-ordinaire1/025.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQICRAB&usg=AOvVaw22uxn2mXGq-AXvtzj4cb50",
-      "content": "départements d &#39; outre-mer IBUMIDOM), Le \u003cb\u003eBUMIDOM\u003c/b\u003e n &#39;ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n &#39;a&nbsp;...",
+      "content": "départements d &#39; outre-mer IBUMIDOM), Le <b>BUMIDOM</b> n &#39;ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n &#39;a&nbsp;...",
       "contentNoFormatting": "départements d ' outre-mer IBUMIDOM), Le BUMIDOM n 'ayant plus les moyens de faire face à une telle dépense, la mission de recru- tement prévue en 1977 n 'a ...",
       "title": "25° SEANCE - Assemblée nationale - Archives",
       "titleNoFormatting": "25° SEANCE - Assemblée nationale - Archives",
@@ -3746,7 +3178,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/qst/6-qst-1980-12-01.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBxAC&usg=AOvVaw0jqRaZgxe4MC7P-Pjb2MHt",
-      "content": "1 déc. 1980 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e et d&#39;Air France, de façon à compléter sa politique de la migration. Il ne faut cependant pas oublier dans ce domaine les.",
+      "content": "1 déc. 1980 <b>...</b> <b>Bumidom</b> et d&#39;Air France, de façon à compléter sa politique de la migration. Il ne faut cependant pas oublier dans ce domaine les.",
       "contentNoFormatting": "1 déc. 1980 ... Bumidom et d'Air France, de façon à compléter sa politique de la migration. Il ne faut cependant pas oublier dans ce domaine les.",
       "title": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
       "titleNoFormatting": "JOURNAL OFFICIEL - Assemblée nationale - Archives",
@@ -3780,7 +3212,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/4/qst/4-qst-1972-07-29.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIChAC&usg=AOvVaw3VmFYVGRiwogPUlxQNF1aH",
-      "content": "29 juil. 1972 \u003cb\u003e...\u003c/b\u003e bre 1971 par l &#39;intermédiaire du \u003cb\u003eBumidom\u003c/b\u003e . Après avoir subi l &#39;exploi- tation habituelle réservée à ces travailleurs, pendant son court.",
+      "content": "29 juil. 1972 <b>...</b> bre 1971 par l &#39;intermédiaire du <b>Bumidom</b> . Après avoir subi l &#39;exploi- tation habituelle réservée à ces travailleurs, pendant son court.",
       "contentNoFormatting": "29 juil. 1972 ... bre 1971 par l 'intermédiaire du Bumidom . Après avoir subi l 'exploi- tation habituelle réservée à ces travailleurs, pendant son court.",
       "title": "Journal officiel du samedi 29 juillet 1972",
       "titleNoFormatting": "Journal officiel du samedi 29 juillet 1972",
@@ -3814,7 +3246,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/6/cri/1979-1980-ordinaire1/045.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIBRAC&usg=AOvVaw1Q3fDH1kS4oNXxRxxJxhvk",
-      "content": "25 oct. 2018 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBUMIDOM\u003c/b\u003e s&#39;est améliorée. J&#39;y veillais moi-même depuis quelques mois. Elle nous vaudra confirmation des résultats significatifs que nous&nbsp;...",
+      "content": "25 oct. 2018 <b>...</b> <b>BUMIDOM</b> s&#39;est améliorée. J&#39;y veillais moi-même depuis quelques mois. Elle nous vaudra confirmation des résultats significatifs que nous&nbsp;...",
       "contentNoFormatting": "25 oct. 2018 ... BUMIDOM s'est améliorée. J'y veillais moi-même depuis quelques mois. Elle nous vaudra confirmation des résultats significatifs que nous ...",
       "title": "Assemblée nationale - Archives",
       "titleNoFormatting": "Assemblée nationale - Archives",
@@ -3848,7 +3280,7 @@ google.search.cse.api17494({
     },
     {
       "clicktrackUrl": "https://www.google.com/url?client=internal-element-cse&cx=014917347718038151697:kltwr00yvbk&q=https://archives.assemblee-nationale.fr/5/qst/5-qst-1975-07-19.pdf&sa=U&ved=2ahUKEwjx1ZP-qLmSAxUEVaQEHankPOs4WhAWegQIAxAC&usg=AOvVaw2n-bSXXoUx5AQyXkygeMgf",
-      "content": "19 juil. 2019 \u003cb\u003e...\u003c/b\u003e \u003cb\u003eBumidom\u003c/b\u003e qui donne du travail et transporte en métropole environ. 10000 &#39; ressortissants par an . Parmi les mesures décidées récemment par le&nbsp;...",
+      "content": "19 juil. 2019 <b>...</b> <b>Bumidom</b> qui donne du travail et transporte en métropole environ. 10000 &#39; ressortissants par an . Parmi les mesures décidées récemment par le&nbsp;...",
       "contentNoFormatting": "19 juil. 2019 ... Bumidom qui donne du travail et transporte en métropole environ. 10000 ' ressortissants par an . Parmi les mesures décidées récemment par le ...",
       "title": "Journal officiel du samedi 19 juillet 1975",
       "titleNoFormatting": "Journal officiel du samedi 19 juillet 1975",
@@ -3880,15 +3312,5 @@ google.search.cse.api17494({
       },
       "fileFormat": "PDF/Adobe Acrobat"
     }
-  ],
-  "findMoreOnGoogle": {
-    "url": "https://www.google.com/search?client=ms-google-coop&q=bumidom&cx=014917347718038151697:kltwr00yvbk"
-  }
-});
-
-
-
-
-
-
-
+  ]
+}
